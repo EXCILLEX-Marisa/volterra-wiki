@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-15</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">基于实测残差证据的黑盒音频非线性模型选择决策树</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">从最简线性基准出发，依据受控实验（单音扫频、双音/双脉冲、长前史与初值测试）的残差表现按需升级模型结构</text>
+  <g transform="translate(48, 142)">
+    <rect x="0" y="0" width="760" height="114" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="12" height="114" rx="6" fill="#0F172A"/>
+    <text x="28" y="38" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">问题 1｜不同电平激励下，叠加原理是否成立？</text>
+    <text x="28" y="72" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">测试：缩放输入幅度 a·x[n] 并检查频谱是否出现新谐波或增益压缩</text>
+    <text x="28" y="98" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">↓ 若回答“是 / 仍存在显著残差”，继续向下升级模型 ↓</text>
+    <line x1="760" y1="57" x2="935" y2="57" stroke="#0284C7" stroke-width="3" marker-end="url(#arr-dark)"/>
+    <rect x="772" y="26" width="152" height="26" rx="6" fill="#E0F2FE"/>
+    <text x="848" y="44" text-anchor="middle" font-size="12" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">成立（无谐波）</text>
+    <rect x="942" y="0" width="562" height="114" rx="14" fill="#E0F2FE" stroke="#0284C7" stroke-width="2" filter="url(#shadow)"/>
+    <text x="964" y="42" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">✓ 采用【线性时不变模型（FIR / IIR 卷积）】</text>
+    <text x="964" y="78" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">只需一条脉冲响应 h₁[k]（如线性房间 IR、纯线性理想 EQ）</text>
+  </g>
+  <line x1="428" y1="256" x2="428" y2="292" stroke="#DC2626" stroke-width="3" marker-end="url(#arr-warn)"/>
+  <g transform="translate(48, 292)">
+    <rect x="0" y="0" width="760" height="114" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="12" height="114" rx="6" fill="#0F172A"/>
+    <text x="28" y="38" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">问题 2｜非线性失真是否随频率改变，或受前几毫秒波形影响？</text>
+    <text x="28" y="72" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">测试：对比不同频率单音的谐波比例（ESS），检查失真是否与频率无关</text>
+    <text x="28" y="98" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">↓ 若回答“是 / 仍存在显著残差”，继续向下升级模型 ↓</text>
+    <line x1="760" y1="57" x2="935" y2="57" stroke="#D97706" stroke-width="3" marker-end="url(#arr-dark)"/>
+    <rect x="772" y="26" width="152" height="26" rx="6" fill="#FEF3C7"/>
+    <text x="848" y="44" text-anchor="middle" font-size="12" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">无关（仅看瞬时值）</text>
+    <rect x="942" y="0" width="562" height="114" rx="14" fill="#FEF3C7" stroke="#D97706" stroke-width="2" filter="url(#shadow)"/>
+    <text x="964" y="42" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">✓ 采用【静态无记忆非线性（Waveshaper / 点形器）】</text>
+    <text x="964" y="78" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">只需静态映射 y[n] = f(x[n]) + 必要过采样抗混叠</text>
+  </g>
+  <line x1="428" y1="406" x2="428" y2="442" stroke="#DC2626" stroke-width="3" marker-end="url(#arr-warn)"/>
+  <g transform="translate(48, 442)">
+    <rect x="0" y="0" width="760" height="114" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="12" height="114" rx="6" fill="#0F172A"/>
+    <text x="28" y="38" font-size="16.91" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">问题 3｜用 ESS 辨识出对角/并联 Hammerstein 后，双音 IMD 与双脉冲差分 Δ[n] 残差是否显著？</text>
+    <text x="28" y="72" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">测试：注入未参与拟合的双音 f₁+f₂ 与可变间隔双脉冲，检查差频与交叉项残差</text>
+    <text x="28" y="98" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">↓ 若回答“是 / 仍存在显著残差”，继续向下升级模型 ↓</text>
+    <line x1="760" y1="57" x2="935" y2="57" stroke="#D97706" stroke-width="3" marker-end="url(#arr-dark)"/>
+    <rect x="772" y="26" width="152" height="26" rx="6" fill="#FEF3C7"/>
+    <text x="848" y="44" text-anchor="middle" font-size="12" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">残差极小</text>
+    <rect x="942" y="0" width="562" height="114" rx="14" fill="#FEF3C7" stroke="#D97706" stroke-width="2" filter="url(#shadow)"/>
+    <text x="964" y="42" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">✓ 采用【对角 Volterra / 并联 Hammerstein (g_p[k])】</text>
+    <text x="964" y="78" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">保留 Σ_p (g_p * x^p)[n]，兼顾各阶独立频响塑形与极高实时效率</text>
+  </g>
+  <line x1="428" y1="556" x2="428" y2="592" stroke="#DC2626" stroke-width="3" marker-end="url(#arr-warn)"/>
+  <g transform="translate(48, 592)">
+    <rect x="0" y="0" width="760" height="114" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="12" height="114" rx="6" fill="#0F172A"/>
+    <text x="28" y="38" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">问题 4｜引入局部非对角/块结构后，输出是否仍受百毫秒级慢前史或初始状态 s[0] 支配？</text>
+    <text x="28" y="72" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">测试：注入大瞬态后接长安静尾音，或改变预激励磁化方向，检查长时漂移与剩磁分支</text>
+    <text x="28" y="98" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">↓ 若回答“是 / 仍存在显著残差”，继续向下升级模型 ↓</text>
+    <line x1="760" y1="57" x2="935" y2="57" stroke="#7C3AED" stroke-width="3" marker-end="url(#arr-dark)"/>
+    <rect x="772" y="26" width="152" height="26" rx="6" fill="#EDE9FE"/>
+    <text x="848" y="44" text-anchor="middle" font-size="12" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">无长时状态依赖</text>
+    <rect x="942" y="0" width="562" height="114" rx="14" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2" filter="url(#shadow)"/>
+    <text x="964" y="42" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">✓ 采用【Wiener–Hammerstein / 近对角 / 低秩 Volterra】</text>
+    <text x="964" y="78" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">通过前置滤波 P(f)、带状核或跨支路乘法 u[n]v[n] 捕获非对角交互</text>
+  </g>
+  <line x1="428" y1="706" x2="428" y2="746" stroke="#059669" stroke-width="3" marker-end="url(#arr-state)"/>
+  <g transform="translate(48, 750)">
+    <rect x="0" y="0" width="1504" height="124" rx="16" fill="#D1FAE5" stroke="#059669" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="28" y="42" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">终极混合方案｜当短时非线性与长时包络/持久状态同时存在 → 采用【混合架构：约简 Volterra 分支库 + 显式状态控制器 s_env[n] / 磁滞算子】</text>
+    <text x="28" y="76" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 让并联 Hammerstein + 因子化交叉项负责毫秒级频率相关饱和与谐波染色；让递归包络（如压缩器 detector / simplenova 渐变器）或磁滞模型负责慢动态与路径记忆。</text>
+    <text x="28" y="104" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 这种路线与部分商业建模系统的技术选择具有相通之处，也为降低高阶核的参数成本提供了参考。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心原则：奥卡姆剃刀——凡能由低阶或紧凑块结构解释的实验数据，应避免缺乏依据地增加高维自由核；每一次结构升级都必须有独立残差证据支撑。</text>
+</svg>

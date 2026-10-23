@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-13</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">Volterra 模型家族与相关非线性块结构的工程分类导览</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">按“约简维度与结构先验”整理的四大模型族系：它们并非从低级到高级的单向阶梯，而是针对不同物理特征的工程假设</text>
+
+  <g transform="translate(450, 140)">
+    <rect x="0" y="0" width="700" height="84" rx="16" fill="#0F172A" filter="url(#shadow)"/>
+    <text x="350" y="34" text-anchor="middle" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">完整有限阶 Volterra 级数（Full Volterra Series）</text>
+    <text x="350" y="64" text-anchor="middle" font-size="14.7" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#38BDF8">ŷ[n] = h₀ + Σ_{p=1}^P Σ_{k₁...k_p} h_p[k₁,...,k_p] Π x[n-k_i]   （通用坐标系，参数量 O(M^P)）</text>
+  </g>
+  <path d="M 800 224 L 800 252 L 230 252 L 230 280" fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+  <path d="M 800 224 L 800 252 L 610 252 L 610 280" fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+  <path d="M 800 224 L 800 252 L 990 252 L 990 280" fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+  <path d="M 800 224 L 800 252 L 1370 252 L 1370 280" fill="none" stroke="#334155" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+  <g transform="translate(48, 284)">
+    <rect x="0" y="0" width="360" height="590" rx="16" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="48" rx="16" fill="#FEF3C7"/>
+    <text x="180" y="31" text-anchor="middle" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">族系 I｜核坐标直接裁剪</text>
+    <rect x="16" y="64" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#FCD34D" stroke-width="1.5"/>
+    <text x="30" y="92" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">对角 Volterra / 实信号 MP</text>
+    <text x="30" y="120" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：只留主对角 k₁=...=k_p=k</text>
+    <text x="30" y="146" font-size="10.85" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：代数等价于并联 Hammerstein：Σ g_p[k]x^p[n-k]</text>
+    <rect x="16" y="190" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#FCD34D" stroke-width="1.5"/>
+    <text x="30" y="218" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">近对角 / 带状核（Banded）</text>
+    <text x="30" y="246" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：保留 |k_i - k_j| ≤ B 邻域</text>
+    <text x="30" y="272" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：补充紧邻时刻的局部交叉记忆</text>
+    <rect x="16" y="316" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#FCD34D" stroke-width="1.5"/>
+    <text x="30" y="344" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">广义记忆多项式（GMP）</text>
+    <text x="30" y="372" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：在对角项旁附加超前/滞后交叉乘积</text>
+    <text x="30" y="398" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：低成本扩展局部互调与记忆深度</text>
+    <rect x="16" y="442" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#FCD34D" stroke-width="1.5"/>
+    <text x="30" y="470" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">稀疏 Volterra（Sparse）</text>
+    <text x="30" y="498" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：通过 LASSO/OMP 筛选少量非零坐标</text>
+    <text x="30" y="524" font-size="12.23" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：允许跨时间尺度远距交互，需防噪声伪稀疏</text>
+  </g>
+  <g transform="translate(430, 284)">
+    <rect x="0" y="0" width="360" height="590" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="48" rx="16" fill="#EDE9FE"/>
+    <text x="180" y="31" text-anchor="middle" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">族系 II｜张量分解与时间基压缩</text>
+    <rect x="16" y="64" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#C4B5FD" stroke-width="1.5"/>
+    <text x="30" y="92" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">对称低秩核（Low-Rank / CP）</text>
+    <text x="30" y="120" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：h_p ≈ Σ_r λ_r g_r[k₁]...g_r[k_p]</text>
+    <text x="30" y="146" font-size="12.2" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：转化为 R 条滤波支路的幂次和，压缩稠密核</text>
+    <rect x="16" y="190" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#C4B5FD" stroke-width="1.5"/>
+    <text x="30" y="218" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">Tucker / Tensor Train (TT)</text>
+    <text x="30" y="246" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：高阶核张量的多模态低秩核分解</text>
+    <text x="30" y="272" font-size="12.71" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：控制高阶参数规模，保持多维耦合</text>
+    <rect x="16" y="316" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#C4B5FD" stroke-width="1.5"/>
+    <text x="30" y="344" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">正交基展开（Laguerre / Kautz）</text>
+    <text x="30" y="372" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：先用极点基函数 B_r(z) 投影历史</text>
+    <text x="30" y="398" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：用少量慢衰减特征替代逐采样长窗口 M</text>
+    <rect x="16" y="442" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#C4B5FD" stroke-width="1.5"/>
+    <text x="30" y="470" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">Wiener 正交 G-泛函</text>
+    <text x="30" y="498" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：针对特定输入分布构造正交多项式泛函</text>
+    <text x="30" y="524" font-size="12.87" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：消除自然幂次 x, x³, x⁵ 之间的回归共线性</text>
+  </g>
+  <g transform="translate(812, 284)">
+    <rect x="0" y="0" width="360" height="590" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="48" rx="16" fill="#E0F2FE"/>
+    <text x="180" y="31" text-anchor="middle" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">族系 III｜经典串联块结构</text>
+    <rect x="16" y="64" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#7DD3FC" stroke-width="1.5"/>
+    <text x="30" y="92" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">Hammerstein 结构（N → L）</text>
+    <text x="30" y="120" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：静态非线性 f(x[n]) 后接线性滤波 Q(z)</text>
+    <text x="30" y="146" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：单支路对应 g_p[k] 成比例的特殊对角核</text>
+    <rect x="16" y="190" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#7DD3FC" stroke-width="1.5"/>
+    <text x="30" y="218" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">Wiener 结构（L → N）</text>
+    <text x="30" y="246" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：线性滤波 P(z) 后接静态非线性 f(·)</text>
+    <text x="30" y="272" font-size="12.27" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：生成可分离 rank-1 非对角核 h₂ = p[k₁]p[k₂]</text>
+    <rect x="16" y="316" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#7DD3FC" stroke-width="1.5"/>
+    <text x="30" y="344" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">Wiener–Hammerstein（L→N→L）</text>
+    <text x="30" y="372" font-size="11.97" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：前置频率选择 P(z) + 非线性 + 后置塑形 Q(z)</text>
+    <text x="30" y="398" font-size="10.73" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：解释硬件“哪段频率易失真”与“失真后何种音色”</text>
+    <rect x="16" y="442" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#7DD3FC" stroke-width="1.5"/>
+    <text x="30" y="470" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">并联级联混合分支（如 CoreScnf）</text>
+    <text x="30" y="498" font-size="12.08" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：多条 (幂次/点形器 + FIR) 支路 + 跨支路乘法</text>
+    <text x="30" y="524" font-size="12.75" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：兼顾独立谐波塑形与因子化非对角交叉项</text>
+  </g>
+  <g transform="translate(1194, 284)">
+    <rect x="0" y="0" width="360" height="590" rx="16" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="48" rx="16" fill="#D1FAE5"/>
+    <text x="180" y="31" text-anchor="middle" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">族系 IV｜超越纯前馈：状态与神经混合</text>
+    <rect x="16" y="64" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#6EE7B7" stroke-width="1.5"/>
+    <text x="30" y="92" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">分阶混合架构（Hybrid Volterra）</text>
+    <text x="30" y="120" font-size="12.62" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：1 阶长 FIR/IIR + 2 阶近对角 + 高阶短对角</text>
+    <text x="30" y="146" font-size="12.75" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：按各阶物理时间尺度差异化分配参数预算</text>
+    <rect x="16" y="190" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#6EE7B7" stroke-width="1.5"/>
+    <text x="30" y="218" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">NARX 与双线性状态空间</text>
+    <text x="30" y="246" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：引入输出反馈 y[n-k] 或内部状态 s[n]</text>
+    <text x="30" y="272" font-size="11.32" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：高效表达长时动态，需专门验证自由运行稳定性</text>
+    <rect x="16" y="316" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#6EE7B7" stroke-width="1.5"/>
+    <text x="30" y="344" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">显式包络调制核（Vector / NOVA）</text>
+    <text x="30" y="372" font-size="11.69" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：由慢包络 s_env[n] 在多组 Volterra 核间渐变</text>
+    <text x="30" y="398" font-size="11.72" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：解决压缩器 attack/release 与大跨度电平迁移</text>
+    <rect x="16" y="442" width="328" height="112" rx="10" fill="#F8FAFC" stroke="#6EE7B7" stroke-width="1.5"/>
+    <text x="30" y="470" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">专用磁滞算子 / 神经残差混合</text>
+    <text x="30" y="498" font-size="11.59" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 结构假设：Play / Preisach / Jiles-Atherton 或神经网络</text>
+    <text x="30" y="524" font-size="11.76" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 工程特点：补齐持久剩磁分支记忆或离线蒸馏生成分支核</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：各模型族并非互斥分类树——现代商业建模常将“并联 Hammerstein 支路 + 因子化交叉项 + 包络状态渐变”组合在同一引擎中。</text>
+</svg>

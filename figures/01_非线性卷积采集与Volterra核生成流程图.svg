@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-08</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">从硬件实验采集到“动态卷积工作点簇”或“Volterra 支路核”的双轨生成管线</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">采集到的响应文件并不自动等于 Volterra 核：同样一组测量数据，取决于后续走“工作点插值重放”还是“结构化数学反解与回归”</text>
+
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="460" height="190" rx="14" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="460" height="44" rx="14" fill="#0F172A"/>
+    <text x="24" y="28" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">阶段 1｜受控激励信号设计（Excitation）</text>
+    <text x="24" y="74" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 多电平指数扫频（ESS / SSS，如 -24 dB 至 0 dB）</text>
+    <text x="24" y="104" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 双音 / Multisine 组合频率（检验互调 IMD）</text>
+    <text x="24" y="134" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 双脉冲序列与预激励前史信号（检验非对角与慢状态）</text>
+    <text x="24" y="164" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">目标：充分激发待辨识自由度（满足持续激励条件）</text>
+    <line x1="460" y1="95" x2="515" y2="95" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+    <rect x="522" y="0" width="460" height="190" rx="14" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="522" y="0" width="460" height="44" rx="14" fill="#0F172A"/>
+    <text x="546" y="28" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">阶段 2｜硬件回路采集与预处理校准</text>
+    <text x="546" y="74" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• AD/DA 往返延迟精确对齐（亚采样级相位校准）</text>
+    <text x="546" y="104" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 接口本底噪声、时钟漂移与通道增益剥离</text>
+    <text x="546" y="134" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 初始状态 s[0] 复位检查与多次测量重复性验证</text>
+    <text x="546" y="164" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">产出：干净对齐的 I/O 波形对 (x[n], y[n]) 与解卷积片段</text>
+    <line x1="982" y1="95" x2="1037" y2="95" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+    <rect x="1044" y="0" width="460" height="190" rx="14" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.5" filter="url(#shadow)"/>
+    <rect x="1044" y="0" width="460" height="44" rx="14" fill="#7C3AED"/>
+    <text x="1068" y="28" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">阶段 3｜选择建模解释框架（分流节点）</text>
+    <text x="1068" y="74" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">采集到的原始解卷积文件 ≠ 现成的 Volterra 核。</text>
+    <text x="1068" y="104" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 路线 A：按工作点组织响应簇 + 运行时状态插值</text>
+    <text x="1068" y="134" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 路线 B：按明确数学模型做阶次反解或最小二乘回归</text>
+    <text x="1068" y="164" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">↓ 向下分流为两条典型工程实现路径 ↓</text>
+  </g>
+  <path d="M 1274 334 L 1274 368 L 410 368 L 410 400" fill="none" stroke="#059669" stroke-width="3" marker-end="url(#arr-state)"/>
+  <path d="M 1274 334 L 1274 368 L 1140 368 L 1140 400" fill="none" stroke="#7C3AED" stroke-width="3" marker-end="url(#arr-cross)"/>
+  <g transform="translate(48, 408)">
+    <rect x="0" y="0" width="725" height="465" rx="16" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="725" height="52" rx="16" fill="#D1FAE5"/>
+    <text x="24" y="34" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">路径 A｜动态卷积与多工作点采样管线（如 Sintefex / NAT 库组织）</text>
+    <rect x="24" y="72" width="677" height="105" rx="10" fill="#F8FAFC" stroke="#6EE7B7"/>
+    <text x="42" y="102" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">A1. 离散工况网格切片（Vectors / Programs）</text>
+    <text x="42" y="130" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 按输入电平步距（如每 1.5 dB 一档）、旋钮档位、采样率切片保存响应簇</text>
+    <text x="42" y="156" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 在变化剧烈的临界饱和区加密采样点，线性区稀疏分布</text>
+    <rect x="24" y="195" width="677" height="105" rx="10" fill="#F8FAFC" stroke="#6EE7B7"/>
+    <text x="42" y="225" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">A2. 控制层与渐变器绑定（Envelope / LFO / simplenova）</text>
+    <text x="42" y="253" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 提取能量包络 s_env[n]，经软膝曲线与上下行非对称 slew 映射为插值权重 w_s</text>
+    <text x="42" y="279" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 维护备选路径状态缓冲（Mode 1 保鲜），防止跨档切换爆音</text>
+    <rect x="24" y="318" width="677" height="122" rx="10" fill="#D1FAE5" stroke="#059669"/>
+    <text x="42" y="348" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">最终产物：状态驱动的多工作点卷积播放器</text>
+    <text x="42" y="378" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">y[n] = Σ_s w_s(s_env[n]) · Σ_p (g_{p,s} * x^p)[n]</text>
+    <text x="42" y="408" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">优势：能直观复现电平相关的音色迁移；局限：未测到的工况依赖插值假设。</text>
+  </g>
+  <g transform="translate(799, 408)">
+    <rect x="0" y="0" width="753" height="465" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="753" height="52" rx="16" fill="#EDE9FE"/>
+    <text x="24" y="34" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">路径 B｜显式 Volterra 核辨识管线（阶次变换 / 正则化回归）</text>
+    <rect x="24" y="72" width="705" height="105" rx="10" fill="#F8FAFC" stroke="#C4B5FD"/>
+    <text x="42" y="102" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">B1. 对角支路反解：从 HHIR 到并联 Hammerstein 核 g_p[k]</text>
+    <text x="42" y="130" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 对 ESS 分离出的各次谐波频响 H_Hm(Ω)，执行上三角 Chebyshev 逆变换</text>
+    <text x="42" y="156" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 剥离高阶回流后逆变换回时域，得到各幂次支路的一维 FIR 核 g₁[k]...g_P[k]</text>
+    <rect x="24" y="195" width="705" height="105" rx="10" fill="#F8FAFC" stroke="#C4B5FD"/>
+    <text x="42" y="225" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">B2. 非对角与低秩核估计：特征矩阵回归 y ≈ X θ</text>
+    <text x="42" y="253" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 构造近对角、因子化交叉项 u[n]v[n] 或正交基（Laguerre/Kautz）特征字典 X</text>
+    <text x="42" y="279" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 通过 Ridge / LASSO / 交替最小二乘（ALS）求解核系数，并做跨刺激残差验证</text>
+    <rect x="24" y="318" width="705" height="122" rx="10" fill="#EDE9FE" stroke="#7C3AED"/>
+    <text x="42" y="348" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">最终产物：参数化 Volterra / 混合结构算子</text>
+    <text x="42" y="378" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">y[n] = Σ_p (g_p * x^p)[n] + Σ_r λ_r (a_r * x)[n](b_r * x)[n] + ...</text>
+    <text x="42" y="408" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">优势：数学结构明确、可定量分析交叉记忆；注意：两条路径在商业引擎中常结合使用。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心观念：“采样得到的响应文件”只是原材料；只有明确了上三角阶次变换、插值律或回归结构，原材料才会变成可运行的模型参数。</text>
+</svg>

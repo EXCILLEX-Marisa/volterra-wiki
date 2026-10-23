@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 02-03</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">Farina/Novák 指数扫频谐波分离与商业前级“失真个性”的三层形成机制</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">对应《02》§2.3 与 §2.20：从 ESS 负时间轴分离 HHIR，经上三角反解得到支路核 g_p[k]，以及前后置滤波耦合边界</text>
+
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#E0F2FE"/>
+    <text x="242" y="35" text-anchor="middle" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">1. Farina 指数扫频解卷积（时间轴分离）</text>
+    <rect x="24" y="72" width="436" height="235" rx="12" fill="#F8FAFC" stroke="#7DD3FC"/>
+    <text x="242" y="100" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">逆滤波解卷积后：高次谐波脉冲响应自动落入负延迟区</text>
+    <line x1="45" y1="235" x2="435" y2="235" stroke="#334155" stroke-width="2" marker-end="url(#arr-dark)"/>
+    <line x1="335" y1="120" x2="335" y2="275" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="335" y="290" text-anchor="middle" font-size="12" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">t = 0</text>
+    <path d="M 80 235 L 92 180 L 104 250 L 118 220 L 135 235" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+    <text x="102" y="168" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">h_H3 (三次)</text>
+    <text x="102" y="268" text-anchor="middle" font-size="11" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">-T·ln(3)</text>
+    <path d="M 190 235 L 204 162 L 218 255 L 232 212 L 250 235" fill="none" stroke="#D97706" stroke-width="2.5"/>
+    <text x="215" y="150" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#D97706">h_H2 (二次)</text>
+    <text x="215" y="268" text-anchor="middle" font-size="11" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">-T·ln(2)</text>
+    <path d="M 335 235 L 350 132 L 365 260 L 382 195 L 400 228 L 420 235" fill="none" stroke="#0284C7" stroke-width="3"/>
+    <text x="365" y="124" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">h_H1 (基波响应)</text>
+    <text x="28" y="346" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">为什么这对商业硬件采样至关重要？</text>
+    <text x="28" y="378" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 传统测量只给一个总 THD 数字；ESS 则把每一阶谐波都</text>
+    <text x="28" y="404" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">  变成一条完整的复频率响应 H_Hm(f)（含幅频与相频）</text>
+    <text x="28" y="430" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 一次扫频即可同时捕获线性频响与多阶谐波随频率的轮廓</text>
+    <rect x="24" y="468" width="436" height="236" rx="12" fill="#FEF3C7" stroke="#FCD34D"/>
+    <text x="42" y="498" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">关键步骤：从 H_Hm(f) 到支路核 g_p[k] 的转换</text>
+    <text x="42" y="530" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 直接切下来的 h_Hm 还不是并联 Hammerstein 的滤波器。</text>
+    <text x="42" y="558" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 需按 Novák (2010) 同步扫频关系执行上三角线性反解：</text>
+    <text x="42" y="590" font-size="14" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">G₅ = 16 H_H5 / A⁵,  G₃ = (4 H_H3 − 5/4 A⁵ G₅) / A³ ...</text>
+    <text x="42" y="622" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 再结合多驱动电平扫描（NAT 动态步距），构建随电平</text>
+    <text x="42" y="648" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  档位切换的支路核簇 g_{p,s}[k]。</text>
+  </g>
+  <g transform="translate(558, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#FEF3C7"/>
+    <text x="242" y="35" text-anchor="middle" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">2. 支路核 G_p(f) 如何塑造不同前级的失真个性</text>
+    <rect x="24" y="72" width="436" height="235" rx="12" fill="#F8FAFC" stroke="#FCD34D"/>
+    <text x="242" y="100" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">不同前级硬件的二/三阶支路幅频轮廓 |G₂(f)|, |G₃(f)| 对照</text>
+    <line x1="60" y1="265" x2="430" y2="265" stroke="#334155" stroke-width="2" marker-end="url(#arr-dark)"/>
+    <line x1="60" y1="265" x2="60" y2="120" stroke="#334155" stroke-width="2"/>
+    <text x="90" y="286" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">50 Hz</text>
+    <text x="230" y="286" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">1 kHz</text>
+    <text x="380" y="286" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">10 kHz</text>
+    <path d="M 65 138 Q 140 142, 210 215 T 415 245" fill="none" stroke="#D97706" stroke-width="3.5"/>
+    <text x="215" y="152" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">前级 A：低频磁饱和示例</text>
+    <path d="M 65 242 Q 200 235, 290 180 T 415 140" fill="none" stroke="#7C3AED" stroke-width="3.5"/>
+    <text x="245" y="232" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">前级 B：高频摆率／反馈变化示例</text>
+    <text x="28" y="346" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">“失真量”与“失真音色”的工程分离：</text>
+    <text x="28" y="378" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 静态 Waveshaper 只能让所有频率按同一比例产生谐波；</text>
+    <text x="28" y="404" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 而在 ŷ[n] = Σ (g_p * x^p)[n] 中，每条支路的 FIR 核 g_p[k]</text>
+    <text x="28" y="430" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">  独立赋予该阶谐波专属的幅频斜率与群延迟（相位旋转）。</text>
+    <rect x="24" y="468" width="436" height="236" rx="12" fill="#EDE9FE" stroke="#C4B5FD"/>
+    <text x="42" y="498" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">为什么不同采样率需要预先渲染独立核文件？</text>
+    <text x="42" y="530" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 离散 FIR 核 g_p[k] 的抽头索引 k 与采样率 f_s 直接绑定；</text>
+    <text x="42" y="558" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 因此商业程序资源（.N2V/.N2S）通常按 44.1 / 48 / 88.2 /</text>
+    <text x="42" y="584" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  96 kHz 及过采样倍数分别预存对应的支路核表，运行时</text>
+    <text x="42" y="610" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  直接查表调用，避免在线重算高阶核转换。</text>
+  </g>
+  <g transform="translate(1068, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#FEE2E2"/>
+    <text x="242" y="35" text-anchor="middle" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">3. 单次 ESS 的辨识盲区：前置 vs 后置滤波</text>
+    <rect x="24" y="72" width="436" height="235" rx="12" fill="#F8FAFC" stroke="#FCA5A5"/>
+    <text x="242" y="100" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">真实硬件常见拓扑：前置滤波 P(f) → 非线性 → 后置滤波 Q(f)</text>
+    <rect x="44" y="128" width="110" height="54" rx="8" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+    <text x="99" y="152" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">前置滤波 P(f)</text>
+    <text x="99" y="172" text-anchor="middle" font-size="11" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">决定谁更容易推饱</text>
+    <line x1="154" y1="155" x2="182" y2="155" stroke="#334155" stroke-width="2" marker-end="url(#arr-dark)"/>
+    <rect x="187" y="128" width="110" height="54" rx="8" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+    <text x="242" y="152" text-anchor="middle" font-size="14" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#D97706">(·)³ 非线性</text>
+    <text x="242" y="172" text-anchor="middle" font-size="11" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">放大级/磁芯核心</text>
+    <line x1="297" y1="155" x2="325" y2="155" stroke="#334155" stroke-width="2" marker-end="url(#arr-dark)"/>
+    <rect x="330" y="128" width="110" height="54" rx="8" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
+    <text x="385" y="152" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">后置滤波 Q(f)</text>
+    <text x="385" y="172" text-anchor="middle" font-size="11" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">对生成谐波再塑形</text>
+    <rect x="44" y="205" width="396" height="82" rx="8" fill="#FFFFFF" stroke="#DC2626"/>
+    <text x="242" y="234" text-anchor="middle" font-size="14.22" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#DC2626">单音三次谐波幅度：A_H3(f) = (A³/4) · |P(f)|³ · |Q(3f)|</text>
+    <text x="242" y="264" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">仅看单音曲线 A_H3(f)，无法唯一拆出 |P(f)|³ 与 |Q(3f)| 两个因子。</text>
+    <text x="28" y="346" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">单音等效、多音分道扬镳的剪刀差：</text>
+    <text x="28" y="378" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 纯并联 Hammerstein 把所有频率选择性都塞进后置 G_p(f)；</text>
+    <text x="28" y="404" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 它能 100% 复现单音扫频下的 A_H3(f)，但面对双音 f₁+f₂</text>
+    <text x="28" y="430" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">  时，因缺少前置 P(f) 对输入比的改变，互调产物就会失配。</text>
+    <rect x="24" y="468" width="436" height="236" rx="12" fill="#FEE2E2" stroke="#FCA5A5"/>
+    <text x="42" y="498" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">工程启示与后续实验验证路径：</text>
+    <text x="42" y="530" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1. 商业引擎通过【多电平核切换 + 跨支路乘法 u[n]v[n]】部分</text>
+    <text x="42" y="556" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">   弥补了纯对角 Hammerstein 缺少前置滤波与交叉记忆的短板；</text>
+    <text x="42" y="586" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">2. 独立验证实验：构造 Hammerstein、Wiener、W-H 三个可控</text>
+    <text x="42" y="612" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">   原型，用同一 ESS 拟合并联 Hammerstein，再用双音 IMD</text>
+    <text x="42" y="638" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">   与双脉冲定量测量三者的残差剪刀差。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：ESS 阶次分离让前级“随频率变化的谐波染色”得以存入支路核 g_p[k]，但单音谐波拟合不等于已完全还原多音互调与内部拓扑。</text>
+</svg>

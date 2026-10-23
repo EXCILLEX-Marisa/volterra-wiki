@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-11</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">完整 Volterra 核的维数灾难：原始张量坐标数 M^p 与对称核独立参数量对照</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">即便在 48 kHz 下只看 M = 64 个采样点（约 1.33 ms）的极短历史，完整五阶对称核也已突破一千万个独立参数</text>
+
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="760" height="730" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="760" height="52" rx="16" fill="#0F172A"/>
+    <text x="24" y="33" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">1. 记忆窗口 M = 64（48 kHz 下仅 1.33 ms）各阶参数量对数增长图</text>
+    <rect x="44" y="72" width="22" height="16" rx="3" fill="#DC2626"/>
+    <text x="74" y="85" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">未对称化完整张量坐标数 M^p</text>
+    <rect x="330" y="72" width="22" height="16" rx="3" fill="#7C3AED"/>
+    <text x="360" y="85" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">利用核对称性合并后的独立参数量 C(M+p-1, p)</text>
+    <line x1="95" y1="620" x2="715" y2="620" stroke="#334155" stroke-width="2"/>
+    <line x1="95" y1="620" x2="95" y2="115" stroke="#334155" stroke-width="2"/>
+    <line x1="95" y1="524" x2="715" y2="524" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="85" y="529" text-anchor="end" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">10^2</text>
+    <line x1="95" y1="428" x2="715" y2="428" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="85" y="433" text-anchor="end" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">10^4</text>
+    <line x1="95" y1="332" x2="715" y2="332" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="85" y="337" text-anchor="end" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">10^6</text>
+    <line x1="95" y1="236" x2="715" y2="236" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="85" y="241" text-anchor="end" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">10^8</text>
+    <line x1="95" y1="140" x2="715" y2="140" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="85" y="145" text-anchor="end" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">10^10</text>
+    <rect x="135" y="533.3" width="38" height="86.7" rx="4" fill="#DC2626" opacity="0.85"/>
+    <rect x="175" y="533.3" width="38" height="86.7" rx="4" fill="#7C3AED"/>
+    <text x="174" y="648" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1 阶</text>
+    <text x="154" y="525.3" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#DC2626">64</text>
+    <text x="194" y="511.3" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">64</text>
+    <rect x="250" y="446.6" width="38" height="173.4" rx="4" fill="#DC2626" opacity="0.85"/>
+    <rect x="290" y="460.7" width="38" height="159.3" rx="4" fill="#7C3AED"/>
+    <text x="289" y="648" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">2 阶</text>
+    <text x="269" y="438.6" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#DC2626">4,096</text>
+    <text x="309" y="438.7" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">2,080</text>
+    <rect x="365" y="359.9" width="38" height="260.1" rx="4" fill="#DC2626" opacity="0.85"/>
+    <rect x="405" y="396.3" width="38" height="223.7" rx="4" fill="#7C3AED"/>
+    <text x="404" y="648" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">3 阶</text>
+    <text x="384" y="351.9" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#DC2626">262,144</text>
+    <text x="424" y="374.3" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">45,760</text>
+    <rect x="480" y="273.2" width="38" height="346.8" rx="4" fill="#DC2626" opacity="0.85"/>
+    <rect x="520" y="337.5" width="38" height="282.5" rx="4" fill="#7C3AED"/>
+    <text x="519" y="648" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">4 阶</text>
+    <text x="499" y="265.2" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#DC2626">16,777,216</text>
+    <text x="539" y="315.5" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">766,480</text>
+    <rect x="595" y="186.5" width="38" height="433.5" rx="4" fill="#DC2626" opacity="0.85"/>
+    <rect x="635" y="283.1" width="38" height="336.9" rx="4" fill="#7C3AED"/>
+    <text x="634" y="648" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">5 阶</text>
+    <text x="614" y="178.5" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#DC2626">1,073,741,824</text>
+    <text x="654" y="261.1" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">10,424,128</text>
+
+    <rect x="28" y="668" width="704" height="44" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="380" y="696" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">注：对称性最多减少约 p! 倍冗余排列，但无法改变随 M 和 p 呈 O(M^p / p!) 的高次多项式级爆炸趋势。</text>
+  </g>
+  <g transform="translate(832, 144)">
+    <rect x="0" y="0" width="720" height="730" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="720" height="52" rx="16" fill="#7C3AED"/>
+    <text x="24" y="33" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">2. 精确参数规模对照表（与正文 §1.13 完全同步）</text>
+    <rect x="28" y="72" width="664" height="46" rx="8" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="105" y="101" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">Volterra 阶数 p</text>
+    <text x="305" y="101" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">原始张量坐标数 M^p</text>
+    <text x="545" y="101" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">对称核独立参数 C(M+p-1, p)</text>
+    <rect x="28" y="126" width="664" height="44" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="105" y="154" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1 阶 (p=1)</text>
+    <text x="375" y="154" text-anchor="end" font-size="16" font-family="DejaVu Sans Mono, Consolas, monospace" fill="#DC2626">64</text>
+    <text x="645" y="154" text-anchor="end" font-size="16" font-weight="bold" font-family="DejaVu Sans Mono, Consolas, monospace" fill="#7C3AED">64</text>
+    <rect x="28" y="174" width="664" height="44" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="105" y="202" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">2 阶 (p=2)</text>
+    <text x="375" y="202" text-anchor="end" font-size="16" font-family="DejaVu Sans Mono, Consolas, monospace" fill="#DC2626">4,096</text>
+    <text x="645" y="202" text-anchor="end" font-size="16" font-weight="bold" font-family="DejaVu Sans Mono, Consolas, monospace" fill="#7C3AED">2,080</text>
+    <rect x="28" y="222" width="664" height="44" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="105" y="250" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">3 阶 (p=3)</text>
+    <text x="375" y="250" text-anchor="end" font-size="16" font-family="DejaVu Sans Mono, Consolas, monospace" fill="#DC2626">262,144</text>
+    <text x="645" y="250" text-anchor="end" font-size="16" font-weight="bold" font-family="DejaVu Sans Mono, Consolas, monospace" fill="#7C3AED">45,760</text>
+    <rect x="28" y="270" width="664" height="44" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="105" y="298" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">4 阶 (p=4)</text>
+    <text x="375" y="298" text-anchor="end" font-size="16" font-family="DejaVu Sans Mono, Consolas, monospace" fill="#DC2626">16,777,216</text>
+    <text x="645" y="298" text-anchor="end" font-size="16" font-weight="bold" font-family="DejaVu Sans Mono, Consolas, monospace" fill="#7C3AED">766,480</text>
+    <rect x="28" y="318" width="664" height="44" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <text x="105" y="346" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">5 阶 (p=5)</text>
+    <text x="375" y="346" text-anchor="end" font-size="16" font-family="DejaVu Sans Mono, Consolas, monospace" fill="#DC2626">1,073,741,824</text>
+    <text x="645" y="346" text-anchor="end" font-size="16" font-weight="bold" font-family="DejaVu Sans Mono, Consolas, monospace" fill="#7C3AED">10,424,128</text>
+    <rect x="28" y="384" width="664" height="156" rx="12" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+    <text x="48" y="416" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">极端算例：如果用完整二阶核直接硬算 1 秒钟历史（M = 48,000）？</text>
+    <text x="48" y="452" font-size="17.98" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">N₂ = 48,000 × 48,001 / 2 = 1,152,024,000（约 11.52 亿个独立系数）</text>
+    <text x="48" y="484" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 光是存下这一个二阶核就需要约 4.6 GB 浮点内存，每采样点需执行 11.5 亿次乘加；</text>
+    <text x="48" y="512" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">• 结论：对于压缩释放、电源下陷等长时过程，单纯延长完整核窗口通常会带来很高的计算与辨识成本。</text>
+    <rect x="28" y="558" width="664" height="146" rx="12" fill="#E0F2FE" stroke="#7DD3FC"/>
+    <text x="48" y="588" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">维数灾难带来的三重工程瓶颈：</text>
+    <text x="48" y="618" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1. 测量与可辨识性瓶颈：训练素材通常难以提供足以独立区分上千万个交叉坐标的变化；</text>
+    <text x="48" y="646" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">2. 数值病态与过拟合瓶颈：高维回归矩阵极度共线，极易把本底噪声当成高阶核细节记住；</text>
+    <text x="48" y="674" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">3. 实时 DSP 算力瓶颈：VST3 音频插件要求在亚毫秒级缓冲内完成每采样计算。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：完整 Volterra 核的价值是提供“完备理论坐标系”；实际工程落地必须通过对角化、近对角、低秩分解或正交基进行结构化约简。</text>
+</svg>

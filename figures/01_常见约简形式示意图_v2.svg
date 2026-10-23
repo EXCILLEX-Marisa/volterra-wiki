@@ -1,0 +1,366 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="1040" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-12</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">常见 Volterra 约简形式的核几何裁剪与工程信号流对照</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">上半部用二阶核平面 h₂[k₁,k₂] 展示“裁剪哪些坐标”；下半部展示“如何用紧凑滤波器、低秩分解或正交基生成高阶核”（统一支路符号 g_p[k]）</text>
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="360" height="390" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="44" rx="16" fill="#0F172A"/>
+    <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">1. 完整二阶对称核（Full）</text>
+    <rect x="68" y="66" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="96" y="66" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="124" y="66" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="152" y="66" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="180" y="66" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="208" y="66" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="236" y="66" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="264" y="66" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="68" y="94" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="96" y="94" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="124" y="94" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="152" y="94" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="180" y="94" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="208" y="94" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="236" y="94" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="264" y="94" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="68" y="122" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="96" y="122" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="124" y="122" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="152" y="122" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="180" y="122" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="208" y="122" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="236" y="122" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="264" y="122" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="68" y="150" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="96" y="150" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="124" y="150" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="152" y="150" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="180" y="150" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="208" y="150" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="236" y="150" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="264" y="150" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="68" y="178" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="96" y="178" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="124" y="178" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="152" y="178" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="180" y="178" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="208" y="178" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="236" y="178" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="264" y="178" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="68" y="206" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="96" y="206" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="124" y="206" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="152" y="206" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="180" y="206" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="208" y="206" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="236" y="206" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="264" y="206" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="68" y="234" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="96" y="234" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="124" y="234" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="152" y="234" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="180" y="234" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="208" y="234" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="236" y="234" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="264" y="234" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="68" y="262" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="96" y="262" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="124" y="262" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="152" y="262" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="180" y="262" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="208" y="262" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="236" y="262" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="264" y="262" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <text x="180" y="320" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">保留全部 M(M+1)/2 个位置</text>
+    <text x="180" y="348" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">允许任意距离的历史样本相乘交互</text>
+    <text x="180" y="372" text-anchor="middle" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#64748B">橙色 = 主对角线 k₁=k₂；彩色 = 保留的非对角项</text>
+  </g>
+  <g transform="translate(430, 144)">
+    <rect x="0" y="0" width="360" height="390" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="44" rx="16" fill="#0F172A"/>
+    <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">2. 对角核（Diagonal）</text>
+    <rect x="68" y="66" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="96" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="94" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="124" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="122" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="152" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="150" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="180" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="178" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="208" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="206" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="236" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="234" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="264" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="262" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <text x="180" y="320" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">仅保留主对角线 k₁ = k₂</text>
+    <text x="180" y="348" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">退化为单样本取幂 x^p[n-k]，舍弃跨时刻乘积</text>
+    <text x="180" y="372" text-anchor="middle" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#64748B">橙色 = 主对角线 k₁=k₂；彩色 = 保留的非对角项</text>
+  </g>
+  <g transform="translate(812, 144)">
+    <rect x="0" y="0" width="360" height="390" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="44" rx="16" fill="#0F172A"/>
+    <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">3. 近对角 / 带状核（Banded）</text>
+    <rect x="68" y="66" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="96" y="66" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="124" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="94" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="96" y="94" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="124" y="94" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="152" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="122" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="124" y="122" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="152" y="122" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="180" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="150" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="152" y="150" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="180" y="150" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="208" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="178" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="180" y="178" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="208" y="178" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="236" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="206" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="208" y="206" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="236" y="206" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="264" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="234" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="236" y="234" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="264" y="234" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="68" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="262" width="26" height="26" rx="3" fill="#0284C7" stroke="#FFF"/>
+    <rect x="264" y="262" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <text x="180" y="320" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">保留邻域 |k₁ − k₂| ≤ B</text>
+    <text x="180" y="348" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">保留相邻/局部时间窗口内的交叉记忆</text>
+    <text x="180" y="372" text-anchor="middle" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#64748B">橙色 = 主对角线 k₁=k₂；彩色 = 保留的非对角项</text>
+  </g>
+  <g transform="translate(1194, 144)">
+    <rect x="0" y="0" width="360" height="390" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="44" rx="16" fill="#0F172A"/>
+    <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">4. 稀疏核（Sparse Volterra）</text>
+    <rect x="68" y="66" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="96" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="66" width="26" height="26" rx="3" fill="#059669" stroke="#FFF"/>
+    <rect x="208" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="66" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="94" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="124" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="94" width="26" height="26" rx="3" fill="#059669" stroke="#FFF"/>
+    <rect x="264" y="94" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="122" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="152" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="122" width="26" height="26" rx="3" fill="#059669" stroke="#FFF"/>
+    <rect x="236" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="122" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="150" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="180" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="150" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="178" width="26" height="26" rx="3" fill="#059669" stroke="#FFF"/>
+    <rect x="96" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="178" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="206" width="26" height="26" rx="3" fill="#059669" stroke="#FFF"/>
+    <rect x="152" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="206" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="234" width="26" height="26" rx="3" fill="#059669" stroke="#FFF"/>
+    <rect x="124" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="234" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="68" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="96" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="124" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="152" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="180" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="208" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="236" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <rect x="264" y="262" width="26" height="26" rx="3" fill="#F1F5F9" stroke="#FFF"/>
+    <text x="180" y="320" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">仅保留少数显著坐标（LASSO/OMP）</text>
+    <text x="180" y="348" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">允许远距离交互，但绝大多数格置零</text>
+    <text x="180" y="372" text-anchor="middle" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#64748B">橙色 = 主对角线 k₁=k₂；彩色 = 保留的非对角项</text>
+  </g>
+  <g transform="translate(48, 554)">
+    <rect x="0" y="0" width="360" height="380" rx="16" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="44" rx="16" fill="#FEF3C7"/>
+    <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">5. 并联 Hammerstein（对角核实现）</text>
+    <rect x="18" y="60" width="324" height="44" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="180" y="88" text-anchor="middle" font-size="14" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">ŷ[n] = Σ_p Σ_k g_p[k] · x^p[n - k]</text>
+    <rect x="18" y="120" width="324" height="135" rx="10" fill="#FEF3C7" stroke="#FCD34D"/>
+    <text x="180" y="192" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">并联 Hammerstein（对角核实现） 信号流模块</text>
+    <text x="18" y="285" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 先逐点取幂 x^p[n]，再各自通过一维 FIR 核 g_p[k]</text>
+    <text x="18" y="315" font-size="12.69" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 与对角 Volterra 代数等价，实现规整、适合 FFT 分块卷积</text>
+  </g>
+  <g transform="translate(430, 554)">
+    <rect x="0" y="0" width="360" height="380" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="44" rx="16" fill="#EDE9FE"/>
+    <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">6. 低秩可分离核（Low-Rank / CP）</text>
+    <rect x="18" y="60" width="324" height="44" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="180" y="88" text-anchor="middle" font-size="14" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">h_p[k₁...k_p] ≈ Σ_{r=1}^R λ_r Π g_r[k_i]</text>
+    <rect x="18" y="120" width="324" height="135" rx="10" fill="#EDE9FE" stroke="#C4B5FD"/>
+    <text x="180" y="192" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">低秩可分离核（Low-Rank / CP） 信号流模块</text>
+    <text x="18" y="285" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 等价信号流：ŷ_p[n] ≈ Σ_r λ_r ( (g_r * x)[n] )^p</text>
+    <text x="18" y="315" font-size="12.81" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 用 R 条线性滤波支路输出的幂次，隐式生成稠密非对角核</text>
+  </g>
+  <g transform="translate(812, 554)">
+    <rect x="0" y="0" width="360" height="380" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="44" rx="16" fill="#E0F2FE"/>
+    <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">7. 正交基展开（Laguerre / Kautz OBF）</text>
+    <rect x="18" y="60" width="324" height="44" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="180" y="88" text-anchor="middle" font-size="13.31" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">z_r[n] = (B_r * x)[n]  ⇒  ŷ[n] = P(z₁, ..., z_R)</text>
+    <rect x="18" y="120" width="324" height="135" rx="10" fill="#E0F2FE" stroke="#7DD3FC"/>
+    <text x="180" y="192" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">正交基展开（Laguerre / Kautz）信号流</text>
+    <text x="18" y="285" font-size="12.73" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 先用少量慢衰减动态基 B_r 压缩长历史，再作多项式组合</text>
+    <text x="18" y="315" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 大幅降低长记忆维度 M，适合含多时间常数衰减的设备</text>
+  </g>
+  <g transform="translate(1194, 554)">
+    <rect x="0" y="0" width="360" height="380" rx="16" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="44" rx="16" fill="#D1FAE5"/>
+    <text x="180" y="28" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">8. 块结构与因子化交叉项（W-H / 跨支路乘）</text>
+    <rect x="18" y="60" width="324" height="44" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="180" y="88" text-anchor="middle" font-size="14" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">u = a * x,  v = b * x^q  ⇒  y = u[n] · v[n]</text>
+    <rect x="18" y="120" width="324" height="135" rx="10" fill="#D1FAE5" stroke="#6EE7B7"/>
+    <text x="180" y="192" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">块结构与因子化交叉项（W-H）信号流</text>
+    <text x="18" y="285" font-size="11.89" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 包含 Wiener–Hammerstein 级联 (P → f → Q) 与跨支路乘法</text>
+    <text x="18" y="315" font-size="12.05" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 以 O(M) 级滤波器代价补齐关键非对角互调与前后置频率选择</text>
+  </g>
+  <rect x="48" y="962" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="989" r="8" fill="#38BDF8"/>
+  <text x="102" y="995" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：每一种约简都在回答“完整高维核中哪些自由度值得保留”；不同阶次可采用混合约简（如一阶长 FIR + 二阶近对角 + 高阶对角）。</text>
+</svg>

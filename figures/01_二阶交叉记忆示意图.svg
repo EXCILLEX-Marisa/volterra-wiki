@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-02</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">二阶非对角交叉项 0.1x[n]x[n-1] 如何产生跨时刻联合贡献与四点差分隔离</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">令 a = x[n]、b = x[n-1]，对比纯线性记忆 y = a + 0.2b 与含二阶交叉记忆 y = a + 0.2b + 0.1ab 的结构与实验分离方法</text>
+
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="730" height="730" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="730" height="52" rx="16" fill="#EDE9FE"/>
+    <text x="24" y="33" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">1. 二变量玩具模型的信号流：为什么 0.1ab 改变了记忆性质？</text>
+    <rect x="28" y="72" width="674" height="52" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="365" y="106" text-anchor="middle" font-size="20.01" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">y[n] = x[n] + 0.2 x[n-1] + 0.1 x[n]x[n-1]  =  a + 0.2b + 0.1ab</text>
+    <circle cx="85" cy="210" r="28" fill="#0284C7"/>
+    <text x="85" y="206" text-anchor="middle" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#FFF">a=x[n]</text>
+    <text x="85" y="224" text-anchor="middle" font-size="11" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#E0F2FE">当前样本</text>
+    <line x1="113" y1="210" x2="525" y2="210" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <rect x="280" y="176" width="140" height="28" rx="6" fill="#E0F2FE"/>
+    <text x="350" y="195" text-anchor="middle" font-size="13.58" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">一阶当前项：1.0 · a</text>
+    <line x1="85" y1="238" x2="85" y2="330" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <rect x="53" y="335" width="64" height="48" rx="8" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+    <text x="85" y="365" text-anchor="middle" font-size="18" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">z⁻¹</text>
+    <line x1="85" y1="383" x2="85" y2="445" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <circle cx="85" cy="475" r="28" fill="#0284C7"/>
+    <text x="85" y="471" text-anchor="middle" font-size="14" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#FFF">b=x[n-1]</text>
+    <text x="85" y="489" text-anchor="middle" font-size="11" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#E0F2FE">前一样本</text>
+    <line x1="113" y1="475" x2="555" y2="475" stroke="#0284C7" stroke-width="2.5"/>
+    <line x1="555" y1="475" x2="555" y2="242" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <rect x="280" y="440" width="160" height="28" rx="6" fill="#E0F2FE"/>
+    <text x="360" y="459" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">一阶线性记忆：0.2 · b</text>
+    <circle cx="185" cy="210" r="5" fill="#7C3AED"/>
+    <circle cx="185" cy="475" r="5" fill="#7C3AED"/>
+    <line x1="185" y1="210" x2="185" y2="315" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-cross)"/>
+    <line x1="185" y1="475" x2="185" y2="370" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-cross)"/>
+    <circle cx="185" cy="342" r="24" fill="#7C3AED"/>
+    <text x="185" y="350" text-anchor="middle" font-size="22" font-weight="bold" fill="#FFF">×</text>
+    <line x1="209" y1="342" x2="310" y2="342" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-cross)"/>
+    <rect x="315" y="314" width="165" height="56" rx="10" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2"/>
+    <text x="397" y="339" text-anchor="middle" font-size="13.09" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">h₂[0,1]+h₂[1,0] = 0.1</text>
+    <text x="397" y="360" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">二阶非对角交叉项 0.1ab</text>
+    <line x1="480" y1="342" x2="540" y2="232" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-cross)"/>
+    <circle cx="555" cy="210" r="24" fill="#0F172A"/>
+    <text x="555" y="218" text-anchor="middle" font-size="24" font-weight="bold" fill="#FFF">+</text>
+    <line x1="579" y1="210" x2="635" y2="210" stroke="#0F172A" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <rect x="640" y="186" width="66" height="48" rx="24" fill="#7C3AED"/>
+    <text x="673" y="216" text-anchor="middle" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#FFF">y[n]</text>
+    <rect x="28" y="540" width="674" height="162" rx="12" fill="#EDE9FE" stroke="#C4B5FD"/>
+    <text x="48" y="572" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">物理本质：前一样本 b 对当前输出的灵敏度被当前样本 a 调制</text>
+    <text x="48" y="604" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">∂y / ∂b = 0.2 + 0.1a   ，   ∂y / ∂a = 1.0 + 0.1b</text>
+    <text x="48" y="636" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 若无 0.1ab 项：无论当前 a 是多少，b 每增加 1，输出恒定增加 0.2（独立叠加）；</text>
+    <text x="48" y="664" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 加入 0.1ab 后：过去样本 b 留下的影响大小，取决于当前样本 a 的瞬时幅度（联合贡献）。</text>
+    <text x="48" y="690" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">注：采用对称二阶核记账时，h₂[0,1] = h₂[1,0] = 0.05，两项对称排列相加恰好等于 0.1ab。</text>
+  </g>
+  <g transform="translate(806, 144)">
+    <rect x="0" y="0" width="746" height="730" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="746" height="52" rx="16" fill="#0F172A"/>
+    <text x="24" y="33" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">2. 四次测量交互差分实验：如何从观测中剥离线性记忆？</text>
+    <text x="28" y="86" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">分别向系统送入四组受控的历史组合 (a, b)，观察各项在加减组合中的抵消过程：</text>
+    <rect x="28" y="108" width="330" height="125" rx="12" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="48" y="138" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">① 零基线测量 y(0, 0)  [符号：+]</text>
+    <text x="48" y="168" font-size="16" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">x[n]=0, x[n-1]=0  ⇒  y(0,0) = h₀ = 0</text>
+    <text x="48" y="200" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">作用：提供直流偏移基准 h₀</text>
+    <rect x="388" y="108" width="330" height="125" rx="12" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5"/>
+    <text x="408" y="138" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">② 仅当前样本 y(a, 0)  [符号：−]</text>
+    <text x="408" y="168" font-size="16" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">x[n]=a, x[n-1]=0  ⇒  y(a,0) = a</text>
+    <text x="408" y="200" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">作用：单独测出纯当前样本贡献（含 a² 等自交互）</text>
+    <rect x="28" y="252" width="330" height="125" rx="12" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5"/>
+    <text x="48" y="282" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">③ 仅前一样本 y(0, b)  [符号：−]</text>
+    <text x="48" y="312" font-size="16" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">x[n]=0, x[n-1]=b  ⇒  y(0,b) = 0.2b</text>
+    <text x="48" y="344" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">作用：单独测出前一样本的纯线性/自交互记忆</text>
+    <rect x="388" y="252" width="330" height="125" rx="12" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2"/>
+    <text x="408" y="282" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">④ 双样本联合激励 y(a, b)  [符号：+]</text>
+    <text x="408" y="312" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">y(a,b) = a + 0.2b + 0.1ab</text>
+    <text x="408" y="344" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">作用：激发线性项 + 非对角交叉项 0.1ab</text>
+    <rect x="28" y="402" width="690" height="165" rx="14" fill="#F8FAFC" stroke="#7C3AED" stroke-width="2.5"/>
+    <text x="373" y="436" text-anchor="middle" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">构造交互差分统计量 Δ（双脉冲辨识法的数学原型）：</text>
+    <text x="373" y="476" text-anchor="middle" font-size="22" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">Δ = y(a, b) − y(a, 0) − y(0, b) + y(0, 0)</text>
+    <text x="373" y="514" text-anchor="middle" font-size="19" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">= (a + 0.2b + 0.1ab) − (a) − (0.2b) + 0  =  0.1ab</text>
+    <text x="373" y="548" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">✓ 所有只依赖 a 的项（如 a, a²）、只依赖 b 的项（如 0.2b, b²）与常数项全部精确抵消。</text>
+    <rect x="28" y="588" width="690" height="114" rx="12" fill="#FEF3C7" stroke="#FCD34D"/>
+    <text x="48" y="618" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">推广到真实硬件双脉冲实验时的注意事项（详见 §1.9）：</text>
+    <text x="48" y="646" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 若真实系统还含有三阶交叉项（如 a²b, ab²），四次差分 Δ 中也会残留这些高阶交叉成分；</text>
+    <text x="48" y="674" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 因此在真实硬件辨识中，还需配合多幅度缩放（利用 H_p[ax] = a^p H_p[x]）来分离不同阶次。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：线性记忆各时刻贡献独立相加（Δ ≡ 0）；非对角交叉记忆使不同历史时刻彼此调制（Δ ≠ 0），可由四点组合差分显式提取。</text>
+</svg>

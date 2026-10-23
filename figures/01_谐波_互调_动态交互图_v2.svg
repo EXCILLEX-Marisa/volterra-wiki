@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-06</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">单音谐波（HD）、多音互调（IMD）与跨时刻动态交互的三级实验特征</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">为什么单音 THD 测试远远不够？因为真实音乐包含多频和弦（触发和频/差频互调）与瞬态前后历史（触发非对角交叉记忆）</text>
+
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#E0F2FE"/>
+    <text x="242" y="35" text-anchor="middle" font-size="21" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">1. 单音激励：谐波失真（Harmonic）</text>
+    <rect x="28" y="72" width="428" height="44" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="242" y="100" text-anchor="middle" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">输入：x(t) = A cos(2π f₀ t)</text>
+    <rect x="28" y="136" width="428" height="250" rx="12" fill="#F8FAFC" stroke="#7DD3FC"/>
+    <text x="48" y="164" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">输出频谱：整数倍频处长出谐波谱线 n·f₀</text>
+    <line x1="55" y1="340" x2="430" y2="340" stroke="#475569" stroke-width="2" marker-end="url(#arr-dark)"/>
+    <line x1="65" y1="340" x2="65" y2="180" stroke="#475569" stroke-width="1.5"/>
+    <line x1="85" y1="340" x2="85" y2="295" stroke="#D97706" stroke-width="6"/>
+    <text x="85" y="362" text-anchor="middle" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">DC</text>
+    <line x1="155" y1="340" x2="155" y2="195" stroke="#0284C7" stroke-width="8"/>
+    <text x="155" y="186" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">f₀ (基频)</text>
+    <text x="155" y="362" text-anchor="middle" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">1f₀</text>
+    <line x1="230" y1="340" x2="230" y2="250" stroke="#D97706" stroke-width="7"/>
+    <text x="230" y="240" text-anchor="middle" font-size="12" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#D97706">H2 (偶次)</text>
+    <text x="230" y="362" text-anchor="middle" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">2f₀</text>
+    <line x1="305" y1="340" x2="305" y2="268" stroke="#7C3AED" stroke-width="7"/>
+    <text x="305" y="258" text-anchor="middle" font-size="12" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">H3 (奇次)</text>
+    <text x="305" y="362" text-anchor="middle" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">3f₀</text>
+    <line x1="380" y1="340" x2="380" y2="305" stroke="#D97706" stroke-width="6"/>
+    <text x="380" y="295" text-anchor="middle" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#D97706">H4</text>
+    <text x="380" y="362" text-anchor="middle" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">4f₀</text>
+    <text x="32" y="424" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学来源与听感意义：</text>
+    <text x="32" y="456" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 偶次项（x², x⁴）生成 DC 与偶次倍频（温暖/厚重感）</text>
+    <text x="32" y="484" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 奇次项（x³, x⁵）生成奇次倍频并压缩/扩张基波</text>
+    <text x="32" y="512" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 改变 f₀（或用 ESS 扫频）可观察谐波随频率的塑形</text>
+    <rect x="28" y="555" width="428" height="148" rx="12" fill="#E0F2FE" stroke="#7DD3FC"/>
+    <text x="44" y="586" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">单音测试的盲区：</text>
+    <text x="44" y="616" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 单音稳态下，前置滤波 P(f) 与后置滤波 Q(mf) 的</text>
+    <text x="44" y="642" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  幅度作用混在 |P(f)|^m |Q(mf)| 中无法唯一拆开；</text>
+    <text x="44" y="668" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 完全没有检验两个不同频率同时存在时的交叉调制。</text>
+  </g>
+  <g transform="translate(558, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#FEF3C7"/>
+    <text x="242" y="35" text-anchor="middle" font-size="21" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">2. 双音激励：互调失真（IMD）</text>
+    <rect x="28" y="72" width="428" height="44" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="242" y="100" text-anchor="middle" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">输入：x(t) = A₁cos(2π f₁ t) + A₂cos(2π f₂ t)</text>
+    <rect x="28" y="136" width="428" height="250" rx="12" fill="#F8FAFC" stroke="#FCD34D"/>
+    <text x="48" y="164" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">输出频谱：非谐波位置出现差频、和频与边带簇</text>
+    <line x1="55" y1="340" x2="430" y2="340" stroke="#475569" stroke-width="2" marker-end="url(#arr-dark)"/>
+    <line x1="65" y1="340" x2="65" y2="180" stroke="#475569" stroke-width="1.5"/>
+    <line x1="95" y1="340" x2="95" y2="270" stroke="#DC2626" stroke-width="6"/>
+    <text x="95" y="260" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#DC2626">f₂−f₁</text>
+    <text x="95" y="362" text-anchor="middle" font-size="11" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">差频</text>
+    <line x1="160" y1="340" x2="160" y2="262" stroke="#D97706" stroke-width="6"/>
+    <text x="160" y="252" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#D97706">2f₁−f₂</text>
+    <line x1="205" y1="340" x2="205" y2="195" stroke="#0284C7" stroke-width="7"/>
+    <text x="205" y="186" text-anchor="middle" font-size="12" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">f₁</text>
+    <line x1="250" y1="340" x2="250" y2="195" stroke="#0284C7" stroke-width="7"/>
+    <text x="250" y="186" text-anchor="middle" font-size="12" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">f₂</text>
+    <line x1="295" y1="340" x2="295" y2="262" stroke="#D97706" stroke-width="6"/>
+    <text x="295" y="252" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#D97706">2f₂−f₁</text>
+    <line x1="375" y1="340" x2="375" y2="270" stroke="#DC2626" stroke-width="6"/>
+    <text x="375" y="260" text-anchor="middle" font-size="11" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#DC2626">f₁+f₂</text>
+    <text x="375" y="362" text-anchor="middle" font-size="11" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">和频</text>
+    <text x="32" y="424" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学来源与听感意义：</text>
+    <text x="32" y="456" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 二阶乘积 cos(ω₁t)cos(ω₂t) 产生和频 f₁+f₂ 与差频 f₂−f₁</text>
+    <text x="32" y="484" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 三阶项产生紧贴基音两侧的 2f₁−f₂ 与 2f₂−f₁（无法被</text>
+    <text x="32" y="512" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">  普通带通滤波滤除，直接决定和弦清晰度与颗粒感）</text>
+    <rect x="28" y="555" width="428" height="148" rx="12" fill="#FEF3C7" stroke="#FCD34D"/>
+    <text x="44" y="586" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">双音测试对模型辨识的价值：</text>
+    <text x="44" y="616" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 能有效区分“先滤波再非线性（Wiener）”与“先非线性</text>
+    <text x="44" y="642" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  再滤波（Hammerstein）”——两者单音谐波可调成一致，</text>
+    <text x="44" y="668" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  但双音差频 f₂−f₁ 与边带强度比可能显示出差异。</text>
+  </g>
+  <g transform="translate(1068, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#EDE9FE"/>
+    <text x="242" y="35" text-anchor="middle" font-size="21" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">3. 历史条件激励：跨时刻动态交互</text>
+    <rect x="28" y="72" width="428" height="44" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="242" y="100" text-anchor="middle" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">输入：x[n] = A u[n] + B v[n - d]（可变间隔 d）</text>
+    <rect x="28" y="136" width="428" height="250" rx="12" fill="#F8FAFC" stroke="#C4B5FD"/>
+    <text x="48" y="164" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">时域交互残差：前导瞬态改变后续脉冲的非线性输出</text>
+    <line x1="55" y1="305" x2="430" y2="305" stroke="#475569" stroke-width="2" marker-end="url(#arr-dark)"/>
+    <line x1="115" y1="305" x2="115" y2="200" stroke="#0284C7" stroke-width="6"/>
+    <circle cx="115" cy="200" r="6" fill="#0284C7"/>
+    <text x="115" y="190" text-anchor="middle" font-size="12" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">前导脉冲 A</text>
+    <line x1="215" y1="305" x2="215" y2="215" stroke="#0284C7" stroke-width="6"/>
+    <circle cx="215" cy="215" r="6" fill="#0284C7"/>
+    <text x="215" y="205" text-anchor="middle" font-size="12" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">测试脉冲 B</text>
+    <line x1="115" y1="330" x2="215" y2="330" stroke="#0F172A" stroke-width="1.5"/>
+    <text x="165" y="348" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">历史间隔 d</text>
+    <path d="M 215 305 Q 245 230, 275 280 T 335 295 T 405 305" fill="#EDE9FE" stroke="#7C3AED" stroke-width="3"/>
+    <text x="325" y="242" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">交互差值 Δ[n] = 2AB h₂[n, n-d]</text>
+    <text x="32" y="424" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学来源与听感意义：</text>
+    <text x="32" y="456" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 由非对角核 h₂[k₁,k₂] (k₁≠k₂) 或慢速包络/偏置状态引起</text>
+    <text x="32" y="484" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 决定鼓组连续瞬态冲击下的“恢复呼吸感”与动态饱和</text>
+    <text x="32" y="512" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 纯对角模型（k₁=k₂）对此类跨时刻乘积项的预测恒为 0</text>
+    <rect x="28" y="555" width="428" height="148" rx="12" fill="#EDE9FE" stroke="#C4B5FD"/>
+    <text x="44" y="586" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">工程检验黄金标准：</text>
+    <text x="44" y="616" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 只看单音 THD 会误以为对角 Hammerstein 已经完美；</text>
+    <text x="44" y="642" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 必须联立【单音扫频 + 双音互调 + 双脉冲/前史条件测试】，</text>
+    <text x="44" y="668" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  才能完整评估模型在真实音乐下的动态还原度。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：单音测试检验“倍频谐波轮廓”，双音测试检验“跨频互调与前后置滤波结构”，双脉冲与前史测试检验“跨时刻非对角交叉记忆”。</text>
+</svg>

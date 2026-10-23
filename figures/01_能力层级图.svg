@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-01</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">静态非线性、线性卷积与 Volterra 级数的正交能力象限对照</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">线性卷积与静态非线性分别沿着“时间记忆”和“瞬时非线性”两个正交维度扩展，二者并无从属包含关系；汇合后才构成 Volterra 系统</text>
+
+  <g transform="translate(68, 154)">
+    <rect x="0" y="0" width="960" height="710" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <line x1="90" y1="630" x2="910" y2="630" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+    <line x1="90" y1="630" x2="90" y2="60" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+    <text x="900" y="668" text-anchor="end" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">横轴：时间记忆深度 M（从无记忆 M=1 到长历史窗口）→</text>
+    <text x="112" y="75" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">↑ 纵轴：非线性阶次 P（从线性 P=1 到高阶多项式交互）</text>
+    <rect x="125" y="455" width="320" height="140" rx="14" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2"/>
+    <text x="285" y="490" text-anchor="middle" font-size="16.95" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">无记忆线性缩放（Memoryless Linear）</text>
+    <text x="285" y="520" text-anchor="middle" font-size="18" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">y[n] = a · x[n]   (P = 1, M = 1)</text>
+    <text x="285" y="552" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 理想推子 / 纯音量缩放</text>
+    <text x="285" y="576" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 既无频率选择性（记忆），也无谐波失真</text>
+    <rect x="125" y="115" width="340" height="230" rx="14" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+    <text x="295" y="152" text-anchor="middle" font-size="20.61" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">静态非线性（Static Waveshaper）</text>
+    <text x="295" y="184" text-anchor="middle" font-size="13.53" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">y[n] = f(x[n]) ≈ Σ a_p x^p[n]  (P &gt; 1, M = 1)</text>
+    <text x="148" y="218" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">具备能力：</text>
+    <text x="148" y="242" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 瞬时饱和、软削波、产生谐波与多音互调</text>
+    <text x="148" y="274" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">缺失维度（无记忆）：</text>
+    <text x="148" y="298" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 失真曲线对所有频率一视同仁，当前输出与</text>
+    <text x="148" y="320" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  几毫秒前经历的输入历史完全无关</text>
+    <rect x="555" y="395" width="365" height="200" rx="14" fill="#E0F2FE" stroke="#0284C7" stroke-width="2.5"/>
+    <text x="737" y="432" text-anchor="middle" font-size="21" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">线性卷积（FIR / LTI Filter）</text>
+    <text x="737" y="464" text-anchor="middle" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">y[n] = Σ h₁[k]x[n-k]  (P = 1, M &gt; 1)</text>
+    <text x="578" y="498" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">具备能力：</text>
+    <text x="578" y="522" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 频率响应塑形（EQ）、相位变化与混响尾音</text>
+    <text x="578" y="552" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">缺失维度（无非线性）：</text>
+    <text x="578" y="576" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 历史样本仅独立线性相加，不产生谐波与互调</text>
+    <rect x="555" y="115" width="365" height="230" rx="14" fill="#EDE9FE" stroke="#7C3AED" stroke-width="3"/>
+    <text x="737" y="152" text-anchor="middle" font-size="20.55" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">Volterra 级数（带记忆的高阶非线性）</text>
+    <text x="737" y="184" text-anchor="middle" font-size="15.64" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">y[n] = h₀ + Σ_p Σ h_p[k₁...k_p] Π x[n-k_i]</text>
+    <text x="578" y="218" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">正交汇合后的完整表达力（P &gt; 1, M &gt; 1）：</text>
+    <text x="578" y="244" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 包含一阶线性卷积 h₁[k] 与无记忆多项式特例</text>
+    <text x="578" y="270" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 对角项 g_p[k]：表达随频率变化的谐波染色</text>
+    <text x="578" y="296" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 非对角项 h₂[k₁,k₂]：表达不同历史时刻之间的</text>
+    <text x="578" y="318" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">  交叉记忆（过去波形改变当前非线性的强弱）</text>
+    <line x1="285" y1="455" x2="285" y2="355" stroke="#D97706" stroke-width="3" marker-end="url(#arr-diag)"/>
+    <text x="275" y="410" text-anchor="end" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">引入高次幂 x^p</text>
+    <line x1="445" y1="525" x2="545" y2="525" stroke="#0284C7" stroke-width="3" marker-end="url(#arr-lin)"/>
+    <text x="495" y="512" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">引入历史延迟</text>
+    <line x1="465" y1="230" x2="545" y2="230" stroke="#7C3AED" stroke-width="3.5" marker-end="url(#arr-cross)"/>
+    <text x="505" y="215" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">+ 历史记忆</text>
+    <line x1="737" y1="395" x2="737" y2="355" stroke="#7C3AED" stroke-width="3.5" marker-end="url(#arr-cross)"/>
+    <text x="750" y="380" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">+ 高阶乘积交互</text>
+  </g>
+  <g transform="translate(1056, 154)">
+    <rect x="0" y="0" width="496" height="710" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="496" height="52" rx="16" fill="#0F172A"/>
+    <text x="248" y="33" text-anchor="middle" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">为什么不能说“线性卷积比静态非线性更高级”？</text>
+    <rect x="24" y="76" width="448" height="185" rx="12" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="42" y="108" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1. 两者属于互不包含的正交子空间</text>
+    <text x="42" y="138" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 一条极长的房间混响 IR（M=48000）拥有极深</text>
+    <text x="42" y="162" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">  的记忆，但哪怕算一万点卷积也造不出一丝谐波；</text>
+    <text x="42" y="192" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 一个简单的三次方 y=x³ 能瞬间生成三次谐波，</text>
+    <text x="42" y="216" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">  却对高音和低音毫无频率选择能力。</text>
+    <rect x="24" y="282" width="448" height="195" rx="12" fill="#EDE9FE" stroke="#C4B5FD"/>
+    <text x="42" y="314" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">2. 真实模拟硬件恰好位于右上象限</text>
+    <text x="42" y="344" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 电子管、变压器与磁带机的失真不仅随瞬时幅度</text>
+    <text x="42" y="368" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  变化，还与输入频率、相位和前几毫秒的波形历</text>
+    <text x="42" y="392" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  史耦合（即同时要求 M &gt; 1 且 P &gt; 1）。</text>
+    <text x="42" y="422" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">• Volterra 是把这两条坐标轴统一起来的标准坐标系。</text>
+    <rect x="24" y="498" width="448" height="185" rx="12" fill="#FEF3C7" stroke="#FCD34D"/>
+    <text x="42" y="530" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">3. 工程建模的核心权衡问题</text>
+    <text x="42" y="560" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 进入右上象限后，参数规模从 M + P 变成 M^P；</text>
+    <text x="42" y="588" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 因此后续章节的核心不是“盲目把右上角填满”，</text>
+    <text x="42" y="612" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  而是寻找 Hammerstein、Wiener、对角核或低秩</text>
+    <text x="42" y="636" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  核等紧凑子结构。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">一句话总结：静态 Waveshaper 只会“扭曲当前”，线性卷积只会“记住过去”，Volterra 级数则把“记忆”与“高阶非线性交互”统一到同一张坐标系中。</text>
+</svg>

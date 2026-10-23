@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-14</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">有限阶、有限记忆前馈 Volterra 模型面对五类非线性现象的能力边界</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">区分“理论局部逼近能力”、“训练域外多项式发散风险”与“因缺失递归/持久状态而导致的结构性不可表示”</text>
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="1504" height="132" rx="14" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="132" rx="14" fill="#D1FAE5"/>
+    <text x="24" y="38" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">1. 弱至中等光滑动态饱和</text>
+    <text x="24" y="68" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">典型对象：模拟前级、变压器频段染色、温和电子管推挽</text>
+    <rect x="24" y="84" width="332" height="32" rx="6" fill="#FFFFFF" stroke="#059669"/>
+    <text x="190" y="105" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">评估结论：理想适用区（主力场景）</text>
+    <text x="405" y="38" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学与物理机制原因：</text>
+    <text x="405" y="66" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">满足局部光滑与衰减记忆假设；用低阶对角支路 g_p[k] 加少量非对角交叉项即可高精度复现谐波与互调。</text>
+    <text x="405" y="104" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">工程解决对策：优先采用并联 Hammerstein + 近对角/低秩交叉核。</text>
+  </g>
+  <g transform="translate(48, 290)">
+    <rect x="0" y="0" width="1504" height="132" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="132" rx="14" fill="#FEF3C7"/>
+    <text x="24" y="38" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">2. 幅度超出训练范围（外推失控）</text>
+    <text x="24" y="68" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">典型对象：任何非恒定有限阶多项式 H_P[ax] = a^P H_P[x]</text>
+    <rect x="24" y="84" width="332" height="32" rx="6" fill="#FFFFFF" stroke="#D97706"/>
+    <text x="190" y="105" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">评估结论：结构性外推发散风险</text>
+    <text x="405" y="38" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学与物理机制原因：</text>
+    <text x="405" y="66" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">普通有限阶多项式没有渐近饱和上界：当输入电平超出训练峰值时，最高次项 a^P 急剧膨胀导致数值爆音。</text>
+    <text x="405" y="104" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">工程解决对策：必须在输入端限定工作域，或嵌入有界点形器（如 atan/tanh）。</text>
+  </g>
+  <g transform="translate(48, 436)">
+    <rect x="0" y="0" width="1504" height="132" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="132" rx="14" fill="#FEF3C7"/>
+    <text x="24" y="38" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">3. 硬削波与折点阈值（Hard Clipper）</text>
+    <text x="24" y="68" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">典型对象：带死区、硬限幅墙 ±T 或分段折点的瞬时曲线</text>
+    <rect x="24" y="84" width="332" height="32" rx="6" fill="#FFFFFF" stroke="#D97706"/>
+    <text x="190" y="105" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">评估结论：缺乏全局精确表示（局部高阶近似）</text>
+    <text x="405" y="38" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学与物理机制原因：</text>
+    <text x="405" y="66" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">折点处导数不连续（破坏局部 Taylor 条件），用高阶多项式强行拟合会出现 Gibbs 振荡且伴随高倍频混叠。</text>
+    <text x="405" y="104" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">工程解决对策：直接用分段解析限幅或带 ceiling 的静态点形器，勿硬堆阶数。</text>
+  </g>
+  <g transform="translate(48, 582)">
+    <rect x="0" y="0" width="1504" height="132" rx="14" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="132" rx="14" fill="#FEE2E2"/>
+    <text x="24" y="38" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">4. 压缩器与母带限制器（Comp / Limiter）</text>
+    <text x="24" y="68" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">典型对象：含峰值/均方检测、attack/release 递推与前瞻</text>
+    <rect x="24" y="84" width="332" height="32" rx="6" fill="#FFFFFF" stroke="#DC2626"/>
+    <text x="190" y="105" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">评估结论：长时递归动态效率极低</text>
+    <text x="405" y="38" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学与物理机制原因：</text>
+    <text x="405" y="66" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">毫秒至秒级的释放时间常数对应递归包络状态 s_env[n]；用前馈窗口硬铺需要数万采样点的巨型核。</text>
+    <text x="405" y="104" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">工程解决对策：用显式包络状态控制器（d[n]→s_env[n]→g[n]）与 Volterra 染色模块解耦协作。</text>
+  </g>
+  <g transform="translate(48, 728)">
+    <rect x="0" y="0" width="1504" height="132" rx="14" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="132" rx="14" fill="#FEE2E2"/>
+    <text x="24" y="38" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">5. 铁磁磁滞与持久剩磁（Hysteresis）</text>
+    <text x="24" y="68" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">典型对象：磁带机、磁芯变压器在激励撤除后保留路径分支</text>
+    <rect x="24" y="84" width="332" height="32" rx="6" fill="#FFFFFF" stroke="#DC2626"/>
+    <text x="190" y="105" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">评估结论：有限前馈窗口无法区分持久状态</text>
+    <text x="405" y="38" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学与物理机制原因：</text>
+    <text x="405" y="66" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">若两段不同远期历史使材料停留在不同剩磁分支，而最近 M 个样本完全相同，无状态前馈窗口必然输出相同结果。</text>
+    <text x="405" y="104" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">工程解决对策：需引入显式磁化状态变量（Jiles-Atherton / Preisach / Play 算子）。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：认清边界不是否定 Volterra，而是让它专注承担“短至中时域频率相关非线性与局部交叉记忆”，把长时包络和持久状态交给专用模块。</text>
+</svg>

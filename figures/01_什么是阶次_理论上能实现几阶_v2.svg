@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1020" viewBox="0 0 1600 1020">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="1020" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-05</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">Volterra 阶次 p、核维度与输出谐波阶数 m 的上三角映射关系</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">纠正核心误区：① 第 p 阶核对应 p 个输入因子相乘；② 无直流偏置单频激励下，高阶奇（偶）次项会向所有更低奇（偶）次谐波回流</text>
+
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="940" height="770" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="940" height="50" rx="16" fill="#0F172A"/>
+    <text x="24" y="32" font-size="19" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">无偏置单频输入 x(t) = A cos(ωt) 下：Volterra 阶次 p（左）向输出频率分量 m·ω（右）的贡献连接</text>
+    <text x="175" y="82" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">Volterra 算子阶次 H_p（乘积因子数）</text>
+    <text x="755" y="82" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">输出频谱中的倍频分量（谐波阶数 m）</text>
+    <rect x="28" y="107" width="330" height="78" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+    <text x="44" y="137" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">p = 1（一阶线性核 h₁）</text>
+    <text x="44" y="165" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">1 个因子：x[n-k₁]</text>
+    <circle cx="358" cy="145" r="6" fill="#D97706"/>
+    <rect x="28" y="232" width="330" height="78" rx="12" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+    <text x="44" y="262" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">p = 2（二阶偶次核 h₂）</text>
+    <text x="44" y="290" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">2 个因子：x[n-k₁]x[n-k₂]</text>
+    <circle cx="358" cy="270" r="6" fill="#0284C7"/>
+    <rect x="28" y="357" width="330" height="78" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+    <text x="44" y="387" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">p = 3（三阶奇次核 h₃）</text>
+    <text x="44" y="415" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">3 个因子：cos³θ = 3/4 cosθ + 1/4 cos3θ</text>
+    <circle cx="358" cy="395" r="6" fill="#D97706"/>
+    <rect x="28" y="482" width="330" height="78" rx="12" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+    <text x="44" y="512" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">p = 4（四阶偶次核 h₄）</text>
+    <text x="44" y="540" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">4 个因子：cos⁴θ = 3/8 + 1/2 cos2θ + 1/8 cos4θ</text>
+    <circle cx="358" cy="520" r="6" fill="#0284C7"/>
+    <rect x="28" y="607" width="330" height="78" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+    <text x="44" y="637" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">p = 5（五阶奇次核 h₅）</text>
+    <text x="44" y="665" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">cos⁵θ = (10 cosθ + 5 cos3θ + cos5θ) / 16</text>
+    <circle cx="358" cy="645" r="6" fill="#D97706"/>
+    <rect x="580" y="98" width="332" height="66" rx="10" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+    <text x="598" y="125" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">0·ω（直流分量 DC）</text>
+    <text x="598" y="149" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">汇集 p = 2, 4, 6... 所有偶次阶贡献</text>
+    <circle cx="580" cy="130" r="6" fill="#0284C7"/>
+    <rect x="580" y="203" width="332" height="66" rx="10" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+    <text x="598" y="230" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">1·ω（基波分量 H1）</text>
+    <text x="598" y="254" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">汇集 p = 1, 3, 5... 所有奇次阶回流。</text>
+    <circle cx="580" cy="235" r="6" fill="#D97706"/>
+    <rect x="580" y="308" width="332" height="66" rx="10" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+    <text x="598" y="335" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">2·ω（二次谐波 H2）</text>
+    <text x="598" y="359" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">汇集 p = 2, 4, 6... 偶次阶贡献</text>
+    <circle cx="580" cy="340" r="6" fill="#0284C7"/>
+    <rect x="580" y="413" width="332" height="66" rx="10" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+    <text x="598" y="440" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">3·ω（三次谐波 H3）</text>
+    <text x="598" y="464" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">汇集 p = 3, 5, 7... 奇次阶回流。</text>
+    <circle cx="580" cy="445" r="6" fill="#D97706"/>
+    <rect x="580" y="518" width="332" height="66" rx="10" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+    <text x="598" y="545" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">4·ω（四次谐波 H4）</text>
+    <text x="598" y="569" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">汇集 p = 4, 6, 8... 偶次阶贡献</text>
+    <circle cx="580" cy="550" r="6" fill="#0284C7"/>
+    <rect x="580" y="623" width="332" height="66" rx="10" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+    <text x="598" y="650" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">5·ω（五次谐波 H5）</text>
+    <text x="598" y="674" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">汇集 p = 5, 7, 9... 奇次阶贡献</text>
+    <circle cx="580" cy="655" r="6" fill="#D97706"/>
+    <path d="M 364 145 C 460 145, 480 235, 574 235" fill="none" stroke="#D97706" stroke-width="3"/>
+    <path d="M 364 270 C 460 270, 480 130, 574 130" fill="none" stroke="#0284C7" stroke-width="2" stroke-dasharray="6,4"/>
+    <path d="M 364 270 C 460 270, 480 340, 574 340" fill="none" stroke="#0284C7" stroke-width="3"/>
+    <path d="M 364 395 C 460 395, 480 235, 574 235" fill="none" stroke="#D97706" stroke-width="2.5" stroke-dasharray="6,4"/>
+    <path d="M 364 395 C 460 395, 480 445, 574 445" fill="none" stroke="#D97706" stroke-width="3"/>
+    <path d="M 364 520 C 460 520, 480 130, 574 130" fill="none" stroke="#0284C7" stroke-width="1.8" stroke-dasharray="6,4"/>
+    <path d="M 364 520 C 460 520, 480 340, 574 340" fill="none" stroke="#0284C7" stroke-width="2" stroke-dasharray="6,4"/>
+    <path d="M 364 520 C 460 520, 480 550, 574 550" fill="none" stroke="#0284C7" stroke-width="3"/>
+    <path d="M 364 645 C 460 645, 480 235, 574 235" fill="none" stroke="#D97706" stroke-width="2" stroke-dasharray="6,4"/>
+    <path d="M 364 645 C 460 645, 480 445, 574 445" fill="none" stroke="#D97706" stroke-width="2.5" stroke-dasharray="6,4"/>
+    <path d="M 364 645 C 460 645, 480 655, 574 655" fill="none" stroke="#D97706" stroke-width="3"/>
+    <rect x="28" y="704" width="884" height="46" rx="8" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="470" y="733" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">实线 = 该阶产生的最高倍频；虚线 = 高阶向更低同奇偶次谐波的回流（奇阶只进奇次谐波，偶阶只进偶次谐波）</text>
+  </g>
+  <g transform="translate(1012, 144)">
+    <rect x="0" y="0" width="540" height="770" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="540" height="50" rx="16" fill="#7C3AED"/>
+    <text x="270" y="32" text-anchor="middle" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">阶次反解矩阵与三大工程推论（见 §1.9.1）</text>
+    <rect x="24" y="70" width="492" height="235" rx="12" fill="#EDE9FE" stroke="#C4B5FD"/>
+    <text x="42" y="100" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">1. 奇次支路（p=1,3,5）与谐波响应的上三角耦合：</text>
+    <text x="42" y="136" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">H_H1(Ω) = A·G₁(Ω) + (3/4)A³G₃(Ω) + (10/16)A⁵G₅(Ω)</text>
+    <text x="42" y="170" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">H_H3(Ω) =             (1/4)A³G₃(Ω) +  (5/16)A⁵G₅(Ω)</text>
+    <text x="42" y="204" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">H_H5(Ω) =                              (1/16)A⁵G₅(Ω)</text>
+    <text x="42" y="244" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 测得的第 3 次谐波 H_H3 并不直接等于三阶核 G₃。</text>
+    <text x="42" y="270" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 必须从最高阶 H_H5 先解出 G₅，再逐级向上回代反解 G₃、G₁。</text>
+    <text x="42" y="292" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">（偶次支路 p=2,4,6 对 DC、H2、H4 的回代完全同理）</text>
+    <rect x="24" y="325" width="492" height="190" rx="12" fill="#FEF3C7" stroke="#FCD34D"/>
+    <text x="42" y="355" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">2. 为什么三阶/五阶项会产生“大信号压缩感”？</text>
+    <text x="42" y="386" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 看第一行公式：G₃ 和 G₅ 不仅产生三次、五次谐波，</text>
+    <text x="42" y="412" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  还会按 (3/4)A³、(10/16)A⁵ 的比例直接叠加在基波 H1 上。</text>
+    <text x="42" y="440" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 当 G₃ 与 G₁ 反相（负号）时，输入幅度 A 越大，回流抵消</text>
+    <text x="42" y="466" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  基波的比例就越大——这就是多项式软饱和的增益压缩机制。</text>
+    <text x="42" y="494" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">• 所以“三阶核只管三次谐波、不管基波”是典型的错误直觉。</text>
+    <rect x="24" y="535" width="492" height="210" rx="12" fill="#FEE2E2" stroke="#FCA5A5"/>
+    <text x="42" y="565" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">3. 商业插件“测出 9 次谐波 = 9 阶完整核”吗？</text>
+    <text x="42" y="596" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 在严格无级联、无附加点形器的纯截断 Volterra 模型中，</text>
+    <text x="42" y="622" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  出现 9 次谐波确实要求最高阶数 P ≥ 9；</text>
+    <text x="42" y="650" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 但若支路内含有 atan/tanh 点形器（如 Acustica desoras）</text>
+    <text x="42" y="676" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  或前后级联模块，低阶支路也能激发高次谐波；</text>
+    <text x="42" y="704" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">• 即便存有 9 条对角谐波支路，也不等于辨识了九维完整张量。</text>
+  </g>
+  <rect x="48" y="942" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="969" r="8" fill="#38BDF8"/>
+  <text x="102" y="975" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心定律：Volterra 阶次 p = 核的延迟维度数；无偏置单频激励下，第 p 阶奇（偶）次项同时向 ≤ p 的所有奇（偶）次倍频回流。</text>
+</svg>

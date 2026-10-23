@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-04</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">从静态 Taylor 幂级数到带记忆 Volterra 级数的逐阶推广对应</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">将展开自变量从“单个瞬时标量 u = x - x₀”推广为“长度为 M 的输入历史向量 x_n”，导数权重随之升级为多维卷积核</text>
+
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="630" height="730" rx="16" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="630" height="54" rx="16" fill="#FEF3C7"/>
+    <text x="315" y="35" text-anchor="middle" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">静态函数 Taylor 展开（单变量无记忆）</text>
+    <rect x="28" y="72" width="574" height="50" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="315" y="104" text-anchor="middle" font-size="19" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">y = f(x₀ + u) = a₀ + a₁ u + a₂ u² + a₃ u³ + ...</text>
+    <rect x="28" y="145" width="574" height="96" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+    <text x="48" y="177" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">0 阶（基准项）</text>
+    <text x="582" y="177" text-anchor="end" font-size="18" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">a₀ = f(x₀)</text>
+    <text x="48" y="213" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">工作点处的静态直流输出偏移（1 个标量系数）</text>
+    <rect x="28" y="260" width="574" height="96" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+    <text x="48" y="292" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">1 阶（线性项）</text>
+    <text x="582" y="292" text-anchor="end" font-size="18" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">a₁ · u = f'(x₀) · u</text>
+    <text x="48" y="328" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">工作点切线斜率：瞬时线性增益（1 个标量系数）</text>
+    <rect x="28" y="375" width="574" height="96" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+    <text x="48" y="407" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">2 阶（二次项）</text>
+    <text x="582" y="407" text-anchor="end" font-size="18" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">a₂ · u² = [f''(x₀)/2!] · u²</text>
+    <text x="48" y="443" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">局部曲率：当前样本平方带来的偶次非对称失真（1 个系数）</text>
+    <rect x="28" y="490" width="574" height="96" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+    <text x="48" y="522" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">3 阶（三次项）</text>
+    <text x="582" y="522" text-anchor="end" font-size="18" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">a₃ · u³ = [f'''(x₀)/3!] · u³</text>
+    <text x="48" y="558" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">三阶拐率：当前样本立方带来的奇次压缩/扩张（1 个系数）</text>
+    <rect x="28" y="612" width="574" height="92" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="48" y="642" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">静态展开的自变量：</text>
+    <text x="48" y="672" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">仅依赖当前时刻单个标量偏离 u = x[n] − x₀，每阶只有 1 个参数 a_p。</text>
+  </g>
+  <g transform="translate(690, 144)">
+    <rect x="10" y="72" width="200" height="50" rx="25" fill="#0F172A"/>
+    <text x="110" y="103" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">自变量推广：u → x_n</text>
+    <line x1="0" y1="193" x2="212" y2="193" stroke="#7C3AED" stroke-width="3" marker-end="url(#arr-cross)"/>
+    <rect x="20" y="165" width="180" height="24" rx="6" fill="#EDE9FE"/>
+    <text x="110" y="182" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">标量 → 标量</text>
+    <line x1="0" y1="308" x2="212" y2="308" stroke="#7C3AED" stroke-width="3" marker-end="url(#arr-cross)"/>
+    <rect x="20" y="280" width="180" height="24" rx="6" fill="#EDE9FE"/>
+    <text x="110" y="297" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">标量乘 → 1D 卷积</text>
+    <line x1="0" y1="423" x2="212" y2="423" stroke="#7C3AED" stroke-width="3" marker-end="url(#arr-cross)"/>
+    <rect x="20" y="395" width="180" height="24" rx="6" fill="#EDE9FE"/>
+    <text x="110" y="412" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">平方 → 2D 双线性核</text>
+    <line x1="0" y1="538" x2="212" y2="538" stroke="#7C3AED" stroke-width="3" marker-end="url(#arr-cross)"/>
+    <rect x="20" y="510" width="180" height="24" rx="6" fill="#EDE9FE"/>
+    <text x="110" y="527" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">立方 → 3D 三重求和</text>
+  </g>
+  <g transform="translate(922, 144)">
+    <rect x="0" y="0" width="630" height="730" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="630" height="54" rx="16" fill="#EDE9FE"/>
+    <text x="315" y="35" text-anchor="middle" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">离散 Volterra 级数展开（多变量历史泛函）</text>
+    <rect x="28" y="72" width="574" height="50" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="315" y="104" text-anchor="middle" font-size="18" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">y[n] = F(x_n) = h₀ + H₁[x](n) + H₂[x](n) + H₃[x](n) + ...</text>
+    <rect x="28" y="145" width="574" height="96" rx="12" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="48" y="177" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">0 阶（常数核）</text>
+    <text x="582" y="177" text-anchor="end" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">h₀</text>
+    <text x="48" y="213" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">无输入时的基准偏移（吸收 1/p! 系数约定下直接记为 h₀）</text>
+    <rect x="28" y="260" width="574" height="96" rx="12" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="48" y="292" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">1 阶（线性卷积）</text>
+    <text x="582" y="292" text-anchor="end" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">Σ h₁[k₁] x[n-k₁]</text>
+    <text x="48" y="328" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">对过去 M 个样本做线性加权（M 个系数，对应脉冲响应 IR）</text>
+    <rect x="28" y="375" width="574" height="96" rx="12" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="48" y="407" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">2 阶（二阶交互）</text>
+    <text x="582" y="407" text-anchor="end" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">ΣΣ h₂[k₁,k₂] x[n-k₁]x[n-k₂]</text>
+    <text x="48" y="443" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">包含对角平方 x²[n-k] 与非对角跨时刻乘积 x[n-k₁]x[n-k₂]</text>
+    <rect x="28" y="490" width="574" height="96" rx="12" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="48" y="522" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">3 阶（三阶交互）</text>
+    <text x="582" y="522" text-anchor="end" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">ΣΣΣ h₃[k₁,k₂,k₃] x[n-k₁]x[n-k₂]x[n-k₃]</text>
+    <text x="48" y="558" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">任意三个历史位置（可重复或不同）的联合三次乘积加权</text>
+    <rect x="28" y="612" width="574" height="92" rx="10" fill="#FEE2E2" stroke="#FCA5A5"/>
+    <text x="48" y="642" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">数学适用边界提醒（勿把比喻当无条件定理）：</text>
+    <text x="48" y="672" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">局部光滑与衰减记忆下才具有良好收敛性；硬削波折点与持久剩磁不满足全局展开条件。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：“带记忆的 Taylor 级数”是指将多变量 Taylor 展开作用在输入历史向量 x_n 上，使标量幂次 u^p 升级为多维延迟乘积。</text>
+</svg>

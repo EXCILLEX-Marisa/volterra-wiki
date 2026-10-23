@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 00-02</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">线性卷积、动态卷积与 Volterra 高阶非线性卷积的结构对比</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">三者关注的机制层次不同：固定脉冲响应加权、随状态/包络切换工作点滤波器簇，以及不同历史样本之间的高阶相乘</text>
+
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#E0F2FE"/>
+    <text x="242" y="35" text-anchor="middle" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">1. 线性卷积（LTI Convolution）</text>
+    <rect x="28" y="74" width="428" height="48" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="242" y="105" text-anchor="middle" font-size="20" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">y[n] = Σ h₁[k] · x[n - k]</text>
+    <rect x="28" y="142" width="428" height="220" rx="12" fill="#E0F2FE" stroke="#7DD3FC"/>
+    <text x="48" y="170" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">信号流与核形态：单一固定一维脉冲响应 h₁[k]</text>
+    <line x1="60" y1="310" x2="420" y2="310" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="80" y1="190" x2="80" y2="335" stroke="#64748B" stroke-width="1.5"/>
+    <path d="M 80 310 L 100 205 L 125 340 L 150 245 L 175 325 L 205 275 L 235 315 L 270 295 L 310 312 L 360 307 L 410 310" fill="none" stroke="#0284C7" stroke-width="3.5"/>
+    <text x="415" y="332" text-anchor="end" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">延迟索引 k →</text>
+    <text x="90" y="206" font-size="14" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">h₁[k]（固定不变）</text>
+    <text x="32" y="400" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">核心数学性质：</text>
+    <text x="32" y="430" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 严格遵守齐次性与可加性（叠加原理）</text>
+    <text x="32" y="458" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 历史样本之间只发生独立加权相加，互不调制</text>
+    <text x="32" y="505" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">适用建模对象：</text>
+    <text x="32" y="535" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 房间声学混响、箱体脉冲响应（Cab IR）</text>
+    <text x="32" y="563" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 固定工作点下的线性 EQ 幅频与相频特性</text>
+    <rect x="28" y="600" width="428" height="104" rx="10" fill="#FEE2E2" stroke="#FCA5A5"/>
+    <text x="44" y="628" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">能力边界（无法表达）：</text>
+    <text x="44" y="656" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 无法产生任何新频率（无谐波失真、无互调失真）</text>
+    <text x="44" y="682" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 频率响应与增益不会随输入信号电平改变</text>
+  </g>
+  <g transform="translate(558, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#D1FAE5"/>
+    <text x="242" y="35" text-anchor="middle" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">2. 动态卷积（Dynamic Convolution）</text>
+    <rect x="28" y="74" width="428" height="48" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="242" y="105" text-anchor="middle" font-size="20" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">y[n] = Σ h(s_env[n], k) · x[n - k]</text>
+    <rect x="28" y="142" width="428" height="220" rx="12" fill="#D1FAE5" stroke="#6EE7B7"/>
+    <text x="48" y="170" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">信号流与核形态：由包络/状态驱动的多工作点 IR 簇</text>
+    <rect x="65" y="190" width="210" height="40" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+    <text x="170" y="215" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">工作点 -18 dBFS 响应核</text>
+    <rect x="65" y="240" width="210" height="40" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+    <text x="170" y="265" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">工作点 -6 dBFS 响应核</text>
+    <rect x="65" y="290" width="210" height="40" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+    <text x="170" y="315" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">工作点 0 dBFS 饱和核</text>
+    <rect x="305" y="215" width="125" height="90" rx="10" fill="#059669"/>
+    <text x="367" y="248" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFF">状态检测与插值</text>
+    <text x="367" y="272" text-anchor="middle" font-size="14" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#E2E8F0">s_env[n]</text>
+    <text x="367" y="292" text-anchor="middle" font-size="12" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#E2E8F0">Smooth / NOVA</text>
+    <line x1="305" y1="260" x2="280" y2="260" stroke="#059669" stroke-width="2.5" marker-end="url(#arr-state)"/>
+    <text x="32" y="400" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">核心数学性质：</text>
+    <text x="32" y="430" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 滤波器系数随输入包络、电平或旋钮状态实时插值</text>
+    <text x="32" y="458" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 因核受输入驱动，整体系统已成为非线性/时变映射</text>
+    <text x="32" y="505" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">适用建模对象：</text>
+    <text x="32" y="535" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• Sintefex / Liquid 系列多电平动态采样硬件复刻</text>
+    <text x="32" y="563" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 随节目包络改变频响与阻尼的模拟压限/通道条</text>
+    <rect x="28" y="600" width="428" height="104" rx="10" fill="#FEF3C7" stroke="#FCD34D"/>
+    <text x="44" y="628" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">工程与理论注意：</text>
+    <text x="44" y="656" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 属于工程混合架构，不直接等同于经典 Volterra 展开</text>
+    <text x="44" y="682" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 核心难点是离散工作点之间的平滑过渡与相位一致性</text>
+  </g>
+  <g transform="translate(1068, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#EDE9FE"/>
+    <text x="242" y="35" text-anchor="middle" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">3. Volterra 高阶卷积（Nonlinear）</text>
+    <rect x="28" y="74" width="428" height="48" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="242" y="105" text-anchor="middle" font-size="14.21" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">y[n] = Σ h₁[k]x[n-k] + ΣΣ h₂[k₁,k₂]x[n-k₁]x[n-k₂] + ...</text>
+    <rect x="28" y="142" width="428" height="220" rx="12" fill="#EDE9FE" stroke="#C4B5FD"/>
+    <text x="48" y="170" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">信号流与核形态：多时刻样本相乘 + 多维核张量 h_p</text>
+    <circle cx="95" cy="220" r="22" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+    <text x="95" y="226" text-anchor="middle" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">x[n-k₁]</text>
+    <circle cx="95" cy="300" r="22" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+    <text x="95" y="306" text-anchor="middle" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">x[n-k₂]</text>
+    <circle cx="185" cy="260" r="20" fill="#7C3AED"/>
+    <text x="185" y="267" text-anchor="middle" font-size="20" font-weight="bold" fill="#FFF">×</text>
+    <line x1="117" y1="228" x2="165" y2="252" stroke="#7C3AED" stroke-width="2"/>
+    <line x1="117" y1="292" x2="165" y2="268" stroke="#7C3AED" stroke-width="2"/>
+    <line x1="205" y1="260" x2="255" y2="260" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-cross)"/>
+    <rect x="265" y="195" width="25" height="25" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="293" y="195" width="25" height="25" rx="3" fill="#A78BFA" stroke="#FFF"/>
+    <rect x="321" y="195" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="349" y="195" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="377" y="195" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="265" y="223" width="25" height="25" rx="3" fill="#A78BFA" stroke="#FFF"/>
+    <rect x="293" y="223" width="25" height="25" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="321" y="223" width="25" height="25" rx="3" fill="#A78BFA" stroke="#FFF"/>
+    <rect x="349" y="223" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="377" y="223" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="265" y="251" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="293" y="251" width="25" height="25" rx="3" fill="#A78BFA" stroke="#FFF"/>
+    <rect x="321" y="251" width="25" height="25" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="349" y="251" width="25" height="25" rx="3" fill="#A78BFA" stroke="#FFF"/>
+    <rect x="377" y="251" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="265" y="279" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="293" y="279" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="321" y="279" width="25" height="25" rx="3" fill="#A78BFA" stroke="#FFF"/>
+    <rect x="349" y="279" width="25" height="25" rx="3" fill="#D97706" stroke="#FFF"/>
+    <rect x="377" y="279" width="25" height="25" rx="3" fill="#A78BFA" stroke="#FFF"/>
+    <rect x="265" y="307" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="293" y="307" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="321" y="307" width="25" height="25" rx="3" fill="#DDD6FE" stroke="#FFF"/>
+    <rect x="349" y="307" width="25" height="25" rx="3" fill="#A78BFA" stroke="#FFF"/>
+    <rect x="377" y="307" width="25" height="25" rx="3" fill="#D97706" stroke="#FFF"/>
+    <text x="335" y="352" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">二阶核 h₂[k₁, k₂]（橙=对角，紫=交叉）</text>
+    <text x="32" y="400" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">核心数学性质：</text>
+    <text x="32" y="430" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 显式按阶次 p 展开历史样本乘积（齐次阶算子 H_p）</text>
+    <text x="32" y="458" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 对角项产生谐波染色，非对角项表达跨时刻交叉记忆</text>
+    <text x="32" y="505" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">适用建模对象：</text>
+    <text x="32" y="535" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 模拟前级、磁带饱和、电子管放大级与频率相关失真</text>
+    <text x="32" y="563" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 商业插件中常约简为并联 Hammerstein + 因子化交叉项</text>
+    <rect x="28" y="600" width="428" height="104" rx="10" fill="#EDE9FE" stroke="#C4B5FD"/>
+    <text x="44" y="628" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">与动态卷积的关系：</text>
+    <text x="44" y="656" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 二者并非互斥：商业引擎（如 Acustica V.V.K.T./NOVA）</text>
+    <text x="44" y="682" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  常在每个电平工作点内部使用约简 Volterra 分支库</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">一句话区分：线性卷积是“单条固定滤波器”，动态卷积是“随状态切换的滤波器簇”，Volterra 卷积是“历史样本高阶相乘的多维展开”。</text>
+</svg>

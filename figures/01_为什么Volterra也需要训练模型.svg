@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-09</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">为什么 Volterra 模型也需要“训练”？显式特征线性回归与神经网络训练的异同</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">写出 Volterra 公式只是确定了“结构假设”；核系数 θ 仍必须从数据中学习，但它在固定特征字典下属于凸的线性参数回归问题</text>
+
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="1504" height="350" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1504" height="48" rx="16" fill="#E0F2FE"/>
+    <text x="24" y="31" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">路线 1｜Volterra 核系数辨识：对输入 x[n] 非线性，但对未知核参数 θ 是线性的（Linear-in-Parameters）</text>
+    <rect x="28" y="76" width="175" height="190" rx="12" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="115" y="108" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1. 已知输入历史</text>
+    <text x="115" y="142" text-anchor="middle" font-size="16" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">x[n], x[n-1], ...</text>
+    <text x="115" y="176" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">由实验设计注入</text>
+    <text x="115" y="200" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">（需满足持续激励）</text>
+    <line x1="203" y1="171" x2="253" y2="171" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <rect x="258" y="76" width="420" height="190" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+    <text x="468" y="106" text-anchor="middle" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">2. 显式构造非线性特征矩阵 X（无未知参数）</text>
+    <rect x="278" y="120" width="380" height="92" rx="8" fill="#FFFFFF" stroke="#FCD34D"/>
+    <text x="468" y="148" text-anchor="middle" font-size="13.46" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">φᵀ[n] = [ x[n], x[n-1], x²[n], x[n]x[n-1], x³[n], ... ]</text>
+    <text x="468" y="178" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">所有高阶乘积在回归前已由输入样本直接算出</text>
+    <text x="468" y="200" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">风险：若特征列高度共线，XᵀX 条件数会严重恶化</text>
+    <line x1="678" y1="171" x2="728" y2="171" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <rect x="733" y="76" width="390" height="190" rx="12" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+    <text x="928" y="106" text-anchor="middle" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">3. 线性参数回归与凸正则化求解 θ</text>
+    <text x="928" y="142" text-anchor="middle" font-size="20" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">ŷ = X θ   ⇒   min ‖y − Xθ‖₂² + λ R(θ)</text>
+    <text x="753" y="178" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• Ridge (L2)：抑制病态共线导致的核系数大幅震荡</text>
+    <text x="753" y="204" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• LASSO / OMP (L1)：从庞大候选集中筛选稀疏交叉核</text>
+    <text x="753" y="230" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 自适应 LMS / RLS：支持在线递推跟踪慢变系数</text>
+    <line x1="1123" y1="171" x2="1173" y2="171" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <rect x="1178" y="76" width="298" height="190" rx="12" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
+    <text x="1327" y="108" text-anchor="middle" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">4. 存在全局最优解</text>
+    <text x="1327" y="142" text-anchor="middle" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">θ* = [h₁, h₂, h₃, ...]ᵀ</text>
+    <text x="1196" y="176" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 凸优化问题，无局部极小值陷阱</text>
+    <text x="1196" y="202" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 每个系数直接对应明确的阶次</text>
+    <text x="1196" y="226" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  与历史延迟坐标</text>
+    <text x="28" y="312" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">关键提醒：能写出闭式解 θ = (XᵀX + λI)⁻¹Xᵀy，不代表随便录首歌就能估准——未被激励到的频率或交叉延迟坐标依然不可辨识。</text>
+  </g>
+  <g transform="translate(48, 514)">
+    <rect x="0" y="0" width="1504" height="360" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1504" height="48" rx="16" fill="#EDE9FE"/>
+    <text x="24" y="31" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">路线 2｜深度神经网络音频建模（如 WaveNet / TCN / RNN）：特征表示与输出权重联合端到端训练</text>
+    <rect x="28" y="76" width="440" height="195" rx="12" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2"/>
+    <text x="248" y="108" text-anchor="middle" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">隐藏层自动学习内部特征表示（非凸复合映射）</text>
+    <text x="248" y="144" text-anchor="middle" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">ŷ[n] = Σ a_r σ( b_r + w_rᵀ x_n )  或门控膨胀卷积</text>
+    <text x="48" y="180" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 无需手工枚举高阶交叉项，隐藏层激活函数局部展开</text>
+    <text x="48" y="206" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  隐式生成大量可分离高阶 Volterra 核的叠加（见 §1.20）</text>
+    <text x="48" y="232" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 依赖反向传播（SGD/Adam）迭代优化，目标函数非凸</text>
+    <rect x="498" y="76" width="978" height="255" rx="12" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <line x1="498" y1="120" x2="1476" y2="120" stroke="#CBD5E1" stroke-width="1.5"/>
+    <line x1="720" y1="76" x2="720" y2="331" stroke="#CBD5E1" stroke-width="1.5"/>
+    <line x1="1095" y1="76" x2="1095" y2="331" stroke="#CBD5E1" stroke-width="1.5"/>
+    <text x="609" y="104" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">比较维度</text>
+    <text x="907" y="104" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">显式 Volterra / 正则化回归</text>
+    <text x="1285" y="104" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">深度神经网络（WaveNet / NAM 类）</text>
+    <text x="609" y="152" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">特征构造方式</text>
+    <text x="907" y="152" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">人工显式指定阶次 p、延迟窗口 M 与约简核结构</text>
+    <text x="1285" y="152" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">多层卷积/循环隐藏单元自动学习非线性混合特征</text>
+    <text x="609" y="198" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">优化求解性质</text>
+    <text x="907" y="198" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">对参数 θ 线性（LS / Ridge / LASSO 直接求解）</text>
+    <text x="1285" y="198" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">高度非凸，依赖梯度下降、学习率调度与多轮训练</text>
+    <text x="609" y="244" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">输入—输出可解释性</text>
+    <text x="907" y="244" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">极高（可精确剥离每阶谐波与特定历史延迟交互）</text>
+    <text x="1285" y="244" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">较低（权重散布在各层矩阵中，难以直接按阶拆解）</text>
+    <text x="609" y="290" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">超范围外推与混合潜力</text>
+    <text x="907" y="290" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">高阶多项式超范围易发散，需配点形器或限幅边界</text>
+    <text x="1285" y="290" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">激活函数有界，且可离线蒸馏转写为 Volterra 分支核</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：给定结构不等于知道参数；Volterra 把非线性放进显式特征字典 X 中，从而将核辨识转化为可解释的线性回归问题。</text>
+</svg>

@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-10</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">非线性音频系统辨识的实验设计与残差证伪闭环</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">“喂入更多同类音乐”不能自动补齐可辨识性盲区：必须通过受控激励激发目标自由度，并根据独立验证残差定向修正模型结构</text>
+
+  <g transform="translate(48, 150)">
+    <rect x="0" y="0" width="340" height="230" rx="16" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.5" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="340" height="46" rx="16" fill="#0284C7"/>
+    <text x="170" y="30" text-anchor="middle" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">1. 锁定工况与提出结构假设</text>
+    <text x="20" y="76" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 限定采样率、输入电平域与旋钮位置</text>
+    <text x="20" y="104" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 确认初始状态 s[0] 控制与热稳定条件</text>
+    <text x="20" y="132" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 从最简基线起步（LTI → 对角核 →</text>
+    <text x="20" y="156" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  近对角/低秩交叉核 → 慢状态混合）</text>
+    <text x="20" y="196" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">原则：每加一类自由度都针对明确问题</text>
+    <line x1="340" y1="115" x2="382" y2="115" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+    <rect x="388" y="0" width="340" height="230" rx="16" fill="#FFFFFF" stroke="#D97706" stroke-width="2.5" filter="url(#shadow)"/>
+    <rect x="388" y="0" width="340" height="46" rx="16" fill="#D97706"/>
+    <text x="558" y="30" text-anchor="middle" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">2. 针对性组合激励采集</text>
+    <text x="408" y="76" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 多电平单音 / ESS：探测谐波频率塑形</text>
+    <text x="408" y="104" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 双音 / Multisine：探测跨频互调 IMD</text>
+    <text x="408" y="132" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 双脉冲序列：探测非对角坐标 h₂[n,n-d]</text>
+    <text x="408" y="160" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 阶跃包络 / 预磁化历史：探测慢状态</text>
+    <text x="408" y="196" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">核心：保证回归矩阵 X 具备良好列满秩</text>
+    <line x1="728" y1="115" x2="770" y2="115" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+    <rect x="776" y="0" width="340" height="230" rx="16" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2.5" filter="url(#shadow)"/>
+    <rect x="776" y="0" width="340" height="46" rx="16" fill="#7C3AED"/>
+    <text x="946" y="30" text-anchor="middle" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">3. 参数估计与复杂度控制</text>
+    <text x="796" y="76" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 合并对称核重复排列，消除冗余列</text>
+    <text x="796" y="104" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 上三角谐波反解或正交基（Chebyshev/</text>
+    <text x="796" y="132" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  Laguerre）解耦，改善矩阵条件数</text>
+    <text x="796" y="160" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 在验证集上优选正则化超参数 λ 与阶数 P</text>
+    <text x="796" y="196" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">产出：固定参数预算下的候选模型 ŷ[n]</text>
+    <line x1="1116" y1="115" x2="1158" y2="115" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+    <rect x="1164" y="0" width="340" height="230" rx="16" fill="#FFFFFF" stroke="#059669" stroke-width="2.5" filter="url(#shadow)"/>
+    <rect x="1164" y="0" width="340" height="46" rx="16" fill="#059669"/>
+    <text x="1334" y="30" text-anchor="middle" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">4. 独立测试集多维残差诊断</text>
+    <text x="1184" y="76" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">残差：e[n] = y[n] − ŷ[n]</text>
+    <text x="1184" y="106" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 不应仅依据单一总均方误差（MSE）</text>
+    <text x="1184" y="134" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 分别检查：频谱谐波残差、双音互调</text>
+    <text x="1184" y="162" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  残差、瞬态前后差分与超范围安全性</text>
+    <text x="1184" y="196" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">↓ 根据残差特征触发下方定向反馈回路 ↓</text>
+  </g>
+  <line x1="1382" y1="380" x2="1382" y2="435" stroke="#DC2626" stroke-width="3.5" marker-end="url(#arr-warn)"/>
+  <g transform="translate(48, 442)">
+    <rect x="0" y="0" width="1504" height="430" rx="16" fill="#FFFFFF" stroke="#DC2626" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1504" height="50" rx="16" fill="#FEE2E2"/>
+    <text x="24" y="32" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">残差诊断与定向修正闭环：残差 e[n] 里留下了什么确定性结构，就回头补哪一类模型能力</text>
+    <rect x="24" y="72" width="345" height="270" rx="12" fill="#F8FAFC" stroke="#7DD3FC" stroke-width="2"/>
+    <text x="42" y="104" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">症状 A：连小信号频响/相位都失配</text>
+    <text x="42" y="136" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 残差与输入呈高度线性相关</text>
+    <text x="42" y="162" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 或存在周期性梳状滤波伪影</text>
+    <rect x="40" y="190" width="313" height="130" rx="8" fill="#E0F2FE"/>
+    <text x="56" y="218" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">→ 定向修正动作：</text>
+    <text x="56" y="244" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1. 先排查亚采样时间对齐与延迟补偿</text>
+    <text x="56" y="268" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">2. 延长一阶线性核 M₁ 或引入 FIR+IIR</text>
+    <text x="56" y="292" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">   混合长尾（无需盲目加高阶非线性）</text>
+    <rect x="394" y="72" width="345" height="270" rx="12" fill="#F8FAFC" stroke="#FCD34D" stroke-width="2"/>
+    <text x="412" y="104" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">症状 B：单音高次谐波或特定频段失配</text>
+    <text x="412" y="136" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 单音扫频下某次谐波幅度/相位不准</text>
+    <text x="412" y="162" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 或大电平下饱和天花板形状不符</text>
+    <rect x="410" y="190" width="313" height="130" rx="8" fill="#FEF3C7"/>
+    <text x="426" y="218" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">→ 定向修正动作：</text>
+    <text x="426" y="244" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1. 检查上三角阶次反解是否遗漏高阶回流</text>
+    <text x="426" y="268" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">2. 增加对角支路阶数 P、嵌入有界点形器</text>
+    <text x="426" y="292" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">   或加密多电平工作点采样</text>
+    <rect x="764" y="72" width="345" height="270" rx="12" fill="#F8FAFC" stroke="#C4B5FD" stroke-width="2"/>
+    <text x="782" y="104" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">症状 C：单音准，但双音 IMD/双脉冲失配</text>
+    <text x="782" y="136" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 单音 ESS 拟合极好，但双音差频 f₂−f₁、</text>
+    <text x="782" y="162" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  2f₁−f₂ 与双脉冲差分 Δ[n] 残差显著</text>
+    <rect x="780" y="190" width="313" height="130" rx="8" fill="#EDE9FE"/>
+    <text x="796" y="218" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">→ 定向修正动作：</text>
+    <text x="796" y="244" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1. 说明纯对角 Hammerstein 结构存在不足。</text>
+    <text x="796" y="268" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">2. 引入前置滤波 P(f)（Wiener–Hammerstein）</text>
+    <text x="796" y="292" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">   或加入近对角/低秩因子化交叉项 u[n]v[n]</text>
+    <rect x="1134" y="72" width="345" height="270" rx="12" fill="#F8FAFC" stroke="#6EE7B7" stroke-width="2"/>
+    <text x="1152" y="104" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">症状 D：受百毫秒级前史或初始状态影响</text>
+    <text x="1152" y="136" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 大瞬态过后的安静尾音增益/音色缓慢漂移</text>
+    <text x="1152" y="162" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 或不同预磁化历史下输出停留在不同分支</text>
+    <rect x="1150" y="190" width="313" height="130" rx="8" fill="#D1FAE5"/>
+    <text x="1166" y="218" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">→ 定向修正动作：</text>
+    <text x="1166" y="244" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1. 不要盲目把短时 Volterra 窗口拉长到数万点</text>
+    <text x="1166" y="268" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">2. 引入显式包络状态 s_env[n]（如 attack/</text>
+    <text x="1166" y="292" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">   release 控制器）或专用磁滞状态算子</text>
+    <path d="M 752 355 L 752 395 L 170 395 L 170 355" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="6,4"/>
+    <text x="752" y="388" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">↺ 将残差诊断结论反馈至【阶段 1 与阶段 2】，迭代升级模型结构或补充判别实验 ↺</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：系统辨识不是“选一个万能黑盒喂数据”，而是“提出结构假设 → 设计能推翻它的实验 → 用残差定位缺失机制”的科学闭环。</text>
+</svg>

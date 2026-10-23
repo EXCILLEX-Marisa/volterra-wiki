@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-07</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">单脉冲、双脉冲扫描与指数正弦扫频（ESS）的可辨识域对比</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">不同测试激励能“照亮”的 Volterra 核坐标区域截然不同：单脉冲只踩主对角线，双脉冲探测非对角网格，ESS 高效分离频域谐波通道</text>
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#E0F2FE"/>
+    <text x="242" y="35" text-anchor="middle" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">1. 单脉冲激励（Single Impulse）</text>
+    <rect x="28" y="70" width="428" height="42" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="242" y="97" text-anchor="middle" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">x[n] = A · δ[n]</text>
+    <rect x="28" y="128" width="428" height="275" rx="12" fill="#F8FAFC" stroke="#7DD3FC"/>
+    <text x="242" y="154" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">在二阶核平面 (k₁, k₂) 上点亮的区域：仅主对角线</text>
+    <rect x="140" y="175" width="29" height="29" rx="4" fill="#0284C7" stroke="#FFF"/>
+    <rect x="172" y="175" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="204" y="175" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="236" y="175" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="268" y="175" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="300" y="175" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="140" y="207" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="172" y="207" width="29" height="29" rx="4" fill="#0284C7" stroke="#FFF"/>
+    <rect x="204" y="207" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="236" y="207" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="268" y="207" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="300" y="207" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="140" y="239" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="172" y="239" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="204" y="239" width="29" height="29" rx="4" fill="#0284C7" stroke="#FFF"/>
+    <rect x="236" y="239" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="268" y="239" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="300" y="239" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="140" y="271" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="172" y="271" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="204" y="271" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="236" y="271" width="29" height="29" rx="4" fill="#0284C7" stroke="#FFF"/>
+    <rect x="268" y="271" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="300" y="271" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="140" y="303" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="172" y="303" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="204" y="303" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="236" y="303" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="268" y="303" width="29" height="29" rx="4" fill="#0284C7" stroke="#FFF"/>
+    <rect x="300" y="303" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="140" y="335" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="172" y="335" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="204" y="335" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="236" y="335" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="268" y="335" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
+    <rect x="300" y="335" width="29" height="29" rx="4" fill="#0284C7" stroke="#FFF"/>
+    <text x="242" y="388" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">盲区：k₁ ≠ k₂ 的非对角格全部为 0，且各阶对角项混叠</text>
+    <text x="32" y="438" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">能观察到什么：</text>
+    <text x="32" y="468" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 线性系统的完整脉冲响应 h₁[n]</text>
+    <text x="32" y="494" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 各阶主对角线在时刻 n 的混合和 Σ A^p h_p[n,...,n]</text>
+    <rect x="28" y="535" width="428" height="168" rx="10" fill="#FEE2E2" stroke="#FCA5A5"/>
+    <text x="44" y="565" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">局限与误区：</text>
+    <text x="44" y="594" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 因 δ[n-k₁]δ[n-k₂] 仅当 k₁=k₂=n 时非零，单脉冲从数学</text>
+    <text x="44" y="620" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  上根本不会触发任何跨时刻乘积项；</text>
+    <text x="44" y="646" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 单脉冲能量集中在一点，实测硬件时信噪比（SNR）极低。</text>
+  </g>
+  <g transform="translate(558, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#EDE9FE"/>
+    <text x="242" y="35" text-anchor="middle" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">2. 双脉冲差分扫描（Twin-Impulse）</text>
+    <rect x="28" y="70" width="428" height="42" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="242" y="97" text-anchor="middle" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">x[n] = A·δ[n] + B·δ[n-d]</text>
+    <rect x="28" y="128" width="428" height="275" rx="12" fill="#F8FAFC" stroke="#C4B5FD"/>
+    <text x="242" y="154" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">在二阶核平面 (k₁, k₂) 上点亮的区域：逐条次对角线</text>
+    <rect x="140" y="175" width="29" height="29" rx="4" fill="#CBD5E1" stroke="#FFF"/>
+    <rect x="172" y="175" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="204" y="175" width="29" height="29" rx="4" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="236" y="175" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="268" y="175" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="300" y="175" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="140" y="207" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="172" y="207" width="29" height="29" rx="4" fill="#CBD5E1" stroke="#FFF"/>
+    <rect x="204" y="207" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="236" y="207" width="29" height="29" rx="4" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="268" y="207" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="300" y="207" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="140" y="239" width="29" height="29" rx="4" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="172" y="239" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="204" y="239" width="29" height="29" rx="4" fill="#CBD5E1" stroke="#FFF"/>
+    <rect x="236" y="239" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="268" y="239" width="29" height="29" rx="4" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="300" y="239" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="140" y="271" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="172" y="271" width="29" height="29" rx="4" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="204" y="271" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="236" y="271" width="29" height="29" rx="4" fill="#CBD5E1" stroke="#FFF"/>
+    <rect x="268" y="271" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="300" y="271" width="29" height="29" rx="4" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="140" y="303" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="172" y="303" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="204" y="303" width="29" height="29" rx="4" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="236" y="303" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="268" y="303" width="29" height="29" rx="4" fill="#CBD5E1" stroke="#FFF"/>
+    <rect x="300" y="303" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="140" y="335" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="172" y="335" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="204" y="335" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="236" y="335" width="29" height="29" rx="4" fill="#7C3AED" stroke="#FFF"/>
+    <rect x="268" y="335" width="29" height="29" rx="4" fill="#EDE9FE" stroke="#FFF"/>
+    <rect x="300" y="335" width="29" height="29" rx="4" fill="#CBD5E1" stroke="#FFF"/>
+    <text x="242" y="388" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">改变脉冲间隔 d = 1, 2, ... 即可扫描非对角坐标 h₂[n, n-d]</text>
+    <text x="32" y="438" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">能观察到什么：</text>
+    <text x="32" y="468" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 通过 Δ[n] = y_AB − y_A − y_B + y_0 直接检验交叉记忆</text>
+    <text x="32" y="494" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 定量定位哪些历史间隔 d 具有显著非对角交互</text>
+    <rect x="28" y="535" width="428" height="168" rx="10" fill="#EDE9FE" stroke="#C4B5FD"/>
+    <text x="44" y="565" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">局限与实验要求：</text>
+    <text x="44" y="594" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 若系统含三阶/四阶交叉项，双脉冲差值中仍会混有高阶项，</text>
+    <text x="44" y="620" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  需配合多组幅度 (A, B) 组合才能完全解耦二阶核；</text>
+    <text x="44" y="646" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 遍历所有间隔 d 的测量耗时较长，适合定点验证与诊断。</text>
+  </g>
+  <g transform="translate(1068, 144)">
+    <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="54" rx="16" fill="#FEF3C7"/>
+    <text x="242" y="35" text-anchor="middle" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">3. 指数正弦扫频（ESS / Farina-Novák）</text>
+    <rect x="28" y="70" width="428" height="42" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="242" y="97" text-anchor="middle" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">x(t) = A cos[φ_exp(t)]</text>
+    <rect x="28" y="128" width="428" height="275" rx="12" fill="#F8FAFC" stroke="#FCD34D"/>
+    <text x="242" y="154" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">解卷积时间轴：在负延迟区分离各次谐波脉冲响应 HHIR</text>
+    <line x1="55" y1="315" x2="430" y2="315" stroke="#475569" stroke-width="2" marker-end="url(#arr-dark)"/>
+    <path d="M 95 315 L 105 255 L 115 330 L 128 295 L 145 315" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+    <text x="115" y="242" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">H_H3 (三次)</text>
+    <path d="M 195 315 L 208 235 L 220 335 L 235 285 L 255 315" fill="none" stroke="#D97706" stroke-width="2.5"/>
+    <text x="215" y="222" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#D97706">H_H2 (二次)</text>
+    <path d="M 320 315 L 335 185 L 350 345 L 368 265 L 390 308 L 415 315" fill="none" stroke="#0284C7" stroke-width="3"/>
+    <text x="345" y="175" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">H_H1 (基波 t=0)</text>
+    <text x="242" y="388" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">一次扫频同时提取多阶谐波随频率的幅相轮廓（高信噪比）</text>
+    <text x="32" y="438" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">能观察到什么：</text>
+    <text x="32" y="468" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 各次谐波通道 H_Hm(f) 的频率响应与相位特征</text>
+    <text x="32" y="494" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 经上三角阶次变换可辨识并联 Hammerstein 支路核 g_p[k]</text>
+    <rect x="28" y="535" width="428" height="168" rx="10" fill="#FEF3C7" stroke="#FCD34D"/>
+    <text x="44" y="565" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">核心能力边界（切勿混淆）：</text>
+    <text x="44" y="594" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• ESS 分离出的 H_Hm 不是完整高维非对角 Volterra 核；</text>
+    <text x="44" y="620" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 单音扫频无法唯一拆开非线性前置滤波 P(f) 与后置滤波</text>
+    <text x="44" y="646" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  Q(mf)，必须结合双音互调与瞬态实验作独立交叉验证。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：单脉冲只能看主对角线混合，ESS 擅长高效辨识对角/并联 Hammerstein 支路，双脉冲与多音激励则是检验非对角交叉记忆的利器。</text>
+</svg>

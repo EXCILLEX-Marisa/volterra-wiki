@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-16</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">Volterra 非线性音频系统辨识与实时插件落地的六步工程流水线</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">从物理硬件接入、多刺激实验采集、数值解耦求解，到混叠安全性核查与实时分区 FFT / SIMD 引擎部署的全流程规范</text>
+  <g transform="translate(48, 154)">
+    <rect x="0" y="0" width="484" height="315" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="50" rx="16" fill="#E0F2FE"/>
+    <text x="24" y="32" font-size="19" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">步骤 1｜问题界定与测量链校准</text>
+    <text x="24" y="92" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 锁定目标硬件工况（旋钮、阻抗、预热温度与电平范围）</text>
+    <text x="24" y="144" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 测量声卡 AD/DA 回环频响、本底噪声与时钟同步误差</text>
+    <text x="24" y="196" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 建立亚采样级时间对齐基准与初始状态 s[0] 归零规程</text>
+    <text x="24" y="248" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 明确评价指标（波形 ESR、谐波谱、IMD 与 CPU 预算）</text>
+  </g>
+  <g transform="translate(558, 154)">
+    <rect x="0" y="0" width="484" height="315" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="50" rx="16" fill="#E0F2FE"/>
+    <text x="24" y="32" font-size="19" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">步骤 2｜多模态测试信号注入与采集</text>
+    <text x="24" y="92" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 注入多电平同步指数扫频（SSS/ESS）获取谐波响应簇</text>
+    <text x="24" y="144" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 注入双音（Two-Tone）与多音（Multisine）探测跨频互调</text>
+    <text x="24" y="196" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 注入可变间隔双脉冲与阶跃包络探测非对角与慢动态</text>
+    <text x="24" y="248" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 严格划分：训练集（拟合）、验证集（选阶）、独立测试集</text>
+  </g>
+  <g transform="translate(1068, 154)">
+    <rect x="0" y="0" width="484" height="315" rx="16" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="50" rx="16" fill="#FEF3C7"/>
+    <text x="24" y="32" font-size="19" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">步骤 3｜候选模型结构与特征构建</text>
+    <text x="24" y="92" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 设定各阶记忆长度 M₁ &gt; M₂ ≥ M₃...（分阶记忆截断）</text>
+    <text x="24" y="144" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 选择对角核 g_p[k]、带状核、低秩核或正交基 B_r(z)</text>
+    <text x="24" y="196" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 严格合并对称核重复排列（如 k₁ ≤ k₂），避免系数翻倍</text>
+    <text x="24" y="248" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 引入 Chebyshev 正交多项式或上三角矩阵降低共线性</text>
+  </g>
+  <g transform="translate(48, 519)">
+    <rect x="0" y="0" width="484" height="315" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="50" rx="16" fill="#EDE9FE"/>
+    <text x="24" y="32" font-size="19" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">步骤 4｜参数求解与正则化优选</text>
+    <text x="24" y="92" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 频域路径：由 H_Hm(Ω) 从最高阶往低阶逐级回代反解 G_p</text>
+    <text x="24" y="144" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 时域路径：构造回归矩阵 X，求解 Ridge / LASSO / ALS</text>
+    <text x="24" y="196" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 检查回归矩阵条件数 κ(XᵀX)，剔除未被充分激励的死参数</text>
+    <text x="24" y="248" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 若存在长时漂移，分离出慢包络状态 s_env[n] 独立建模</text>
+  </g>
+  <g transform="translate(558, 519)">
+    <rect x="0" y="0" width="484" height="315" rx="16" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="50" rx="16" fill="#FEE2E2"/>
+    <text x="24" y="32" font-size="19" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">步骤 5｜跨刺激验证与过采样抗混叠</text>
+    <text x="24" y="92" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 在未见过的双音、瞬态与真实音乐上检验残差 e[n]</text>
+    <text x="24" y="144" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 极端大电平外推测试：检查高阶项 a^P 是否引发爆音溢出</text>
+    <text x="24" y="196" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 混叠核查：P 阶乘积将带宽展宽至 P·f_max，配置必要</text>
+    <text x="24" y="248" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  过采样倍数（如 4x/8x/16x）或有界静态点形器钳制</text>
+  </g>
+  <g transform="translate(1068, 519)">
+    <rect x="0" y="0" width="484" height="315" rx="16" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="484" height="50" rx="16" fill="#D1FAE5"/>
+    <text x="24" y="32" font-size="19" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">步骤 6｜实时音频插件工程部署</text>
+    <text x="24" y="92" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 长核采用非均匀分块重叠相加（Overlap-Add）FFT 卷积</text>
+    <text x="24" y="144" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 短核与逐元素自乘/跨支路乘法采用 SIMD（AVX/NEON）</text>
+    <text x="24" y="196" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 多工作点切换加入非对称 slew 平滑与备路径缓冲保鲜</text>
+    <text x="24" y="248" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 封装为低延迟、零爆音自动化的 VST3 / AU / AAX 插件</text>
+  </g>
+  <line x1="532" y1="311" x2="554" y2="311" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+  <line x1="1042" y1="311" x2="1064" y2="311" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+  <path d="M 1310 469 L 1310 494 L 290 494 L 290 515" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+  <line x1="532" y1="676" x2="554" y2="676" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+  <line x1="1042" y1="676" x2="1064" y2="676" stroke="#334155" stroke-width="3" marker-end="url(#arr-dark)"/>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">工程闭环准则：任何一步未通过资格检验（如测量未对齐、矩阵病态、外推爆音或高频折返混叠），都不得直接带病进入实时插件部署。</text>
+</svg>

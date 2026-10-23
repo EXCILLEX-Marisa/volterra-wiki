@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 02-01</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">商业 Volterra 分支库（simplefirvolterra / clippedfirvolterra）的工程运算图</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">对应《02》§2.7 与 §2.13.1：依据公开资料与静态逆向线索抽象的“≤16 可配置支路 + 跨缓冲因子化乘法 + 分区 FFT + 模块内动态层”</text>
+
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="1504" height="730" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="1504" height="50" rx="16" fill="#0F172A"/>
+    <text x="24" y="32" font-size="19" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">可编排分支库信号流（证据边界：展示引擎支持的模块原语与组合能力，具体预设启用哪些支路取决于加密 .N2V/.N2S 资源）</text>
+    <circle cx="65" cy="310" r="28" fill="#0284C7"/>
+    <text x="65" y="316" text-anchor="middle" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#FFF">x[n]</text>
+    <line x1="93" y1="310" x2="140" y2="310" stroke="#334155" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <rect x="145" y="265" width="130" height="90" rx="12" fill="#F8FAFC" stroke="#64748B" stroke-width="2"/>
+    <text x="210" y="298" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">输入增益转换</text>
+    <text x="210" y="322" text-anchor="middle" font-size="13" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">10^(dB/20)</text>
+    <text x="210" y="342" text-anchor="middle" font-size="11" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">(clipped 变体含)</text>
+    <line x1="275" y1="310" x2="325" y2="310" stroke="#334155" stroke-width="3"/>
+    <line x1="325" y1="125" x2="325" y2="545" stroke="#334155" stroke-width="3"/>
+    <line x1="325" y1="125" x2="380" y2="125" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <rect x="385" y="85" width="230" height="80" rx="10" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+    <text x="500" y="118" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">支路 1：一阶线性基</text>
+    <text x="500" y="144" font-size="14" text-anchor="middle" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">u₁[n] = x[n]（缓冲复制）</text>
+    <line x1="615" y1="125" x2="685" y2="125" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <rect x="690" y="85" width="320" height="80" rx="10" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
+    <text x="850" y="118" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">一维 FIR 核滤波 g₁[k]（CoreScnp）</text>
+    <text x="850" y="144" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">长核：多线程分块重叠相加 FFT（Intel IPP）</text>
+    <line x1="325" y1="255" x2="380" y2="255" stroke="#D97706" stroke-width="2.5" marker-end="url(#arr-diag)"/>
+    <rect x="385" y="210" width="230" height="90" rx="10" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+    <text x="500" y="240" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">支路 2..k：对角自乘幂次</text>
+    <text x="500" y="264" text-anchor="middle" font-size="13.75" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">u_p[n] = x^p[n] (SIMD 4路自乘)</text>
+    <text x="500" y="286" text-anchor="middle" font-size="12" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">+ 可选静态点形器 (desoras/tanh)</text>
+    <line x1="615" y1="255" x2="685" y2="255" stroke="#D97706" stroke-width="2.5" marker-end="url(#arr-diag)"/>
+    <rect x="690" y="210" width="320" height="90" rx="10" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+    <text x="850" y="242" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">各阶专属 FIR 核滤波 g_p[k]</text>
+    <text x="850" y="268" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">短核：手写 SIMD 汇编点积（NeAsBr01.dll）</text>
+    <text x="850" y="288" text-anchor="middle" font-size="12" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">决定第 p 阶非线性成分的幅频与相频音色</text>
+    <line x1="325" y1="400" x2="380" y2="400" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-cross)"/>
+    <path d="M 650 125 L 650 350 L 500 350 L 500 358" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr-cross)"/>
+    <rect x="385" y="360" width="230" height="90" rx="10" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2.5"/>
+    <text x="500" y="390" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">支路 m：跨分支缓冲相乘</text>
+    <text x="500" y="414" text-anchor="middle" font-size="14" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">u_m[n] = buf_i[n] × buf_j[n]</text>
+    <text x="500" y="436" text-anchor="middle" font-size="12" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">构造可分离非对角交叉项 a[k₁]b[k₂]。</text>
+    <line x1="615" y1="405" x2="685" y2="405" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-cross)"/>
+    <rect x="690" y="360" width="320" height="90" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+    <text x="850" y="392" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">交叉支路 FIR 滤波 g_m[k]</text>
+    <text x="850" y="418" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">无需存储 M² 全矩阵，以 O(M) 成本表达</text>
+    <text x="850" y="438" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">跨时刻互调牵引（总分支构造上限 ≤ 16）</text>
+    <line x1="325" y1="545" x2="380" y2="545" stroke="#059669" stroke-width="2.5" marker-end="url(#arr-state)"/>
+    <rect x="385" y="505" width="625" height="80" rx="10" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
+    <text x="697" y="538" text-anchor="middle" font-size="15.11" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">模块内嵌动态层：峰值跟踪 → log×8.6858 (dB 换算) → 保持/释放计数器 (Hold / Release)</text>
+    <text x="697" y="566" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">使支路增益或工作点随节目包络 s_env[n] 缓慢呼吸（模拟磁带/电子管动态压缩感）</text>
+    <circle cx="1105" cy="265" r="28" fill="#0F172A"/>
+    <text x="1105" y="274" text-anchor="middle" font-size="26" font-weight="bold" fill="#FFF">Σ</text>
+    <line x1="1010" y1="125" x2="1082" y2="245" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <line x1="1010" y1="255" x2="1077" y2="265" stroke="#D97706" stroke-width="2.5" marker-end="url(#arr-diag)"/>
+    <line x1="1010" y1="405" x2="1082" y2="285" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-cross)"/>
+    <line x1="1010" y1="545" x2="1105" y2="545" stroke="#059669" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="1105" y1="545" x2="1105" y2="298" stroke="#059669" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr-state)"/>
+    <line x1="1133" y1="265" x2="1185" y2="265" stroke="#334155" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <rect x="1190" y="195" width="205" height="140" rx="12" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+    <text x="1292" y="228" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">尾处理与安全上界</text>
+    <text x="1292" y="256" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">sgn(x)[atan(|x|^p)]^(1/p)</text>
+    <text x="1292" y="282" text-anchor="middle" font-size="12" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">渐近饱和上界 (π/2)^(1/p)</text>
+    <text x="1292" y="304" text-anchor="middle" font-size="12" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">+ ceiling 变体 ±1 钳制</text>
+    <line x1="1395" y1="265" x2="1425" y2="265" stroke="#334155" stroke-width="2.5" marker-end="url(#arr-dark)"/>
+    <circle cx="1455" cy="265" r="26" fill="#7C3AED"/>
+    <text x="1455" y="271" text-anchor="middle" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#FFF">ŷ[n]</text>
+    <rect x="28" y="612" width="1448" height="94" rx="12" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="48" y="642" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">工程解读与证据边界（见《02》§2.13.1 与 §2.19）：</text>
+    <text x="48" y="670" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">1. 报告所示结构支持这样的判断：相关引擎并非直接计算 M^P 完整张量，而是采用【并联 Hammerstein + 因子化交叉乘法 + 有界点形器 + 包络状态】的组合结构；</text>
+    <text x="48" y="694" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">2. 16 条分支是所检查工厂函数的循环构造上限，具体产品档位实际启用几条对角或交叉支路，储存在尚未解密的 .N2V/.N2S 资源中。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：Acustica 底层分支库将“对角幂次滤波”、“跨缓冲因子化交叉项”与“有界点形器”做成了可由程序数据编排的通用算子图。</text>
+</svg>

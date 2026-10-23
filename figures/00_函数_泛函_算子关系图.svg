@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 00-03</text>
+  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">函数（Function）、泛函（Functional）与算子（Operator）的直观对照</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">三个概念的本质区别在于“输入是什么”与“输出是什么”：从单点瞬时映射，到整段历史映射单点，再到整条波形映射整条波形</text>
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="1504" height="224" rx="16" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="224" rx="16" fill="#FEF3C7"/>
+    <text x="28" y="46" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">1. 函数（Function）</text>
+    <text x="28" y="80" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">映射类型：数 / 有限维向量 → 单个数值</text>
+    <rect x="28" y="102" width="324" height="44" rx="8" fill="#FFFFFF" stroke="#FCD34D"/>
+    <text x="190" y="131" text-anchor="middle" font-size="20" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#D97706">y = f(x[n])</text>
+    <text x="28" y="182" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">音频对应：瞬时无记忆映射（如静态 Waveshaper）</text>
+    <rect x="415" y="24" width="200" height="176" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="515" y="50" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">当前单个采样值 x[n]</text>
+    <line x1="445" y1="150" x2="585" y2="150" stroke="#94A3B8" stroke-width="1.5"/>
+    <line x1="515" y1="150" x2="515" y2="85" stroke="#D97706" stroke-width="4"/>
+    <circle cx="515" cy="85" r="9" fill="#D97706"/>
+    <text x="515" y="176" text-anchor="middle" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#D97706">x = 0.6</text>
+    <line x1="630" y1="112" x2="755" y2="112" stroke="#D97706" stroke-width="3" marker-end="url(#arr-diag)"/>
+    <rect x="655" y="82" width="76" height="32" rx="6" fill="#FEF3C7" stroke="#D97706"/>
+    <text x="693" y="103" text-anchor="middle" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#D97706">f(x)</text>
+    <rect x="770" y="24" width="200" height="176" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="870" y="50" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">当前单个输出值 y[n]</text>
+    <line x1="800" y1="150" x2="940" y2="150" stroke="#94A3B8" stroke-width="1.5"/>
+    <line x1="870" y1="150" x2="870" y2="98" stroke="#D97706" stroke-width="4"/>
+    <circle cx="870" cy="98" r="9" fill="#D97706"/>
+    <text x="870" y="176" text-anchor="middle" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#D97706">y = tanh(0.6)</text>
+    <rect x="1010" y="28" width="466" height="168" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="1030" y="60" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">为什么在 Volterra 理论中需要区分？</text>
+    <text x="1030" y="96" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">只看当前采样点幅度 x[n]，不管此前经历了什么波形，相</text>
+    <text x="1030" y="124" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">同的输入值必定映射到相同的输出值。</text>
+    <text x="1030" y="152" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569"/>
+  </g>
+  <g transform="translate(48, 390)">
+    <rect x="0" y="0" width="1504" height="224" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="224" rx="16" fill="#E0F2FE"/>
+    <text x="28" y="46" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">2. 泛函（Functional）</text>
+    <text x="28" y="80" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">映射类型：整条输入历史函数 → 某时刻单个数值</text>
+    <rect x="28" y="102" width="324" height="44" rx="8" fill="#FFFFFF" stroke="#7DD3FC"/>
+    <text x="190" y="131" text-anchor="middle" font-size="20" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">y(t₀) = F_{t₀}[x(·)]</text>
+    <text x="28" y="182" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">音频对应：固定观察时刻 t₀ 的带记忆系统输出</text>
+    <rect x="415" y="24" width="220" height="176" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="525" y="48" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">t₀ 之前的整段历史波形 x(t₀-τ)</text>
+    <rect x="445" y="62" width="155" height="96" fill="#E0F2FE" opacity="0.7" stroke="#0284C7" stroke-dasharray="4,3"/>
+    <path d="M 435 125 Q 465 65, 495 115 T 555 100 T 600 80" fill="none" stroke="#0284C7" stroke-width="3"/>
+    <circle cx="600" cy="80" r="6" fill="#0284C7"/>
+    <text x="525" y="180" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">历史窗口 [t₀-M, t₀] 全部参与</text>
+    <path d="M 640 75 L 755 112 M 640 150 L 755 112" stroke="#0284C7" stroke-width="2" stroke-dasharray="4,3"/>
+    <line x1="640" y1="112" x2="755" y2="112" stroke="#0284C7" stroke-width="3" marker-end="url(#arr-lin)"/>
+    <rect x="655" y="82" width="82" height="32" rx="6" fill="#E0F2FE" stroke="#0284C7"/>
+    <text x="696" y="103" text-anchor="middle" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">F_t₀[x(·)]</text>
+    <rect x="770" y="24" width="200" height="176" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="870" y="50" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">时刻 t₀ 的单个输出标量</text>
+    <line x1="800" y1="150" x2="940" y2="150" stroke="#94A3B8" stroke-width="1.5"/>
+    <line x1="870" y1="150" x2="870" y2="88" stroke="#0284C7" stroke-width="4"/>
+    <circle cx="870" cy="88" r="9" fill="#0284C7"/>
+    <text x="870" y="176" text-anchor="middle" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">标量值 y(t₀)</text>
+    <rect x="1010" y="28" width="466" height="168" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="1030" y="60" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">为什么在 Volterra 理论中需要区分？</text>
+    <text x="1030" y="96" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">接收 t₀ 之前的一整段输入波形历史 x(t₀-τ)，经</text>
+    <text x="1030" y="124" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">过积分或高阶核加权汇聚，算出当前时刻 t₀ 的一个标量输</text>
+    <text x="1030" y="152" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">出值。</text>
+  </g>
+  <g transform="translate(48, 636)">
+    <rect x="0" y="0" width="1504" height="224" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="224" rx="16" fill="#EDE9FE"/>
+    <text x="28" y="46" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">3. 算子（Operator）</text>
+    <text x="28" y="80" font-size="15.37" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">映射类型：整条输入信号波形 → 整条输出信号波形</text>
+    <rect x="28" y="102" width="324" height="44" rx="8" fill="#FFFFFF" stroke="#C4B5FD"/>
+    <text x="190" y="131" text-anchor="middle" font-size="20" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">y(·) = H[x(·)]</text>
+    <text x="28" y="182" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">音频对应：完整音频处理系统（Volterra 级数整体）</text>
+    <rect x="415" y="24" width="220" height="176" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="525" y="48" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">完整输入信号流 x(t)</text>
+    <line x1="435" y1="115" x2="615" y2="115" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 435 115 C 460 55, 485 175, 510 115 C 535 55, 560 175, 585 115 C 600 80, 610 130, 615 115" fill="none" stroke="#0284C7" stroke-width="3"/>
+    <text x="525" y="178" text-anchor="middle" font-size="14" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">输入函数空间 X</text>
+    <line x1="640" y1="112" x2="755" y2="112" stroke="#7C3AED" stroke-width="3.5" marker-end="url(#arr-cross)"/>
+    <rect x="650" y="78" width="92" height="36" rx="6" fill="#EDE9FE" stroke="#7C3AED"/>
+    <text x="696" y="101" text-anchor="middle" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">H = Σ H_p</text>
+    <rect x="770" y="24" width="220" height="176" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="880" y="48" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">完整输出信号流 y(t)</text>
+    <line x1="790" y1="115" x2="970" y2="115" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 790 115 C 815 70, 840 165, 865 105 C 890 60, 915 160, 940 110 C 955 85, 965 125, 970 112" fill="none" stroke="#7C3AED" stroke-width="3"/>
+    <text x="880" y="178" text-anchor="middle" font-size="14" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#7C3AED">输出函数空间 Y</text>
+    <rect x="1010" y="28" width="466" height="168" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="1030" y="60" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">为什么在 Volterra 理论中需要区分？</text>
+    <text x="1030" y="96" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">当观察时刻 t 随时间连续滑动时，一族时不变泛函把整条输</text>
+    <text x="1030" y="124" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">入音频流 x(t) 映射为整条处理后的输出音频流 y(t</text>
+    <text x="1030" y="152" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">)。</text>
+  </g>
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">直觉总结：函数把“数变成数”，泛函把“一段历史波形变成当前一个数”，算子把“整条输入波形变成整条输出波形”。</text>
+</svg>
