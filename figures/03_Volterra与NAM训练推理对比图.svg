@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="136" height="28" rx="6" fill="#0F172A"/>
+  <text x="136" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">CHAPTER 03 · A</text>
+  <text x="222" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">Volterra 核辨识与 NAM 神经网络建模工程全流程对照</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">从统一配对测量、离线参数求解到实时 C++ 确定性 DSP 推理的分层架构</text>
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="1504" height="200" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="200" rx="16" fill="#E0F2FE"/>
+    <text x="28" y="44" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#075985">1. 配对采集与校准层</text>
+    <text x="28" y="76" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0369A1">时序对齐与电平工作点标定</text>
+    <rect x="28" y="96" width="304" height="44" rx="8" fill="#FFFFFF" stroke="#7DD3FC"/>
+    <text x="180" y="125" text-anchor="middle" font-size="19" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#075985">D = {(x[n], y[n])}</text>
+    <text x="28" y="172" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">消除往返延迟偏差与时钟漂移</text>
+    <rect x="396" y="28" width="260" height="144" rx="12" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="526" y="60" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">参考激励信号 x[n]</text>
+    <text x="526" y="92" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 扫频 / 多音 / 瞬态脉冲</text>
+    <text x="526" y="118" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 多电平阶跃与长历史序列</text>
+    <text x="526" y="148" text-anchor="middle" font-size="14" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#0369A1">48 kHz / 24-bit WAV</text>
+    <line x1="656" y1="100" x2="722" y2="100" stroke="#0284C7" stroke-width="3" marker-end="url(#arr-lin)"/>
+    <rect x="730" y="28" width="250" height="144" rx="12" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="855" y="64" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">被测硬件 / 离线参考系</text>
+    <text x="855" y="96" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">电子管 / 变压器 / 光电单元</text>
+    <text x="855" y="132" text-anchor="middle" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#075985">y[n] = H{x}[n]</text>
+    <line x1="980" y1="100" x2="1046" y2="100" stroke="#0284C7" stroke-width="3" marker-end="url(#arr-lin)"/>
+    <rect x="1054" y="28" width="420" height="144" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="1078" y="60" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#334155">预处理与可辨识性校验：</text>
+    <text x="1078" y="92" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 前导脉冲对齐，剥离固定群延迟与采样率漂移</text>
+    <text x="1078" y="120" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 记录 input/output_level_dbu 绝对电平基准</text>
+    <text x="1078" y="148" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 划分独立训练集、验证集与封存长历史测试集</text>
+  </g>
+  <g transform="translate(48, 366)">
+    <rect x="0" y="0" width="1504" height="296" rx="16" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="296" rx="16" fill="#FEF3C7"/>
+    <text x="28" y="48" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#78350F">2. 离线参数辨识层</text>
+    <text x="28" y="80" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#92400E">固定基展开 vs 可学习特征</text>
+    <rect x="28" y="102" width="304" height="50" rx="8" fill="#FFFFFF" stroke="#FCD34D"/>
+    <text x="180" y="133" text-anchor="middle" font-size="18" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#78350F">min || y - y_hat(θ) ||</text>
+    <text x="28" y="186" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#92400E">· Volterra：固定多项式乘积基</text>
+    <text x="28" y="214" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#92400E">· NAM：多层非线性复合函数</text>
+    <text x="28" y="256" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#B45309">允许使用 GPU 与耗时全局优化</text>
+    <rect x="396" y="24" width="520" height="116" rx="12" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5"/>
+    <text x="420" y="54" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#78350F">A. Volterra 级数辨识路线（参数线性回归 / 低秩分解）</text>
+    <text x="420" y="84" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#92400E">y_hat[n] = Φ(x)[n] · θ_V   (固定核基矩阵 Φ，求解核系数 θ_V)</text>
+    <text x="420" y="114" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">通过最小二乘、岭回归、Group LASSO 或 ALS 交替最小二乘求解</text>
+    <rect x="396" y="156" width="520" height="116" rx="12" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.5"/>
+    <text x="420" y="186" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#5B21B6">B. NAM 训练器路线（PyTorch Lightning / Adam 反向传播）</text>
+    <text x="420" y="216" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#6D28D9">θ_(t+1) = θ_t - η ∇_θ L(y, F_θ(x))   (ESR + 多分辨率 STFT 损失)</text>
+    <text x="420" y="246" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">支持 WaveNet (A1/A2)、LSTM、ConvNet 及 A2 Packed Training</text>
+    <line x1="916" y1="82" x2="982" y2="82" stroke="#D97706" stroke-width="3" marker-end="url(#arr-diag)"/>
+    <line x1="916" y1="214" x2="982" y2="214" stroke="#7C3AED" stroke-width="3" marker-end="url(#arr-cross)"/>
+    <rect x="990" y="24" width="484" height="116" rx="12" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="1014" y="54" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">结构化核参数资产</text>
+    <text x="1014" y="84" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 各阶对称核张量 h_1, h_2, h_3 或 Laguerre/CP 因子</text>
+    <text x="1014" y="112" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 阶次贡献与交叉记忆位置可直接做物理解析</text>
+    <rect x="990" y="156" width="484" height="116" rx="12" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="1014" y="186" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">标准 .nam 序列化模型文件</text>
+    <text x="1014" y="216" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 封装网络拓扑配置、浮点权重数组与采样率信息</text>
+    <text x="1014" y="244" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· A2 容器可同时打包 Lite (3ch) 与 Full (8ch) 权重</text>
+  </g>
+  <g transform="translate(48, 684)">
+    <rect x="0" y="0" width="1504" height="256" rx="16" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="256" rx="16" fill="#D1FAE5"/>
+    <text x="28" y="48" font-size="22" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#065F46">3. 实时 DSP 推理层</text>
+    <text x="28" y="80" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#047857">C++ / JUCE 确定性音频线程</text>
+    <rect x="28" y="102" width="304" height="44" rx="8" fill="#FFFFFF" stroke="#6EE7B7"/>
+    <text x="180" y="130" text-anchor="middle" font-size="18" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#065F46">Zero Backprop in Audio Thread</text>
+    <text x="28" y="178" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#047857">· 推理阶段权重固定，无梯度更新</text>
+    <text x="28" y="206" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">· 严格满足 Buffer 截止时间约束</text>
+    <rect x="396" y="28" width="520" height="200" rx="12" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="420" y="60" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">NeuralAmpModelerCore / 实时 Volterra 算子</text>
+    <text x="420" y="94" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· WaveNet 分支：环形历史缓冲区 + 因果扩张卷积 + LeakyReLU + Head</text>
+    <text x="420" y="124" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· LSTM 分支：逐采样点更新门控向量 (f, i, o) 与内部状态 (h[n], c[n])</text>
+    <text x="420" y="154" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 低秩 Volterra 分支：多路并联 FIR/IIR 线性滤波输出按阶相乘累加</text>
+    <text x="420" y="190" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#047857">SIMD / Eigen 矩阵向量化加速 · 无动态内存分配</text>
+    <line x1="916" y1="128" x2="982" y2="128" stroke="#059669" stroke-width="3" marker-end="url(#arr-state)"/>
+    <rect x="990" y="28" width="484" height="200" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="1014" y="60" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#334155">工程边界与部署要点：</text>
+    <text x="1014" y="94" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· Snapshot 模型仅对应单一旋钮工作点；连续旋钮需条件化输入 p[n]</text>
+    <text x="1014" y="124" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 因果卷积本身零算法延迟，但外围过采样抗混叠滤波器会引入群延迟</text>
+    <text x="1014" y="154" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 客观 ESR 低需配合高频互调、长历史状态一致性与盲听综合验证</text>
+    <text x="1014" y="190" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#065F46">· 结论：NAM 适合作为标准神经网络基线，与结构化模型对照评测</text>
+  </g>
+</svg>
