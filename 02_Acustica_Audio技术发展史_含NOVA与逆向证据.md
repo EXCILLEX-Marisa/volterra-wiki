@@ -358,7 +358,7 @@ Acustica 的创始开发者在 2007 年已明确表示，Nebula 的路线受到 
 
 Acustica Audio 2026 年 11 月发布与 Stam Audio 合作的 SKY SA-1A，官方描述采用 NOVA 混合 Volterra 与神经处理，强调光电压缩与电子管、变压器着色相互作用。[S31] Gearspace 官方讨论帖 #13 中，技术人员 zaphod 进一步指出 SKY 仍属 NOVA 家族，但系数来自全新训练方案；研究采用多维模型、大量测量和 AI 辅助训练，亦尝试过电路求解，却遇到谐波精度与 CPU 之间的矛盾。他还强调这台设备的谐波变化强烈依赖压缩状态，难以再把前级失真与压缩处理简单分离。[S32]
 
-因此，新的证据支持的是**训练器与多维耦合建模取得显著调整**，而不是已经证明整个 NOVA 实时 DSP 核心彻底重构。开发者没有公开足够的信息确定多维核结构、Volterra 阶次、网络位置和具体门控公式。关于状态条件化核及其可证伪实验，见《04》《05》。发布初期听感赞誉亦不能代替 Stam 实体硬件的同条件测量。
+因此，新的证据支持的是**训练器与多维耦合建模取得显著调整**，而不是已经证明整个 NOVA 实时 DSP 核心彻底重构。开发者没有公开足够的信息确定多维核结构、Volterra 阶次、网络位置和具体门控公式。关于状态条件化核及其可证伪实验，见《04》。发布初期听感赞誉亦不能代替 Stam 实体硬件的同条件测量。
 
 - [S31] [Acustica Audio SKY SA-1A 官方说明](https://www.acustica-audio.com/shop/products/SKYSA1A)
 - [S32] [Gearspace SKY 官方讨论及 zaphod #13 回复](https://gearspace.com/threads/acustica-audio-sky-sa-1a-official-stam-audio-tube-opto-compressor-plug-in.1471233/)
