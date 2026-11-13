@@ -1,23 +1,24 @@
 # Volterra Wiki
 
-Volterra 级数与音频非线性系统建模相关的三章学习资料。
+Volterra 级数与非线性音频系统辨识的渐进式教材。**2026-11-13 新版**继承原有章节与图文设计，增补 NAM、混合建模工程方法和近期商业案例。
 
 ## 阅读入口
 
 - [00 前置概念与术语约定](00_前置概念与术语约定_图文版.md)
 - [01 Volterra 级数](01_Volterra级数_图文版.md)
-- [02 Acustica Audio 技术发展史](02_Acustica_Audio技术发展史_含NOVA与逆向证据.md)
-- [00—01—02 完整合订版（GitHub PNG 直链）](Volterra_Wiki_00-01-02_%E5%AE%8C%E6%95%B4%E5%90%88%E8%AE%A2%E7%89%88_GitHub%E5%9B%BE%E5%BA%8A.md)
-- [合订版离线阅读（相对 PNG 路径）](Volterra_Wiki_00-01-02_%E5%AE%8C%E6%95%B4%E5%90%88%E8%AE%A2%E7%89%88_%E6%9C%AC%E5%9C%B0PNG.md)
+- [02 Acustica Audio 技术发展史（增补 SKY SA-1A）](02_Acustica_Audio技术发展史_含NOVA与逆向证据.md)
+- [03 NAM 与神经网络音频系统辨识](03_NAM与神经网络音频系统辨识.md)
+- [04 混合模型训练边界与实时约简](04_混合建模训练边界与实时约简.md)
+- [05 SKY 与 Revenger 混合建模案例](05_SKY与Revenger混合建模案例.md)
+- [00—05 完整合订版（GitHub PNG 直链）](Volterra_Wiki_00-05_完整合订版_GitHub图床.md)
 
-## 配图
+## 保留的历史合订版
 
-- `figures/`：22 张高清 PNG 预览图和对应的 22 张 SVG 原始图。
-- 三章独立 Markdown 保持 SVG 相对路径，合订版使用 GitHub PNG 公网直链。
-- `图片直链对照.json` 列出 22 个公网图片路径。
+- [00—01—02 合订版（GitHub PNG 直链）](Volterra_Wiki_00-01-02_完整合订版_GitHub图床.md)
+- [00—01—02 合订版（本地相对 PNG 路径）](Volterra_Wiki_00-01-02_完整合订版_本地PNG.md)
 
-## 公网图片链接示例
+## 配图及维护
 
-`https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/00_%E5%87%BD%E6%95%B0_%E6%B3%9B%E5%87%BD_%E7%AE%97%E5%AD%90%E5%85%B3%E7%B3%BB%E5%9B%BE.png`
+现有 figures 目录内有 22 张 PNG 和对应的 22 张 SVG。原 00—02 独立章节继续使用 SVG 相对路径，新的合订版继承原有 GitHub PNG 公网直链。03—05 是新增教材正文，本轮没有新增图片，也没有修改原 SVG 或 PNG。图片直链对照.json 保持原有映射。
 
-该直链需要相应文件已发布到仓库默认分支，发布前仅为预期路径。
+旧 SHA256SUMS.txt 为历史素材清单，不代表新增章节的校验值。研究案例明确区分官方说法、第三方听感、逆向证据与待验证的数学假说。
