@@ -1,6 +1,6 @@
 # 02 从 Volterra 级数到神经网络：同样是模型训练，本质与区别在哪里？
 
-> **版本：v3 · 2026-11-13 · 阅读顺序调整与图示接入版**  
+> **版本：v4 · 2026-11-13 · 教材语言与训练文献增订版**  
 > **所属系列：Volterra Wiki**  
 > **阅读定位：**从《01 Volterra 级数》的核辨识自然进入神经网络系统辨识；先解释为什么需要训练、两类模型如何学习、分别擅长什么，再认识 WaveNet、LSTM、NAM 及其实时音频工程。  
 > **阅读建议：**本章不要求读者预先掌握反向传播或深度学习，已经理解《00》的输入、输出、状态、泛化，以及《01》的 Volterra 核即可。
@@ -185,7 +185,7 @@ NAM 的成熟之处，在于它把常见训练和部署环节组织为可重复�
 
 ## 2.10 NAM 的 A1、A2 与实时执行
 
-NAM 项目在 2026 年推进 A2 作为新一代快照架构，A1 模型继续兼容。[N3] A2 的研究重点包括模型在误差、CPU 计算和部署方面的权衡。这不等于 A2 自动突破所有历史范围、稳定性和物理一致性的限制，也不能将新架构的一组性能比较推广为所有硬件处理器的普遍结论。
+NAM 项目在 2026 年推进 A2 作为新一代快照架构，A1 模型继续兼容。[N3] A2 的研究重点包括模型在误差、CPU 计算和部署方面的权衡。TONE3000 发布的 [A2 技术指南](https://www.tone3000.com/guides/nam-a2-the-complete-guide) 介绍了实际使用的卷积感受野、不同规模模型及训练方案，并提供发布方的 A1/A2 对照测试。其测量条件与样本范围应随结论一起记录。[N5]这不等于 A2 自动突破所有历史范围、稳定性和物理一致性的限制，也不能将新架构的一组性能比较推广为所有硬件处理器的普遍结论。
 
 训练时需要处理音频数据、计算损失、求梯度和更新参数，可以花费相当长的时间。**实时执行时则是使用训练完成的权重做前向计算**：输入采样或音频块进入优化后的推理引擎，输出预测的处理结果。训练与实时运算不应混淆。参数数量少不一定等于 CPU 更低，还要评估卷积和循环结构、历史缓存、SIMD、采样率、缓冲长度及最坏情况下的实时截止期限。
 
@@ -214,7 +214,7 @@ ESR 能度量波形近似，却不能代替频率响应、各阶谐波、互调�
 
 ## 2.13 应当怎样比较 Volterra 与 NAM？
 
-最有价值的实验不是只让两者在同一段训练音乐上竞争 ESR，而是使用同样的训练、验证与封存测试数据，要求它们回答同一组问题。例如，一个短记忆饱和器可以比较幅度依赖、双音互调和高频混叠；一个光电压缩器需要加入攻击、长释放和不同历史条件；一个磁滞参考系统则需要主回线、次回线、预磁化和速率变化。
+两者的公平比较应使用相同的训练、验证与封存测试数据，要求它们回答同一组问题。例如，一个短记忆饱和器可以比较幅度依赖、双音互调和高频混叠；一个光电压缩器需要加入攻击、长释放和不同历史条件；一个磁滞参考系统则需要主回线、次回线、预磁化和速率变化。
 
 在相同的实时 CPU 预算下，先训练结构简洁的 Volterra，再训练 NAM 卷积网络与 LSTM。若神经网络获胜，应解释是哪种非线性或状态能力带来收益；若 Volterra 以更低成本达到同等精度，则没有必要强行加网络。若两者在不同区域有优势，才进入共享状态、残差和混合模型研究。
 
@@ -228,12 +228,22 @@ ESR 能度量波形近似，却不能代替频率响应、各阶谐波、互调�
 
 ---
 
+## 2.15 从可微分 DSP 看训练模型的第三条路线
+
+神经网络和显式 Volterra 共同使用数据拟合输入输出。另有一类方法直接把数字压缩器、滤波器等带可调参数的 DSP 结构放入优化流程，通过自动微分或专门构造的梯度方法估计参数。其计算图包含具有明确含义的音频处理算子，参数也往往可以对应阈值、压缩比、攻击和释放。
+
+一个公开实例是 Queen Mary University of London 的 [4A-2A](https://github.com/aim-qmul/4a2a)。Yu 与 Fazekas 在 2025 年发表的 [*Sound Matching an Analogue Levelling Amplifier Using the Newton-Raphson Method*](https://arxiv.org/abs/2509.10706) 以可微分前馈压缩器近似 LA-2A，训练涉及 Newton–Raphson 优化，并将 Peak Reduction 映射到压缩器的五个参数。它为研究提供了一个参数较少、易于进行受控对比的灰盒基线。
+
+这个例子说明，**数据驱动辨识并不要求最终运行的模型必须是一张深度神经网络**。Volterra 核、参数化 DSP、递归状态和神经网络均可进入训练优化，只要它们的参数、输入输出与损失函数被明确规定。下一章将讨论这些结构如何进行分工、联合辨识与实时约简。
+
 ## 本章参考资料
 
 - [N1] [NeuralAmpModelerCore 官方文档](https://neuralampmodelercore.readthedocs.io/en/latest/)：主要网络类型与 C++ 实时核心。
 - [N2] [NAM WaveNet 计算过程](https://neuralampmodelercore.readthedocs.io/en/latest/wavenet_walkthrough.html)：因果卷积、残差与 NAM 的回归式 WaveNet。
 - [N3] [NAM 作者关于 Architecture A2 的介绍](https://www.neuralampmodeler.com/post/architecture-a2)：2026 年 A2 及 A1 兼容。
-- [N4] [NAM 训练器源码](https://github.com/sdatkinson/neural-amp-modeler)：具体训练、配置、架构与参数化扩展以实际代码为准。
+- [N4] [NAM 官方训练器源码](https://github.com/sdatkinson/neural-amp-modeler)：训练配置、扩展和实现方式。
+- [N5] [TONE3000，NAM A2: The Complete Guide](https://www.tone3000.com/guides/nam-a2-the-complete-guide)：A2 架构、感受野、Packed Training 及厂商自测指标；数值属于项目方报告，适合与独立评估分开引用。
+- [N6] [Yu & Fazekas (2025)，*Sound Matching an Analogue Levelling Amplifier Using the Newton-Raphson Method*](https://arxiv.org/abs/2509.10706)；[4A-2A 开源仓库](https://github.com/aim-qmul/4a2a)：参数化可微分压缩器的完整研究入口。
 - Martin Schetzen，*The Volterra and Wiener Theories of Nonlinear Systems*；Oliver Nelles，*Nonlinear System Identification*：关于显式模型、参数辨识、结构选择与泛化的深入理论。
 
 本章是面向音频工程的教材化组织，不是对任何仓库文档或专著的逐段翻译。
