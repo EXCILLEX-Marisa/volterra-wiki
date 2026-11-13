@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="136" height="28" rx="6" fill="#0F172A"/>
+  <text x="136" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">CHAPTER 04 · B</text>
+  <text x="222" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">物理白盒与神经网络协同的四种运行模式及稳定性边界</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">从前馈输出残差、内部状态反馈耦合、局部神经代理元件到离线物理蒸馏的工程取舍</text>
+  <g transform="translate(48, 144)">
+    <rect x="0" y="0" width="1504" height="188" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="188" rx="16" fill="#E0F2FE"/>
+    <text x="28" y="44" font-size="21" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#075985">模式 1：输出残差修正</text>
+    <text x="28" y="76" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0369A1">实时白盒 + 实时前馈残差网络</text>
+    <rect x="28" y="96" width="304" height="40" rx="8" fill="#FFFFFF" stroke="#7DD3FC"/>
+    <text x="180" y="122" text-anchor="middle" font-size="17" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#075985">y[n] = P(x)[n] + N_θ(x)[n]</text>
+    <text x="28" y="164" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">首选基线：不破坏白盒内部状态稳定性</text>
+    <rect x="396" y="28" width="110" height="132" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+    <text x="451" y="90" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">输入信号</text>
+    <text x="451" y="116" text-anchor="middle" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#0369A1">x[n]</text>
+    <rect x="556" y="24" width="280" height="60" rx="10" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5"/>
+    <text x="696" y="60" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#075985">白盒物理主模型 P(x)</text>
+    <rect x="556" y="104" width="280" height="60" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="696" y="140" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#5B21B6">轻量神经残差分支 N_θ(x)</text>
+    <line x1="506" y1="74" x2="554" y2="54" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <line x1="506" y1="114" x2="554" y2="134" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-cross)"/>
+    <circle cx="896" cy="94" r="22" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+    <text x="896" y="102" text-anchor="middle" font-size="22" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#0F172A">+</text>
+    <line x1="836" y1="54" x2="876" y2="82" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
+    <line x1="836" y1="134" x2="876" y2="106" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-cross)"/>
+    <rect x="960" y="24" width="516" height="140" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="984" y="56" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#334155">适用场景与局限：</text>
+    <text x="984" y="88" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 适合白盒模型已准确捕获主要包络与状态轨迹、仅存在局部</text>
+    <text x="984" y="112" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">  谐波或频响残差的情形（可随时令残差权重归零做消融对比）</text>
+    <text x="984" y="142" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">· 局限：若白盒内部状态演化本身失准，纯输出叠加只能事后补偿</text>
+  </g>
+  <g transform="translate(48, 352)">
+    <rect x="0" y="0" width="1504" height="188" rx="16" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="188" rx="16" fill="#FEE2E2"/>
+    <text x="28" y="44" font-size="21" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#991B1B">模式 2：内部状态耦合</text>
+    <text x="28" y="76" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#B91C1C">神经网络介入状态转移方程</text>
+    <rect x="28" y="96" width="304" height="40" rx="8" fill="#FFFFFF" stroke="#FCA5A5"/>
+    <text x="180" y="122" text-anchor="middle" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#991B1B">s[n+1] = G_phys + ΔG_NN(s,x)</text>
+    <text x="28" y="164" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">高风险：必须施加 NOE 自由运行与耗散约束</text>
+    <rect x="396" y="44" width="310" height="84" rx="10" fill="#FEF2E2" stroke="#DC2626" stroke-width="1.5"/>
+    <text x="551" y="76" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#991B1B">耦合状态更新核 (G_phys + ΔG_NN)</text>
+    <text x="551" y="106" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#B91C1C">修正光电释放速率 / 磁滞状态导数</text>
+    <line x1="706" y1="86" x2="758" y2="86" stroke="#DC2626" stroke-width="2.5" marker-end="url(#arr-warn)"/>
+    <rect x="766" y="44" width="160" height="84" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.5"/>
+    <text x="846" y="80" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">输出方程</text>
+    <text x="846" y="106" text-anchor="middle" font-size="15" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#991B1B">H_phys(s, x)</text>
+    <path d="M 620 128 L 620 164 L 480 164 L 480 130" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="5,4" marker-end="url(#arr-warn)"/>
+    <text x="551" y="180" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#991B1B">状态反馈环 s[n] → s[n+1]（误差会逐采样累积）</text>
+    <rect x="960" y="24" width="516" height="140" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="984" y="56" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#334155">NARX vs NOE 稳定性要求：</text>
+    <text x="984" y="88" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 单步 Teacher Forcing (NARX) 误差低不能保证实时闭环稳定</text>
+    <text x="984" y="114" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 必须采用多步展开自由运行 (Unrolled BPTT) 训练，并对</text>
+    <text x="984" y="138" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">  ΔG_NN 施加谱范数/耗散约束，确保静音输入下状态收敛回零</text>
+  </g>
+  <g transform="translate(48, 560)">
+    <rect x="0" y="0" width="1504" height="188" rx="16" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="188" rx="16" fill="#D1FAE5"/>
+    <text x="28" y="44" font-size="21" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#065F46">模式 3：子系统代理元件</text>
+    <text x="28" y="76" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#047857">保留电路拓扑 + 替换高成本元件</text>
+    <rect x="28" y="96" width="304" height="40" rx="8" fill="#FFFFFF" stroke="#6EE7B7"/>
+    <text x="180" y="122" text-anchor="middle" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#065F46">i_comp = N_surrogate(v_port, s)</text>
+    <text x="28" y="164" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">典型应用：WDF 散射结构中嵌入神经磁滞模块</text>
+    <rect x="396" y="28" width="290" height="132" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+    <text x="541" y="64" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#065F46">主电路拓扑求解器 (WDF / 状态空间)</text>
+    <text x="541" y="96" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#047857">保留线性网络、供电耦合与反馈路径</text>
+    <text x="541" y="128" text-anchor="middle" font-size="14" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#065F46">C·dv/dt + i(v,s) = B·x(t)</text>
+    <line x1="686" y1="72" x2="748" y2="72" stroke="#059669" stroke-width="2.5" marker-end="url(#arr-state)"/>
+    <line x1="748" y1="116" x2="686" y2="116" stroke="#059669" stroke-width="2.5" marker-end="url(#arr-state)"/>
+    <rect x="756" y="38" width="170" height="112" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="841" y="76" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#5B21B6">神经代理元件</text>
+    <text x="841" y="104" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#6D28D9">替代多轮迭代的</text>
+    <text x="841" y="126" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#6D28D9">非线性隐式器件</text>
+    <rect x="960" y="24" width="516" height="140" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="984" y="56" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#334155">工程价值与代数环约束：</text>
+    <text x="984" y="88" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 仅替换计算最昂贵或本构方程未知的局部元件（如非线性磁芯）</text>
+    <text x="984" y="114" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 注意：若代理元件仍处于隐式反馈环内，其端口映射仍需满足</text>
+    <text x="984" y="138" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">  单调性/无源性条件，或配合非迭代散射结构消解代数环</text>
+  </g>
+  <g transform="translate(48, 768)">
+    <rect x="0" y="0" width="1504" height="184" rx="16" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="360" height="184" rx="16" fill="#FEF3C7"/>
+    <text x="28" y="44" font-size="21" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#78350F">模式 4：离线物理蒸馏</text>
+    <text x="28" y="76" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#92400E">离线高精度仿真 → 实时网络推理</text>
+    <rect x="28" y="96" width="304" height="40" rx="8" fill="#FFFFFF" stroke="#FCD34D"/>
+    <text x="180" y="122" text-anchor="middle" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#78350F">(x, y_teacher) → Train N_θ(x)</text>
+    <text x="28" y="162" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#B45309">适合将超大规模 FEA / SPICE 转化为实时插件</text>
+    <rect x="396" y="34" width="230" height="116" rx="10" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+    <text x="511" y="72" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#78350F">离线高精度教师模型</text>
+    <text x="511" y="102" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#92400E">完整非线性电路 / 有限元场</text>
+    <text x="511" y="126" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#B45309">Non-Realtime Teacher</text>
+    <line x1="626" y1="92" x2="688" y2="92" stroke="#D97706" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arr-diag)"/>
+    <rect x="696" y="34" width="230" height="116" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="811" y="72" text-anchor="middle" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#5B21B6">实时学生网络 / 低秩模型</text>
+    <text x="811" y="102" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#6D28D9">音频线程仅运行轻量学生模型</text>
+    <text x="811" y="126" text-anchor="middle" font-size="13" font-weight="bold" font-family="DejaVu Serif, Georgia, serif" fill="#5B21B6">Realtime Student DSP</text>
+    <rect x="960" y="24" width="516" height="136" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="984" y="56" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#334155">两阶段分层误差评估：</text>
+    <text x="984" y="88" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 第一层：验证离线教师模型与真实硬件测量的一致性 (e_physical)</text>
+    <text x="984" y="116" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">· 第二层：验证实时学生模型相对离线教师模型的蒸馏损失 (e_reduction)</text>
+  </g>
+</svg>
