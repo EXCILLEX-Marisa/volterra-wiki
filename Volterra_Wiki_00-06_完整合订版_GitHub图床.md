@@ -422,7 +422,7 @@ y[n]=F\bigl(x[n],x[n-1],y[n-1],y[n-2]\bigr).
 | $`\mathcal L(\theta)`$、$`L(\theta)`$ | 训练损失或目标函数 | 与 Laguerre 传递函数 $`L_j(z)`$ 区分 |
 | $`\eta_r`$、$`\lambda`$ | 第 $`r`$ 次迭代的学习率、损失／正则化权重 | 训练迭代索引优先写 $`r`$，避免与连续时间 $`t`$ 混用 |
 | $`\theta^\star`$、$`\arg\min_\theta`$ | 优化得到的参数与最小值对应的参数搜索 | 常见于系统辨识 |
-| $`\mathbb E[\cdot]`$、$`\operatorname{Var}[\cdot]`$ | 期望与方差 | 随机激励、元件公差和噪声模型 |
+| $`\mathbb E[\cdot]`$、$`\mathrm{Var}[\cdot]`$ | 期望与方差 | 随机激励、元件公差和噪声模型 |
 | $`\boldsymbol\xi`$、$`\xi_j`$ | 随机参数向量及其分量 | Wiener Chaos、PCE |
 | $`H_m(\xi)`$、$`\Psi_{\boldsymbol\alpha}`$ | 概率论 Hermite 多项式及多元正交基 | $`H_m`$ 与能量函数 $`H(\mathbf s)`$ 不同 |
 | $`\boldsymbol\alpha`$、$`\lvert\boldsymbol\alpha\rvert`$ | 多指标及其总阶 | 与分数阶导数的标量 $`\alpha`$ 区分 |
@@ -441,7 +441,7 @@ y[n]=F\bigl(x[n],x[n-1],y[n-1],y[n-2]\bigr).
 | $`\mathbf M,\mathbf C,\mathbf K`$ | 质量、阻尼、刚度矩阵 | 有限元及结构振动 |
 | $`\mathbf q`$、$`\dot{\mathbf q}`$、$`\mathbf a`$ | 结构位移、速度与模态坐标 | 与状态收缩系数的 $`q_c`$ 区分 |
 | $`\mathbf U,\boldsymbol\Sigma,\mathbf V^\top`$ | SVD 的左奇异向量、奇异值矩阵与右奇异向量 | POD 与数据降阶 |
-| $`\operatorname{rank}`$、$`R`$ | 矩阵秩、低秩约简的分离分量数 | 与耗散矩阵 $`\mathbf R`$ 区分 |
+| $`\mathrm{rank}`$、$`R`$ | 矩阵秩、低秩约简的分离分量数 | 与耗散矩阵 $`\mathbf R`$ 区分 |
 | $`H(\mathbf s)`$、$`\nabla H`$ | 储存能量的 Hamiltonian 函数及其状态梯度 | 与 Hermite 基 $`H_m(\xi)`$ 区分 |
 | $`\mathbf J(\mathbf s)`$、$`\mathbf R(\mathbf s)`$、$`\mathbf G(\mathbf s)`$ | 能量交换、耗散和端口耦合矩阵 | Port-Hamiltonian 方程 |
 | $`\mathbf u`$、$`\mathbf y`$ | 物理输入端口变量与对应输出端口变量 | $`x[n]`$、$`y[n]`$ 仍用于普通音频输入输出 |
@@ -2093,7 +2093,7 @@ c_{\boldsymbol\alpha}[n]\,
 ```
 
 ```math
-\operatorname{Var}(y[n])\approx
+\mathrm{Var}(y[n])\approx
 \sum_{\boldsymbol\alpha\ne\boldsymbol0}
 c_{\boldsymbol\alpha}^2[n]\,
 \mathbb E[\Psi_{\boldsymbol\alpha}^2].
@@ -2569,7 +2569,7 @@ Aria 则在产品层面与可调整界面、实时动态显示和抗混叠改进
 报告进一步识别出约十五类静态点形函数，其中包括反正切和双曲正切函数及其快速近似。例如报告描述的一类 *desoras* 曲线具有如下形式：
 
 ```math
-f_p(x)=\operatorname{sgn}(x)\bigl[\arctan(\lvert x\rvert^p)\bigr]^{1/p}.
+f_p(x)=\mathrm{sgn}(x)\bigl[\arctan(\lvert x\rvert^p)\bigr]^{1/p}.
 ```
 
 当 $`\lvert x\rvert`$ 很小时，该类函数近似线性；当输入增大时，它趋近有限的输出上界 $`\left(\pi/2\right)^{1/p}`$。需要严格区分**渐近饱和上界**和**硬削波阈值**：前者是输入无限增大时逼近的极限，除非另外存在显式钳制，否则不能说信号在某个有限输入点撞上了不可穿越的硬削波墙。逆向报告还描述了 ceiling 变体的附加钳制，具体是哪一种处理被产品配置选中，不能仅凭点形器函数存在就确认。[R1，§5、附录 A11]
