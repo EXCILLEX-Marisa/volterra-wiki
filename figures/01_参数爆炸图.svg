@@ -1,8 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
   <defs>
     <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
       <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
     </marker>
@@ -25,7 +25,7 @@
   <rect width="1600" height="980" fill="#F8FAFC"/>
   <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
-  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-11</text>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-11 · 维数灾难与参数规模</text>
   <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">完整 Volterra 核的维数灾难：原始张量坐标数 M^p 与对称核独立参数量对照</text>
   <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">即便在 48 kHz 下只看 M = 64 个采样点（约 1.33 ms）的极短历史，完整五阶对称核也已突破一千万个独立参数</text>
 
@@ -108,12 +108,12 @@
     <text x="645" y="346" text-anchor="end" font-size="16" font-weight="bold" font-family="DejaVu Sans Mono, Consolas, monospace" fill="#7C3AED">10,424,128</text>
     <rect x="28" y="384" width="664" height="156" rx="12" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
     <text x="48" y="416" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">极端算例：如果用完整二阶核直接硬算 1 秒钟历史（M = 48,000）？</text>
-    <text x="48" y="452" font-size="17.98" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">N₂ = 48,000 × 48,001 / 2 = 1,152,024,000（约 11.52 亿个独立系数）</text>
+    <text x="48" y="452" font-size="19" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">N₂ = 48,000 × 48,001 / 2 = 1,152,024,000 （超过 11.5 亿个独立系数！）</text>
     <text x="48" y="484" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 光是存下这一个二阶核就需要约 4.6 GB 浮点内存，每采样点需执行 11.5 亿次乘加；</text>
-    <text x="48" y="512" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">• 结论：对于压缩释放、电源下陷等长时过程，单纯延长完整核窗口通常会带来很高的计算与辨识成本。</text>
+    <text x="48" y="512" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">• 结论：长时慢动态（如压缩释放、电源下陷）绝不能靠“无脑拉长完整核窗口”解决！</text>
     <rect x="28" y="558" width="664" height="146" rx="12" fill="#E0F2FE" stroke="#7DD3FC"/>
     <text x="48" y="588" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">维数灾难带来的三重工程瓶颈：</text>
-    <text x="48" y="618" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1. 测量与可辨识性瓶颈：训练素材通常难以提供足以独立区分上千万个交叉坐标的变化；</text>
+    <text x="48" y="618" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">1. 测量与可辨识性瓶颈：训练素材根本无法提供足以独立区分上千万个交叉坐标的变化；</text>
     <text x="48" y="646" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">2. 数值病态与过拟合瓶颈：高维回归矩阵极度共线，极易把本底噪声当成高阶核细节记住；</text>
     <text x="48" y="674" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">3. 实时 DSP 算力瓶颈：VST3 音频插件要求在亚毫秒级缓冲内完成每采样计算。</text>
   </g>

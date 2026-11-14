@@ -1,8 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
   <defs>
     <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
       <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
     </marker>
@@ -25,7 +25,7 @@
   <rect width="1600" height="980" fill="#F8FAFC"/>
   <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
-  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-06</text>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-06 · 谐波 · 互调 · 交叉记忆</text>
   <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">单音谐波（HD）、多音互调（IMD）与跨时刻动态交互的三级实验特征</text>
   <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">为什么单音 THD 测试远远不够？因为真实音乐包含多频和弦（触发和频/差频互调）与瞬态前后历史（触发非对角交叉记忆）</text>
 
@@ -95,7 +95,7 @@
     <text x="44" y="586" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">双音测试对模型辨识的价值：</text>
     <text x="44" y="616" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 能有效区分“先滤波再非线性（Wiener）”与“先非线性</text>
     <text x="44" y="642" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  再滤波（Hammerstein）”——两者单音谐波可调成一致，</text>
-    <text x="44" y="668" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  但双音差频 f₂−f₁ 与边带强度比可能显示出差异。</text>
+    <text x="44" y="668" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  但双音差频 f₂−f₁ 与边带强度比会立刻暴露出差异！</text>
   </g>
   <g transform="translate(1068, 144)">
     <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>

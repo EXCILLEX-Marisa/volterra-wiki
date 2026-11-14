@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="112%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/>
+      <feOffset in="vBlur" dx="0" dy="3" result="vOffset"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+
+  <!-- Top Header Card -->
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="228" height="28" rx="6" fill="#0F172A"/>
+  <text x="182.0" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 03-03 · 正交基与显式磁滞状态</text>
+  <text x="312" y="70" font-size="27" font-weight="bold" fill="#0F172A">Laguerre 全通正交基网络 (V2-L)、RD-Play 磁滞算子簇与双线性状态空间 (Bilinear SSM) 机理图</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">构建现代混合建模平台的三大核心白盒/灰盒支柱：短时交叉记忆正交压缩 + 非衰减多值剩磁 + 慢包络乘性调制</text>
+
+
+  <!-- Left Column: Discrete Laguerre Orthogonal Basis Cascade -->
+    <rect x="48" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="48" y="144" width="736" height="54" rx="14" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.5"/>
+  <rect x="48" y="186" width="736" height="12" fill="#E0F2FE"/>
+  <line x1="48" y1="198" x2="784" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
+  <text x="68" y="168" font-size="17" font-weight="bold" fill="{dark}">{title}</text>
+  <text x="68" y="188" font-size="12.5" fill="{dark}">{subtitle}</text>
+
+  <!-- Right Column: Play / Rate-Dependent Play Hysteresis & Bilinear SSM -->
+    <rect x="816" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="816" y="144" width="736" height="54" rx="14" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+  <rect x="816" y="186" width="736" height="12" fill="#EDE9FE"/>
+  <line x1="816" y1="198" x2="1552" y2="198" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="836" y="168" font-size="17" font-weight="bold" fill="{dark}">{title}</text>
+  <text x="836" y="188" font-size="12.5" fill="{dark}">{subtitle}</text>
+
+  <!-- Left Subcard 1: All-Pass Lattice Cascade Schematic -->
+  <rect x="68" y="210" width="696" height="266" rx="10" fill="#F0F9FF" stroke="#7DD3FC"/>
+  <text x="88" y="236" font-size="14.5" font-weight="bold" fill="#075985">1. 离散 Laguerre 一阶全通滤波器级联链 L_j(z) 与 O(K) 状态递推：</text>
+
+  <!-- Cascade Diagram -->
+  <rect x="88" y="252" width="656" height="148" rx="8" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.5"/>
+  <rect x="104" y="274" width="54" height="34" rx="6" fill="#0F172A"/><text x="131" y="296" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">x[n]</text>
+  <line x1="158" y1="291" x2="192" y2="291" stroke="#0284C7" stroke-width="2" marker-end="url(#arr-blue)"/>
+
+  <!-- L1 Lowpass seed -->
+  <rect x="196" y="264" width="118" height="54" rx="8" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5"/>
+  <text x="255" y="286" text-anchor="middle" font-size="12" font-weight="bold" fill="#075985">首级低通 L₁(z)</text>
+  <text x="255" y="306" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#0369A1">√(1-α²)/(1-αz⁻¹)</text>
+  <line x1="314" y1="291" x2="356" y2="291" stroke="#0284C7" stroke-width="2" marker-end="url(#arr-blue)"/>
+
+  <!-- L2 Allpass -->
+  <rect x="360" y="264" width="118" height="54" rx="8" fill="#BAE6FD" stroke="#0284C7" stroke-width="1.5"/>
+  <text x="419" y="286" text-anchor="middle" font-size="12" font-weight="bold" fill="#075985">全通级联 A(z)</text>
+  <text x="419" y="306" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#0369A1">(z⁻¹-α)/(1-αz⁻¹)</text>
+  <line x1="478" y1="291" x2="520" y2="291" stroke="#0284C7" stroke-width="2" marker-end="url(#arr-blue)"/>
+
+  <!-- LK Allpass -->
+  <rect x="524" y="264" width="118" height="54" rx="8" fill="#7DD3FC" stroke="#0284C7" stroke-width="1.5"/>
+  <text x="583" y="286" text-anchor="middle" font-size="12" font-weight="bold" fill="#075985">全通级联 A(z)</text>
+  <text x="583" y="306" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#075985">第 K 级正交态</text>
+
+  <!-- Taps u1, u2, uK feeding Quadratic Readout -->
+  <line x1="332" y1="291" x2="332" y2="348" stroke="#D97706" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <text x="314" y="336" font-size="11.5" font-weight="bold" fill="#B45309">u₁[n]</text>
+  <line x1="496" y1="291" x2="496" y2="348" stroke="#D97706" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <text x="478" y="336" font-size="11.5" font-weight="bold" fill="#B45309">u₂[n]</text>
+  <line x1="642" y1="291" x2="668" y2="291" stroke="#D97706" stroke-width="2"/>
+  <line x1="668" y1="291" x2="668" y2="348" stroke="#D97706" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <text x="692" y="336" font-size="11.5" font-weight="bold" fill="#B45309">u_K[n]</text>
+
+  <rect x="236" y="352" width="468" height="36" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+  <text x="470" y="375" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#92400E">对称正交二次型与低秩三次读出：y_V[n] = c₁ᵀ u[n] + u[n]ᵀ C₂ u[n] + ∑ r_m (w_mᵀ u)³</text>
+
+  <text x="88" y="426" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#075985">实时状态递推公式：u_j[n] = α·u_j[n-1] + u_{j-1}[n-1] - α·u_{j-1}[n]   (每阶仅需 2 次乘法！)</text>
+  <text x="88" y="454" font-size="13" fill="#334155">• <tspan font-weight="bold">极点 α ∈ (-1, 1) 的物理意义</tspan>：等效记忆跨度 M_eff ≈ -4 / ln|α|；当 α = 0.85 时，仅 K=8 阶即可覆盖 M=256 采样长尾！</text>
+
+  <!-- Left Subcard 2: Parameter Compression & Condition Number Advantage -->
+  <rect x="68" y="490" width="696" height="372" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="88" y="516" font-size="15" font-weight="bold" fill="#0F172A">2. 完备正交性 ⟨ℓ_i, ℓ_j⟩ = δ_ij 带来的维度压缩与条件数飞跃：</text>
+
+  <!-- Orthogonal wavelets visual + Parameter comparison bar chart -->
+  <rect x="88" y="532" width="320" height="156" rx="8" fill="#FFFFFF" stroke="#BAE6FD"/>
+  <text x="248" y="554" text-anchor="middle" font-size="12" font-weight="bold" fill="#075985">前三阶 Laguerre 脉冲基函数 ℓ₁, ℓ₂, ℓ₃[k]</text>
+  <line x1="106" y1="620" x2="392" y2="620" stroke="#94A3B8" stroke-width="1.2"/>
+  <!-- l1 exponential decay -->
+  <path d="M 110 568 Q 160 615 380 620" fill="none" stroke="#0284C7" stroke-width="2.5"/>
+  <!-- l2 one zero crossing -->
+  <path d="M 110 584 Q 140 656 210 632 Q 280 618 380 620" fill="none" stroke="#D97706" stroke-width="2.2"/>
+  <!-- l3 two zero crossings -->
+  <path d="M 110 596 Q 130 650 165 590 Q 210 644 270 622 L 380 620" fill="none" stroke="#7C3AED" stroke-width="2"/>
+  <text x="248" y="674" text-anchor="middle" font-size="11" fill="#475569">零点交错正交，完美契合模拟电路阻尼振荡尾</text>
+
+  <rect x="424" y="532" width="320" height="156" rx="8" fill="#FFFFFF" stroke="#6EE7B7"/>
+  <text x="584" y="554" text-anchor="middle" font-size="12" font-weight="bold" fill="#065F46">二阶核独立参数量对比 (M = 128 采样记忆)</text>
+  <!-- Bar 1: Raw Volterra -->
+  <text x="440" y="588" font-size="11.5" font-weight="bold" fill="#991B1B">原始 H₂ 矩阵：</text>
+  <rect x="530" y="574" width="190" height="20" rx="4" fill="#DC2626"/>
+  <text x="625" y="589" text-anchor="middle" font-size="11" font-weight="bold" fill="#FFFFFF">8,256 参数 (病态!)</text>
+  <!-- Bar 2: Banded D=8 -->
+  <text x="440" y="624" font-size="11.5" font-weight="bold" fill="#92400E">带状剪枝 D=8：</text>
+  <rect x="530" y="610" width="90" height="20" rx="4" fill="#D97706"/>
+  <text x="665" y="625" font-size="11" font-weight="bold" fill="#92400E">1,116 参数</text>
+  <!-- Bar 3: Laguerre K=8 -->
+  <text x="440" y="660" font-size="11.5" font-weight="bold" fill="#065F46">Laguerre K=8：</text>
+  <rect x="530" y="646" width="16" height="20" rx="4" fill="#059669"/>
+  <text x="556" y="661" font-size="11.5" font-weight="bold" fill="#059669">仅 36 参数 (压缩 229 倍!)</text>
+
+  <text x="88" y="718" font-size="13" fill="#334155">• <tspan font-weight="bold">核重构等价映射</tspan>：h₂[k₁, k₂] = ∑_{i=1}^K ∑_{j=1}^K C₂(i,j) · ℓ_i[k₁] · ℓ_j[k₂]（用 K×K 小型核心矩阵平滑重构 M×M 核平面）</text>
+  <text x="88" y="744" font-size="13" fill="#334155">• <tspan font-weight="bold">多极点扩展 (Kautz / Multi-Pole Laguerre)</tspan>：可配置 α_fast = 0.4 捕捉微秒瞬态，α_slow = 0.92 捕捉变压器低频谐振</text>
+  <text x="88" y="770" font-size="13" fill="#334155">• <tspan font-weight="bold">辨识数值稳定性</tspan>：由于各阶状态 u_j[n] 在白噪声下近似正交，Gram 矩阵 ΦᵀΦ 接近对角阵，Ridge 求解极度稳健</text>
+  <rect x="88" y="788" width="656" height="56" rx="8" fill="#ECFDF5" stroke="#059669"/>
+  <text x="106" y="812" font-size="13" font-weight="bold" fill="#065F46">★ 工程落地定论：在所有需要二阶/三阶交叉记忆的实时音频插件中，Laguerre-Volterra (V2-L) 全面取代原始采样抽头核！</text>
+  <text x="106" y="832" font-size="12" fill="#047857">单采样点仅需 K 次一阶全通更新 + K(K+1)/2 次乘加（当 K=8 时总计仅 ~52 FLOPs/sample）。</text>
+
+  <!-- Right Subcard 1: Play & Rate-Dependent Play Hysteresis Operator -->
+  <rect x="836" y="210" width="696" height="340" rx="10" fill="#F5F3FF" stroke="#C4B5FD"/>
+  <text x="856" y="236" font-size="14.5" font-weight="bold" fill="#5B21B6">1. Prandtl–Ishlinskii (PI) 间隙 Play 磁滞算子簇与速率相关扩展 (RD-Play)：</text>
+  <text x="856" y="262" font-size="13" fill="#334155">• 单个 Play 磁滞元 (Hysteron，阈值半径 r_m ≥ 0) 模拟具有机械死区/钉扎效应的磁畴翻转状态 p_m[n]：</text>
+
+  <rect x="856" y="276" width="656" height="72" rx="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="1184" y="302" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#5B21B6">p_m[n] = max( x[n] - r_m ,  min( x[n] + r_m ,  p_m[n-1] ) )</text>
+  <text x="1184" y="328" text-anchor="middle" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#059669" font-weight="bold">速率相关 RD-Play：r_m,eff[n] = r_m0 + η_m · |x[n] - x[n-1]| + γ_m · s_env[n]</text>
+
+  <!-- Visual Diagrams: Deadzone Backlash & Multi-Branch B-H Hysteresis Loop -->
+  <rect x="856" y="360" width="318" height="174" rx="8" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="1015" y="382" text-anchor="middle" font-size="12" font-weight="bold" fill="#5B21B6">单算子死区回隙 (Backlash 2·r_m)</text>
+  <line x1="880" y1="454" x2="1150" y2="454" stroke="#94A3B8" stroke-width="1.2"/>
+  <line x1="1015" y1="392" x2="1015" y2="516" stroke="#94A3B8" stroke-width="1.2"/>
+  <!-- Parallelogram backlash loop -->
+  <polygon points="910,498 970,498 1120,410 1060,410" fill="#EDE9FE" fill-opacity="0.7" stroke="#7C3AED" stroke-width="2.2"/>
+  <line x1="985" y1="454" x2="1045" y2="454" stroke="#DC2626" stroke-width="3"/>
+  <text x="1015" y="446" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#DC2626">死区宽度 2r_m</text>
+  <text x="1015" y="526" text-anchor="middle" font-size="11" fill="#475569">|x[n] - p_m[n-1]| ≤ r_m 时状态冻结不变</text>
+
+  <rect x="1194" y="360" width="318" height="174" rx="8" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="1353" y="382" text-anchor="middle" font-size="12" font-weight="bold" fill="#065F46">N_h=6 算子叠加光滑主/次磁滞回线</text>
+  <line x1="1218" y1="454" x2="1488" y2="454" stroke="#94A3B8" stroke-width="1.2"/>
+  <line x1="1353" y1="392" x2="1353" y2="516" stroke="#94A3B8" stroke-width="1.2"/>
+  <!-- Major loop -->
+  <path d="M 1236 502 C 1270 412, 1353 402, 1470 406 C 1436 496, 1353 506, 1236 502 Z" fill="#D1FAE5" fill-opacity="0.5" stroke="#059669" stroke-width="2.4"/>
+  <!-- Minor inner loop -->
+  <path d="M 1296 474 C 1320 434, 1360 430, 1410 432 C 1386 472, 1346 476, 1296 474 Z" fill="none" stroke="#D97706" stroke-width="2" stroke-dasharray="3 2"/>
+  <text x="1353" y="526" text-anchor="middle" font-size="11" font-weight="bold" fill="#065F46">y_hyst[n] = w₀x[n] + ∑_{m=1}^{N_h} w_m · p_m[n]</text>
+
+  <!-- Right Subcard 2: Bilinear State-Space Model (Bilinear SSM) -->
+  <rect x="836" y="564" width="696" height="298" rx="10" fill="#FFFBEB" stroke="#FCD34D"/>
+  <text x="856" y="590" font-size="15" font-weight="bold" fill="#92400E">2. 双线性状态空间模型 (Bilinear SSM) —— 慢包络与快音频的显式乘法耦合：</text>
+  <text x="856" y="616" font-size="13" fill="#334155">• 模拟电路中的偏置漂移与光敏/电子管变跨导压缩，本质是内部状态向量 s[n] 与输入信号 x[n] 的双线性交叉乘积：</text>
+
+  <rect x="856" y="630" width="656" height="82" rx="8" fill="#FFFFFF" stroke="#D97706" stroke-width="1.5"/>
+  <text x="1184" y="656" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#92400E">状态更新：s[n] = A · s[n-1] + b · x[n] + ( N · s[n-1] ) · x[n] + b_env · |x[n]|</text>
+  <text x="1184" y="682" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#0F172A">输出读出：y_ssm[n] = cᵀ s[n] + d · x[n] + ( gᵀ s[n] ) · x[n] + ( qᵀ s[n] ) · x²[n]</text>
+  <text x="1184" y="702" text-anchor="middle" font-size="11.5" fill="#B45309">其中 N·s[n-1]·x[n] 递归展开后天然生成无穷阶指数衰减交叉 Volterra 核！</text>
+
+  <text x="856" y="740" font-size="13" fill="#334155">• <tspan font-weight="bold" fill="#065F46">凸辨识技巧</tspan>：预设一组对角包络极点 λ_k ∈ {0.99, 0.999, 0.9998} 提前算出慢状态轨迹 s_k[n]，则输出方程中的耦合权重</text>
+  <text x="870" y="762" font-size="13" fill="#334155">c, d, g, q 加上 Play 算子权重 w_m <tspan font-weight="bold" fill="#059669">全部退化为线性最小二乘回归</tspan>，可与 Laguerre-Volterra 核一步联合闭式求解！</text>
+  <text x="856" y="790" font-size="13" fill="#334155">• <tspan font-weight="bold" fill="#5B21B6">实测精度提升 (Taupe Studio 磁带机基准测试)</tspan>：在相同参数量下，将「V2-L + RD-Play + Bilinear SSM」组合后，</text>
+  <text x="870" y="812" font-size="13" font-weight="bold" fill="#7C3AED">相比纯 Volterra 模型可将磁滞与动态压缩残差 ESR 降低 60%～75%，且完全不需要运行高开销 RNN！</text>
+  <text x="856" y="840" font-size="12.5" font-weight="bold" fill="#92400E">• 稳定性充分条件：只要 ‖A‖₂ + ‖N‖₂ · X_max &lt; 1，双线性状态机在任意极端瞬态下均保持指数稳定</text>
+
+
+  <!-- Bottom Dark Summary Bar -->
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：Laguerre 正交基解决了短时交叉核的维度灾难；Play 算子解决了磁滞的非衰减记忆；双线性状态空间解决了百毫秒慢包络与快音频的乘性交叉调制。</text>
+</svg>

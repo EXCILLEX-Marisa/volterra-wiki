@@ -1,89 +1,185 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif">
   <defs>
-    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="112%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/>
+      <feOffset in="vBlur" dx="0" dy="3" result="vOffset"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#475569"/>
     </marker>
-    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#0284C7"/>
     </marker>
-    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#D97706"/>
     </marker>
-    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7C3AED"/>
     </marker>
-    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#059669"/>
     </marker>
-    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#DC2626"/>
     </marker>
   </defs>
+
+  <!-- Background -->
   <rect width="1600" height="980" fill="#F8FAFC"/>
+
+  <!-- Top Header Card -->
   <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
-  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
-  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-14</text>
-  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">有限阶、有限记忆前馈 Volterra 模型面对五类非线性现象的能力边界</text>
-  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">区分“理论局部逼近能力”、“训练域外多项式发散风险”与“因缺失递归/持久状态而导致的结构性不可表示”</text>
-  <g transform="translate(48, 144)">
-    <rect x="0" y="0" width="1504" height="132" rx="14" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="380" height="132" rx="14" fill="#D1FAE5"/>
-    <text x="24" y="38" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">1. 弱至中等光滑动态饱和</text>
-    <text x="24" y="68" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">典型对象：模拟前级、变压器频段染色、温和电子管推挽</text>
-    <rect x="24" y="84" width="332" height="32" rx="6" fill="#FFFFFF" stroke="#059669"/>
-    <text x="190" y="105" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">评估结论：理想适用区（主力场景）</text>
-    <text x="405" y="38" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学与物理机制原因：</text>
-    <text x="405" y="66" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">满足局部光滑与衰减记忆假设；用低阶对角支路 g_p[k] 加少量非对角交叉项即可高精度复现谐波与互调。</text>
-    <text x="405" y="104" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">工程解决对策：优先采用并联 Hammerstein + 近对角/低秩交叉核。</text>
-  </g>
-  <g transform="translate(48, 290)">
-    <rect x="0" y="0" width="1504" height="132" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="380" height="132" rx="14" fill="#FEF3C7"/>
-    <text x="24" y="38" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">2. 幅度超出训练范围（外推失控）</text>
-    <text x="24" y="68" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">典型对象：任何非恒定有限阶多项式 H_P[ax] = a^P H_P[x]</text>
-    <rect x="24" y="84" width="332" height="32" rx="6" fill="#FFFFFF" stroke="#D97706"/>
-    <text x="190" y="105" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">评估结论：结构性外推发散风险</text>
-    <text x="405" y="38" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学与物理机制原因：</text>
-    <text x="405" y="66" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">普通有限阶多项式没有渐近饱和上界：当输入电平超出训练峰值时，最高次项 a^P 急剧膨胀导致数值爆音。</text>
-    <text x="405" y="104" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">工程解决对策：必须在输入端限定工作域，或嵌入有界点形器（如 atan/tanh）。</text>
-  </g>
-  <g transform="translate(48, 436)">
-    <rect x="0" y="0" width="1504" height="132" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="380" height="132" rx="14" fill="#FEF3C7"/>
-    <text x="24" y="38" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">3. 硬削波与折点阈值（Hard Clipper）</text>
-    <text x="24" y="68" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">典型对象：带死区、硬限幅墙 ±T 或分段折点的瞬时曲线</text>
-    <rect x="24" y="84" width="332" height="32" rx="6" fill="#FFFFFF" stroke="#D97706"/>
-    <text x="190" y="105" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">评估结论：缺乏全局精确表示（局部高阶近似）</text>
-    <text x="405" y="38" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学与物理机制原因：</text>
-    <text x="405" y="66" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">折点处导数不连续（破坏局部 Taylor 条件），用高阶多项式强行拟合会出现 Gibbs 振荡且伴随高倍频混叠。</text>
-    <text x="405" y="104" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">工程解决对策：直接用分段解析限幅或带 ceiling 的静态点形器，勿硬堆阶数。</text>
-  </g>
-  <g transform="translate(48, 582)">
-    <rect x="0" y="0" width="1504" height="132" rx="14" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="380" height="132" rx="14" fill="#FEE2E2"/>
-    <text x="24" y="38" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">4. 压缩器与母带限制器（Comp / Limiter）</text>
-    <text x="24" y="68" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">典型对象：含峰值/均方检测、attack/release 递推与前瞻</text>
-    <rect x="24" y="84" width="332" height="32" rx="6" fill="#FFFFFF" stroke="#DC2626"/>
-    <text x="190" y="105" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">评估结论：长时递归动态效率极低</text>
-    <text x="405" y="38" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学与物理机制原因：</text>
-    <text x="405" y="66" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">毫秒至秒级的释放时间常数对应递归包络状态 s_env[n]；用前馈窗口硬铺需要数万采样点的巨型核。</text>
-    <text x="405" y="104" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">工程解决对策：用显式包络状态控制器（d[n]→s_env[n]→g[n]）与 Volterra 染色模块解耦协作。</text>
-  </g>
-  <g transform="translate(48, 728)">
-    <rect x="0" y="0" width="1504" height="132" rx="14" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="380" height="132" rx="14" fill="#FEE2E2"/>
-    <text x="24" y="38" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">5. 铁磁磁滞与持久剩磁（Hysteresis）</text>
-    <text x="24" y="68" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">典型对象：磁带机、磁芯变压器在激励撤除后保留路径分支</text>
-    <rect x="24" y="84" width="332" height="32" rx="6" fill="#FFFFFF" stroke="#DC2626"/>
-    <text x="190" y="105" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">评估结论：有限前馈窗口无法区分持久状态</text>
-    <text x="405" y="38" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">数学与物理机制原因：</text>
-    <text x="405" y="66" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">若两段不同远期历史使材料停留在不同剩磁分支，而最近 M 个样本完全相同，无状态前馈窗口必然输出相同结果。</text>
-    <text x="405" y="104" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">工程解决对策：需引入显式磁化状态变量（Jiles-Atherton / Preisach / Play 算子）。</text>
-  </g>
+  <rect x="68" y="48" width="190" height="28" rx="6" fill="#0F172A"/>
+  <text x="163.0" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 01-13 · 理论与工程边界</text>
+  <text x="274" y="70" font-size="27" font-weight="bold" fill="#0F172A">Volterra 级数能力边界五级光谱图（从理想收敛区到定理级失效禁区）</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">结合解析收敛半径 R_c、多项式齐次缩放 a^p、Gibbs 折点振铃、慢包络维度灾难与 Boyd–Chua 衰减记忆定理给出定量判据</text>
+
+
+  <!-- 5 Horizontal Tiers with Left Text Card + Right Visual Curve Box -->
+
+  <!-- Tier 1: Ideal Zone (Emerald) -->
+  <rect x="48" y="142" width="1504" height="138" rx="14" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="1.8" filter="url(#shadow)"/>
+  <rect x="48" y="142" width="220" height="138" rx="14" fill="#D1FAE5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <text x="158" y="188" text-anchor="middle" font-size="17" font-weight="bold" fill="#065F46">① 理想适用区</text>
+  <text x="158" y="214" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#047857">温和光滑非线性</text>
+  <text x="158" y="238" text-anchor="middle" font-size="12.5" fill="#065F46">低阶 + 快速衰减记忆</text>
+  <rect x="88" y="248" width="140" height="22" rx="11" fill="#059669"/>
+  <text x="158" y="263" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FFFFFF">P ≤ 3, M ≤ 64</text>
+
+  <text x="288" y="172" font-size="15" font-weight="bold" fill="#0F172A">典型场景：甲类电子管微饱和、模拟调音台通道染色、扬声器小信号柔顺度非线性</text>
+  <text x="288" y="198" font-size="13.5" fill="#334155">• 数学特征：输入位于复平面收敛圆内 (|x| &lt; R_c)，泛函算子满足 Boyd–Chua 紧致衰减记忆 (Fading Memory)</text>
+  <text x="288" y="222" font-size="13.5" fill="#334155">• 截断收敛性：3 阶截断余项 R₄ 低于 -80 dB，线性最小二乘 (OLS/Ridge) 具备全局唯一闭式最优解</text>
+  <text x="288" y="246" font-size="13.5" font-weight="bold" fill="#059669">• 推荐架构：1 阶线性 FIR + 2/3 阶对角及近对角带状 Volterra 核 (D ≤ 8)</text>
+
+  <!-- Visual Plot 1: Smooth saturation + fast decaying kernel -->
+  <rect x="1160" y="154" width="376" height="114" rx="10" fill="#F8FAFC" stroke="#A7F3D0"/>
+  <line x1="1180" y1="211" x2="1320" y2="211" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="1250" y1="166" x2="1250" y2="256" stroke="#CBD5E1" stroke-width="1"/>
+  <path d="M 1186 246 C 1216 244, 1230 211, 1250 211 C 1270 211, 1284 178, 1314 176" fill="none" stroke="#059669" stroke-width="3"/>
+  <text x="1250" y="263" text-anchor="middle" font-size="11" font-weight="bold" fill="#065F46">光滑解析曲线 (|x| &lt; R_c)</text>
+  <line x1="1356" y1="242" x2="1516" y2="242" stroke="#CBD5E1" stroke-width="1"/>
+  <path d="M 1362 174 Q 1396 236 1510 241" fill="none" stroke="#0284C7" stroke-width="2.5" stroke-dasharray="3 2"/>
+  <line x1="1366" y1="242" x2="1366" y2="178" stroke="#059669" stroke-width="3"/>
+  <line x1="1384" y1="242" x2="1384" y2="204" stroke="#059669" stroke-width="3"/>
+  <line x1="1402" y1="242" x2="1402" y2="222" stroke="#059669" stroke-width="3"/>
+  <line x1="1420" y1="242" x2="1420" y2="233" stroke="#059669" stroke-width="3"/>
+  <line x1="1438" y1="242" x2="1438" y2="238" stroke="#059669" stroke-width="3"/>
+  <text x="1436" y="263" text-anchor="middle" font-size="11" font-weight="bold" fill="#075985">指数快速衰减记忆</text>
+
+  <!-- Tier 2: Dynamic Gain Scaling / Polynomial Blow-up (Sky Blue) -->
+  <rect x="48" y="292" width="1504" height="138" rx="14" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="1.8" filter="url(#shadow)"/>
+  <rect x="48" y="292" width="220" height="138" rx="14" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.5"/>
+  <text x="158" y="338" text-anchor="middle" font-size="17" font-weight="bold" fill="#075985">② 宽动态电平区</text>
+  <text x="158" y="364" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0369A1">幂次缩放发散风险</text>
+  <text x="158" y="388" text-anchor="middle" font-size="12.5" fill="#075985">Locality 局部性问题</text>
+  <rect x="88" y="398" width="140" height="22" rx="11" fill="#0284C7"/>
+  <text x="158" y="413" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FFFFFF">y_p(a·x) = a^p·y_p(x)</text>
+
+  <text x="288" y="322" font-size="15" font-weight="bold" fill="#0F172A">典型场景：输入推子跨越 -30 dBFS ～ +6 dBFS 宽动态范围的母带饱和器与总线处理器</text>
+  <text x="288" y="348" font-size="13.5" fill="#334155">• 数学瓶颈：p 阶多项式齐次性导致增益超标时输出按 a^p 幂次爆炸，无水平渐近线 (lim_{|x|→∞}|P(x)| = ∞)</text>
+  <text x="288" y="372" font-size="13.5" fill="#334155">• 单电平辨识偏差：高电平截断拟合会将 p=5,7 余项回折进 h₁, h₃，造成低电平音色发闷失真</text>
+  <text x="288" y="396" font-size="13.5" font-weight="bold" fill="#0284C7">• 工程对策：多方差辨识 (Multiple-Variance) + Legendre 正交多项式基 (SNLM) 或 [L/M] Padé 有理逼近</text>
+
+  <!-- Visual Plot 2: Polynomial divergence vs Pade asymptote -->
+  <rect x="1160" y="304" width="376" height="114" rx="10" fill="#F8FAFC" stroke="#BAE6FD"/>
+  <line x1="1180" y1="361" x2="1516" y2="361" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="1348" y1="314" x2="1348" y2="408" stroke="#CBD5E1" stroke-width="1"/>
+  <!-- Training box [-1, 1] -->
+  <rect x="1288" y="318" width="120" height="86" fill="#E0F2FE" fill-opacity="0.45" stroke="#0284C7" stroke-dasharray="3 2"/>
+  <!-- True & Pade curve with horizontal asymptote -->
+  <path d="M 1190 392 L 1288 388 C 1318 386, 1330 361, 1348 361 C 1366 361, 1378 336, 1408 334 L 1506 330" fill="none" stroke="#059669" stroke-width="2.8"/>
+  <!-- Polynomial blowup outside [-1,1] -->
+  <path d="M 1256 314 C 1276 392, 1318 386, 1348 361 C 1378 336, 1420 330, 1440 408" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="4 2"/>
+  <text x="1464" y="325" font-size="11" font-weight="bold" fill="#059669">Padé 有理渐近</text>
+  <text x="1468" y="402" font-size="11" font-weight="bold" fill="#DC2626">a^p 发散!</text>
+  <text x="1348" y="413" text-anchor="middle" font-size="10.5" fill="#075985">训练区间 [-A, A]</text>
+
+  <!-- Tier 3: Hard Clipping / Non-smooth Corners (Amber) -->
+  <rect x="48" y="442" width="1504" height="138" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.8" filter="url(#shadow)"/>
+  <rect x="48" y="442" width="220" height="138" rx="14" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="158" y="488" text-anchor="middle" font-size="17" font-weight="bold" fill="#92400E">③ 强失真折点区</text>
+  <text x="158" y="514" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#B45309">硬削波与死区交越</text>
+  <text x="158" y="538" text-anchor="middle" font-size="12.5" fill="#92400E">C¹ 导数不连续</text>
+  <rect x="88" y="548" width="140" height="22" rx="11" fill="#D97706"/>
+  <text x="158" y="563" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FFFFFF">Gibbs 振铃 + 混叠</text>
+
+  <text x="288" y="472" font-size="15" font-weight="bold" fill="#0F172A">典型场景：母带 Brickwall 硬削波器 (Hard Clipper)、二极管死区整流、高增益吉他失真破音</text>
+  <text x="288" y="498" font-size="13.5" fill="#334155">• 数学瓶颈：函数在阈值 ±T 处高阶导数不存在 (f ∉ C^∞)，高阶多项式逼近在折点附近产生剧烈 Gibbs 过冲振铃</text>
+  <text x="288" y="522" font-size="13.5" fill="#334155">• 混叠风暴：P 阶展开将带宽展宽 P 倍 (P·f_max)，无抗混叠时高频谐波镜像折叠回基底频带产生金属噪音</text>
+  <text x="288" y="546" font-size="13.5" font-weight="bold" fill="#B45309">• 工程对策：分段三次软削波 + Hopman–Bennett 无分母多项式 ADAA + 2×/4× 多速率过采样</text>
+
+  <!-- Visual Plot 3: Hard Clipper + Gibbs Ringing -->
+  <rect x="1160" y="454" width="376" height="114" rx="10" fill="#F8FAFC" stroke="#FDE68A"/>
+  <line x1="1180" y1="511" x2="1516" y2="511" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="1348" y1="464" x2="1348" y2="558" stroke="#CBD5E1" stroke-width="1"/>
+  <!-- Hard clipper piecewise linear -->
+  <polyline points="1196,544 1296,544 1400,478 1500,478" fill="none" stroke="#0F172A" stroke-width="2.5"/>
+  <!-- Gibbs ringing polynomial approximation -->
+  <path d="M 1196 544 Q 1230 554 1260 538 Q 1284 558 1296 544 L 1400 478 Q 1412 464 1436 484 Q 1466 468 1500 478" fill="none" stroke="#D97706" stroke-width="2.2"/>
+  <circle cx="1296" cy="544" r="4.5" fill="#DC2626"/>
+  <circle cx="1400" cy="478" r="4.5" fill="#DC2626"/>
+  <text x="1448" y="468" text-anchor="middle" font-size="11" font-weight="bold" fill="#B45309">Gibbs 折点过冲</text>
+  <text x="1250" y="528" text-anchor="middle" font-size="11" font-weight="bold" fill="#991B1B">±T 导数间断</text>
+
+  <!-- Tier 4: Long Envelope Memory / Compressor (Violet) -->
+  <rect x="48" y="592" width="1504" height="138" rx="14" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="1.8" filter="url(#shadow)"/>
+  <rect x="48" y="592" width="220" height="138" rx="14" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="158" y="638" text-anchor="middle" font-size="17" font-weight="bold" fill="#5B21B6">④ 超长记忆尺度区</text>
+  <text x="158" y="664" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#6D28D9">压限器慢包络与偏置</text>
+  <text x="158" y="688" text-anchor="middle" font-size="12.5" fill="#5B21B6">τ_rel = 100～1000 ms</text>
+  <rect x="88" y="698" width="140" height="22" rx="11" fill="#7C3AED"/>
+  <text x="158" y="713" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FFFFFF">O(M^P) 维度爆炸</text>
+
+  <text x="288" y="622" font-size="15" font-weight="bold" fill="#0F172A">典型场景：光学/电子管压限器 (LA-2A / CL1B)、电源轨电容充放电下垂 (Sag)、电子管栅极偏置漂移</text>
+  <text x="288" y="648" font-size="13.5" fill="#334155">• 数学瓶颈：500 ms 释放时间在 48 kHz 下对应 M = 24,000 拍，纯 FIR 型 Volterra 核参数量达 10¹² 彻底不可行</text>
+  <text x="288" y="672" font-size="13.5" fill="#334155">• 非对称时间常数：Attack (1 ms) 与 Release (300 ms) 属于分段状态依赖递归，违反固定线性卷积核假设</text>
+  <text x="288" y="696" font-size="13.5" font-weight="bold" fill="#5B21B6">• 工程对策：显式一阶非对称包络状态机 s_env[n] + 双线性状态空间 (Bilinear SSM) / 可微灰盒 DSP (4A-2A)</text>
+
+  <!-- Visual Plot 4: Short FIR window M vs Long Envelope tail -->
+  <rect x="1160" y="604" width="376" height="114" rx="10" fill="#F8FAFC" stroke="#DDD6FE"/>
+  <line x1="1180" y1="696" x2="1516" y2="696" stroke="#CBD5E1" stroke-width="1.2"/>
+  <!-- Short Volterra window box -->
+  <rect x="1186" y="616" width="52" height="80" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="1212" y="634" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#5B21B6">FIR 窗 M</text>
+  <text x="1212" y="648" text-anchor="middle" font-size="10" fill="#6D28D9">(~2 ms)</text>
+  <!-- Long exponential release curve -->
+  <path d="M 1186 696 L 1196 624 Q 1260 682 1506 693" fill="none" stroke="#DC2626" stroke-width="2.8"/>
+  <text x="1380" y="656" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#991B1B">慢包络释放尾 s_env[n] (100～1000 ms)</text>
+  <text x="1380" y="676" text-anchor="middle" font-size="11" fill="#5B21B6">超出有限窗 M 的 98% 能量被截断丢失！</text>
+
+  <!-- Tier 5: Non-Fading Memory / Hysteresis (Coral Red) -->
+  <rect x="48" y="742" width="1504" height="142" rx="14" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="1.8" filter="url(#shadow)"/>
+  <rect x="48" y="742" width="220" height="142" rx="14" fill="#FEE2E2" stroke="#FCA5A5" stroke-width="1.5"/>
+  <text x="158" y="788" text-anchor="middle" font-size="17" font-weight="bold" fill="#991B1B">⑤ 理论禁区 (失效)</text>
+  <text x="158" y="814" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#B91C1C">铁芯与磁带多值磁滞</text>
+  <text x="158" y="838" text-anchor="middle" font-size="12.5" fill="#991B1B">违反衰减记忆公理</text>
+  <rect x="88" y="848" width="140" height="22" rx="11" fill="#DC2626"/>
+  <text x="158" y="863" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FFFFFF">非唯一多分支映射</text>
+
+  <text x="288" y="772" font-size="15" font-weight="bold" fill="#0F172A">典型场景：磁带机磁畴剩磁 (Remanence ±B_r)、音频变压器硅钢/坡莫合金铁芯磁滞回线、自激振荡器</text>
+  <text x="288" y="798" font-size="13.5" fill="#334155">• 定理级失效根源：输入归零 H→0 后输出保持不同剩磁 +B_r ≠ -B_r，直接违反 Boyd–Chua 衰减记忆 (Fading Memory) 充要条件</text>
+  <text x="288" y="822" font-size="13.5" fill="#334155">• 无论将 Volterra 阶数 P 或记忆 M 推至多大，单值时间卷积算子永远无法表征依赖历史极值路径的闭合回环</text>
+  <text x="288" y="848" font-size="13.5" font-weight="bold" fill="#DC2626">• 唯一正确路线：引入显式内部状态算子 —— Play / Prandtl–Ishlinskii 磁滞算子簇、Jiles–Atherton 微分方程或 LSTM/GRU</text>
+
+  <!-- Visual Plot 5: Multi-branch Hysteresis B-H Loop -->
+  <rect x="1160" y="754" width="376" height="118" rx="10" fill="#F8FAFC" stroke="#FECACA"/>
+  <line x1="1190" y1="813" x2="1506" y2="813" stroke="#94A3B8" stroke-width="1.2"/>
+  <line x1="1348" y1="762" x2="1348" y2="864" stroke="#94A3B8" stroke-width="1.2"/>
+  <!-- Upper and lower hysteresis branches -->
+  <path d="M 1220 852 C 1260 780, 1348 772, 1476 774" fill="none" stroke="#DC2626" stroke-width="2.6"/>
+  <path d="M 1476 774 C 1436 846, 1348 854, 1220 852" fill="none" stroke="#7C3AED" stroke-width="2.6"/>
+  <!-- Remanence points +Br and -Br at H=0 -->
+  <circle cx="1348" cy="790" r="5" fill="#DC2626"/>
+  <circle cx="1348" cy="836" r="5" fill="#7C3AED"/>
+  <text x="1384" y="793" font-size="11" font-weight="bold" fill="#991B1B">+B_r (上支剩磁)</text>
+  <text x="1384" y="842" font-size="11" font-weight="bold" fill="#5B21B6">-B_r (下支剩磁)</text>
+  <text x="1254" y="778" font-size="11" font-weight="bold" fill="#DC2626">H=0 处一输入对多输出</text>
+
+
+  <!-- Bottom Dark Summary Bar -->
   <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
   <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
-  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心要义：认清边界不是否定 Volterra，而是让它专注承担“短至中时域频率相关非线性与局部交叉记忆”，把长时包络和持久状态交给专用模块。</text>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：Volterra 级数严禁强行拟合硬削波折点、百毫秒级慢压缩包络与多值磁滞回线；超越前两级区域必须引入 ADAA、Laguerre 基与显式状态算子。</text>
 </svg>

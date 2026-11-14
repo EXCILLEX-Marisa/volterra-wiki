@@ -1,8 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
   <defs>
     <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
       <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
     </marker>
@@ -25,7 +25,7 @@
   <rect width="1600" height="980" fill="#F8FAFC"/>
   <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
-  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 00-01</text>
+  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 00-01 · 概念对照</text>
   <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">输入历史（Memory）与内部状态（State）的两种建模视角</text>
   <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">保存显式输入历史与维护递推状态变量并非互斥：延迟线本身也是一组特殊的状态，核心差别在于历史信息的组织与压缩方式</text>
 
@@ -33,8 +33,8 @@
     <rect x="0" y="0" width="1020" height="350" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2" filter="url(#shadow)"/>
     <rect x="0" y="0" width="1020" height="46" rx="16" fill="#E0F2FE"/>
     <text x="24" y="30" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">视角 A｜显式历史展开（Finite Memory / NFIR 延迟线视角）：记住“过去发生过哪些输入”</text>
-    <text x="996" y="77" text-anchor="end" font-size="15" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0369A1">y[n] = F(x[n], x[n-1], ..., x[n-M+1])</text>
-    <circle cx="70" cy="115" r="24" fill="#0284C7"/>
+    <text x="996" y="30" text-anchor="end" font-size="16" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0284C7">y[n] = F(x[n], x[n-1], ..., x[n-M+1])</text>
+    <circle cx="70" cy="115" r="24" fill="#0284C7" />
     <text x="70" y="121" text-anchor="middle" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#FFF">x[n]</text>
     <line x1="94" y1="115" x2="175" y2="115" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
     <rect x="180" y="91" width="64" height="48" rx="8" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
@@ -73,7 +73,7 @@
     <rect x="0" y="0" width="1020" height="360" rx="16" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="2" filter="url(#shadow)"/>
     <rect x="0" y="0" width="1020" height="46" rx="16" fill="#D1FAE5"/>
     <text x="24" y="30" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">视角 B｜内部状态递推（State-Space / 递归视角）：记住“过去把系统内部变成了什么”</text>
-    <text x="996" y="77" text-anchor="end" font-size="15" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#047857">s[n+1] = F(s[n], x[n]),  y[n] = G(s[n], x[n])</text>
+    <text x="996" y="30" text-anchor="end" font-size="16" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#059669">s[n+1] = F(s[n], x[n]),  y[n] = G(s[n], x[n])</text>
     <circle cx="70" cy="145" r="24" fill="#059669"/>
     <text x="70" y="151" text-anchor="middle" font-size="16" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#FFF">x[n]</text>
     <line x1="94" y1="145" x2="195" y2="145" stroke="#059669" stroke-width="2.5" marker-end="url(#arr-state)"/>

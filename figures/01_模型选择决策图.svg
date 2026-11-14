@@ -1,96 +1,156 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif">
   <defs>
-    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/><feOffset in="vBlur" dx="0" dy="3" result="vOffset"/><feFlood flood-color="#0F172A" flood-opacity="0.06" result="vColor"/><feComposite in="vColor" in2="vOffset" operator="in" result="vShadow"/><feMerge><feMergeNode in="vShadow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <marker id="arr-dark" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#334155"/>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="112%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/>
+      <feOffset in="vBlur" dx="0" dy="3" result="vOffset"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#475569"/>
     </marker>
-    <marker id="arr-lin" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#0284C7"/>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#0284C7"/>
     </marker>
-    <marker id="arr-diag" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#D97706"/>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#D97706"/>
     </marker>
-    <marker id="arr-cross" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#7C3AED"/>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7C3AED"/>
     </marker>
-    <marker id="arr-state" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#059669"/>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#059669"/>
     </marker>
-    <marker id="arr-warn" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#DC2626"/>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#DC2626"/>
     </marker>
   </defs>
+
+  <!-- Background -->
   <rect width="1600" height="980" fill="#F8FAFC"/>
+
+  <!-- Top Header Card -->
   <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
-  <rect x="68" y="48" width="130" height="28" rx="6" fill="#0F172A"/>
-  <text x="133" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 01-15</text>
-  <text x="216" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">基于实测残差证据的黑盒音频非线性模型选择决策树</text>
-  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">从最简线性基准出发，依据受控实验（单音扫频、双音/双脉冲、长前史与初值测试）的残差表现按需升级模型结构</text>
-  <g transform="translate(48, 142)">
-    <rect x="0" y="0" width="760" height="114" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="12" height="114" rx="6" fill="#0F172A"/>
-    <text x="28" y="38" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">问题 1｜不同电平激励下，叠加原理是否成立？</text>
-    <text x="28" y="72" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">测试：缩放输入幅度 a·x[n] 并检查频谱是否出现新谐波或增益压缩</text>
-    <text x="28" y="98" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">↓ 若回答“是 / 仍存在显著残差”，继续向下升级模型 ↓</text>
-    <line x1="760" y1="57" x2="935" y2="57" stroke="#0284C7" stroke-width="3" marker-end="url(#arr-dark)"/>
-    <rect x="772" y="26" width="152" height="26" rx="6" fill="#E0F2FE"/>
-    <text x="848" y="44" text-anchor="middle" font-size="12" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">成立（无谐波）</text>
-    <rect x="942" y="0" width="562" height="114" rx="14" fill="#E0F2FE" stroke="#0284C7" stroke-width="2" filter="url(#shadow)"/>
-    <text x="964" y="42" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">✓ 采用【线性时不变模型（FIR / IIR 卷积）】</text>
-    <text x="964" y="78" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">只需一条脉冲响应 h₁[k]（如线性房间 IR、纯线性理想 EQ）</text>
-  </g>
-  <line x1="428" y1="256" x2="428" y2="292" stroke="#DC2626" stroke-width="3" marker-end="url(#arr-warn)"/>
-  <g transform="translate(48, 292)">
-    <rect x="0" y="0" width="760" height="114" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="12" height="114" rx="6" fill="#0F172A"/>
-    <text x="28" y="38" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">问题 2｜非线性失真是否随频率改变，或受前几毫秒波形影响？</text>
-    <text x="28" y="72" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">测试：对比不同频率单音的谐波比例（ESS），检查失真是否与频率无关</text>
-    <text x="28" y="98" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">↓ 若回答“是 / 仍存在显著残差”，继续向下升级模型 ↓</text>
-    <line x1="760" y1="57" x2="935" y2="57" stroke="#D97706" stroke-width="3" marker-end="url(#arr-dark)"/>
-    <rect x="772" y="26" width="152" height="26" rx="6" fill="#FEF3C7"/>
-    <text x="848" y="44" text-anchor="middle" font-size="12" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">无关（仅看瞬时值）</text>
-    <rect x="942" y="0" width="562" height="114" rx="14" fill="#FEF3C7" stroke="#D97706" stroke-width="2" filter="url(#shadow)"/>
-    <text x="964" y="42" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">✓ 采用【静态无记忆非线性（Waveshaper / 点形器）】</text>
-    <text x="964" y="78" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">只需静态映射 y[n] = f(x[n]) + 必要过采样抗混叠</text>
-  </g>
-  <line x1="428" y1="406" x2="428" y2="442" stroke="#DC2626" stroke-width="3" marker-end="url(#arr-warn)"/>
-  <g transform="translate(48, 442)">
-    <rect x="0" y="0" width="760" height="114" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="12" height="114" rx="6" fill="#0F172A"/>
-    <text x="28" y="38" font-size="16.91" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">问题 3｜用 ESS 辨识出对角/并联 Hammerstein 后，双音 IMD 与双脉冲差分 Δ[n] 残差是否显著？</text>
-    <text x="28" y="72" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">测试：注入未参与拟合的双音 f₁+f₂ 与可变间隔双脉冲，检查差频与交叉项残差</text>
-    <text x="28" y="98" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">↓ 若回答“是 / 仍存在显著残差”，继续向下升级模型 ↓</text>
-    <line x1="760" y1="57" x2="935" y2="57" stroke="#D97706" stroke-width="3" marker-end="url(#arr-dark)"/>
-    <rect x="772" y="26" width="152" height="26" rx="6" fill="#FEF3C7"/>
-    <text x="848" y="44" text-anchor="middle" font-size="12" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">残差极小</text>
-    <rect x="942" y="0" width="562" height="114" rx="14" fill="#FEF3C7" stroke="#D97706" stroke-width="2" filter="url(#shadow)"/>
-    <text x="964" y="42" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">✓ 采用【对角 Volterra / 并联 Hammerstein (g_p[k])】</text>
-    <text x="964" y="78" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">保留 Σ_p (g_p * x^p)[n]，兼顾各阶独立频响塑形与极高实时效率</text>
-  </g>
-  <line x1="428" y1="556" x2="428" y2="592" stroke="#DC2626" stroke-width="3" marker-end="url(#arr-warn)"/>
-  <g transform="translate(48, 592)">
-    <rect x="0" y="0" width="760" height="114" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2" filter="url(#shadow)"/>
-    <rect x="0" y="0" width="12" height="114" rx="6" fill="#0F172A"/>
-    <text x="28" y="38" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">问题 4｜引入局部非对角/块结构后，输出是否仍受百毫秒级慢前史或初始状态 s[0] 支配？</text>
-    <text x="28" y="72" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">测试：注入大瞬态后接长安静尾音，或改变预激励磁化方向，检查长时漂移与剩磁分支</text>
-    <text x="28" y="98" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">↓ 若回答“是 / 仍存在显著残差”，继续向下升级模型 ↓</text>
-    <line x1="760" y1="57" x2="935" y2="57" stroke="#7C3AED" stroke-width="3" marker-end="url(#arr-dark)"/>
-    <rect x="772" y="26" width="152" height="26" rx="6" fill="#EDE9FE"/>
-    <text x="848" y="44" text-anchor="middle" font-size="12" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">无长时状态依赖</text>
-    <rect x="942" y="0" width="562" height="114" rx="14" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2" filter="url(#shadow)"/>
-    <text x="964" y="42" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">✓ 采用【Wiener–Hammerstein / 近对角 / 低秩 Volterra】</text>
-    <text x="964" y="78" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">通过前置滤波 P(f)、带状核或跨支路乘法 u[n]v[n] 捕获非对角交互</text>
-  </g>
-  <line x1="428" y1="706" x2="428" y2="746" stroke="#059669" stroke-width="3" marker-end="url(#arr-state)"/>
-  <g transform="translate(48, 750)">
-    <rect x="0" y="0" width="1504" height="124" rx="16" fill="#D1FAE5" stroke="#059669" stroke-width="2.5" filter="url(#shadow)"/>
-    <text x="28" y="42" font-size="20" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">终极混合方案｜当短时非线性与长时包络/持久状态同时存在 → 采用【混合架构：约简 Volterra 分支库 + 显式状态控制器 s_env[n] / 磁滞算子】</text>
-    <text x="28" y="76" font-size="15" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 让并联 Hammerstein + 因子化交叉项负责毫秒级频率相关饱和与谐波染色；让递归包络（如压缩器 detector / simplenova 渐变器）或磁滞模型负责慢动态与路径记忆。</text>
-    <text x="28" y="104" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 这种路线与部分商业建模系统的技术选择具有相通之处，也为降低高阶核的参数成本提供了参考。</text>
-  </g>
+  <rect x="68" y="48" width="190" height="28" rx="6" fill="#0F172A"/>
+  <text x="163.0" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 01-14 · 架构选型决策</text>
+  <text x="274" y="70" font-size="27" font-weight="bold" fill="#0F172A">非线性音频系统建模架构选型决策树与算力谱系图</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">左侧通过四步残差诊断测试定位系统的记忆尺度与状态属性，右侧给出六级实时建模架构的参数量与适用场景</text>
+
+
+  <!-- Left Panel: Sequential Residual Diagnostic Tree -->
+    <rect x="48" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="48" y="144" width="736" height="54" rx="14" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.5"/>
+  <rect x="48" y="186" width="736" height="12" fill="#E0F2FE"/>
+  <line x1="48" y1="198" x2="784" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
+  <text x="68" y="168" font-size="17" font-weight="bold" fill="{dark}">{title}</text>
+  <text x="68" y="188" font-size="12.5" fill="{dark}">{subtitle}</text>
+
+  <!-- Step 1 Node -->
+  <rect x="72" y="212" width="688" height="142" rx="12" fill="#F0F9FF" stroke="#7DD3FC" stroke-width="1.5"/>
+  <rect x="88" y="226" width="118" height="26" rx="6" fill="#0284C7"/>
+  <text x="147" y="244" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">诊断测试 Step 1</text>
+  <text x="220" y="244" font-size="15.5" font-weight="bold" fill="#075985">不同输入电平 (-24 dB vs 0 dB) 下频响与相频是否恒定且无谐波？</text>
+  <text x="88" y="274" font-size="13.5" fill="#334155">• 判据：相干函数 γ²(f) &gt; 0.999，THD &lt; -90 dB → <tspan font-weight="bold" fill="#059669">【是】选用 LTI FIR / IIR 线性滤波器</tspan></text>
+  <text x="88" y="300" font-size="13.5" fill="#334155">• 若出现谐波簇 (2f₀, 3f₀)，进一步扫频检测各阶谐波包络是否随基频 f₀ 改变？</text>
+  <text x="88" y="326" font-size="13.5" font-weight="bold" fill="#D97706">• 【谐波比恒定】→ 选无记忆多项式 / SNLM (Legendre 基 + ADAA)；【随频率变化】→ 进入 Step 2</text>
+
+  <line x1="416" y1="354" x2="416" y2="374" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+
+  <!-- Step 2 Node -->
+  <rect x="72" y="378" width="688" height="142" rx="12" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5"/>
+  <rect x="88" y="392" width="118" height="26" rx="6" fill="#D97706"/>
+  <text x="147" y="410" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">诊断测试 Step 2</text>
+  <text x="220" y="410" font-size="15.5" font-weight="bold" fill="#92400E">拟合广义 Hammerstein (对角核) 后，双音互调 (f₁±f₂) 残差是否显著？</text>
+  <text x="88" y="440" font-size="13.5" fill="#334155">• 判据：ESS 对角核可完全复现单音谐波，且双音差频 f₂-f₁ 误差 &lt; -50 dB → <tspan font-weight="bold" fill="#059669">【否】选用对角 Volterra</tspan></text>
+  <text x="88" y="466" font-size="13.5" fill="#334155">• 细分结构：若非线性夹在输入/输出定常 EQ 之间，可进一步约简为 Wiener–Hammerstein (L-N-L) 级联</text>
+  <text x="88" y="492" font-size="13.5" font-weight="bold" fill="#7C3AED">• 【双音互调残差大 / 存在跨时刻交叉耦合】→ 必须引入非对角交叉核，进入 Step 3</text>
+
+  <line x1="416" y1="520" x2="416" y2="540" stroke="#D97706" stroke-width="2.5" marker-end="url(#arr-amber)"/>
+
+  <!-- Step 3 Node -->
+  <rect x="72" y="544" width="688" height="142" rx="12" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.5"/>
+  <rect x="88" y="558" width="118" height="26" rx="6" fill="#7C3AED"/>
+  <text x="147" y="576" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">诊断测试 Step 3</text>
+  <text x="220" y="576" font-size="15.5" font-weight="bold" fill="#5B21B6">非线性交叉记忆的持续时长 τ_mem 是否在短时间窗 (≤ 10 ms) 内？</text>
+  <text x="88" y="606" font-size="13.5" fill="#334155">• 【τ_mem ≤ 2 ms (M ≤ 64)】：直接选用 <tspan font-weight="bold" fill="#5B21B6">带状剪枝 Volterra (|k₁-k₂| ≤ D, D = 4～12)</tspan></text>
+  <text x="88" y="632" font-size="13.5" fill="#334155">• 【2 ms &lt; τ_mem ≤ 15 ms】：直接采样抽头导致参数爆炸，改用 <tspan font-weight="bold" fill="#059669">Laguerre 正交基 Volterra (V2-L, K=6～10)</tspan></text>
+  <text x="88" y="658" font-size="13.5" font-weight="bold" fill="#DC2626">• 【τ_mem &gt; 20 ms 或存在断崖硬削波 / 剩磁回环】→ 超出纯泛函级数边界，进入 Step 4</text>
+
+  <line x1="416" y1="686" x2="416" y2="706" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-purple)"/>
+
+  <!-- Step 4 Node -->
+  <rect x="72" y="710" width="688" height="150" rx="12" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5"/>
+  <rect x="88" y="724" width="118" height="26" rx="6" fill="#DC2626"/>
+  <text x="147" y="742" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">诊断测试 Step 4</text>
+  <text x="220" y="742" font-size="15.5" font-weight="bold" fill="#991B1B">长时动态与奇异非线性的物理机制归属哪一类？</text>
+  <text x="88" y="772" font-size="13.5" fill="#334155">• 【慢增益压缩 / 偏置漂移】→ 选用 <tspan font-weight="bold" fill="#065F46">非对称递归包络 s_env[n] + 双线性状态空间 (Bilinear SSM) / 4A-2A</tspan></text>
+  <text x="88" y="798" font-size="13.5" fill="#334155">• 【变压器铁芯 / 磁带多分支磁滞】→ 选用 <tspan font-weight="bold" fill="#7C3AED">Play / 速率相关 RD-Play 磁滞算子簇 (N_h=4～8)</tspan></text>
+  <text x="88" y="824" font-size="13.5" fill="#334155">• 【高增益多级级联 / 复杂黑盒音箱】→ 选用 <tspan font-weight="bold" fill="#991B1B">白盒主干 + 小型 WaveNet/LSTM 残差混合架构</tspan></text>
+
+  <!-- Right Panel: Model Family Matrix (Complexity vs Expressive Power) -->
+    <rect x="816" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="816" y="144" width="736" height="54" rx="14" fill="#D1FAE5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <rect x="816" y="186" width="736" height="12" fill="#D1FAE5"/>
+  <line x1="816" y1="198" x2="1552" y2="198" stroke="#6EE7B7" stroke-width="1.5"/>
+  <text x="836" y="168" font-size="17" font-weight="bold" fill="{dark}">{title}</text>
+  <text x="836" y="188" font-size="12.5" fill="{dark}">{subtitle}</text>
+
+  <!-- Table / Cards inside Right Panel -->
+  <!-- Tier A -->
+  <rect x="836" y="212" width="696" height="86" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <rect x="850" y="226" width="170" height="58" rx="8" fill="#E0F2FE" stroke="#0284C7"/>
+  <text x="935" y="250" text-anchor="middle" font-size="14" font-weight="bold" fill="#075985">① LTI + SNLM 静态波表</text>
+  <text x="935" y="272" text-anchor="middle" font-size="12" fill="#0369A1">Legendre 基 + ADAA1</text>
+  <text x="1038" y="242" font-size="13" fill="#334155">• <tspan font-weight="bold">参数量</tspan>：M + P (≈ 70)   |   <tspan font-weight="bold">实时算力</tspan>：~80 MACs/sample (极低)</text>
+  <text x="1038" y="266" font-size="13" fill="#334155">• <tspan font-weight="bold">典型任务</tspan>：数字软削波器、无记忆过载激励器、低 CPU 通道条染色</text>
+
+  <!-- Tier B -->
+  <rect x="836" y="310" width="696" height="86" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <rect x="850" y="324" width="170" height="58" rx="8" fill="#FEF3C7" stroke="#D97706"/>
+  <text x="935" y="348" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400E">② 广义 Hammerstein</text>
+  <text x="935" y="370" text-anchor="middle" font-size="12" fill="#B45309">对角 Volterra (ESS 核)</text>
+  <text x="1038" y="340" font-size="13" fill="#334155">• <tspan font-weight="bold">参数量</tspan>：P × M (≈ 256～1024)   |   <tspan font-weight="bold">实时算力</tspan>：P 次并行 FFT 卷积</text>
+  <text x="1038" y="364" font-size="13" fill="#334155">• <tspan font-weight="bold">典型任务</tspan>：电子管前级、模拟台子通道频变谐波染色、Acustica 动态卷积</text>
+
+  <!-- Tier C -->
+  <rect x="836" y="408" width="696" height="86" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <rect x="850" y="422" width="170" height="58" rx="8" fill="#EDE9FE" stroke="#7C3AED"/>
+  <text x="935" y="446" text-anchor="middle" font-size="14" font-weight="bold" fill="#5B21B6">③ 带状剪枝 Volterra</text>
+  <text x="935" y="468" text-anchor="middle" font-size="12" fill="#6D28D9">近对角带宽 D = 4～12</text>
+  <text x="1038" y="438" font-size="13" fill="#334155">• <tspan font-weight="bold">参数量</tspan>：M·(D+1) (≈ 500～1500)   |   <tspan font-weight="bold">实时算力</tspan>：D 条移位乘积支路滤波</text>
+  <text x="1038" y="462" font-size="13" fill="#334155">• <tspan font-weight="bold">典型任务</tspan>：推挽级短时交叉记忆、微型扬声器非线性互调失真补偿</text>
+
+  <!-- Tier D -->
+  <rect x="836" y="506" width="696" height="86" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <rect x="850" y="520" width="170" height="58" rx="8" fill="#D1FAE5" stroke="#059669"/>
+  <text x="935" y="544" text-anchor="middle" font-size="14" font-weight="bold" fill="#065F46">④ Laguerre-Volterra</text>
+  <text x="935" y="566" text-anchor="middle" font-size="12" fill="#047857">全通正交基 K = 6～10</text>
+  <text x="1038" y="536" font-size="13" fill="#334155">• <tspan font-weight="bold">参数量</tspan>：K(K+1)/2 (≈ 36～55)   |   <tspan font-weight="bold">实时算力</tspan>：K 阶全通递推 + 小型二次型</text>
+  <text x="1038" y="560" font-size="13" fill="#334155">• <tspan font-weight="bold">典型任务</tspan>：中长衰减记忆交叉核、温和变压器频变饱和、高条件数辨识</text>
+
+  <!-- Tier E -->
+  <rect x="836" y="604" width="696" height="114" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <rect x="850" y="618" width="170" height="86" rx="8" fill="#059669"/>
+  <text x="935" y="648" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">⑤ 灰盒状态组合主干 ★</text>
+  <text x="935" y="670" text-anchor="middle" font-size="12" fill="#D1FAE5">V2-L + Play 磁滞</text>
+  <text x="935" y="690" text-anchor="middle" font-size="12" fill="#D1FAE5">+ Bilinear SSM 包络</text>
+  <text x="1038" y="634" font-size="13" font-weight="bold" fill="#065F46">• 现代母带插件主力架构（参数量 ≈ 120～300，CPU 占用 &lt; 3%）</text>
+  <text x="1038" y="658" font-size="13" fill="#334155">• 兼顾短时泛函记忆 (V2-L)、多值剩磁回环 (RD-Play) 与慢包络交叉调制</text>
+  <text x="1038" y="682" font-size="13" fill="#334155">• 旋钮参数具备明确物理意义，零延迟或仅 0.5 采样 ADAA 相位补偿</text>
+
+  <!-- Tier F -->
+  <rect x="836" y="730" width="696" height="130" rx="10" fill="#FEF2F2" stroke="#FCA5A5"/>
+  <rect x="850" y="744" width="170" height="102" rx="8" fill="#FEE2E2" stroke="#DC2626"/>
+  <text x="935" y="776" text-anchor="middle" font-size="14" font-weight="bold" fill="#991B1B">⑥ 白盒主干 + 神经残差</text>
+  <text x="935" y="798" text-anchor="middle" font-size="12" fill="#B91C1C">或全黑盒 NAM</text>
+  <text x="935" y="818" text-anchor="middle" font-size="12" fill="#991B1B">(WaveNet / LSTM)</text>
+  <text x="1038" y="762" font-size="13" fill="#334155">• <tspan font-weight="bold">混合残差型</tspan>：灰盒主干解释 90% 能量 + 16 维轻量 GRU 拟合尾端高阶残差</text>
+  <text x="1038" y="788" font-size="13" fill="#334155">• <tspan font-weight="bold">全黑盒 NAM</tspan>：适合高增益吉箱头 (5150/Rectifier) 极端多级削波，参数量 10³～10⁴</text>
+  <text x="1038" y="814" font-size="13" font-weight="bold" fill="#991B1B">• 蒸馏闭环：离线采用高维教师模型拟合，再蒸馏至 ⑤ 号实时学生结构部署</text>
+
+
+  <!-- Bottom Dark Summary Bar -->
   <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
   <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
-  <text x="102" y="935" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#F8FAFC">核心原则：奥卡姆剃刀——凡能由低阶或紧凑块结构解释的实验数据，应避免缺乏依据地增加高维自由核；每一次结构升级都必须有独立残差证据支撑。</text>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：工程建模应遵循「先线性、再对角、后正交基交叉、慢状态与磁滞剥离、神经仅补残差」的分治准则，避免盲目堆叠高阶张量或重型黑盒。</text>
 </svg>
