@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="112%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/>
+      <feOffset in="vBlur" dx="0" dy="3" result="vOffset"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+
+  
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="244" height="28" rx="6" fill="#0F172A"/>
+  <text x="190.2" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 01-10 · 多方差与多项式ADAA</text>
+  <text x="328" y="70" font-size="27" font-weight="bold" fill="#0F172A">多方差跨电平辨识 (Multiple-Variance) 与无分母多项式 ADAA / SNLM 机制图</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">解决单电平辨识的小信号失配 (Locality Problem) 与静态/对角多项式分支的高频谐波混叠及除零奇异性</text>
+
+
+  
+    <rect x="48" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="48" y="144" width="736" height="54" rx="14" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+  <rect x="48" y="186" width="736" height="12" fill="#FEF3C7"/>
+  <line x1="48" y1="198" x2="784" y2="198" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="68" y="168" font-size="17" font-weight="bold" fill="#78350F">左篇：局部性失配 (Locality Problem) 与多方差辨识法 (Schoukens 1997)</text>
+  <text x="68" y="188" font-size="12.5" fill="#78350F">揭示单一高电平最小二乘拟合污染低阶核的代数机理及多电平正交解耦方案</text>
+
+  
+    <rect x="816" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="816" y="144" width="736" height="54" rx="14" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.5"/>
+  <rect x="816" y="186" width="736" height="12" fill="#E0F2FE"/>
+  <line x1="816" y1="198" x2="1552" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
+  <text x="836" y="168" font-size="17" font-weight="bold" fill="#075985">右篇：Hopman–Bennett 无分母多项式 ADAA 与 SNLM 正交基底</text>
+  <text x="836" y="188" font-size="12.5" fill="#075985">彻底消除传统反导数抗混叠 x[n]-x[n-1]→0 的除零奇异性与高频谐波镜像折叠</text>
+
+  
+  <rect x="68" y="210" width="696" height="218" rx="10" fill="#FEF2F2" stroke="#FCA5A5"/>
+  <text x="88" y="236" font-size="15" font-weight="bold" fill="#991B1B">1. 为什么单一高电平 (0 dBFS) 拟合的 Volterra 模型在小信号 (-20 dBFS) 下严重失真？</text>
+  <text x="88" y="262" font-size="12.4" fill="#334155">• 设真实硬件含 5 阶奇次软饱和：y = h₁*x + h₃*x³ + h₅*x⁵，但工程上截断为 3 阶模型 ŷ = ĥ₁*x + ĥ₃*x³</text>
+  <text x="88" y="286" font-size="12.4" fill="#334155">• 在方差为 σ² 的高斯激励下，单项式矩相关 E[x · x⁵] = 15σ⁶ ≠ 0，最小二乘将未建模 5 阶项投影进低阶估计：</text>
+  <rect x="88" y="300" width="410" height="58" rx="8" fill="#FFFFFF" stroke="#DC2626"/>
+  <text x="293" y="324" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#991B1B">ĥ₁(σ) = h₁,true + α₁ · σ⁴ · h₅,true</text>
+  <text x="293" y="346" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#991B1B">ĥ₃(σ) = h₃,true + α₃ · σ² · h₅,true</text>
+  <text x="88" y="382" font-size="11.5" font-weight="bold" fill="#B91C1C">• 灾难后果：0 dBFS 拟合的 ĥ₁ 含偏移 α₁σ⁴h₅；</text>
+  <text x="100" y="404" font-size="11.5" fill="#7F1D1D">回放小信号 (σ→0) 时偏离真实线性核 h₁,true</text>
+
+  
+  <rect x="514" y="296" width="232" height="118" rx="8" fill="#FFFFFF" stroke="#FCA5A5"/>
+  <text x="630" y="316" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#991B1B">低阶核估计偏差 vs 输入电平 σ</text>
+  <line x1="534" y1="392" x2="730" y2="392" stroke="#64748B" stroke-width="1.2"/>
+  <line x1="534" y1="324" x2="534" y2="392" stroke="#64748B" stroke-width="1.2"/>
+  
+  <line x1="534" y1="370" x2="730" y2="370" stroke="#059669" stroke-width="2.5"/>
+  
+  <line x1="534" y1="336" x2="730" y2="336" stroke="#DC2626" stroke-width="2.2" stroke-dasharray="4 2"/>
+  
+  <path d="M 534 370 Q 650 370 720 336" fill="none" stroke="#D97706" stroke-width="2.5"/>
+  <circle cx="720" cy="336" r="4.5" fill="#DC2626"/>
+  <text x="616" y="331" font-size="10.5" font-weight="bold" fill="#DC2626">单电平拟合锁定错误常数</text>
+  <text x="606" y="384" font-size="10.5" font-weight="bold" fill="#059669">多方差外推还原 h₁,true</text>
+
+  
+  <rect x="68" y="442" width="696" height="420" rx="10" fill="#FFFBEB" stroke="#FCD34D"/>
+  <text x="88" y="468" font-size="15" font-weight="bold" fill="#92400E">2. 多方差辨识法 (Multiple-Variance Method) 与 Vandermonde 尺度解耦：</text>
+  <text x="88" y="494" font-size="13" fill="#334155">• 采集 R 组不同方差/电平的随机多正弦激励：x^(r)[n] = γ_r · u[n]，其中 γ_r ∈ {0.06, 0.12, 0.25, 0.5, 1.0}</text>
+  <text x="88" y="520" font-size="13" fill="#334155">• 利用 p 阶泛函算子的齐次幂次缩放律 H_p[γ_r u] = γ_r^p · H_p[u]，构建多电平联合矩阵方程：</text>
+
+  <rect x="88" y="536" width="656" height="112" rx="8" fill="#FFFFFF" stroke="#FCD34D"/>
+  <text x="416" y="562" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#0F172A">[ y^(1)(ω) ]   [ γ₁¹   γ₁²   γ₁³  …  γ₁^P ] [ H₁[u](ω) ]</text>
+  <text x="416" y="586" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#92400E">[ y^(2)(ω) ] = [ γ₂¹   γ₂²   γ₂³  …  γ₂^P ] [ H₂[u](ω) ]   (Vandermonde 尺度矩阵 V_γ)</text>
+  <text x="416" y="610" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#B45309">[   ⋮      ]   [  ⋮     ⋮     ⋮   ⋱   ⋮   ] [    ⋮     ]</text>
+  <text x="416" y="634" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#7C3AED">[ y^(R)(ω) ]   [ γ_R¹  γ_R²  γ_R³ …  γ_R^P] [ H_P[u](ω) ]</text>
+
+  <text x="88" y="676" font-size="13.5" font-weight="bold" fill="#065F46">• 方差归一化加权最小二乘目标泛函（消除大信号主导偏差）：</text>
+  <rect x="88" y="690" width="656" height="46" rx="8" fill="#ECFDF5" stroke="#6EE7B7"/>
+  <text x="416" y="718" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#065F46">J_MV(θ) = ∑_{r=1}^R  ( 1 / (σ_r² + ε) ) · ‖ y^(r) - Φ(x^(r)) · θ ‖₂² + ‖ Γ · θ ‖₂²</text>
+
+  <text x="88" y="764" font-size="13" fill="#334155">• <tspan font-weight="bold">工程收益 1</tspan>：在 -30 dBFS 小信号下严格退化为无偏线性频响 h₁,true，消除传统单电平拟合的「闷声感」</text>
+  <text x="88" y="790" font-size="13" fill="#334155">• <tspan font-weight="bold">工程收益 2</tspan>：分离出的高阶核 h₃, h₅ 不再掺杂低阶伪影，支持用户实时调节 Input Drive 推子而不崩坏</text>
+  <text x="88" y="816" font-size="13" font-weight="bold" fill="#92400E">• <tspan font-weight="bold">与 Acustica VVKT 的关系</tspan>：VVKT 动态卷积正是将不同 γ_r 下采集的核向量按瞬时包络进行分段插值近似</text>
+
+  
+  <rect x="836" y="210" width="696" height="340" rx="10" fill="#F0F9FF" stroke="#7DD3FC"/>
+  <text x="856" y="236" font-size="15" font-weight="bold" fill="#075985">1. 传统 ADAA 的除零奇异性 vs 多项式无分母精确代数约化 (Hopman &amp; Bennett 2024)：</text>
+  <text x="856" y="262" font-size="11.9" fill="#334155">• 传统一阶 ADAA 公式：y[n] = ( F₁(x[n]) - F₁(x[n-1]) ) / ( x[n] - x[n-1] )，当相邻采样接近时分母趋零引发浮点噪声</text>
+  <text x="856" y="286" font-size="13" font-weight="bold" fill="#0369A1">• 多项式代数恒等式：F₁(x)=x^(p+1)/(p+1) 的差分分子可经因式分解精确约去分母 x[n]-x[n-1]</text>
+
+  <rect x="856" y="302" width="656" height="106" rx="8" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.5"/>
+  <text x="1184" y="328" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#075985">ADAA₁(x^p)[n] = (1 / (p+1)) · ∑_{j=0}^p  x[n]^(p-j) · x[n-1]^j   (无除法闭式展开)</text>
+  <text x="876" y="358" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#334155">• p=2 (二次偶次项)：ADAA₁(x²)[n] = ⅓ · ( x²[n] + x[n]·x[n-1] + x²[n-1] )</text>
+  <text x="876" y="380" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#059669" font-weight="bold">• p=3 (三次软削波)：ADAA₁(x³)[n] = ¼ · ( x[n] + x[n-1] ) · ( x²[n] + x²[n-1] )   [仅需 3 次乘法]</text>
+  <text x="876" y="400" font-size="12" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#5B21B6">• 二阶 ADAA₂(x^p)[n] = (2 / ((p+1)(p+2))) · ∑_{i+j+k=p} x[n]^i · x[n-1]^j · x[n-2]^k</text>
+
+  
+  <rect x="856" y="420" width="656" height="116" rx="8" fill="#FFFFFF" stroke="#BAE6FD"/>
+  <text x="1030" y="442" text-anchor="middle" font-size="12" font-weight="bold" fill="#075985">连续分片线性重构 x_c(t) 与反导数积分均值</text>
+  <line x1="880" y1="512" x2="1180" y2="512" stroke="#64748B" stroke-width="1.2"/>
+  <polygon points="940,512 940,476 1040,452 1040,512" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5"/>
+  <circle cx="940" cy="476" r="5" fill="#0284C7"/><text x="940" y="466" text-anchor="middle" font-size="11" font-weight="bold" fill="#075985">x[n-1]</text>
+  <circle cx="1040" cy="456" r="5" fill="#0284C7"/><text x="1062" y="460" font-size="11" font-weight="bold" fill="#075985">x[n]</text>
+  <circle cx="1140" cy="488" r="5" fill="#0284C7"/><text x="1140" y="478" text-anchor="middle" font-size="11" font-weight="bold" fill="#075985">x[n+1]</text>
+  <line x1="1040" y1="452" x2="1140" y2="488" stroke="#0284C7" stroke-width="2" stroke-dasharray="3 2"/>
+  <text x="990" y="494" text-anchor="middle" font-size="11" font-weight="bold" fill="#0369A1">∫ f(x_c(t))dt</text>
+
+  
+  <line x1="1230" y1="512" x2="1490" y2="512" stroke="#64748B" stroke-width="1.2"/>
+  <path d="M 1240 450 Q 1340 454 1420 508 Q 1455 492 1485 510" fill="none" stroke="#059669" stroke-width="2.5"/>
+  <line x1="1380" y1="444" x2="1380" y2="516" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text x="1380" y="440" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#DC2626">f_s/2</text>
+  <text x="1360" y="528" text-anchor="middle" font-size="11" font-weight="bold" fill="#065F46">等效 sinc²(ωT_s/2) 连续域低通滚降</text>
+
+  
+  <rect x="836" y="564" width="696" height="298" rx="10" fill="#ECFDF5" stroke="#6EE7B7"/>
+  <text x="856" y="590" font-size="15" font-weight="bold" fill="#065F46">2. SNLM 紧凑架构：移位 Legendre 正交基 + 多项式 ADAA + 单一后置 FIR (2024)：</text>
+  <text x="856" y="616" font-size="11.9" fill="#334155">• 许多模拟过载/激励器的非线性几乎无内部记忆，仅后随一个共享线性输出滤波 H_post(z)（Hammerstein 精简型）</text>
+  <text x="856" y="640" font-size="12.0" fill="#334155">• 采用在 [-1, 1] 正交的 Legendre 多项式 P_p(x) 替代单项式 x^p，将 2× 过采样 + ADAA₁ 直接嵌入静态基函数内：</text>
+
+  
+  <rect x="856" y="656" width="656" height="106" rx="8" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+  <rect x="872" y="690" width="56" height="36" rx="6" fill="#0F172A"/><text x="900" y="713" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">x[n]</text>
+  <line x1="928" y1="708" x2="960" y2="708" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)"/>
+  <rect x="964" y="668" width="248" height="80" rx="8" fill="#D1FAE5" stroke="#059669"/>
+  <text x="1088" y="692" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#065F46">正交多项式 ADAA₁ 基函数库</text>
+  <text x="1088" y="714" text-anchor="middle" font-size="11.0" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#047857">u[n] = ∑_{p=1}^P c_p · ADAA₁(P_p(x))</text>
+  <text x="1088" y="734" text-anchor="middle" font-size="11" fill="#065F46">(无條件分支 · SIMD 4 路并行)</text>
+  <line x1="1212" y1="708" x2="1248" y2="708" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)"/>
+  <rect x="1252" y="676" width="164" height="64" rx="8" fill="#E0F2FE" stroke="#0284C7"/>
+  <text x="1334" y="702" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#075985">单一共享 FIR 滤波器</text>
+  <text x="1334" y="724" text-anchor="middle" font-size="11.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#0369A1">y[n] = (h_post * u)[n]</text>
+  <line x1="1416" y1="708" x2="1444" y2="708" stroke="#0284C7" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <rect x="1448" y="690" width="52" height="36" rx="6" fill="#059669"/><text x="1474" y="713" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">ŷ[n]</text>
+
+  <text x="856" y="788" font-size="12.5" fill="#334155">• <tspan font-weight="bold">极低计算复杂度</tspan>：相比包含 P 条独立卷积支路的广义 Hammerstein，SNLM 仅需 <tspan font-weight="bold" fill="#065F46">1 次线性卷积</tspan>，参数量 P + M</text>
+  <text x="856" y="814" font-size="13" fill="#334155">• <tspan font-weight="bold">零分支流水线</tspan>：由于消除了 |x[n]-x[n-1]| &lt; ε 的 if-else 分支判断，完美适配 AVX2 / NEON 寄存器指令流水线</text>
+  <text x="856" y="840" font-size="13" font-weight="bold" fill="#059669">• 工程定位：母带级软削波限制器 (Cubic Clipper)、通道条谐波激励器与高密度多轨插件的首选轻量模块</text>
+
+
+  
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：多方差加权回归确保模型从 -30 dBFS 到 0 dBFS 全动态一致；Hopman–Bennett 无分母多项式 ADAA 以纯乘加代数恒等式彻底根除除零噪声与混叠。</text>
+</svg>

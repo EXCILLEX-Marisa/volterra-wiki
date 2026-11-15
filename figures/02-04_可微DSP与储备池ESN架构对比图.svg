@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="112%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/>
+      <feOffset in="vBlur" dx="0" dy="3" result="vOffset"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+
+  
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="248" height="28" rx="6" fill="#0F172A"/>
+  <text x="192.2" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 02-04 · 可微DSP与储备池计算</text>
+  <text x="332" y="70" font-size="27" font-weight="bold" fill="#0F172A">可微灰盒 DSP (DDSP / 4A-2A) 与回声状态网络 (ESN / 储备池计算) 架构对比图</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">展示隐函数定理 (IFT) 自定义梯度反传与固定递归储备池凸读出如何突破传统黑盒 RNN 的训练与算力瓶颈</text>
+
+
+  
+    <rect x="48" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="48" y="144" width="736" height="54" rx="14" fill="#D1FAE5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <rect x="48" y="186" width="736" height="12" fill="#D1FAE5"/>
+  <line x1="48" y1="198" x2="784" y2="198" stroke="#6EE7B7" stroke-width="1.5"/>
+  <text x="68" y="168" font-size="17" font-weight="bold" fill="#065F46">路线 A：可微白盒/灰盒 DSP 范式 (DDSP / 4A-2A 光学压限器)</text>
+  <text x="68" y="188" font-size="12.5" fill="#065F46">保留物理电路方程拓扑 + 隐函数定理自定义反向传播梯度 · 仅 5 个可解释参数</text>
+
+  
+    <rect x="816" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="816" y="144" width="736" height="54" rx="14" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+  <rect x="816" y="186" width="736" height="12" fill="#EDE9FE"/>
+  <line x1="816" y1="198" x2="1552" y2="198" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="836" y="168" font-size="17" font-weight="bold" fill="#5B21B6">路线 B：储备池计算 / 回声状态网络 (ESN / Reservoir Computing)</text>
+  <text x="836" y="188" font-size="12.5" fill="#5B21B6">固定稀疏随机递归状态池 (ρ(A)&lt;1) + 线性最小二乘闭式读出层 · 连接 Volterra 与 RNN</text>
+
+  
+  <rect x="68" y="210" width="696" height="270" rx="10" fill="#ECFDF5" stroke="#6EE7B7"/>
+  <text x="88" y="236" font-size="14.5" font-weight="bold" fill="#065F46">1. Teletronix LA-2A T4B 光电耦合器灰盒反馈回路 (Viitanen et al. 2024, 4A-2A)：</text>
+
+  
+  <rect x="88" y="252" width="656" height="156" rx="8" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+  <rect x="108" y="274" width="60" height="34" rx="6" fill="#0F172A"/><text x="138" y="296" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">x[n]</text>
+  <line x1="168" y1="291" x2="256" y2="291" stroke="#0284C7" stroke-width="2.2" marker-end="url(#arr-blue)"/>
+
+  <rect x="260" y="264" width="236" height="54" rx="8" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5"/>
+  <text x="378" y="287" text-anchor="middle" font-size="13" font-weight="bold" fill="#075985">光电分压衰减网 g(R_LDR[n])</text>
+  <text x="378" y="306" text-anchor="middle" font-size="11.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#0369A1">y[n] = R_LDR / (R_s + R_LDR) · x[n]</text>
+
+  <line x1="496" y1="291" x2="624" y2="291" stroke="#059669" stroke-width="2.2" marker-end="url(#arr-green)"/>
+  <rect x="628" y="274" width="68" height="34" rx="6" fill="#059669"/><text x="662" y="296" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">y[n]</text>
+
+  
+  <line x1="560" y1="291" x2="560" y2="366" stroke="#D97706" stroke-width="2"/>
+  <line x1="560" y1="366" x2="496" y2="366" stroke="#D97706" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <rect x="236" y="338" width="256" height="56" rx="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+  <text x="364" y="361" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#92400E">EL 发光板驱动 + 双时间常数 LDR 状态</text>
+  <text x="364" y="381" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#B45309">F(s[n], s[n-1], y[n] ; θ_phys) = 0</text>
+  <line x1="236" y1="366" x2="196" y2="366" stroke="#D97706" stroke-width="2"/>
+  <line x1="196" y1="366" x2="196" y2="291" stroke="#D97706" stroke-width="2"/>
+  <line x1="378" y1="338" x2="378" y2="320" stroke="#D97706" stroke-width="2.2" marker-end="url(#arr-amber)"/>
+
+  <text x="88" y="432" font-size="11.3" fill="#334155">• <tspan font-weight="bold">极简物理参数集 θ_phys (仅 5～8 个标量)</tspan>：Attack 常数 τ_a、两阶段慢释放 τ_r1/τ_r2、光电幂律斜率 γ、拐点阈值 V_th</text>
+  <text x="88" y="458" font-size="13" font-weight="bold" fill="#065F46">• 相比黑盒 RNN，参数量收敛至 5 个物理常量，具备良好的可解释性与旋钮外推能力</text>
+
+  
+  <rect x="68" y="494" width="696" height="368" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="88" y="520" font-size="15" font-weight="bold" fill="#0F172A">2. 瞬时反馈环路的牛顿求根与隐函数定理 (IFT) 自定义反向梯度：</text>
+  <text x="88" y="546" font-size="11.7" fill="#334155">• 前向传播：因增益衰减依赖当前时刻输出 y[n]（无延迟反馈环），每个采样点执行 2～3 步 Newton–Raphson 求根：</text>
+  <rect x="88" y="560" width="656" height="44" rx="6" fill="#FFFFFF" stroke="#94A3B8"/>
+  <text x="416" y="587" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#0F172A">s^(k+1)[n] = s^(k)[n] - ( ∂F / ∂s[n] )⁻¹ · F( s^(k)[n], s[n-1], x[n] ; θ_phys )</text>
+
+  <text x="88" y="630" font-size="12.4" fill="#334155">• 反向传播痛点：若在 PyTorch 中直接把 K 步牛顿迭代展开进计算图 (Unrolling)，不仅显存爆炸且梯度剧烈震荡</text>
+  <text x="88" y="654" font-size="13" font-weight="bold" fill="#075985">• 隐函数定理 (Implicit Function Theorem) 闭式伴随梯度（免除展开牛顿迭代计算图）：</text>
+  <rect x="88" y="668" width="656" height="54" rx="6" fill="#E0F2FE" stroke="#0284C7"/>
+  <text x="416" y="692" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#075985">在不动点 F(s*, θ) = 0 处：  ds*[n] / dθ_phys = - ( ∂F / ∂s* )⁻¹ · ( ∂F / ∂θ_phys )</text>
+  <text x="416" y="712" text-anchor="middle" font-size="11.5" fill="#0369A1">反向传播直接复用前向收敛点处的雅可比逆 (∂F/∂s*)⁻¹，计算复杂度 O(1) 且数值绝对精确</text>
+
+  <text x="88" y="750" font-size="13.5" font-weight="bold" fill="#059669">✓ 可微灰盒 DSP 的三大工程红利：</text>
+  <text x="88" y="776" font-size="13" fill="#334155">1. <tspan font-weight="bold">极小样本收敛</tspan>：仅需 10 秒阶跃与正弦突发信号，几十步 Adam/L-BFGS 即可精准还原硬件时间常数</text>
+  <text x="88" y="800" font-size="12.5" fill="#334155">2. <tspan font-weight="bold">任意采样率原生切换</tspan>：辨识出连续域参数 τ_a, τ_r 后，可通过双线性变换直接运行在 44.1 / 48 / 96 / 192 kHz</text>
+  <text x="88" y="824" font-size="13" fill="#334155">3. <tspan font-weight="bold">实时 CPU 占用极低</tspan>：相当于手写 C++ 传统白盒插件，单声道仅需十几个浮点运算</text>
+
+  
+  <rect x="836" y="210" width="696" height="310" rx="10" fill="#F5F3FF" stroke="#C4B5FD"/>
+  <text x="856" y="236" font-size="14.5" font-weight="bold" fill="#5B21B6">1. 储备池计算 (ESN) 架构：将递归状态提取与线性凸回归彻底解耦</text>
+
+  
+  <rect x="856" y="252" width="656" height="170" rx="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+  <rect x="876" y="316" width="60" height="36" rx="6" fill="#0F172A"/><text x="906" y="339" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">x[n]</text>
+  <line x1="936" y1="334" x2="984" y2="334" stroke="#0284C7" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <text x="962" y="308" text-anchor="middle" font-size="11" font-weight="bold" fill="#075985">W_in 固定</text>
+
+  
+  <rect x="988" y="268" width="248" height="134" rx="12" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="1112" y="290" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#5B21B6">稀疏随机递归储备池 (固定权重)</text>
+  <circle cx="1036" cy="326" r="10" fill="#7C3AED"/><circle cx="1096" cy="316" r="10" fill="#0284C7"/><circle cx="1156" cy="330" r="10" fill="#D97706"/>
+  <circle cx="1056" cy="368" r="10" fill="#059669"/><circle cx="1126" cy="366" r="10" fill="#7C3AED"/><circle cx="1186" cy="368" r="10" fill="#0284C7"/>
+  <line x1="1046" y1="326" x2="1086" y2="316" stroke="#5B21B6" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+  <line x1="1106" y1="316" x2="1146" y2="330" stroke="#5B21B6" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+  <line x1="1126" y1="356" x2="1096" y2="326" stroke="#5B21B6" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+  <line x1="1066" y1="368" x2="1116" y2="366" stroke="#5B21B6" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+  <text x="1112" y="394" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#4C1D95">s[n]=(1-α)s[n-1]+α·tanh(A·s[n-1]+b·x[n])</text>
+
+  
+  <line x1="1236" y1="334" x2="1296" y2="334" stroke="#059669" stroke-width="3" marker-end="url(#arr-green)"/>
+  <text x="1268" y="308" text-anchor="middle" font-size="11" font-weight="bold" fill="#065F46">仅训练 C, d</text>
+  <rect x="1300" y="286" width="136" height="96" rx="8" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
+  <text x="1368" y="314" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#065F46">线性闭式读出层</text>
+  <text x="1368" y="336" text-anchor="middle" font-size="10.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#047857">ŷ[n] = C·z[n] + d·x[n]</text>
+  <text x="1368" y="358" text-anchor="middle" font-size="11" font-weight="bold" fill="#059669">岭回归闭式解</text>
+  <line x1="1436" y1="334" x2="1460" y2="334" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)"/>
+  <rect x="1464" y="316" width="40" height="36" rx="6" fill="#059669"/><text x="1484" y="339" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FFFFFF">ŷ</text>
+
+  <text x="856" y="448" font-size="13" fill="#334155">• <tspan font-weight="bold">核心思想</tspan>：固定随机输入矩阵 b 与稀疏递归矩阵 A（满足谱半径 ρ(A) &lt; 1），省去 BPTT 反向传播</text>
+  <text x="856" y="474" font-size="11.6" fill="#334155">• <tspan font-weight="bold">特征增广读出</tspan>：构造 z[n] = [ s[n] ; s²[n] ; x[n] ]，直接用线性岭回归 (Ridge Regression) 在 1 秒内解出最优输出矩阵 C</text>
+  <text x="856" y="500" font-size="13" font-weight="bold" fill="#5B21B6">• 泄漏积分率 α ∈ (0, 1]：多尺度分配 α_i 可在同一状态池中同时覆盖微秒瞬态与百毫秒级慢包络记忆</text>
+
+  
+  <rect x="836" y="534" width="696" height="328" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="856" y="560" font-size="15" font-weight="bold" fill="#0F172A">2. 回声状态性质 (Echo State Property) 与 Volterra 级数的严格同构定理：</text>
+  <rect x="856" y="576" width="656" height="92" rx="8" fill="#FEF3C7" stroke="#FCD34D"/>
+  <text x="876" y="600" font-size="13.5" font-weight="bold" fill="#92400E">定理（Boyd–Chua 衰减记忆 ↔ 回声状态性质 ESP ↔ 随机投影 Volterra）：</text>
+  <text x="876" y="624" font-size="12.5" fill="#334155">• 当谱半径 ρ((1-α)I+αA) &lt; 1 时，储备池对不同初态满足指数遗忘 ‖s[n]-s'[n]‖ → 0；</text>
+  <text x="876" y="648" font-size="12.5" font-weight="bold" fill="#78350F">• 将 tanh(A·s[n-1]+b·x[n]) 按泰勒级数展开，状态向量 s[n] 构成高阶 Volterra 泛函空间的随机投影基底</text>
+
+  
+  <rect x="856" y="682" width="656" height="162" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="876" y="708" font-size="13.5" font-weight="bold" fill="#0F172A">三种建模路线在离线研发与实时部署中的三角互补定位：</text>
+  <text x="876" y="736" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#075985">Laguerre-Volterra (V2-L)</tspan>：正交全通基 + 凸回归 → 适合 p≤3 中短记忆 (参数量 ≈ 36)</text>
+  <text x="876" y="762" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#5B21B6">储备池 ESN (N_res=64～256)</tspan>：随机递归基 + 凸回归 → 适合快速评估高阶动态下界</text>
+  <text x="876" y="788" font-size="11.1" fill="#334155">• <tspan font-weight="bold" fill="#059669">可微灰盒 DSP (DDSP / 4A-2A)</tspan>：精确物理拓扑 + 隐函数梯度 → 适合强压缩环路与多旋钮商业插件（参数最少，算力最低）</text>
+  <text x="876" y="818" font-size="12.5" font-weight="bold" fill="#DC2626">• 研发流程建议：先由 ESN 快速评估数据集的可拟合下界 ESR_min，再约简至 V2-L 与可微灰盒主干</text>
+
+
+  
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：可微灰盒 DSP 用隐函数定理将参数压缩至个位数物理常量；储备池 ESN 将递归网络转化为参数线性的随机投影 Volterra 凸回归。</text>
+</svg>

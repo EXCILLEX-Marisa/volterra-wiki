@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980"><defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4 z" fill="#334155"/></marker></defs>
+<rect x="0" y="0" width="1600" height="980" fill="#F8FAFC"/>
+<rect x="48" y="28" width="1504" height="98" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+<rect x="70" y="47" width="208" height="32" rx="6" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<text x="174" y="70" text-anchor="middle" font-size="15" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 06-03 · SKY</text>
+<text x="306" y="70" text-anchor="start" font-size="28" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">增益工作点资源、包络控制与短时滤波</text>
+<text x="72" y="107" text-anchor="start" font-size="16" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">67 个序列资源分为三组；下半部分为便于理解的等效信号结构</text>
+<rect x="48" y="147" width="1504" height="724" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+<text x="90" y="184" text-anchor="start" font-size="20" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">资源层：按采样率组织的离散序列</text>
+<rect x="86" y="210" width="444" height="164" rx="14" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+<text x="308.0" y="260" text-anchor="middle" font-size="32" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">20 × 5 ms</text>
+<text x="308.0" y="301" text-anchor="middle" font-size="23" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">短时微滤波序列</text>
+<text x="308.0" y="340" text-anchor="middle" font-size="17" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">包含较弱的频率选择性整形</text>
+<rect x="578" y="210" width="444" height="164" rx="14" fill="#DCFCE7" stroke="#059669" stroke-width="2"/>
+<text x="800.0" y="260" text-anchor="middle" font-size="32" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">41 × 100 ms</text>
+<text x="800.0" y="301" text-anchor="middle" font-size="23" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">主增益工作点序列</text>
+<text x="800.0" y="340" text-anchor="middle" font-size="17" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">主要能量集中于延迟抽头附近</text>
+<rect x="1070" y="210" width="444" height="164" rx="14" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+<text x="1292.0" y="260" text-anchor="middle" font-size="32" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">6 × 150 ms</text>
+<text x="1292.0" y="301" text-anchor="middle" font-size="23" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">细分工作点序列</text>
+<text x="1292.0" y="340" text-anchor="middle" font-size="17" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">增益量级的小步进资源</text>
+<path d="M800 374 L800 420" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<text x="90" y="419" text-anchor="start" font-size="20" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">控制与音频流：状态权重随时间变化</text>
+<rect x="84" y="446" width="446" height="380" rx="14" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
+<text x="307" y="488" text-anchor="middle" font-size="25" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">状态控制（慢速）</text>
+<rect x="114" y="520" width="387" height="87" rx="14" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="307" y="555" text-anchor="middle" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">包络检测 / 阈值与增益律</text><text x="307" y="583" text-anchor="middle" font-size="18" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">Attack、Release、历史状态</text>
+<path d="M307 608 L307 639" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="114" y="650" width="387" height="92" rx="14" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="307" y="685" text-anchor="middle" font-size="20" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">生成工作点权重</text><text x="307" y="715" text-anchor="middle" font-size="20" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">w_i(s)、mu_m(s)</text>
+<rect x="566" y="446" width="948" height="380" rx="14" fill="#EFF6FF" stroke="#0284C7" stroke-width="2"/>
+<text x="1027" y="488" text-anchor="middle" font-size="25" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">实时音频计算（线性核 + 时变调度）</text>
+<rect x="600" y="560" width="180" height="98" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="690" y="598" text-anchor="middle" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#334155">输入 x[n]</text><text x="690" y="626" text-anchor="middle" font-size="21" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#334155">历史缓存</text>
+<path d="M781 610 L845 610" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="855" y="511" width="340" height="93" rx="14" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+<text x="1025" y="545" text-anchor="middle" font-size="20" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">主通路：a_i · x[n−d]</text><text x="1025" y="574" text-anchor="middle" font-size="20" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">增益工作点加权</text>
+<rect x="855" y="657" width="340" height="93" rx="14" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+<text x="1025" y="691" text-anchor="middle" font-size="20" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">微通路：h_m * x</text><text x="1025" y="720" text-anchor="middle" font-size="20" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">短时频响修正</text>
+<path d="M785 609 L839 560" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M785 609 L839 702" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M1198 560 L1258 608" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M1198 703 L1258 654" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="1265" y="568" width="216" height="124" rx="14" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
+<text x="1373" y="610" text-anchor="middle" font-size="22" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">加权求和</text><text x="1373" y="644" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">输出 y[n]</text>
+<path d="M501 697 L542 697 L542 490 L839 490 L839 545" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrow)" stroke-dasharray="7,5"/>
+<text x="1040" y="788" text-anchor="middle" font-size="16" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">支路线性 ≠ 整体线性：变化的权重与输入相乘仍会产生调制产物</text>
+<rect x="48" y="899" width="1504" height="54" rx="12" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<text x="800" y="935" text-anchor="middle" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">模型等效关系用于说明职责分工；具体权重映射与资源索引不作额外假定</text>
+</svg>

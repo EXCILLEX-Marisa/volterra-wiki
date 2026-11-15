@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="112%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/>
+      <feOffset in="vBlur" dx="0" dy="3" result="vOffset"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+
+  
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="219" height="28" rx="6" fill="#0F172A"/>
+  <text x="177.6" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 02-02 · 感受野与递归状态</text>
+  <text x="303" y="70" font-size="27" font-weight="bold" fill="#0F172A">WaveNet 扩张因果卷积树形感受野与 LSTM 门控递归状态空间对比图</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">揭示「有限显式窗口 R 展开」与「无限隐式状态 c[n] 递推」在长时记忆、BIBO 稳定性与实时流水线上的本质差异</text>
+
+
+  
+    <rect x="48" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="48" y="144" width="736" height="54" rx="14" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.5"/>
+  <rect x="48" y="186" width="736" height="12" fill="#E0F2FE"/>
+  <line x1="48" y1="198" x2="784" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
+  <text x="68" y="168" font-size="17" font-weight="bold" fill="#075985">架构 A：前馈扩张因果卷积网络 (Dilated Causal WaveNet)</text>
+  <text x="68" y="188" font-size="12.5" fill="#075985">指数增长有限感受野 R = 1 + (K-1)∑d_l · 无状态反馈 · 块级并行</text>
+
+  
+    <rect x="816" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="816" y="144" width="736" height="54" rx="14" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+  <rect x="816" y="186" width="736" height="12" fill="#EDE9FE"/>
+  <line x1="816" y1="198" x2="1552" y2="198" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="836" y="168" font-size="17" font-weight="bold" fill="#5B21B6">架构 B：门控循环神经网络 (LSTM / GRU Recurrent State)</text>
+  <text x="836" y="188" font-size="12.5" fill="#5B21B6">隐式无限衰减记忆 h[n] = f(h[n-1], x[n]) · 状态依赖时间常数 · 逐样本串行</text>
+
+  
+  <rect x="68" y="210" width="696" height="306" rx="10" fill="#F0F9FF" stroke="#7DD3FC"/>
+  <text x="88" y="236" font-size="14.5" font-weight="bold" fill="#075985">1. 因果扩张卷积树形拓扑（以 K=2, d = [1, 2, 4] 为例，感受野 R = 8 采样）：</text>
+
+  
+  
+  <circle cx="660" cy="272" r="14" fill="#0284C7" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="660" y="276" text-anchor="middle" font-size="11" font-weight="bold" fill="#FFFFFF">y[n]</text>
+  <text x="716" y="276" font-size="10.5" font-weight="bold" fill="#075985">l=3 (d=4)</text>
+
+  
+  <circle cx="660" cy="342" r="12" fill="#0EA5E9"/>
+  <circle cx="420" cy="342" r="12" fill="#0EA5E9"/>
+  <line x1="660" y1="330" x2="660" y2="286" stroke="#0284C7" stroke-width="2.2"/>
+  <line x1="428" y1="334" x2="648" y2="280" stroke="#0284C7" stroke-width="2.2"/>
+  <text x="716" y="346" font-size="10.5" font-weight="bold" fill="#075985">l=2 (d=2)</text>
+
+  
+  <circle cx="660" cy="412" r="11" fill="#38BDF8"/>
+  <circle cx="540" cy="412" r="11" fill="#38BDF8"/>
+  <circle cx="420" cy="412" r="11" fill="#38BDF8"/>
+  <circle cx="300" cy="412" r="11" fill="#38BDF8"/>
+  <line x1="660" y1="401" x2="660" y2="354" stroke="#0EA5E9" stroke-width="2"/>
+  <line x1="548" y1="404" x2="652" y2="350" stroke="#0EA5E9" stroke-width="2"/>
+  <line x1="420" y1="401" x2="420" y2="354" stroke="#0EA5E9" stroke-width="2"/>
+  <line x1="308" y1="404" x2="412" y2="350" stroke="#0EA5E9" stroke-width="2"/>
+  <text x="716" y="416" font-size="10.5" font-weight="bold" fill="#075985">l=1 (d=1)</text>
+
+  
+  <circle cx="660" cy="476" r="10" fill="#0F172A"/><text x="660" y="502" text-anchor="middle" font-size="11" font-weight="bold" fill="#0F172A">x[n]</text>
+  <circle cx="600" cy="476" r="10" fill="#334155"/><text x="600" y="502" text-anchor="middle" font-size="11" fill="#334155">x[n-1]</text>
+  <circle cx="540" cy="476" r="10" fill="#334155"/><text x="540" y="502" text-anchor="middle" font-size="11" fill="#334155">x[n-2]</text>
+  <circle cx="480" cy="476" r="10" fill="#334155"/><text x="480" y="502" text-anchor="middle" font-size="11" fill="#334155">x[n-3]</text>
+  <circle cx="420" cy="476" r="10" fill="#334155"/><text x="420" y="502" text-anchor="middle" font-size="11" fill="#334155">x[n-4]</text>
+  <circle cx="360" cy="476" r="10" fill="#334155"/><text x="360" y="502" text-anchor="middle" font-size="11" fill="#334155">x[n-5]</text>
+  <circle cx="300" cy="476" r="10" fill="#334155"/><text x="300" y="502" text-anchor="middle" font-size="11" fill="#334155">x[n-6]</text>
+  <circle cx="240" cy="476" r="10" fill="#334155"/><text x="240" y="502" text-anchor="middle" font-size="11" fill="#334155">x[n-7]</text>
+  <circle cx="140" cy="476" r="10" fill="#CBD5E1" stroke="#94A3B8" stroke-dasharray="2 2"/><text x="140" y="502" text-anchor="middle" font-size="11" fill="#94A3B8">x[n-R] 截断=0</text>
+
+  <line x1="660" y1="466" x2="660" y2="423" stroke="#475569" stroke-width="1.6"/>
+  <line x1="604" y1="466" x2="656" y2="423" stroke="#475569" stroke-width="1.6"/>
+  <line x1="540" y1="466" x2="540" y2="423" stroke="#475569" stroke-width="1.6"/>
+  <line x1="484" y1="466" x2="536" y2="423" stroke="#475569" stroke-width="1.6"/>
+  <line x1="420" y1="466" x2="420" y2="423" stroke="#475569" stroke-width="1.6"/>
+  <line x1="364" y1="466" x2="416" y2="423" stroke="#475569" stroke-width="1.6"/>
+  <line x1="300" y1="466" x2="300" y2="423" stroke="#475569" stroke-width="1.6"/>
+  <line x1="244" y1="466" x2="296" y2="423" stroke="#475569" stroke-width="1.6"/>
+
+  
+  <rect x="68" y="530" width="696" height="332" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="88" y="556" font-size="15" font-weight="bold" fill="#0F172A">2. 门控残差块 (Gated Activation) 与高阶 Volterra 核的数学对应：</text>
+  <rect x="88" y="572" width="656" height="72" rx="8" fill="#FFFFFF" stroke="#7DD3FC"/>
+  <text x="106" y="596" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#075985">u^(l)[n] = tanh( W_f^(l) * z^(l-1) ) ⊙ σ( W_g^(l) * z^(l-1) ),   z^(l) = z^(l-1) + W_r u^(l)</text>
+  <text x="106" y="624" font-size="12.5" fill="#334155">• 泰勒展开视角：σ(v) ≈ ½ + ¼v 与 tanh(u) ≈ u - ⅓u³ 相乘，单层门控即内生 2 阶与 4 阶交叉卷积核；</text>
+  <text x="106" y="640" font-size="12.5" fill="#0369A1">  L 层级联叠加跳连等效于参数共享的深层因子化 Volterra 网络</text>
+
+  <text x="88" y="672" font-size="14" font-weight="bold" fill="#065F46">✓ 核心工程优势：</text>
+  <text x="88" y="696" font-size="13" fill="#334155">• <tspan font-weight="bold">BIBO 绝对稳定</tspan>：纯前馈有向无环图 (DAG)，无状态反馈回路，绝不发生自激振荡或误差发散</text>
+  <text x="88" y="720" font-size="13" fill="#334155">• <tspan font-weight="bold">高频瞬态锐利</tspan>：NAM 标准架构 (d=1,2,…,512 × 2 堆叠，R ≈ 42 ms) 对拨弦瞬态与箱头削波极准</text>
+
+  <text x="88" y="754" font-size="14" font-weight="bold" fill="#DC2626">✗ 感受野硬截断边界 (Hard Horizon Cutoff)：</text>
+  <text x="88" y="778" font-size="13" fill="#334155">• 对 k &gt; R (如 &gt; 42 ms) 的历史输入偏导恒等于零 ∂y[n]/∂x[n-k] ≡ 0</text>
+  <text x="88" y="802" font-size="13" fill="#991B1B">• 无法建模 100～1000 ms 的光学压限器释放尾、慢电源 Sag 或断电后残留的剩磁状态</text>
+  <text x="88" y="826" font-size="13" font-weight="bold" fill="#0284C7">• 实时推理技巧：必须采用预分配环形扩张缓冲区 (Ring Buffer Queue)，严禁逐样本拼接张量</text>
+
+  
+  <rect x="836" y="210" width="696" height="306" rx="10" fill="#F5F3FF" stroke="#C4B5FD"/>
+  <text x="856" y="236" font-size="14.5" font-weight="bold" fill="#5B21B6">1. LSTM 门控状态转移单元（细胞状态高速公路 c[n] 与等效动态极点 f[n]）：</text>
+
+  
+  <rect x="856" y="254" width="656" height="196" rx="8" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <line x1="880" y1="288" x2="1480" y2="288" stroke="#059669" stroke-width="3.5" marker-end="url(#arr-green)"/>
+  <text x="910" y="276" font-size="12.5" font-weight="bold" fill="#065F46">细胞状态 c[n-1]</text>
+  <text x="1390" y="276" font-size="11.5" font-weight="bold" fill="#065F46">c[n] (慢包络主干)</text>
+
+  
+  <circle cx="1050" cy="288" r="16" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+  <text x="1050" y="293" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400E">⊗</text>
+  <rect x="996" y="344" width="108" height="46" rx="6" fill="#FEF3C7" stroke="#D97706"/>
+  <text x="1050" y="365" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400E">遗忘门 f[n]</text>
+  <text x="1050" y="382" text-anchor="middle" font-size="10.5" fill="#B45309">动态时间常数 τ[n]</text>
+  <line x1="1050" y1="344" x2="1050" y2="308" stroke="#D97706" stroke-width="2" marker-end="url(#arr-amber)"/>
+
+  
+  <circle cx="1230" cy="288" r="16" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2"/>
+  <text x="1230" y="293" text-anchor="middle" font-size="14" font-weight="bold" fill="#5B21B6">⊕</text>
+  <rect x="1166" y="344" width="128" height="46" rx="6" fill="#EDE9FE" stroke="#7C3AED"/>
+  <text x="1230" y="365" text-anchor="middle" font-size="12" font-weight="bold" fill="#5B21B6">输入门 i[n] ⊙ g[n]</text>
+  <text x="1230" y="382" text-anchor="middle" font-size="10.5" fill="#6D28D9">状态写入速率控制</text>
+  <line x1="1230" y1="344" x2="1230" y2="308" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr-purple)"/>
+
+  
+  <rect x="1336" y="344" width="132" height="46" rx="6" fill="#E0F2FE" stroke="#0284C7"/>
+  <text x="1402" y="365" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#075985">输出门 o[n]⊙tanh(c)</text>
+  <text x="1402" y="382" text-anchor="middle" font-size="10.5" fill="#0369A1">生成隐状态 h[n]</text>
+  <line x1="1360" y1="288" x2="1360" y2="340" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)"/>
+
+  
+  <path d="M 1402 390 L 1402 426 L 920 426 L 920 368 L 992 368" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#arr-red)"/>
+  <text x="1166" y="442" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#991B1B">递归状态闭环反馈 h[n-1]（严禁跨样本并行，必须逐采样点串行递推）</text>
+
+  <text x="856" y="476" font-size="13" font-weight="bold" fill="#5B21B6">状态同构关系：c[n] = f[n]⊙c[n-1] + i[n]⊙g[n] 构成带时变极点 f[n] 的非线性包络状态方程</text>
+  <text x="856" y="500" font-size="12.5" fill="#475569">等效瞬时时间常数：τ_eff,k[n] = -1 / ( f_s · ln(f_k[n]) ) —— 当 f_k[n] → 0.9999 时可维持数百毫秒慢释放记忆</text>
+
+  
+  <rect x="836" y="530" width="696" height="332" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="856" y="556" font-size="15" font-weight="bold" fill="#0F172A">2. 递归模型辨识稳定性条件与工程权衡：</text>
+  <rect x="856" y="572" width="656" height="72" rx="8" fill="#FEF2F2" stroke="#FCA5A5"/>
+  <text x="874" y="596" font-size="13" font-weight="bold" fill="#991B1B">开环预测 (NARX / Teacher Forcing) vs 闭环自由运行 (NOE / Free-Run)：</text>
+  <text x="874" y="620" font-size="12.5" fill="#334155">• 单步误差低不等同于闭环稳定；自回归自由运行要求状态雅可比谱半径 ρ(∂F/∂h) &lt; 1</text>
+  <text x="874" y="638" font-size="12.5" fill="#991B1B">• 训练必须采用 TBPTT (截断随时间反向传播，L_trunc = 2048～8192) + 预热丢弃窗 N_wash = 1024</text>
+
+  <text x="856" y="672" font-size="14" font-weight="bold" fill="#065F46">✓ 核心工程优势：</text>
+  <text x="856" y="696" font-size="13" fill="#334155">• <tspan font-weight="bold">极少参数表征长记忆</tspan>：仅需 H = 16～32 维隐状态即可同时拟合慢压缩包络、偏置漂移与多值磁滞</text>
+  <text x="856" y="720" font-size="13" fill="#334155">• <tspan font-weight="bold">连续旋钮条件化</tspan>：将 Gain/Tone 旋钮拼入输入向量 [x[n], c]，平滑调制门控工作点</text>
+
+  <text x="856" y="754" font-size="14" font-weight="bold" fill="#DC2626">✗ 固有瓶颈与混合折中方案：</text>
+  <text x="856" y="778" font-size="13" fill="#334155">• 逐样本矩阵乘 W_hh·h[n-1] 阻塞时间轴流水线，高频相位精度弱于显式 FIR / WaveNet</text>
+  <text x="856" y="802" font-size="13" font-weight="bold" fill="#7C3AED">• 黄金混合法则：用显式线性 FIR + V2-L 负责高频瞬态与短记忆，仅用 H=8～16 极轻量 GRU 调制慢包络增益</text>
+  <text x="856" y="826" font-size="13" fill="#059669">• 寄存器级优化：当 H ≤ 16 时，可将整个隐状态向量 h[n] 常驻于 AVX2 YMM 寄存器内完成无访存递推</text>
+
+
+  
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：WaveNet 本质是深层因子化的有限窗高阶 Volterra 展开（瞬态准但截断慢尾）；LSTM 本质是时变极点的非线性状态机（擅长慢包络但受限于串行递推）。</text>
+</svg>

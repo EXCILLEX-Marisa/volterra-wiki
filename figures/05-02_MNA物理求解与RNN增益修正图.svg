@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980"><defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4 z" fill="#334155"/></marker></defs>
+<rect x="0" y="0" width="1600" height="980" fill="#F8FAFC"/>
+<rect x="48" y="28" width="1504" height="98" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+<rect x="70" y="47" width="208" height="32" rx="6" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<text x="174" y="70" text-anchor="middle" font-size="15" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 05-02 · MNA + RNN</text>
+<text x="306" y="70" text-anchor="start" font-size="28" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">物理电路求解与神经增益修正的协同</text>
+<text x="72" y="107" text-anchor="start" font-size="16" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">Revenger 2A 类型的结构实例：电路决定主干，递归网络只输出小维度控制修正</text>
+<rect x="48" y="147" width="1504" height="724" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+<text x="86" y="197" text-anchor="start" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">逐采样物理主通路</text>
+<rect x="85" y="234" width="250" height="135" rx="14" fill="#EFF6FF" stroke="#0284C7" stroke-width="2"/>
+<text x="210" y="282" text-anchor="middle" font-size="22" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">输入 / 过采样</text><text x="210" y="314" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">音频状态</text>
+<path d="M335 302 L423 302" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="435" y="226" width="575" height="166" rx="14" fill="#EFF6FF" stroke="#0284C7" stroke-width="2"/>
+<text x="722" y="271" text-anchor="middle" font-size="22" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">21 节点 MNA 电路求解</text><text x="722" y="313" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">非线性伴随电导 / Newton 迭代</text><text x="722" y="355" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">持续更新电容、光电等物理状态</text>
+<path d="M1010 309 L1094 309" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="1105" y="239" width="392" height="131" rx="14" fill="#EFF6FF" stroke="#0284C7" stroke-width="2"/>
+<text x="1301" y="282" text-anchor="middle" font-size="22" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">电路基础输出</text><text x="1301" y="318" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">yP[n]</text>
+<text x="86" y="448" text-anchor="start" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">较慢的神经控制残差通路</text>
+<rect x="85" y="478" width="359" height="142" rx="14" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
+<text x="264" y="517" text-anchor="middle" font-size="19" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">特征聚合</text><text x="264" y="551" text-anchor="middle" font-size="19" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">输入 / 输出能量、峰值</text><text x="264" y="585" text-anchor="middle" font-size="19" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">一帧汇总多个音频采样点</text>
+<path d="M444 552 L540 552" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="553" y="478" width="478" height="142" rx="14" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
+<text x="792" y="516" text-anchor="middle" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">轻量门控递归网络</text><text x="792" y="552" text-anchor="middle" font-size="21" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">隐状态 r[k] 持续递推</text><text x="792" y="588" text-anchor="middle" font-size="21" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">每帧生成标量 g[k]</text>
+<path d="M1031 550 L1131 550" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="1145" y="478" width="352" height="142" rx="14" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
+<text x="1321" y="521" text-anchor="middle" font-size="22" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">帧间增益平滑</text><text x="1321" y="559" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">生成 g[n]</text>
+<path d="M1301 370 L1301 461" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="432" y="686" width="1081" height="137" rx="14" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+<text x="972" y="732" text-anchor="middle" font-size="22" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">合成与输出：y[n] = g[n] · yP[n]</text><text x="972" y="771" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">这是乘性控制修正；不要求网络直接合成完整音频残差</text>
+<path d="M1301 621 L1301 684" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<text x="86" y="775" text-anchor="start" font-size="22" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#334155">独立检验</text>
+<text x="86" y="805" text-anchor="start" font-size="17" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">误差、状态稳定性、过采样开销</text>
+<rect x="48" y="899" width="1504" height="54" rx="12" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<text x="800" y="935" text-anchor="middle" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">物理模型保留电路结构；神经网络补充难以精确拟合的动态控制误差</text>
+</svg>

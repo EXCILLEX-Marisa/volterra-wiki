@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="112%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/>
+      <feOffset in="vBlur" dx="0" dy="3" result="vOffset"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+
+  
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="248" height="28" rx="6" fill="#0F172A"/>
+  <text x="192.2" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 05-03 · 超降阶与实时验收规范</text>
+  <text x="332" y="70" font-size="27" font-weight="bold" fill="#0F172A">POD + DEIM 超降阶 (Hyper-Reduction) 与实时音频插件五层渐进验收规范架构图</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">展示高维有限元/PDE 非线性力学模型的 Magic Points 超降阶路径，以及商业母带级插件从数学无源到实时线程安全的完整交付标准</text>
+
+
+  
+    <rect x="48" y="144" width="1504" height="360" rx="14" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="48" y="144" width="1504" height="54" rx="14" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+  <rect x="48" y="186" width="1504" height="12" fill="#EDE9FE"/>
+  <line x1="48" y1="198" x2="1552" y2="198" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="68" y="168" font-size="17" font-weight="bold" fill="#5B21B6">上篇：高维声学 PDE / 有限元 (FEM) 模态降阶与 DEIM 离散经验插值超降阶 (Hyper-Reduction)</text>
+  <text x="68" y="188" font-size="12.5" fill="#5B21B6">破解 Galerkin 投影「提升回 N 维网格求非线性力」的算力瓶颈，将 O(N_FEM) 彻底降至 O(r·m) 实时级别</text>
+
+  
+  
+  <rect x="68" y="210" width="440" height="276" rx="10" fill="#FEF2F2" stroke="#FCA5A5"/>
+  <text x="86" y="236" font-size="13.2" font-weight="bold" fill="#991B1B">① 原始有限元全阶网格 (Full-Order FEM, N = 10⁴～10⁵ 自由度)</text>
+  
+  <rect x="86" y="250" width="180" height="110" rx="6" fill="#FFFFFF" stroke="#DC2626"/>
+  <ellipse cx="176" cy="305" rx="70" ry="42" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+  <ellipse cx="176" cy="305" rx="44" ry="26" fill="none" stroke="#DC2626" stroke-width="1" stroke-dasharray="2 2"/>
+  <ellipse cx="176" cy="305" rx="18" ry="11" fill="#FCA5A5" stroke="#DC2626" stroke-width="1.5"/>
+  <line x1="106" y1="305" x2="246" y2="305" stroke="#DC2626" stroke-width="0.8"/>
+  <line x1="176" y1="263" x2="176" y2="347" stroke="#DC2626" stroke-width="0.8"/>
+  <line x1="126" y1="275" x2="226" y2="335" stroke="#DC2626" stroke-width="0.8"/>
+  <line x1="126" y1="335" x2="226" y2="275" stroke="#DC2626" stroke-width="0.8"/>
+  <text x="278" y="274" font-size="10.9" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#7F1D1D">M d²q/dt² + C dq/dt + K q + f_nl(q) = b u</text>
+  <text x="278" y="298" font-size="12" fill="#334155">• 纸盆盆架大振幅几何硬化</text>
+  <text x="278" y="320" font-size="12" fill="#334155">• 板式混响器 (Plate) 张力耦合</text>
+  <text x="278" y="344" font-size="12" font-weight="bold" fill="#DC2626">• 算力：48kHz 下需 10⁹ FLOPs/s</text>
+
+  <text x="86" y="384" font-size="12.5" font-weight="bold" fill="#991B1B">标准 POD 投影的「提升瓶颈 (Lifting Bottleneck)」：</text>
+  <text x="86" y="406" font-size="12" fill="#334155">即使令 q ≈ V_r a (r = 20 ≪ N)，计算非线性内力项</text>
+  <text x="86" y="426" font-size="12" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#991B1B">f_r_nl(a) = V_rᵀ · f_nl( V_r · a )</text>
+  <text x="86" y="448" font-size="12" fill="#334155">仍需每采样点先乘 V_r 还原至 N=50,000 个网格点求值，</text>
+  <text x="86" y="468" font-size="12" font-weight="bold" fill="#DC2626">每步仍需回代至 N 维网格求值，计算复杂度仍为 O(N_FEM)</text>
+
+  <line x1="508" y1="348" x2="536" y2="348" stroke="#7C3AED" stroke-width="3" marker-end="url(#arr-purple)"/>
+
+  
+  <rect x="540" y="210" width="496" height="276" rx="10" fill="#F5F3FF" stroke="#C4B5FD"/>
+  <text x="558" y="236" font-size="14" font-weight="bold" fill="#5B21B6">② DEIM 离散经验插值超降阶 (Chaturantabut &amp; Sorensen 2010)</text>
+  <text x="558" y="260" font-size="12.5" fill="#334155">• 对非线性力快照做 SVD 得基 U_m ∈ ℝ^(N×m)，用贪心行主元选择仅</text>
+  <text x="558" y="280" font-size="12.5" font-weight="bold" fill="#6D28D9">  m = 20～40 个空间关键插值点 (Magic Points，选择矩阵 P ∈ ℝ^(N×m))：</text>
+
+  <rect x="558" y="294" width="460" height="68" rx="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="788" y="318" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#5B21B6">f_r_nl(a) ≈ [ V_rᵀ U_m (Pᵀ U_m)⁻¹ ] · f_nl( (Pᵀ V_r) · a )</text>
+  <text x="788" y="344" text-anchor="middle" font-size="12" font-weight="bold" fill="#059669">离线预计算矩阵 E_DEIM ∈ ℝ^(r×m) 与抽取基 V_sub = PᵀV_r ∈ ℝ^(m×r)</text>
+
+  
+  <rect x="558" y="372" width="180" height="98" rx="6" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <ellipse cx="648" cy="421" rx="66" ry="38" fill="#F3E8FF" stroke="#7C3AED" stroke-width="1.2"/>
+  <circle cx="648" cy="421" r="4.5" fill="#059669"/><circle cx="612" cy="408" r="4.5" fill="#059669"/>
+  <circle cx="684" cy="434" r="4.5" fill="#059669"/><circle cx="628" cy="442" r="4.5" fill="#059669"/>
+  <circle cx="672" cy="402" r="4.5" fill="#059669"/><circle cx="594" cy="424" r="4.5" fill="#059669"/>
+  <circle cx="702" cy="418" r="4.5" fill="#059669"/><circle cx="648" cy="386" r="4.5" fill="#059669"/>
+  <text x="648" y="466" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#065F46">仅在 m 个插值点求值</text>
+
+  <text x="752" y="394" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#065F46">算力断崖式下降</tspan>：</text>
+  <text x="752" y="416" font-size="12" fill="#334155">实时阶段彻底脱离原始网格维度 N，</text>
+  <text x="752" y="436" font-size="12" fill="#334155">每采样点仅需计算 m=30 个标量点的</text>
+  <text x="752" y="456" font-size="12" font-weight="bold" fill="#5B21B6">非线性本构函数，实时复杂度降至 O(r·m)</text>
+
+  <line x1="1036" y1="348" x2="1064" y2="348" stroke="#059669" stroke-width="3" marker-end="url(#arr-green)"/>
+
+  
+  <rect x="1068" y="210" width="464" height="276" rx="10" fill="#ECFDF5" stroke="#6EE7B7"/>
+  <text x="1086" y="236" font-size="14" font-weight="bold" fill="#065F46">③ 模态耦合二阶/三阶核与实时二阶谐振器组</text>
+  <rect x="1086" y="252" width="428" height="72" rx="8" fill="#FFFFFF" stroke="#059669" stroke-width="1.5"/>
+  <text x="1300" y="276" text-anchor="middle" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#065F46">ä_i + 2ζ_i ω_i ȧ_i + ω_i² a_i + ∑_{j,k} Γ_ijk a_j a_k</text>
+  <text x="1300" y="298" text-anchor="middle" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#047857">+ ∑_{j,k,l} Λ_ijkl a_j a_k a_l = b_r_i · u(t)</text>
+  <text x="1300" y="316" text-anchor="middle" font-size="11" fill="#065F46">(由势能泛函 U(a) 偏导对称生成 Γ_ijk，保证模态间能量交換守恒)</text>
+
+  <text x="1086" y="350" font-size="12.5" fill="#334155">• <tspan font-weight="bold">物理诠释</tspan>：转化为 r = 16～32 个并联二阶 IIR 模态谐振器，加上</text>
+  <text x="1100" y="370" font-size="12.5" fill="#334155">稀疏模态交叉乘积项（等效于模态坐标下的紧凑 Volterra 展开）</text>
+  <text x="1086" y="396" font-size="12.5" fill="#334155">• <tspan font-weight="bold">适用对象</tspan>：弹簧混响 (Spring Reverb) 啁啾色散、锣镲/板式混响非</text>
+  <text x="1100" y="416" font-size="12.5" fill="#334155">线性击打音高上滑 (Pitch Glide)、大冲程低音扬声器盆分裂失真</text>
+  <text x="1086" y="444" font-size="12.5" font-weight="bold" fill="#059669">• 实时表现：单核 CPU 占用 &lt; 2%，支持实时调节张力、阻尼与尺寸旋钮</text>
+
+  
+    <rect x="48" y="520" width="1504" height="362" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="48" y="520" width="1504" height="54" rx="14" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="48" y="562" width="1504" height="12" fill="#F1F5F9"/>
+  <line x1="48" y1="574" x2="1552" y2="574" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="68" y="544" font-size="17" font-weight="bold" fill="#0F172A">下篇：商业音频插件五层渐进验收体系与 processBlock 实时线程安全硬规范</text>
+  <text x="68" y="564" font-size="12.5" fill="#0F172A">从数学收敛、数值稳定、声学听感到 C++ 实时音频线程零阻塞的工业级交付红线</text>
+
+  
+  <rect x="68" y="586" width="276" height="276" rx="10" fill="#F0F9FF" stroke="#7DD3FC" stroke-width="1.5"/>
+  <rect x="84" y="602" width="244" height="30" rx="6" fill="#0284C7"/>
+  <text x="206" y="622" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">第 1 层：解析与物理守恒验收</text>
+  <text x="84" y="654" font-size="12" fill="#334155">• <tspan font-weight="bold">能量无源性</tspan>：离散能量增量</text>
+  <text x="96" y="672" font-size="11.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#075985">ΔH[n] ≤ u[n]·y[n]</text>
+  <text x="84" y="696" font-size="12" fill="#334155">• <tspan font-weight="bold">状态收缩</tspan>：雅可比谱半径</text>
+  <text x="96" y="714" font-size="11.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#075985">sup_s ρ(∂F/∂s) ≤ 1 - ε</text>
+  <text x="84" y="738" font-size="12" fill="#334155">• <tspan font-weight="bold">奇偶对称性</tspan>：偏置 x₀=0 时</text>
+  <text x="96" y="756" font-size="11.5" fill="#334155">对称拓扑偶次核严格归零</text>
+  <text x="84" y="782" font-size="12" font-weight="bold" fill="#0369A1">• 渐近饱和：|x| → +20 dBFS</text>
+  <text x="96" y="800" font-size="11.5" fill="#075985">输出有界不发散 (Padé 保护)</text>
+  <rect x="84" y="820" width="244" height="26" rx="5" fill="#E0F2FE"/>
+  <text x="206" y="838" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#075985">指标：零自激 / 零多项式爆炸</text>
+
+  <rect x="360" y="586" width="276" height="276" rx="10" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5"/>
+  <rect x="376" y="602" width="244" height="30" rx="6" fill="#D97706"/>
+  <text x="498" y="622" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">第 2 层：数值与边界压力测试</text>
+  <text x="376" y="654" font-size="12" fill="#334155">• <tspan font-weight="bold"> +12 dBFS 满幅方波冲击</tspan>：</text>
+  <text x="388" y="672" font-size="11.5" fill="#334155">检验牛顿/LUT 边界外推无 NaN</text>
+  <text x="376" y="696" font-size="12" fill="#334155">• <tspan font-weight="bold">静音衰减 (1e-30 极小信号)</tspan>：</text>
+  <text x="388" y="714" font-size="11.5" fill="#334155">检验 FTZ/DAZ 防次正规数尖峰</text>
+  <text x="376" y="738" font-size="12" fill="#334155">• <tspan font-weight="bold">全采样率扫描</tspan>：44.1 / 48 /</text>
+  <text x="388" y="756" font-size="11.5" fill="#334155">88.2 / 96 / 192 kHz 频响一致性</text>
+  <text x="376" y="782" font-size="12" font-weight="bold" fill="#B45309">• 快速旋钮狂拧测试：</text>
+  <text x="388" y="800" font-size="11.5" fill="#92400E">一阶参数平滑器消除拉链噪音</text>
+  <rect x="376" y="820" width="244" height="26" rx="5" fill="#FEF3C7"/>
+  <text x="498" y="838" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#92400E">指标：24 小时压力运行零爆音</text>
+
+  <rect x="652" y="586" width="276" height="276" rx="10" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.5"/>
+  <rect x="668" y="602" width="244" height="30" rx="6" fill="#7C3AED"/>
+  <text x="790" y="622" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">第 3 层：时频域与抗混叠指标</text>
+  <text x="668" y="654" font-size="12" fill="#334155">• <tspan font-weight="bold">波形误差比 (ESR)</tspan>：</text>
+  <text x="680" y="672" font-size="11.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#5B21B6">ESR_val &lt; 0.5% (-23 dB)</text>
+  <text x="668" y="696" font-size="12" fill="#334155">• <tspan font-weight="bold">多分辨率 STFT 谱误差</tspan>：</text>
+  <text x="680" y="714" font-size="11.5" fill="#334155">覆盖 512 / 2048 / 8192 窗长</text>
+  <text x="668" y="738" font-size="12" fill="#334155">• <tspan font-weight="bold">双音互调 (IMD)</tspan>：19+20 kHz</text>
+  <text x="680" y="756" font-size="11.5" fill="#334155">差频 1 kHz 幅度误差 &lt; 0.5 dB</text>
+  <text x="668" y="782" font-size="12" font-weight="bold" fill="#6D28D9">• 混叠镜像抑制比 (ASR)：</text>
+  <text x="680" y="800" font-size="11.5" fill="#5B21B6">高频正弦扫频折叠伪影 &lt; -80 dBFS</text>
+  <rect x="668" y="820" width="244" height="26" rx="5" fill="#EDE9FE"/>
+  <text x="790" y="838" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#5B21B6">指标：全面通过 VISTA 客观基准</text>
+
+  <rect x="944" y="586" width="276" height="276" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <rect x="960" y="602" width="244" height="30" rx="6" fill="#059669"/>
+  <text x="1082" y="622" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">第 4 层：双误差审计与盲听</text>
+  <text x="960" y="654" font-size="12" fill="#334155">• <tspan font-weight="bold">教师误差 E_HW→T</tspan>：硬件与</text>
+  <text x="972" y="672" font-size="11.5" fill="#334155">高维离线教师模型的物理差距</text>
+  <text x="960" y="696" font-size="12" fill="#334155">• <tspan font-weight="bold">蒸馏误差 E_T→S</tspan>：离线教师</text>
+  <text x="972" y="714" font-size="11.5" fill="#334155">压缩至实时学生模型的近似损耗</text>
+  <text x="960" y="738" font-size="12" fill="#334155">• <tspan font-weight="bold">Null Test 相位抵消测试</tspan>：</text>
+  <text x="972" y="756" font-size="11.5" fill="#334155">检验微秒级群延迟是否完全对齐</text>
+  <text x="960" y="782" font-size="12" font-weight="bold" fill="#047857">• MUSHRA 双盲听感评测：</text>
+  <text x="972" y="800" font-size="11.5" fill="#065F46">鼓组瞬态冲击感与低频下潜盲测</text>
+  <rect x="960" y="820" width="244" height="26" rx="5" fill="#D1FAE5"/>
+  <text x="1082" y="838" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#065F46">指标：MUSHRA 得分 &gt; 90 / 100</text>
+
+  <rect x="1236" y="586" width="296" height="276" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5"/>
+  <rect x="1252" y="602" width="264" height="30" rx="6" fill="#DC2626"/>
+  <text x="1384" y="622" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">第 5 层：实时线程安全红线</text>
+  <text x="1252" y="654" font-size="12" font-weight="bold" fill="#991B1B">✗ processBlock 严禁事项：</text>
+  <text x="1264" y="674" font-size="11.5" fill="#334155">1. 严禁堆内存分配 (new / malloc /</text>
+  <text x="1276" y="692" font-size="11.5" fill="#334155">std::vector::push_back)</text>
+  <text x="1264" y="714" font-size="11.5" fill="#334155">2. 严禁互斥锁 (std::mutex / lock)</text>
+  <text x="1264" y="736" font-size="11.5" fill="#334155">3. 严禁系统调用、文件读写与日志</text>
+  <text x="1252" y="762" font-size="12" font-weight="bold" fill="#065F46">✓ 标准实时架构：</text>
+  <text x="1264" y="782" font-size="11.5" fill="#334155">• prepareToPlay 一次性预分配对齐内存</text>
+  <text x="1264" y="800" font-size="11.5" fill="#334155">• UI 线程经 Lock-Free SPSC 队列传参</text>
+  <rect x="1252" y="820" width="264" height="26" rx="5" fill="#FEE2E2"/>
+  <text x="1384" y="838" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#991B1B">指标：WCET &lt; 0.25 × Buffer 周期</text>
+
+
+  
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：DEIM 超降阶通过在 m 个空间关键点采样彻底消除了 POD 的 O(N) 提升瓶颈；五层验收规范确保最终插件兼具物理守恒、零混叠与严苛的实时线程确定性。</text>
+</svg>

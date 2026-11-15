@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980"><defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4 z" fill="#334155"/></marker></defs>
+<rect x="0" y="0" width="1600" height="980" fill="#F8FAFC"/>
+<rect x="48" y="28" width="1504" height="98" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+<rect x="70" y="47" width="208" height="32" rx="6" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<text x="174" y="70" text-anchor="middle" font-size="15" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 02-03 · 超网络</text>
+<text x="306" y="70" text-anchor="start" font-size="28" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">参数条件化超网络与流式音频模型</text>
+<text x="72" y="107" text-anchor="start" font-size="16" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">区分“参数决定模型权重”与“内部状态保存时间历史”两种职责</text>
+<rect x="48" y="147" width="1504" height="724" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+<text x="85" y="198" text-anchor="start" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">参数路径：控制值改变时更新权重，稳定时可缓存</text>
+<rect x="82" y="225" width="355" height="172" rx="14" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
+<text x="260" y="273" text-anchor="middle" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">面板条件向量 c</text><text x="260" y="311" text-anchor="middle" font-size="21" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">Peak Reduction、Comp/Limit</text><text x="260" y="349" text-anchor="middle" font-size="21" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">Gain 单独控制输出电平</text>
+<path d="M437 307 L523 307" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="535" y="225" width="530" height="172" rx="14" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
+<text x="800" y="268" text-anchor="middle" font-size="22" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">超网络 Hφ(c)</text><text x="800" y="311" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">gMLP / 门控单元</text><text x="800" y="354" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">低频率参数到权重映射</text>
+<path d="M1066 307 L1149 307" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="1160" y="225" width="354" height="172" rx="14" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
+<text x="1337" y="269" text-anchor="middle" font-size="22" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">生成音频模型权重</text><text x="1337" y="311" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">卷积核 / 偏置 / 门控参数</text>
+<path d="M1337 397 L1337 468" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<text x="84" y="465" text-anchor="start" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">音频路径：每个处理块更新内部状态</text>
+<rect x="84" y="501" width="271" height="126" rx="14" fill="#EFF6FF" stroke="#0284C7" stroke-width="2"/>
+<text x="219" y="544" text-anchor="middle" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">输入音频 x[n]</text><text x="219" y="579" text-anchor="middle" font-size="21" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">按块送入网络</text>
+<path d="M355 566 L443 566" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="456" y="487" width="646" height="198" rx="14" fill="#EFF6FF" stroke="#0284C7" stroke-width="2"/>
+<text x="779" y="541" text-anchor="middle" font-size="23" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">流式 U-Net 型处理网络</text><text x="779" y="585" text-anchor="middle" font-size="23" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">门控卷积 / 下采样 / 上采样</text><text x="779" y="629" text-anchor="middle" font-size="23" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">包含跨块状态 s[n]</text>
+<path d="M1105 566 L1200 566" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="1213" y="503" width="295" height="124" rx="14" fill="#EFF6FF" stroke="#0284C7" stroke-width="2"/>
+<text x="1360" y="550" text-anchor="middle" font-size="23" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">音频输出</text><text x="1360" y="584" text-anchor="middle" font-size="23" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">y[n]</text>
+<path d="M1337 469 L1002 487" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrow)" stroke-dasharray="8,5"/>
+<rect x="498" y="733" width="570" height="102" rx="14" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2"/>
+<text x="783" y="766" text-anchor="middle" font-size="19" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">流式状态反馈：s[n] → s[n+1]</text><text x="783" y="796" text-anchor="middle" font-size="19" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">状态跨音频块延续，不随每个旋钮改变而清零</text>
+<path d="M777 732 L777 691" stroke="#7C3AED" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="48" y="899" width="1504" height="54" rx="12" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+<text x="800" y="935" text-anchor="middle" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">超网络学习“参数如何改变处理器”，流式模型学习“历史如何改变当前输出”</text>
+</svg>

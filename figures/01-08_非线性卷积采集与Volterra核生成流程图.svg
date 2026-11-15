@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="112%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/>
+      <feOffset in="vBlur" dx="0" dy="3" result="vOffset"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+
+  
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="204" height="28" rx="6" fill="#0F172A"/>
+  <text x="170.2" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 01-08 · 非线性卷积采集</text>
+  <text x="288" y="70" font-size="27" font-weight="bold" fill="#0F172A">指数扫频 (ESS) 非线性卷积采集与 Volterra 核生成全流程图</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">涵盖 Farina 负时间区谐波脉冲簇分离、Chebyshev 幂次解耦矩阵 T_c⁻¹、多方差电平插值与非对角交叉核补全</text>
+
+
+  
+    <rect x="48" y="144" width="480" height="420" rx="14" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="48" y="144" width="480" height="54" rx="14" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.5"/>
+  <rect x="48" y="186" width="480" height="12" fill="#E0F2FE"/>
+  <line x1="48" y1="198" x2="528" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
+  <text x="68" y="168" font-size="17" font-weight="bold" fill="#075985">步骤 ① 指数扫频激励 (ESS) 与多电平设计</text>
+  <text x="68" y="188" font-size="12.5" fill="#075985">Farina 同步指数扫频 + 逆滤波器压缩脉冲</text>
+    <rect x="560" y="144" width="480" height="420" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="560" y="144" width="480" height="54" rx="14" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+  <rect x="560" y="186" width="480" height="12" fill="#FEF3C7"/>
+  <line x1="560" y1="198" x2="1040" y2="198" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="580" y="168" font-size="17" font-weight="bold" fill="#78350F">步骤 ② 负时间区谐波脉冲簇分离</text>
+  <text x="580" y="188" font-size="12.5" fill="#78350F">线性群延迟与 m 阶谐波超前偏移 Δt_m = T·ln(m)/ln(f₂/f₁)</text>
+    <rect x="1072" y="144" width="480" height="420" rx="14" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="1072" y="144" width="480" height="54" rx="14" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+  <rect x="1072" y="186" width="480" height="12" fill="#EDE9FE"/>
+  <line x1="1072" y1="198" x2="1552" y2="198" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="1092" y="168" font-size="17" font-weight="bold" fill="#5B21B6">步骤 ③ Chebyshev 解耦转换对角 Volterra 核</text>
+  <text x="1092" y="188" font-size="12.5" fill="#5B21B6">倍频谐波脉冲 H^(m)(f) → 幂次对角核 H_p,diag(f)</text>
+
+  
+  <rect x="68" y="212" width="440" height="156" rx="10" fill="#F8FAFC" stroke="#BAE6FD"/>
+  <text x="86" y="236" font-size="13.5" font-weight="bold" fill="#075985">瞬时频率指数增长信号 x_ESS(t)：</text>
+  
+  <line x1="86" y1="296" x2="488" y2="296" stroke="#CBD5E1" stroke-width="1"/>
+  <path d="M 86 296 Q 116 250 146 296 T 196 296 Q 214 250 232 296 T 264 296 Q 276 250 288 296 T 310 296 Q 319 250 328 296 T 344 296 Q 351 250 358 296 T 370 296 Q 375 250 380 296 T 390 296 Q 394 250 398 296 T 406 296 Q 409 250 412 296 T 418 296 Q 421 250 424 296 T 430 296" fill="none" stroke="#0284C7" stroke-width="2.2"/>
+  <rect x="436" y="256" width="56" height="68" rx="6" fill="#E0F2FE" stroke="#0284C7"/>
+  <text x="464" y="284" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#075985">逆滤波</text>
+  <text x="464" y="304" text-anchor="middle" font-size="11" fill="#0369A1">x⁻¹(t)</text>
+  <text x="86" y="350" font-size="12.5" fill="#334155" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace">x(t) = A · sin[ 2πf₁·L · (exp(t/L) - 1) ],  L = T/ln(f₂/f₁)</text>
+
+  <rect x="68" y="382" width="440" height="164" rx="10" fill="#F0F9FF" stroke="#7DD3FC"/>
+  <text x="86" y="408" font-size="14" font-weight="bold" fill="#075985">采集约束与电平分档策略：</text>
+  <text x="86" y="434" font-size="13" fill="#334155">• 扫频时长 T = 5～15 s，保证相邻谐波窗 Δt_m &gt; IR 混响尾长</text>
+  <text x="86" y="458" font-size="13" fill="#334155">• 多电平阶梯采集：A_r ∈ {-24, -18, -12, -6, -3, 0} dBFS</text>
+  <text x="86" y="482" font-size="13" fill="#334155">• 能量衰减补偿：逆滤波器幅度包络随 -6 dB/oct 指数衰减</text>
+  <text x="86" y="506" font-size="13" font-weight="bold" fill="#0369A1">• 相位同步要求：扫频起止相位归零，严禁采样率时钟漂移</text>
+  <text x="86" y="530" font-size="12.5" fill="#475569">• 输出：被测硬件响应录音 y_r(t) 卷积逆滤波器得 g(τ)</text>
+
+  
+  <rect x="580" y="212" width="440" height="176" rx="10" fill="#FFFBEB" stroke="#FCD34D"/>
+  <text x="598" y="236" font-size="13.5" font-weight="bold" fill="#92400E">解卷积脉冲簇 g(τ) = y(t) * x⁻¹(t) 时轴分布：</text>
+  
+  <line x1="600" y1="336" x2="1000" y2="336" stroke="#64748B" stroke-width="1.5"/>
+  <line x1="910" y1="252" x2="910" y2="352" stroke="#0F172A" stroke-width="1.5" stroke-dasharray="4 3"/>
+  
+  <path d="M 910 336 L 910 262 L 916 320 L 924 295 L 934 330 L 955 336" fill="none" stroke="#0284C7" stroke-width="2.5"/>
+  <text x="915" y="256" font-size="11.5" font-weight="bold" fill="#0284C7">m=1 基波 (τ=0)</text>
+  
+  <path d="M 790 336 L 790 278 L 796 324 L 804 308 L 818 336" fill="none" stroke="#D97706" stroke-width="2.2"/>
+  <text x="802" y="248" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#B45309">m=2 (-Δt₂)</text>
+  
+  <path d="M 710 336 L 710 290 L 715 326 L 724 316 L 736 336" fill="none" stroke="#7C3AED" stroke-width="2.2"/>
+  <text x="722" y="248" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#5B21B6">m=3 (-Δt₃)</text>
+  
+  <path d="M 642 336 L 642 302 L 647 328 L 656 336" fill="none" stroke="#DC2626" stroke-width="2"/>
+  <text x="642" y="294" text-anchor="middle" font-size="11" font-weight="bold" fill="#991B1B">m=4 (-Δt₄)</text>
+  
+  <rect x="778" y="256" width="48" height="84" rx="4" fill="#FEF3C7" fill-opacity="0.35" stroke="#D97706" stroke-dasharray="3 2"/>
+  <rect x="698" y="256" width="48" height="84" rx="4" fill="#EDE9FE" fill-opacity="0.35" stroke="#7C3AED" stroke-dasharray="3 2"/>
+  <text x="800" y="372" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#78350F">负时间区 τ &lt; 0：高阶谐波脉冲严格按 ln(m) 左移分离</text>
+
+  <rect x="580" y="400" width="440" height="146" rx="10" fill="#FFF7ED" stroke="#FDBA74"/>
+  <text x="598" y="426" font-size="14" font-weight="bold" fill="#9A3412">时窗截取与相位对齐准则：</text>
+  <text x="598" y="452" font-size="13" fill="#334155">• 谐波偏移公式：Δt_m = L · ln(m) = T · ln(m) / ln(f₂/f₁)</text>
+  <text x="598" y="476" font-size="13" fill="#334155">• 独立加窗截取各阶脉冲 h^(m)[k]，经 FFT 得谐波频响 H^(m)(f)</text>
+  <text x="598" y="500" font-size="13" font-weight="bold" fill="#B45309">• 局限预警：ESS 仅激励单音倍频轨迹 (ω, ω,…, ω)，无法观测</text>
+  <text x="612" y="522" font-size="12.5" fill="#9A3412">非对角交叉频率平面 H₂(ω₁, ω₂) (ω₁ ≠ ω₂) 的互调记忆项</text>
+
+  
+  <rect x="1092" y="212" width="440" height="186" rx="10" fill="#F5F3FF" stroke="#C4B5FD"/>
+  <text x="1110" y="236" font-size="13.5" font-weight="bold" fill="#5B21B6">Chebyshev 多项式上三角逆变换矩阵 T_c⁻¹：</text>
+  
+  <rect x="1110" y="250" width="404" height="86" rx="6" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="1126" y="274" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#0F172A">[ H₁,diag(f) ]   [  1     0    +3/4     0   ] [ H^(1)(f) ]</text>
+  <text x="1126" y="296" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#5B21B6">[ H₂,diag(f) ] = [  0     2      0     +4   ] [ H^(2)(f) ]</text>
+  <text x="1126" y="318" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#7C3AED">[ H₃,diag(f) ]   [  0     0      4      0   ] [ H^(3)(f) ]</text>
+  <text x="1110" y="360" font-size="12.5" fill="#475569">• 物理原因：x³ = ¾cos(ωt) + ¼cos(3ωt)，3 阶幂次核同时向</text>
+  <text x="1124" y="382" font-size="12.5" fill="#5B21B6">基波 H^(1) 亦接收奇次项回流能量，需经上三角矩阵解耦</text>
+
+  <rect x="1092" y="410" width="440" height="136" rx="10" fill="#FAF5FF" stroke="#D8B4FE"/>
+  <text x="1110" y="436" font-size="14" font-weight="bold" fill="#5B21B6">生成的广义 Hammerstein 对角核组：</text>
+  <text x="1110" y="462" font-size="13" fill="#334155">• 经 IFFT 获得时域对角核切片 h_p,diag[k] = h_p[k, k, …, k]</text>
+  <text x="1110" y="486" font-size="13" fill="#334155">• 构成并行幂次滤波支路：y[n] = ∑_p (h_p,diag * x^p)[n]</text>
+  <text x="1110" y="510" font-size="13" font-weight="bold" fill="#6D28D9">• 适用对象：谐波失真色染器、前级电子管温和奇偶次染色</text>
+
+  
+  <line x1="528" y1="354" x2="556" y2="354" stroke="#0284C7" stroke-width="3" marker-end="url(#arr-blue)"/>
+  <line x1="1040" y1="354" x2="1068" y2="354" stroke="#D97706" stroke-width="3" marker-end="url(#arr-amber)"/>
+
+  
+    <rect x="48" y="584" width="736" height="298" rx="14" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="48" y="584" width="736" height="54" rx="14" fill="#D1FAE5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <rect x="48" y="626" width="736" height="12" fill="#D1FAE5"/>
+  <line x1="48" y1="638" x2="784" y2="638" stroke="#6EE7B7" stroke-width="1.5"/>
+  <text x="68" y="608" font-size="17" font-weight="bold" fill="#065F46">步骤 ④ 多方差 / 多电平核向量簇与增益依赖插值 (VVKT / N2V)</text>
+  <text x="68" y="628" font-size="12.5" fill="#065F46">解决单一高电平采集导致的低电平核失配 (Locality Problem)</text>
+    <rect x="816" y="584" width="736" height="298" rx="14" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="816" y="584" width="736" height="54" rx="14" fill="#FEE2E2" stroke="#FCA5A5" stroke-width="1.5"/>
+  <rect x="816" y="626" width="736" height="12" fill="#FEE2E2"/>
+  <line x1="816" y1="638" x2="1552" y2="638" stroke="#FCA5A5" stroke-width="1.5"/>
+  <text x="836" y="608" font-size="17" font-weight="bold" fill="#991B1B">步骤 ⑤ 非对角交叉核补全与混合架构协同</text>
+  <text x="836" y="628" font-size="12.5" fill="#991B1B">当目标硬件存在强交叉互调记忆或慢包络时的扩展路径</text>
+
+  
+  <rect x="68" y="650" width="420" height="214" rx="10" fill="#ECFDF5" stroke="#A7F3D0"/>
+  <text x="86" y="676" font-size="14" font-weight="bold" fill="#065F46">多电平核簇 H_p^(A_r) 与多方差反演 (Schoukens 1997)：</text>
+  <text x="86" y="702" font-size="13" fill="#334155">• 单电平局限：在 0 dBFS 下截断 P=3 拟合时，5/7 阶余项被投影</text>
+  <text x="100" y="724" font-size="13" fill="#334155">污染至 ĥ₁, ĥ₃，导致 -20 dBFS 小信号频响与失真严重失真</text>
+  <text x="86" y="750" font-size="12.1" font-weight="bold" fill="#047857">• Vandermonde 多电平解耦：利用 γ_r^p 尺度幂律分离真实底层核</text>
+  <text x="86" y="776" font-size="13" fill="#334155">• 动态采样插值 (Acustica VVKT)：按瞬时包络 e[n] 在分档核簇</text>
+  <text x="100" y="798" font-size="11.5" fill="#334155">{h_p^(A₁), …, h_p^(A_R)} 间执行实时双线性淡入淡出</text>
+  <text x="86" y="826" font-size="12.5" fill="#065F46">• 优势：兼顾微弱信号线性度与大信号推挽饱和的平滑过渡</text>
+
+  
+  <rect x="504" y="650" width="260" height="214" rx="10" fill="#FFFFFF" stroke="#6EE7B7"/>
+  <text x="634" y="674" text-anchor="middle" font-size="13" font-weight="bold" fill="#065F46">包络电平 × 阶数 2D 核向量网格</text>
+  
+  <text x="530" y="702" font-size="11.5" font-weight="bold" fill="#475569">电平\阶</text>
+  <text x="595" y="702" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0284C7">p=1</text>
+  <text x="655" y="702" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#D97706">p=2</text>
+  <text x="715" y="702" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#7C3AED">p=3</text>
+  <rect x="570" y="712" width="50" height="28" rx="4" fill="#E0F2FE" stroke="#0284C7"/><text x="595" y="730" text-anchor="middle" font-size="11" fill="#075985">h₁(-18)</text>
+  <rect x="630" y="712" width="50" height="28" rx="4" fill="#FEF3C7" stroke="#D97706"/><text x="655" y="730" text-anchor="middle" font-size="11" fill="#92400E">h₂(-18)</text>
+  <rect x="690" y="712" width="50" height="28" rx="4" fill="#EDE9FE" stroke="#7C3AED"/><text x="715" y="730" text-anchor="middle" font-size="11" fill="#5B21B6">h₃(-18)</text>
+  <text x="542" y="730" text-anchor="middle" font-size="11" fill="#334155">-18dB</text>
+
+  <rect x="570" y="748" width="50" height="28" rx="4" fill="#BAE6FD" stroke="#0284C7"/><text x="595" y="766" text-anchor="middle" font-size="11" fill="#075985">h₁(-6)</text>
+  <rect x="630" y="748" width="50" height="28" rx="4" fill="#FDE68A" stroke="#D97706"/><text x="655" y="766" text-anchor="middle" font-size="11" fill="#92400E">h₂(-6)</text>
+  <rect x="690" y="748" width="50" height="28" rx="4" fill="#DDD6FE" stroke="#7C3AED"/><text x="715" y="766" text-anchor="middle" font-size="11" fill="#5B21B6">h₃(-6)</text>
+  <text x="542" y="766" text-anchor="middle" font-size="11" fill="#334155">-6dB</text>
+
+  <rect x="570" y="784" width="50" height="28" rx="4" fill="#7DD3FC" stroke="#0284C7"/><text x="595" y="802" text-anchor="middle" font-size="11" font-weight="bold" fill="#075985">h₁(0)</text>
+  <rect x="630" y="784" width="50" height="28" rx="4" fill="#FCD34D" stroke="#D97706"/><text x="655" y="802" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400E">h₂(0)</text>
+  <rect x="690" y="784" width="50" height="28" rx="4" fill="#C4B5FD" stroke="#7C3AED"/><text x="715" y="802" text-anchor="middle" font-size="11" font-weight="bold" fill="#5B21B6">h₃(0)</text>
+  <text x="542" y="802" text-anchor="middle" font-size="11" fill="#334155">0dB</text>
+  <text x="634" y="840" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#059669">↑ 实时包络权重 w_r(e[n]) 插值 ↓</text>
+
+  
+  <rect x="836" y="650" width="696" height="214" rx="10" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="856" y="678" font-size="14.5" font-weight="bold" fill="#991B1B">突破 ESS 对角核局限的三条高保真升级路线：</text>
+  <rect x="856" y="694" width="656" height="48" rx="8" fill="#FFFFFF" stroke="#FCA5A5"/>
+  <text x="872" y="716" font-size="13.5" font-weight="bold" fill="#7F1D1D">① 随机多正弦 (Random-Phase Multisine) / 双脉冲扫描 (Doublet Scan)：</text>
+  <text x="872" y="734" font-size="12.5" fill="#475569">激发和频/差频 ω₁ ± ω₂，完整辨识近对角带状交叉核 h₂[k₁, k₁+d] (1 ≤ d ≤ D)</text>
+
+  <rect x="856" y="750" width="656" height="48" rx="8" fill="#FFFFFF" stroke="#FCA5A5"/>
+  <text x="872" y="772" font-size="13.5" font-weight="bold" fill="#7F1D1D">② Laguerre 正交基投影 (Laguerre-Volterra Network)：</text>
+  <text x="872" y="790" font-size="12.5" fill="#475569">用 K=6～10 个一阶全通级联正交状态替代 M=256 原始延迟抽头，交叉核参数压缩 100 倍以上</text>
+
+  <rect x="856" y="806" width="656" height="48" rx="8" fill="#FFFFFF" stroke="#FCA5A5"/>
+  <text x="872" y="828" font-size="13.5" font-weight="bold" fill="#7F1D1D">③ 显式状态算子与混合神经残差 (Play 磁滞 + 递归包络 + 轻量 GRU)：</text>
+  <text x="872" y="846" font-size="12.5" fill="#475569">将长时压缩器时间常数与磁芯多分支磁滞从有限窗 Volterra 核中剥离，交由显式状态方程承担</text>
+
+
+  
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：ESS 解卷积只能直接提取对角核切片 h_p[k,…,k]（广义 Hammerstein）；必须经 Chebyshev 逆矩阵解耦并结合多方差多电平采集才能消除奇次谐波回折偏差。</text>
+</svg>

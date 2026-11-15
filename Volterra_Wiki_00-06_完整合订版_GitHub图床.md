@@ -1,6 +1,6 @@
-# 非线性音频系统的数字建模与系统辨识（00—06 完整合订精修版 · 含 34 张统一教学图）
+# 非线性音频系统的数字建模与系统辨识（00—06 完整合订版 · 37 张 SVG 教学图）
 
-> **说明**：本合订版由经过全篇审查与修订后的《00》至《06》七个独立章节拼接生成，包含全书 34 张统一 Gemini Argon 工程风格 SVG 教学图（配图路径已统一转换为 GitHub 公网直链）。
+> **说明：** 本合订版与目录中的七篇独立 Markdown 同步；新增案例分别放在《01》《02》《03》《05》《06》。图片引用使用仓库 `main` 分支的 GitHub 原始文件链接；独立分章使用 `figures/` 相对路径。
 
 ---
 
@@ -126,7 +126,7 @@ y[n]=G\bigl(\mathbf{s}[n],x[n]\bigr).
 
 还要特别留意**初始状态（Initial State）**。即使两段测量使用完全相同的输入，如果设备开始时的温度、包络值或磁化状态不同，输出也可能不同。此时“同一个输入对应两个输出”可能源于未受控的初始条件，而未必代表随机噪声。这也是复杂硬件辨识经常出现重复性问题的原因之一。
 
-![输入历史与内部状态的两种建模视角](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/00_记忆_状态_关系图.svg)
+![输入历史与内部状态的两种建模视角](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/00-01_记忆_状态_关系图.svg)
 
 *图 00-01 | 输入历史与内部状态的两种建模视角。保存历史与递归状态可以相互转化，延迟线本身也可以被视为状态。*
 
@@ -150,7 +150,7 @@ c\,x[n-2]x[n-7].
 
 当然，某些非线性设备可以通过“线性滤波 + 静态 waveshaper + 线性滤波”的组合得到很好的近似，并非一遇到记忆和失真就必须使用完整 Volterra。Volterra 的核心价值在于提供一套统一、明确的数学语言来组织历史输入之间的非线性交互。
 
-![线性卷积、动态卷积与 Volterra 高阶卷积的概念对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/00_线性卷积_动态卷积_非线性卷积对比图.svg)
+![线性卷积、动态卷积与 Volterra 高阶卷积的概念对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/00-02_线性卷积_动态卷积_非线性卷积对比图.svg)
 
 *图 00-02 | 线性卷积、动态卷积与 Volterra 高阶卷积的概念对照。注意“动态卷积”在商业音频语境中的定义并不统一：若卷积核由输入信号驱动而变化，整体处理也可以是非线性的；三者并非严格互斥的分类。*
 
@@ -174,7 +174,7 @@ y(\cdot)=\mathcal{H}[x(\cdot)].
 
 为什么 Volterra 要用到它们？因为我们最终需要描述的是一种对整个输入历史施加处理规律、生成输出波形的系统映射。Volterra 级数可以视为对这类输入—输出算子进行幂级数式表示的一条路径。知道这点已经足够继续阅读，暂时不需要深入泛函分析的严格定义。
 
-![函数、泛函与算子的直观对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/00_函数_泛函_算子关系图.svg)
+![函数、泛函与算子的直观对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/00-03_函数_泛函_算子关系图.svg)
 
 *图 00-03 | 函数、泛函与算子的直观对照。图中“数到数”的函数概念是教学简化，用于帮助建立直觉。*
 
@@ -447,7 +447,7 @@ y[n]=F\bigl(x[n],x[n-1],y[n-1],y[n-2]\bigr).
 
 ### 0.24.5 GitHub 数学排版约定
 
-本书采用 GitHub 支持的 MathJax 数学语法。行内公式统一使用 GitHub 官方支持的美元符号与反引号组合语法（`` $`...`$ ``），以消除普通 Markdown 下划线、星号和空格解析的歧义。独立公式统一采用 GitHub 官方支持的 **`math` 围栏代码块**：起始行为三个反引号紧接 `math`，结束行为三个反引号。多行公式可使用 `\begin{aligned}...\end{aligned}`，并检查数学环境的起始和结束是否匹配。
+本书采用 GitHub 支持的 MathJax 数学语法。行内公式统一使用 GitHub 官方支持的美元符号与反引号组合语法（`` $...$ ``），以消除普通 Markdown 下划线、星号和空格解析的歧义。独立公式统一采用 GitHub 官方支持的 **`math` 围栏代码块**：起始行为三个反引号紧接 `math`，结束行为三个反引号。多行公式可使用 `\begin{aligned}...\end{aligned}`，并检查数学环境的起始和结束是否匹配。
 
 Markdown 表格里的竖线 `|` 是单元格分隔符。数学表达式在表格或行内需要绝对值或范数时，优先采用 `\lvert`、`\rvert`、`\lVert`、`\rVert` 等 LaTeX 指令，以避免与表格结构发生冲突。
 
@@ -527,7 +527,7 @@ x_j=\cos\!\left(\frac{(2j+1)\pi}{2(N+1)}\right),\quad j=0,\ldots,N.
 
 ## 0.30 条件数、病态与奇异值：为什么系数有时会大幅抖动？
 
-在第 0.21 节，我们已经把固定核 Volterra 写成了特征矩阵与参数向量的乘积。但如果很多特征彼此接近，例如 $x[n]$、$x[n-1]$ 在某个窄带训练信号中高度相关，或者 `$x[n]`$ 与 `$x^3[n]`$ 在单一固定电平下高度共线，那么多个不同的核系数组合可能产生极其相似的输出。此时模型对微小测量噪声异常敏感，估计出的系数就会发生剧烈抖动。
+在第 0.21 节，我们已经把固定核 Volterra 写成了特征矩阵与参数向量的乘积。但如果很多特征彼此接近，例如 $x[n]$、$x[n-1]$ 在某个窄带训练信号中高度相关，或者 $x[n]$ 与 $x^3[n]$ 在单一固定电平下高度共线，那么多个不同的核系数组合可能产生极其相似的输出。此时模型对微小测量噪声异常敏感，估计出的系数就会发生剧烈抖动。
 
 这种数值敏感性由矩阵的**条件数（Condition Number）** 定量刻画。对满列秩矩阵 $\mathbf X$，其二范数条件数定义为最大奇异值与最小奇异值之比：
 
@@ -583,9 +583,11 @@ x_j=\cos\!\left(\frac{(2j+1)\pi}{2(N+1)}\right),\quad j=0,\ldots,N.
 
 ---
 
+---
+
 # 01 Volterra 级数
 
-> **版本：v11 · 2026-11-14 · 多方差辨识、Novák 相位条件与 Padé/Legendre 补充版（继承 v10）**
+> **版本：v12 · 2026-11-15 · 补充压缩器长状态与非线性增益控制的工程分工**
 > **所属系列：Volterra Wiki**
 > **配图说明：** 本章 17 张 SVG 配图与 Markdown 文件配套提供，建议使用完整素材包以保持相对路径有效。
 > **阅读定位：从前置概念进入 Volterra 的正式数学结构，建立它在非线性音频系统辨识中的用途、优势、成本与能力边界。**
@@ -604,7 +606,7 @@ x_j=\cos\!\left(\frac{(2j+1)\pi}{2(N+1)}\right),\quad j=0,\ldots,N.
 
 同时，许多滤波器与静态非线性的级联或并联组合，同样能够制造复杂的动态失真。真正的研究问题在于：**在指定的输入范围和测量条件下，哪一种结构能以合理的参数数量和运行成本，解释设备所表现出的输入—输出关系？** 接下来，我们先用一个只包含两个历史变量的模型把这件事讲清楚。
 
-![静态非线性、线性卷积与 Volterra 的能力对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_能力层级图.svg)
+![静态非线性、线性卷积与 Volterra 的能力对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-01_能力层级图.svg)
 
 *图 01-01 | 静态非线性、线性卷积与 Volterra 的能力对照。注意“静态非线性（有非线性、无记忆）”与“线性卷积（有记忆、无非线性）”分别扩展了两个正交的能力维度，二者汇合后构成同时具备记忆与高阶非线性交互的 Volterra 模型。*
 
@@ -642,7 +644,7 @@ y=a+0.2b+0.1ab.
 
 再往前走一步：如果模型同时依赖最近几十、几百个采样点，那么类似 $x[n-2]x[n-7]$ 的组合就会大量出现。我们需要一套统一的数学记账方式来组织这些乘积。**Volterra 级数，正是把这类不同阶数、不同历史位置的输入乘积组织起来的一种通用表示。**
 
-![二阶非对角项如何使两个不同历史位置的输入产生联合贡献](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_二阶交叉记忆示意图.svg)
+![二阶非对角项如何使两个不同历史位置的输入产生联合贡献](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-02_二阶交叉记忆示意图.svg)
 
 *图 01-02 | 二阶非对角项如何使两个不同历史位置的输入产生联合贡献。*
 
@@ -698,7 +700,7 @@ h_p(\tau_1,\ldots,\tau_p)
 
 上面的式子默认使用零附近的输入作为变量、采用因果历史，并且把各阶核直接定义为对应求和式里的系数。有的泛函分析文献会在展开式里显式写出 $1/p!$，有的则把这一系数吸收到核定义中（参见《04》第 4.3 节）。两种写法在保持一致的情况下可以互相转换；**本 Wiki 默认使用已经吸收 $1/p!$ 系数的工程核记法**，在对照不同文献时需先核对这一约定。
 
-![一阶、二阶与三阶 Volterra 核的维度直觉](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_什么是Volterra核.svg)
+![一阶、二阶与三阶 Volterra 核的维度直觉](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-03_什么是Volterra核.svg)
 
 *图 01-03 | 一阶、二阶与三阶 Volterra 核的维度直觉。它们分别拥有一个、两个和三个延迟索引。*
 
@@ -718,7 +720,7 @@ f(x_0+u)=f(x_0)+f'(x_0)u+\frac{f''(x_0)}{2!}u^2+\cdots.
 
 此外，在文献检索时应注意区分 **Volterra 级数（Volterra Series）** 与 **Volterra 积分方程（Volterra Integral Equation）**：两者同源但研究对象不同，本 Wiki 聚焦于非线性系统的 Volterra 级数表示及其工程约简。
 
-![从静态 Taylor 幂级数到带历史输入的 Volterra 展开的直观对应](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_Taylor与Volterra关系图.svg)
+![从静态 Taylor 幂级数到带历史输入的 Volterra 展开的直观对应](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-04_Taylor与Volterra关系图.svg)
 
 *图 01-04 | 从静态 Taylor 幂级数到带历史输入的 Volterra 展开的直观对应。*
 
@@ -750,7 +752,7 @@ h_{p,\mathrm{sym}}[k_1,\ldots,k_p]=\frac{1}{p!}\sum_{\pi\in S_p}h_p\bigl[k_{\pi(
 这样做不会改变同一阶 Volterra 算子的输出，同时将重复排列归并为唯一的对称核表示。对于 $M$ 个可用延迟，二阶对称核只需要确定上三角区域 $0\le k_1\leq k_2\le M-1$ 的独立坐标。
 
 在编写 C++ 引擎与辨识代码时，必须严格区分**全排列对称核记账**与**上三角唯一单项式特征记账**。继续使用前面的例子 $y=a+0.2b+0.1ab$：
-- 若求和循环遍历全部 $M^2$ 个索引对 `$(k_1,k_2)`$，则对称核系数应赋值为 $h_{2,\mathrm{sym}}[0,1]=h_{2,\mathrm{sym}}[1,0]=0.05$，两项相加后恰好还原 $0.1ab$；
+- 若求和循环遍历全部 $M^2$ 个索引对 $(k_1,k_2)$，则对称核系数应赋值为 $h_{2,\mathrm{sym}}[0,1]=h_{2,\mathrm{sym}}[1,0]=0.05$，两项相加后恰好还原 $0.1ab$；
 - 若求和循环仅遍历上三角唯一组合 $k_1\le k_2$（即构造无重复的特征字典 $\boldsymbol{\phi}[n]$），则单项式 $x[n]x[n-1]$ 的回归系数 $c_2[0,1]$ 直接等于 $2h_{2,\mathrm{sym}}[0,1]=0.1$。
 
 更一般地，对于 $p$ 阶上三角有序索引 $k_1\le k_2\le\cdots\le k_p$，若其中有 $m$ 个互不相同的延迟值，各自重复出现 $r_1,r_2,\ldots,r_m$ 次（满足 $\sum_{j=1}^m r_j=p$），则该唯一单项式在全排列求和中共出现多项式系数（Multinomial Coefficient）次：
@@ -796,11 +798,11 @@ H_p[ax](n)=a^pH_p[x](n).
 
 三阶项则会进一步产生 $2\omega_1\pm\omega_2$ 与 $2\omega_2\pm\omega_1$ 等三阶互调边带（IMD3）。特别是当 $\omega_1$ 与 $\omega_2$ 较为接近时，差频 $\omega_2-\omega_1$ 落入低频区，而三阶差频 $2\omega_1-\omega_2$ 与 $2\omega_2-\omega_1$ 紧贴在基频两侧，直接落入人耳最敏感的可听频带内，无法被后续的高频低通滤波器滤除。对于混音、母带以及模拟硬件建模来说，单音谐波测试只能反映频域主对角切片，多音互调测试才是检验非对角交叉核与动态调制的关键手段。
 
-![Volterra 阶次、核阶数和输出谐波的区别：阶次对应乘积因子数量及核的阶数，但不能简单等同于某一次谐波](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_什么是阶次_理论上能实现几阶_v2.svg)
+![Volterra 阶次、核阶数和输出谐波的区别：阶次对应乘积因子数量及核的阶数，但不能简单等同于某一次谐波](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-05_什么是阶次_理论上能实现几阶.svg)
 
 *图 01-05 | Volterra 阶次、核阶数和输出谐波的区别：阶次对应乘积因子数量及核的阶数。在无偏置单频激励下，同一次奇（或偶）次谐波会同时受到多个不同奇（或偶）数阶次的共同贡献，奇阶与偶阶各自独立。*
 
-![从单频谐波到多音互调，再到不同输入时刻之间的非线性交互](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_谐波_互调_动态交互图_v2.svg)
+![从单频谐波到多音互调，再到不同输入时刻之间的非线性交互](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-06_谐波_互调_动态交互图.svg)
 
 *图 01-06 | 从单频谐波到多音互调，再到不同输入时刻之间的非线性交互。*
 
@@ -848,11 +850,11 @@ y[n]=h_0+\sum_{p=1}^{P}A^p\,h_p[n,n,\ldots,n].
 
 通过遍历脉冲间隔 $d$ 并结合多幅度电平组合（剥离三阶及以上交叉项的混入），双脉冲实验能够直接测量二阶核在距离主对角线为 $d$ 的次对角线上的分布。
 
-![单脉冲、双脉冲和 ESS 可以观察的系统性质不同](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_测量方法对比图.svg)
+![单脉冲、双脉冲和 ESS 可以观察的系统性质不同](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-07_测量方法对比图.svg)
 
 *图 01-07 | 单脉冲、双脉冲和 ESS 可以观察的系统性质不同。ESS 分离出的谐波响应对应频域一维切片，不应直接等同于完整高维 Volterra 核。*
 
-![从实验激励和响应数据到动态卷积分支、或到高阶 Volterra 核辨识的两条路径](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_非线性卷积采集与Volterra核生成流程图.svg)
+![从实验激励和响应数据到动态卷积分支、或到高阶 Volterra 核辨识的两条路径](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-08_非线性卷积采集与Volterra核生成流程图.svg)
 
 *图 01-08 | 从实验激励和响应数据到动态卷积分支、或到高阶 Volterra 核辨识的两条路径。*
 
@@ -931,7 +933,7 @@ A_{H3}(f)=\frac{A^3}{4}\,P^3(f)\,Q(3f).
 
 或使用自适应滤波中的 LMS、RLS 算法递推求解，而无需像深度神经网络那样在高度非凸的参数空间中进行反向传播搜索。
 
-![神经网络权重学习与 Volterra 核系数辨识的共同点及区别](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_为什么Volterra也需要训练模型.svg)
+![神经网络权重学习与 Volterra 核系数辨识的共同点及区别](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-09_为什么Volterra也需要训练模型.svg)
 
 *图 01-09 | 神经网络权重学习与 Volterra 核系数辨识的共同点及区别。*
 
@@ -951,7 +953,7 @@ A_{H3}(f)=\frac{A^3}{4}\,P^3(f)\,Q(3f).
 
 这一原理直接解释了为什么音频非线性系统辨识绝不能只喂入单一响度的训练素材：**只有覆盖从微弱小信号到满度过载的多方差激励，才能解耦不同阶次的幂次共线性，赋予截断 Volterra 模型真实的宽动态泛化能力。**
 
-![多方差跨电平辨识 (Multiple-Variance) 与无分母多项式 ADAA / SNLM 机制图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_多方差辨识与多项式ADAA机制图.svg)
+![多方差跨电平辨识 (Multiple-Variance) 与无分母多项式 ADAA / SNLM 机制图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-10_多方差辨识与多项式ADAA机制图.svg)
 
 *图 01-16：左篇展示单一高电平辨识中未建模高阶奇次项（$p=5,7$）向低阶核（$\hat{h}_1, \hat{h}_3$）回折投影引发的“局域性失配问题（Locality Problem）”及多方差 Vandermonde 尺度解耦；右篇展示 Hopman–Bennett 无分母多项式一阶/二阶反导数抗混叠（Polynomial ADAA）代数因式分解与基于移位 Legendre 正交基的紧凑型 SNLM 架构。*
 
@@ -968,7 +970,7 @@ A_{H3}(f)=\frac{A^3}{4}\,P^3(f)\,Q(3f).
 
 因此，系统辨识的数据采集本质上是受控实验设计。验证同样需要覆盖对齐后的时域残差、跨电平 THD/IMD、瞬态包络差分、历史条件化探针与未见音乐素材。
 
-![测量、建模与独立验证构成反复迭代的实验闭环，不是“喂更多音乐”就能自动完成辨识](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_实验设计与验证闭环图.svg)
+![测量、建模与独立验证构成反复迭代的实验闭环，不是“喂更多音乐”就能自动完成辨识](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-11_实验设计与验证闭环图.svg)
 
 *图 01-10 | 测量、建模与独立验证构成反复迭代的实验闭环。*
 
@@ -998,7 +1000,7 @@ N_2=\frac{48\,000\times48\,001}{2}=1\,152\,024\,000
 
 个独立系数。因此，工程上必须从“完整高维张量”转向“结构化约简”与“慢速状态解耦”。
 
-![完整 Volterra 核的参数规模随阶数和记忆长度快速增长](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_参数爆炸图.svg)
+![完整 Volterra 核的参数规模随阶数和记忆长度快速增长](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-12_参数爆炸图.svg)
 
 *图 01-11 | 完整 Volterra 核的参数规模随阶数和记忆长度快速增长。图中并列对比了全张量坐标数 $M^p$ 与对称核独立参数数量 $\binom{M+p-1}{p}$。*
 
@@ -1006,7 +1008,7 @@ N_2=\frac{48\,000\times48\,001}{2}=1\,152\,024\,000
 
 理解约简时，应首先分析每一种方法提出的结构假设。完整 Volterra 允许每一阶、每一种延迟组合拥有独立的系数；约简模型则通过限制阶次、限制非对角支撑集、利用低秩可分离分解或正交时间基投影，用极少自由度保留目标系统的核心非线性记忆。
 
-![从完整核到对角、近对角、稀疏、低秩、正交基以及多项式记忆动态卷积的简化思路](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_常见约简形式示意图_v2.svg)
+![从完整核到对角、近对角、稀疏、低秩、正交基以及多项式记忆动态卷积的简化思路](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-13_常见约简形式示意图.svg)
 
 *图 01-12 | 从完整核到对角、近对角、稀疏、低秩、正交基以及多项式记忆动态卷积的简化思路。*
 
@@ -1083,7 +1085,7 @@ z_r[n]=(B_r \ast x)[n],\qquad r=1,\ldots,K,
 | Laguerre / Kautz / OBF | 长衰减记忆可由少数极点正交基概括 | 将历史维度从采样点数 $M$ 压缩至基数量 $K\ll M$ |
 | Hybrid (分阶/状态混合) | 不同阶次与时间尺度具有异构物理机制 | 按需组合短时核与慢速状态变量 |
 
-![常见 Volterra 模型及相关块结构的关系导览](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_Volterra模型家族关系图.svg)
+![常见 Volterra 模型及相关块结构的关系导览](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-14_Volterra模型家族关系图.svg)
 
 *图 01-13 | 常见 Volterra 模型及相关块结构的关系导览。*
 
@@ -1130,13 +1132,17 @@ y[n]&=g[n]x[n].
 
 其中包络状态 $s_{\mathrm{env}}[n]$ 的释放时间常数往往长达 $50\,\mathrm{ms}$ 至数秒（在 $48\,\mathrm{kHz}$ 下对应数千至数十万个采样点），且在上升（Attack）与下降（Release）阶段具有非对称的分段递推规律。若强行用前馈有限窗口 Volterra 直接展开 $y[n]=g(s_{\mathrm{env}}[n])x[n]$，不仅窗口 $M$ 必须覆盖整个释放周期，而且分段非对称切换还会破坏高阶光滑性。因此，对于动态处理器，正确的设计分工是将包络检测与增益控制保留为显式递归状态 $s_{\mathrm{env}}[n]$，而将 Volterra 用作模拟电子管/变压器放大级的短时非线性子模块（或构建以 $s_{\mathrm{env}}[n]$ 为条件变量的混合核，见《03》第 3.10 节）。
 
+这里有必要补充一个常见的工程误区。压缩器工作时产生的谐波，并不一定全部来自电子管或者变压器的静态非线性。即使音频通路本身只有线性乘法增益单元，只要增益控制信号 $g[n]$ 带有与输入相关的音频速率纹波，乘法 $y[n]=g[n]x[n]$ 也会产生谐波与互调边带。这类失真可由包络检测、增益律和多时间常数的动态状态共同决定。商业光电压缩器的建模因此常把**控制路径的动态行为**与**音频路径的谐波染色**分开设计；两者在最终输出中又发生耦合，具体例子见《03》第 3.9–3.10 节及《06》第 6.13 节。
+
+以上讨论的是**有限阶、有限记忆并受实时算力约束的实现选择**。在有界输入域、适当连续性和衰减记忆等条件下，Volterra 型算子仍有逼近非线性动态系统的理论基础；不能据此把“压缩器无法用 Volterra 表示”当成一般数学定理。
+
 ## 1.18 磁滞与持久记忆：为什么“把窗口加长”依然不够？
 
 磁带机与音频变压器中的磁性材料具有**磁滞（Hysteresis）** 与**持久记忆（Persistent Memory）**：同一个当前输入电平，可能因为此前经历过不同的磁化极值与路径分支（Major Loop / Minor Loops），而停留在不同的剩磁状态（Remanence）上。
 
 只要这一远期历史留下的内部磁化状态差异没有随时间完全衰减，任何仅查看最近 $M$ 个输入采样点、且不包含内部状态变量的前馈模型（无论是有限记忆 Volterra 还是固定感受野的 WaveNet），在静音或相同近期输入持续超过 $M$ 个采样点后，其输出必然完全重合，从而在结构上丢失区分历史路径的能力。对于此类持久路径依赖现象，必须引入 Play / Prandtl–Ishlinskii 算子、速率依赖（RD-Play）算子、Preisach 或 Jiles–Atherton 等显式磁滞状态模型（详见《03》第 3.7、3.14 节）。
 
-![不同类型非线性行为对有限阶、有限记忆 Volterra 实现的挑战](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_能力边界图.svg)
+![不同类型非线性行为对有限阶、有限记忆 Volterra 实现的挑战](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-15_能力边界图.svg)
 
 *图 01-14 | 不同类型非线性行为对有限阶、有限记忆 Volterra 实现的挑战。*
 
@@ -1163,7 +1169,7 @@ y[n]&=g[n]x[n].
 \Biggl(\prod_{i=1}^{p}w_r[k_i]\Biggr)\prod_{i=1}^{p}x[n-k_i].
 ```
 
-将 $R$ 个隐藏单元叠加后，网络在局部等价于一个**秩至多为 $R$ 的对称 CP 低秩 Volterra 模型**（参见第 1.14.6 节），其中隐藏层权重向量 $\mathbf{w}_r$ 直接充当低秩滤波器模态！这一数学等价性清晰揭示了两者的内在联系：固定核 Volterra 预先固定特征基并直接拟合线性输出权重，而前馈神经网络则通过梯度优化同时学习低秩滤波器基 $\mathbf{w}_r$ 与非线性组合系数。下一章《02 从 Volterra 到神经网络》将在此基础上全面展开两者的对比。
+将 $R$ 个隐藏单元叠加后，网络在局部等价于一个**秩至多为 $R$ 的对称 CP 低秩 Volterra 模型**（参见第 1.14.6 节），其中隐藏层权重向量 $\mathbf{w}_r$ 直接充当低秩滤波器模态。这一数学等价性清晰揭示了两者的内在联系：固定核 Volterra 预先固定特征基并直接拟合线性输出权重，而前馈神经网络则通过梯度优化同时学习低秩滤波器基 $\mathbf{w}_r$ 与非线性组合系数。下一章《02 从 Volterra 到神经网络》将在此基础上全面展开两者的对比。
 
 ## 1.21 离散音频的混叠代价与多项式分支抗混叠（ADAA）
 
@@ -1175,7 +1181,7 @@ y[n]&=g[n]x[n].
    M_{\mathrm{OS}} \ge \frac{P+1}{2}
    ```
    才可保证基带无混叠（若要求整个过采样奈奎斯特带内完全不折返则需 $M_{\mathrm{OS}}\ge P$）。
-2. **简化 Volterra / 并联 Hammerstein 支路的无分母多项式 ADAA**：在并行 Hammerstein（对角 Volterra）结构中，由于每条支路的非线性是纯单项式 $f_p(x)=x^p$（或 Legendre 多项式），其一阶反导数为 $F_p(x)=\frac{x^{p+1}}{p+1}$。Stefan Hopman 与 Christopher Bennett (2022) 指出 [V4]，将一阶反导数抗混叠（ADAA1）应用于单项式 $x^p$ 时，差商分母 `$x[n]-x[n-1]`$ 可由代数因式分解 $a^{p+1}-b^{p+1}=(a-b)\sum_{j=0}^p a^{p-j}b^j$ **精确消去**，化简为完全无除法、无小分母奇点且无需条件分支切换的闭式齐次多项式：
+2. **简化 Volterra / 并联 Hammerstein 支路的无分母多项式 ADAA**：在并行 Hammerstein（对角 Volterra）结构中，由于每条支路的非线性是纯单项式 $f_p(x)=x^p$（或 Legendre 多项式），其一阶反导数为 $F_p(x)=\frac{x^{p+1}}{p+1}$。Stefan Hopman 与 Christopher Bennett (2022) 指出 [V4]，将一阶反导数抗混叠（ADAA1）应用于单项式 $x^p$ 时，差商分母 $x[n]-x[n-1]$ 可由代数因式分解 $a^{p+1}-b^{p+1}=(a-b)\sum_{j=0}^p a^{p-j}b^j$ **精确消去**，化简为完全无除法、无小分母奇点且无需条件分支切换的闭式齐次多项式：
    ```math
    \mathrm{ADAA}_1\bigl(x^p\bigr)[n]
    =\frac{x^{p+1}[n]-x^{p+1}[n-1]}{(p+1)\bigl(x[n]-x[n-1]\bigr)}
@@ -1187,11 +1193,11 @@ y[n]&=g[n]x[n].
 
 面对未知的音频设备，合理的研发路径应当遵循“由简入繁、逐级证伪”的实验闭环：先建立线性脉冲响应与静态 waveshaper 基线，再依次测试对角记忆多项式（或 SNLM）、近对角/低秩交叉核与正交基展开。在统一的训练/测试集划分、统一的对齐基准与相同的实时 CPU 预算下，用多维指标（时域残差、多电平 THD、双音 IMD、双脉冲交互与长历史探针）检验每一项新增自由度是否带来真实的泛化收益。
 
-![基于目标系统特征选择候选模型的初步启发式地图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_模型选择决策图.svg)
+![基于目标系统特征选择候选模型的初步启发式地图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-16_模型选择决策图.svg)
 
 *图 01-15 | 基于目标系统特征选择候选模型的初步启发式地图。*
 
-![从实验目标到结构选择、参数训练、独立验证的工作流程](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01_Volterra辨识流程图.svg)
+![从实验目标到结构选择、参数训练、独立验证的工作流程](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-17_Volterra辨识流程图.svg)
 
 *图 01-16 | 从实验目标到结构选择、参数训练、独立验证的工作流程。*
 
@@ -1224,9 +1230,11 @@ y[n]&=g[n]x[n].
 
 ---
 
+---
+
 # 02 从 Volterra 级数到神经网络：同样是模型训练，本质与区别在哪里？
 
-> **版本：v7 · 2026-11-14 · 修复公式转义损坏、统一符号与章节结构调整版（继承 v6）**
+> **版本：v8 · 2026-11-15 · 补充超网络的参数到权重映射与实时递归推理实例**
 > **所属系列：Volterra Wiki**
 > **阅读定位：** 从《01 Volterra 级数》的核辨识自然进入神经网络系统辨识；先解释为什么需要训练、两类模型如何学习、分别擅长什么，再认识 WaveNet、LSTM、NAM、可微分 DSP 与储备池计算及其实时音频工程。
 > **阅读建议：** 本章不要求读者预先掌握反向传播或深度学习，已经理解《00》的输入、输出、状态、泛化，以及《01》的 Volterra 核即可。
@@ -1237,7 +1245,7 @@ y[n]&=g[n]x[n].
 
 同时，数学表达式能够描述某种行为，还需配合参数辨识才能落地。即使决定使用三阶 Volterra、64 个采样点的记忆，仍然要回答：每个核系数是多少？它们应当怎样随设备或工作点变化？这些参数从哪里来？
 
-如果我们只知道设备输入 $`x[n]$和输出$y[n]$，一种自然的办法就是不断调整模型参数，让预测输出$\hat y[n]`$ 与参考输出的差距变小。到了这一步，**Volterra 建模已经进入了统计学习与系统辨识共同研究的问题范畴**。我们已经是在利用成对数据估计模型参数、控制模型复杂度并检验未见输入下的泛化表现。
+如果我们只知道设备输入 $x[n]$ 和输出 $y[n]$，一种自然的办法就是不断调整模型参数，让预测输出 $\hat y[n]$ 与参考输出的差距变小。到了这一步，**Volterra 建模已经进入了统计学习与系统辨识共同研究的问题范畴**。我们已经是在利用成对数据估计模型参数、控制模型复杂度并检验未见输入下的泛化表现。
 
 于是出现新的结构选择：既然最终都要根据数据辨识参数，除了事先将特征固定为多项式乘积之外，能否采用一种可同时学习中间特征表示的参数化计算图，让它从数据中自动拟合复杂的非线性映射？神经网络正是在这个问题上，与 Volterra 级数形成了直接对话。
 
@@ -1249,13 +1257,13 @@ y[n]&=g[n]x[n].
 y[n]=\mathcal S\{x\}[n].
 ```
 
-这里的 $`\mathcal S`$ 代表真实设备对输入历史的处理。我们无法直接知道其完整内部机制，于是建立带参数的近似模型：
+这里的 $\mathcal S$ 代表真实设备对输入历史的处理。我们无法直接知道其完整内部机制，于是建立带参数的近似模型：
 
 ```math
 \hat y[n]=\hat{\mathcal S}_{\boldsymbol{\theta}}\{x\}[n].
 ```
 
-训练就是根据成对输入输出数据 $`\mathcal D=\{(x^{(i)},y^{(i)})\}_{i=1}^N$，寻找一组参数$\boldsymbol{\theta}`$，使模型在指定工作范围内预测得尽可能准确。若使用平方误差，可以写成：
+训练就是根据成对输入输出数据 $\mathcal D=\{(x^{(i)},y^{(i)})\}_{i=1}^N$，寻找一组参数 $\boldsymbol{\theta}$，使模型在指定工作范围内预测得尽可能准确。若使用平方误差，可以写成：
 
 ```math
 \boldsymbol{\theta}^\star=\arg\min_{\boldsymbol{\theta}} \sum_i\sum_n\left(y^{(i)}[n]-\hat y_{\boldsymbol{\theta}}^{(i)}[n]\right)^2.
@@ -1267,7 +1275,7 @@ y[n]=\mathcal S\{x\}[n].
 
 ## 2.3 Volterra 训练为什么有时可以是线性回归？
 
-为了看清区别，不妨回顾《01》第 1.6 与 1.11 节中最简单的二阶、两点记忆模型（采用对称核记账 $`h_2[0,1]=h_2[1,0]`$）：
+为了看清区别，不妨回顾《01》第 1.6 与 1.11 节中最简单的二阶、两点记忆模型（采用对称核记账 $h_2[0,1]=h_2[1,0]$）：
 
 ```math
 \begin{aligned}
@@ -1277,9 +1285,9 @@ y[n]=\mathcal S\{x\}[n].
 \end{aligned}
 ```
 
-这里既有一阶记忆，也有平方和交叉乘积。模型对音频输入显然是非线性的；但如果输入数据已经给定，每一项 $`x[n]$、$x^2[n]$、$x[n]x[n-1]$都可以预先计算出来，构成固定的显式特征向量$\boldsymbol{\phi}[n]`$。
+这里既有一阶记忆，也有平方和交叉乘积。模型对音频输入显然是非线性的；但如果输入数据已经给定，每一项 $x[n]$、$x^2[n]$、$x[n]x[n-1]$ 都可以预先计算出来，构成固定的显式特征向量 $\boldsymbol{\phi}[n]$。
 
-将每个时刻的特征排成设计矩阵 $`\mathbf X$的一行，待估计的核系数排成列向量$\boldsymbol{\theta}`$，整个辨识问题即写为线性参数回归形式：
+将每个时刻的特征排成设计矩阵 $\mathbf X$ 的一行，待估计的核系数排成列向量 $\boldsymbol{\theta}$，整个辨识问题即写为线性参数回归形式：
 
 ```math
 \mathbf y\approx\mathbf X\boldsymbol{\theta},\qquad
@@ -1288,7 +1296,7 @@ y[n]=\mathcal S\{x\}[n].
 \bigl(\lVert\mathbf y-\mathbf X\boldsymbol{\theta}\rVert_2^2 + \lambda\lVert\boldsymbol{\theta}\rVert_2^2\bigr).
 ```
 
-这就是《00》第 0.21 节强调的**参数线性性（Linear-in-the-Parameters）**：对已固定阶次、固定核支撑集和固定特征字典的 Volterra 模型，平方损失关于未知核系数 $`\boldsymbol{\theta}`$ 是严格凸二次函数，可通过一步闭式矩阵分解（如 QR / SVD / Cholesky）或递推最小二乘直接求得全局最优解。
+这就是《00》第 0.21 节强调的**参数线性性（Linear-in-the-Parameters）**：对已固定阶次、固定核支撑集和固定特征字典的 Volterra 模型，平方损失关于未知核系数 $\boldsymbol{\theta}$ 是严格凸二次函数，可通过一步闭式矩阵分解（如 QR / SVD / Cholesky）或递推最小二乘直接求得全局最优解。
 
 只有当核张量进一步参数化为可训练低秩因子乘积（如 CP / Tensor Train 分解）、极点可调的 Laguerre 基或状态条件化非线性核时，参数求解才会转化为非凸优化问题。
 
@@ -1300,9 +1308,9 @@ y[n]=\mathcal S\{x\}[n].
 \hat y[n]=\sum_{j=1}^{J}a_j\tanh(b_jx[n]+c_j)+d.
 ```
 
-这里的输出权重 $`a_j$、内部缩放$b_j$与偏置$c_j$均需通过训练决定。由于参数$b_j, c_j$嵌套在非线性激活函数$\tanh(\cdot)`$ 内部，模型输出对待估计参数呈高度非线性依赖，损失函数曲面不再是具有唯一极小值的凸碗面，而是包含大量鞍点、局部极小值与平坦区域的非凸地形。
+这里的输出权重 $a_j$、内部缩放 $b_j$ 与偏置 $c_j$ 均需通过训练决定。由于参数 $b_j, c_j$ 嵌套在非线性激活函数 $\tanh(\cdot)$ 内部，模型输出对待估计参数呈高度非线性依赖，损失函数曲面不再是具有唯一极小值的凸碗面，而是包含大量鞍点、局部极小值与平坦区域的非凸地形。
 
-对于多层深度网络，我们通过反向传播算法求取损失对各层参数的梯度，并利用一阶或二阶随机优化器（如 Adam）按步长 $`\eta_r`$ 迭代更新：
+对于多层深度网络，我们通过反向传播算法求取损失对各层参数的梯度，并利用一阶或二阶随机优化器（如 Adam）按步长 $\eta_r$ 迭代更新：
 
 ```math
 \boldsymbol{\theta}_{r+1}=\boldsymbol{\theta}_r-\eta_r\nabla_{\boldsymbol{\theta}}\mathcal L(\boldsymbol{\theta}_r).
@@ -1316,15 +1324,15 @@ y[n]=\mathcal S\{x\}[n].
 
 | 比较维度 | 固定核 Volterra 辨识 | 常规神经网络辨识 |
 | --- | --- | --- |
-| 先验规定的结构 | 阶次 $`P$、核支撑集、记忆长度$M_p$及正交基 | 层类型、通道宽度、扩张率$d_\ell`$、激活函数或状态单元 |
+| 先验规定的结构 | 阶次 $P$、核支撑集、记忆长度 $M_p$ 及正交基 | 层类型、通道宽度、扩张率 $d_\ell$、激活函数或状态单元 |
 | 参数的物理与数学意义 | 各阶多维脉冲响应及其跨时刻乘积权重 | 多层线性变换矩阵、卷积核权重与偏置 |
 | 典型优化性质 | 线性参数凸回归（LS / Ridge / LASSO，一步闭式解） | 嵌套参数非凸优化（BP / Adam，多轮迭代搜索） |
-| 强非线性与奇点逼近 | 受幂级数收敛半径限制，强削波需极高阶或有理/分段扩展 | 通过有界激活函数（如 $`\tanh$`、Softsign）的复合自然保持全局有界 |
+| 强非线性与奇点逼近 | 受幂级数收敛半径限制，强削波需极高阶或有理/分段扩展 | 通过有界激活函数（如 $\tanh$、Softsign）的复合自然保持全局有界 |
 | 主要工程代价 | 高阶完整核维度灾难、单项式共线性与幅度外推失控 | 训练超参数敏感、黑盒权重缺乏阶次可分性、实时推理算力开销 |
 | 历史与状态机制 | 显式有限延迟窗口（或外接 Laguerre 极点基 / 状态变量） | 因果扩张卷积感受野（WaveNet/TCN）或门控循环状态（LSTM/GRU） |
 | 公平比较基准 | 统一测试集误差、跨电平泛化、混叠抑制、峰值 CPU 与延迟 | 同左 |
 
-![Volterra 与神经网络的训练和实时推理流程对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03_Volterra与NAM训练推理对比图.svg)
+![Volterra 与神经网络的训练和实时推理流程对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-01_Volterra与NAM训练推理对比图.svg)
 
 *图 02-01｜固定核 Volterra 与神经网络在结构选择、训练和实时推理上的主要差别。SVG 文件名保留历史素材编号。*
 
@@ -1332,12 +1340,12 @@ y[n]=\mathcal S\{x\}[n].
 
 与《00》第 0.8 节区分的“显式历史窗口”和“递推内部状态”完全对应，音频神经网络处理时间记忆同样分为两大主流架构范式：
 
-1. **前馈有限感受野架构（NFIR 型网络）**：网络在每个采样点显式读取过去有限长度 $`R_{\mathrm{RF}}`$ 的输入历史窗口，
+1. **前馈有限感受野架构（NFIR 型网络）**：网络在每个采样点显式读取过去有限长度 $R_{\mathrm{RF}}$ 的输入历史窗口，
    ```math
    \hat y[n]=F_{\boldsymbol{\theta}}\bigl(x[n],x[n-1],\ldots,x[n-R_{\mathrm{RF}}+1]\bigr).
    ```
    一维因果卷积网络（ConvNet）、时间卷积网络（TCN）以及 NAM 中广泛使用的前馈 WaveNet 变体均属此类。由于不含输出或隐状态的跨时刻自回归闭环，这类网络在有限输入下天然满足 BIBO 稳定，且在训练阶段可在整段音频上高度并行计算。
-2. **递归状态架构（State-Space / RNN 型网络）**：网络维护一个随采样点递推更新的内部隐状态向量 $`\mathbf{s}[n]`$，
+2. **递归状态架构（State-Space / RNN 型网络）**：网络维护一个随采样点递推更新的内部隐状态向量 $\mathbf{s}[n]$，
    ```math
    \begin{aligned}
    \mathbf{s}[n+1]&=G_{\boldsymbol{\theta}}(\mathbf{s}[n],x[n]),\\
@@ -1348,25 +1356,25 @@ y[n]=\mathcal S\{x\}[n].
 
 ## 2.7 WaveNet 的因果扩张卷积：用对数级层数覆盖长历史窗口
 
-普通因果一维卷积可写为 $`z[n]=\sum_{k=0}^{K-1}w[k]x[n-k]$，若保持步长为 1 且不跳过采样点，要覆盖数千个采样点的历史窗口，单层卷积核长度$K$或网络层数$L$必须线性增长。**因果扩张卷积（Causal Dilated Convolution）** 通过引入扩张率（Dilation Factor）$d_\ell$，让卷积核每隔$d_\ell`$ 个采样点抽取一次历史特征：
+普通因果一维卷积可写为 $z[n]=\sum_{k=0}^{K-1}w[k]x[n-k]$，若保持步长为 1 且不跳过采样点，要覆盖数千个采样点的历史窗口，单层卷积核长度 $K$ 或网络层数 $L$ 必须线性增长。**因果扩张卷积（Causal Dilated Convolution）** 通过引入扩张率（Dilation Factor）$d_\ell$，让卷积核每隔 $d_\ell$ 个采样点抽取一次历史特征：
 
 ```math
 z[n]=\sum_{k=0}^{K_\ell-1}w_\ell[k]\,h_{\ell-1}[n-d_\ell k].
 ```
 
-当扩张率按指数序列 $`d_\ell=2^{\ell-1}$（如$1, 2, 4, 8, \ldots, 512`$）逐层堆叠时，网络的理论感受野随层数呈指数增长：
+当扩张率按指数序列 $d_\ell=2^{\ell-1}$（如 $1, 2, 4, 8, \ldots, 512$）逐层堆叠时，网络的理论感受野随层数呈指数增长：
 
 ```math
 R_{\mathrm{RF}}=1+\sum_{\ell=1}^{L}(K_\ell-1)d_\ell.
 ```
 
-例如单组 10 层、核长 $`K_\ell=3$、扩张率$1\sim 512$的堆叠即可覆盖$R_{\mathrm{RF}}=1+2\times(2^{10}-1)=2047$个采样点（在$48\,\mathrm{kHz}$下约$42.6\,\mathrm{ms}$）。配合门控激活单元（如$\tanh(\mathbf{W}_f\ast \mathbf{h})\odot\sigma(\mathbf{W}_g\ast \mathbf{h})`$` 或简化激活）、$`1\times 1`$ 残差连接与跳跃连接（Skip Connections），网络既能保留底层高频瞬态细节，又能跨越多尺度时间窗口构建高阶非线性交互。
+例如单组 10 层、核长 $K_\ell=3$、扩张率 $1\sim 512$ 的堆叠即可覆盖 $R_{\mathrm{RF}}=1+2\times(2^{10}-1)=2047$ 个采样点（在 $48\,\mathrm{kHz}$ 下约 $42.6\,\mathrm{ms}$）。配合门控激活单元（如 $\tanh(\mathbf{W}_f\ast \mathbf{h})\odot\sigma(\mathbf{W}_g\ast \mathbf{h})$ 或简化激活）、$1\times 1$ 残差连接与跳跃连接（Skip Connections），网络既能保留底层高频瞬态细节，又能跨越多尺度时间窗口构建高阶非线性交互。
 
-需要注意两个工程细节：第一，若モデルの总感受野为 $`40\,\mathrm{ms}$，它依然属于有限记忆（NFIR）系统，无法仅凭前馈窗口复现长达$500\,\mathrm{ms}$的光电压缩器释放尾部；第二，最初 DeepMind 提出的原版 WaveNet 是逐采样把自身预测输出送回输入端的**自回归语音生成模型**，而音频设备建模（如 NAM）使用的是将外部输入信号$x[n]$直接映射为输出$\hat{y}[n]`$ 的**前馈回归式 WaveNet 变体**，推理时无需自回归采样循环。[N2]
+需要注意两个工程细节：第一，若モデルの总感受野为 $40\,\mathrm{ms}$，它依然属于有限记忆（NFIR）系统，无法仅凭前馈窗口复现长达 $500\,\mathrm{ms}$ 的光电压缩器释放尾部；第二，最初 DeepMind 提出的原版 WaveNet 是逐采样把自身预测输出送回输入端的**自回归语音生成模型**，而音频设备建模（如 NAM）使用的是将外部输入信号 $x[n]$ 直接映射为输出 $\hat{y}[n]$ 的**前馈回归式 WaveNet 变体**，推理时无需自回归采样循环。[N2]
 
 ## 2.8 LSTM：门控循环状态及其记忆边界
 
-LSTM（长短期记忆网络）通过显式的门控循环单元来调节历史信息的写入、保留与擦除。设隐状态为 $`\mathbf{h}[n]$、单元状态（Cell State）为$\mathbf{c}[n]`$，其标准状态递推方程为：
+LSTM（长短期记忆网络）通过显式的门控循环单元来调节历史信息的写入、保留与擦除。设隐状态为 $\mathbf{h}[n]$、单元状态（Cell State）为 $\mathbf{c}[n]$，其标准状态递推方程为：
 
 ```math
 \begin{aligned}
@@ -1379,13 +1387,13 @@ LSTM（长短期记忆网络）通过显式的门控循环单元来调节历史�
 \end{aligned}
 ```
 
-其中 $`\mathbf{f}[n]\in(0,1)^D$是遗忘门，$\mathbf{i}[n]$是输入门，$\mathbf{o}[n]$是输出门，$\odot$表示按元素Hadamard乘积。从动态系统视角看，遗忘门$\mathbf{f}[n]$相当于一个**依赖输入与当前状态的时变一阶极点系数**：当某维度的$f_d[n]$接近$1$时，该状态通道表现为极慢的时间常数；当$f_d[n]`$ 变小时，状态迅速重置。
+其中 $\mathbf{f}[n]\in(0,1)^D$ 是遗忘门，$\mathbf{i}[n]$ 是输入门，$\mathbf{o}[n]$ 是输出门，$\odot$ 表示按元素Hadamard乘积。从动态系统视角看，遗忘门 $\mathbf{f}[n]$ 相当于一个**依赖输入与当前状态的时变一阶极点系数**：当某维度的 $f_d[n]$ 接近 $1$ 时，该状态通道表现为极慢的时间常数；当 $f_d[n]$ 变小时，状态迅速重置。
 
 这种门控递归机制为模拟放大器电源下陷（Sag）、热时间常数或程序依赖的动态释放提供了灵活的候选结构。然而，“具备循环状态”并不自动等同于“精确学会了物理磁滞或长释放”：
 - 在训练阶段，截断时间反向传播（TBPTT）的窗口长度与状态预热（Warm-up）长度直接决定了网络能否观测到慢速状态变化；
-- 在推理阶段，当输入变为零（静音）时，若偏置项使得遗忘门 $`\mathbf{f}[n]\lt 1$，单元状态$\mathbf{c}[n]`$ 仍会按指数速率缓慢衰减回固定不动点，无法天然保持速率无关磁滞（Rate-Independent Hysteresis）所需的永久多分支剩磁状态。
+- 在推理阶段，当输入变为零（静音）时，若偏置项使得遗忘门 $\mathbf{f}[n]\lt 1$，单元状态 $\mathbf{c}[n]$ 仍会按指数速率缓慢衰减回固定不动点，无法天然保持速率无关磁滞（Rate-Independent Hysteresis）所需的永久多分支剩磁状态。
 
-![WaveNet 历史感受野与 LSTM 递归状态的对比](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03_WaveNet感受野与LSTM递归状态对比图.svg)
+![WaveNet 历史感受野与 LSTM 递归状态的对比](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-02_WaveNet感受野与LSTM递归状态对比图.svg)
 
 *图 02-02｜因果扩张感受野（有限窗口前馈展开）与门控递归状态（内部状态向量跨采样递推）是两种不同的历史信息组织方式。*
 
@@ -1405,25 +1413,47 @@ NAM 生态主要由三部分构成：
 NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同时向下兼容 A1 模型）。[N3] 根据官方说明与 TONE3000 发布的 [A2 技术指南](https://www.tone3000.com/guides/nam-a2-the-complete-guide)，A2 针对实时 CPU 效率、模型尺寸分级（如 Slim / Standard 等）以及训练收敛效率（如 Packed Training）进行了结构重设计，并在官方测试集中报告了更低的 ESR 与高频伪影。[N5] 在学术与工程引用中，应将这些测试数据明确标注为特定吉他放大器样本集与固定采样率下的基准表现。
 
 同时，必须严格区分**离线训练计算图**与**实时插件推理特征**：
-- 实时音频插件必须在宿主音频缓冲区规定的硬实时截止期限（Deadline，例如 $`48\,\mathrm{kHz}$、$64$采样点缓冲区仅约$1.33\,\mathrm{ms}`$）内完成整个音频块的前向求值，绝不允许发生内存动态分配、锁等待或不可预测的峰值耗时抖动；
-- 模型的实际 CPU 占用不仅取决于乘加次数（MACs），还高度依赖**计算的数据局部性与并行度**：前馈扩张卷积（WaveNet）各层可在时间维度或通道维度利用 SIMD（AVX2 / NEON）向量化计算；而递归结构（LSTM）由于 $`\mathbf{h}[n]$严格依赖上一采样点$\mathbf{h}[n-1]`$，在时间轴上存在逐采样串行数据依赖，当隐藏层维度较大时反而可能因缓存未命中和串行瓶颈消耗更高的实时 CPU。
+- 实时音频插件必须在宿主音频缓冲区规定的硬实时截止期限（Deadline，例如 $48\,\mathrm{kHz}$、$64$ 采样点缓冲区仅约 $1.33\,\mathrm{ms}$）内完成整个音频块的前向求值，绝不允许发生内存动态分配、锁等待或不可预测的峰值耗时抖动；
+- 模型的实际 CPU 占用不仅取决于乘加次数（MACs），还高度依赖**计算的数据局部性与并行度**：前馈扩张卷积（WaveNet）各层可在时间维度或通道维度利用 SIMD（AVX2 / NEON）向量化计算；而递归结构（LSTM）由于 $\mathbf{h}[n]$ 严格依赖上一采样点 $\mathbf{h}[n-1]$，在时间轴上存在逐采样串行数据依赖，当隐藏层维度较大时反而可能因缓存未命中和串行瓶颈消耗更高的实时 CPU。
 
 ## 2.11 固定快照（Snapshot）、参数条件化与内部状态记忆的区别
 
 标准 `.nam` 模型文件通常对应被测硬件在某一组固定旋钮位置下的**单点快照（Snapshot）**。在数字插件前端简单增减输入增益（Input Gain），仅相当于改变送入同一张固定非线性映射的信号幅度，并不等价于旋转真实放大器面板上的 Gain、Tone 或 Bias 旋钮——因为真实电位器往往位于多级放大管之间或局部负反馈网络内部，旋转旋钮会同时改变级间频率响应、工作点偏置与反馈深度。
 
-若要构建连续可调的**参数条件化模型（Parametric / Conditioned Model）**，必须将面板控制参数向量 $`\mathbf{c}[n]$（如旋钮归一化位置，这里遵循《00》第 0.24.2 节符号表记为$\mathbf{c}[n]$，以区别于 Volterra 阶数$p$与内部物理状态$\mathbf{s}[n]`$）显式作为模型的附加输入：
+若要构建连续可调的**参数条件化模型（Parametric / Conditioned Model）**，必须将面板控制参数向量 $\mathbf{c}[n]$（如旋钮归一化位置，这里遵循《00》第 0.24.2 节符号表记为 $\mathbf{c}[n]$，以区别于 Volterra 阶数 $p$ 与内部物理状态 $\mathbf{s}[n]$）显式作为模型的附加输入：
 
 ```math
 \hat y[n]=F_{\boldsymbol{\theta}}\bigl(x_{\le n},\mathbf{c}[n]\bigr).
 ```
 
-在神经网络中，这通常通过拼接输入通道、HyperNetwork 动态生成卷积权重或 **FiLM（Feature-wise Linear Modulation）** 仿射调制层实现；在 Volterra 体系中，则对应随控制参数 $`\mathbf{c}$插值的核张量簇$h_p(k_1,\ldots,k_p;\mathbf{c})`$`。
+在神经网络中，这通常通过拼接输入通道、HyperNetwork 动态生成卷积权重或 **FiLM（Feature-wise Linear Modulation）** 仿射调制层实现；在 Volterra 体系中，则对应随控制参数 $\mathbf{c}$ 插值的核张量簇 $h_p(k_1,\ldots,k_p;\mathbf{c})$。
 
 因此，在评估任何神经或混合模型时，必须将三个正交维度分开检验：
 1. **快照精度**：固定旋钮与固定采样率下的波形与频谱保真度；
 2. **参数条件化泛化**：未采样旋钮中间位置上的插值平滑度与物理一致性；
 3. **长程状态记忆**：固定旋钮下，模型能否正确捕获慢速包络恢复或磁滞路径历史。
+
+### 2.11.1 超网络：让控制参数决定另一个模型的权重
+
+参数条件化还有一种更进一步的实现：用较小的网络 $H_{\boldsymbol\phi}$ 接收面板参数 $\mathbf{c}$，输出音频处理网络 $F$ 所使用的一部分卷积核、偏置或门控权重：
+
+```math
+\boldsymbol\theta(\mathbf c)=H_{\boldsymbol\phi}(\mathbf c),\qquad
+\begin{aligned}
+\mathbf s[n+1]&=G_{\boldsymbol\theta(\mathbf c)}(\mathbf s[n],x[n]),\\
+\hat y[n]&=F_{\boldsymbol\theta(\mathbf c)}(x[n],\mathbf s[n]).
+\end{aligned}
+```
+
+其中，$\boldsymbol\phi$ 是训练后保持固定的超网络参数，$\boldsymbol\theta(\mathbf c)$ 才是随用户旋钮改变的音频网络参数。这与把 $\mathbf c$ 简单拼接到每个音频采样点的输入特征中不同：前者改变处理模型本身的权重，后者通常在固定权重的网络内部改变条件激活。超网络无须在每一个音频采样点重新执行；当控制参数保持不变时，可以缓存其输出，从而控制实时开销。旋钮自动化时则需要缓变、分块更新或双权重状态交叉过渡，以避免参数跳变造成瞬态失真。
+
+**noshige2A 提供了一个具体的结构例子。** 其参数生成层采用带有 gMLP / Simple Gating Unit 的条件网络，主要以归一化 Peak Reduction 和 Comp/Limit 模式作为条件，生成后续音频网络所需的卷积权重及偏置；独立的 Gain 属于输出电平控制。音频计算层包含门控卷积、下采样/上采样及跨块递推状态，整体可理解为流式 U-Net 型动态模型。不同内部采样率域使用不同的模型组合，因此不能仅凭网络文件名中的 `paramAtt`、`paramRel` 就将它们解释为专门的 Attack / Release 预测器。
+
+这套设计的启发在于，**可调旋钮空间和动态记忆状态属于两个不同的学习任务**。超网络解决“旋钮变动后模型参数如何连续变化”，流式网络解决“相同旋钮下设备的历史状态如何影响下一个采样点”。网络结构能够说明其设计思路，但特定设备上的声音误差和未采样参数位置的泛化精度，仍需独立的硬件配对测试验证。
+
+![参数条件化超网络与流式音频网络的职责分工](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-03_超网络参数生成与流式音频状态图.svg)
+
+*图 02-03｜控制参数经超网络生成音频模型权重；音频网络保存跨块状态并连续处理输入信号。*
 
 ## 2.12 误差指标与评估陷阱：为什么低 ESR 不代表完美复刻？
 
@@ -1434,10 +1464,10 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 \frac{\sum_{n=0}^{N-1}\bigl(y[n]-\hat y[n]\bigr)^2}{\sum_{n=0}^{N-1} y^2[n]}.
 ```
 
-通常还会配合预加重滤波器 $`H_{\mathrm{pre}}(z)=1-0.95z^{-1}`$ 计算高频加权 ESR，或结合多分辨率短时傅里叶变换（MR-STFT）幅度谱损失进行训练。然而，在工程验收中必须警惕单一 ESR 指标的四类盲区：
+通常还会配合预加重滤波器 $H_{\mathrm{pre}}(z)=1-0.95z^{-1}$ 计算高频加权 ESR，或结合多分辨率短时傅里叶变换（MR-STFT）幅度谱损失进行训练。然而，在工程验收中必须警惕单一 ESR 指标的四类盲区：
 
-1. **亚采样时间对齐敏感性**：哪怕参考信号与预测信号完全相同，仅存在 $`0.1$个采样点（在$48\,\mathrm{kHz}$下约$2\,\mu\mathrm{s}`$）的分数延迟偏差，高频段的逐点相减就会导致 ESR 急剧恶化，掩盖真实的非线性建模质量；
-2. **大能量基波淹没微弱高阶失真**：音乐信号的能量高度集中在中低频基波，即使模型的高阶互调边带或高频折返混叠存在明显听感瑕疵，只要线性频响与主基波对齐良好，总体 ESR 依然可以低至 $`10^{-3}$（$-30\,\mathrm{dB}`$）以下；
+1. **亚采样时间对齐敏感性**：哪怕参考信号与预测信号完全相同，仅存在 $0.1$ 个采样点（在 $48\,\mathrm{kHz}$ 下约 $2\,\mu\mathrm{s}$）的分数延迟偏差，高频段的逐点相减就会导致 ESR 急剧恶化，掩盖真实的非线性建模质量；
+2. **大能量基波淹没微弱高阶失真**：音乐信号的能量高度集中在中低频基波，即使模型的高阶互调边带或高频折返混叠存在明显听感瑕疵，只要线性频响与主基波对齐良好，总体 ESR 依然可以低至 $10^{-3}$（$-30\,\mathrm{dB}$）以下；
 3. **非同步随机过程与机械抖晃（Wow & Flutter）**：若被测硬件是真实磁带机或含有热噪声的电子管设备，输出信号中包含与输入激励非严格锁相的走带速度抖晃（时变分数延迟调制）与本底噪声。强行用确定性模型去逐采样最小化包含随机抖晃的波形误差，会导致核系数或网络权重被随机相位差抹平（表现为高频模糊发暗）；
 4. **单步预测掩盖闭环漂移**：对递归模型，训练片段上的低 ESR 不能自动保证数分钟连续演奏或极端直流冲击下的状态有界性。
 
@@ -1455,7 +1485,7 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 
 在 WaveNet 和 LSTM 之外，**储备池计算（Reservoir Computing）**——特别是**回声状态网络（Echo State Network, ESN）**——为非线性动态系统辨识提供了一条介于“固定核 Volterra 线性回归”与“全参数训练 RNN”之间的独特基线。
 
-典型 ESN 维护一个维度较高的内部递归状态向量 $`\mathbf{s}[n]\in\mathbb{R}^D$，其状态转移矩阵$\mathbf{A}$与输入注入矩阵$\mathbf{B}$在满足特定谱半径与缩放条件后**随机生成并保持固定**，训练阶段仅通过线性最小二乘或岭回归拟合输出读出层（Readout）$\mathbf{C}$与$d`$：
+典型 ESN 维护一个维度较高的内部递归状态向量 $\mathbf{s}[n]\in\mathbb{R}^D$，其状态转移矩阵 $\mathbf{A}$ 与输入注入矩阵 $\mathbf{B}$ 在满足特定谱半径与缩放条件后**随机生成并保持固定**，训练阶段仅通过线性最小二乘或岭回归拟合输出读出层（Readout）$\mathbf{C}$ 与 $d$：
 
 ```math
 \begin{aligned}
@@ -1465,15 +1495,15 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 ```
 
 从系统辨识理论看，ESN 与 Volterra 级数有着深刻的数学同源性：
-- 当储备池满足**回声状态性质（Echo State Property, ESP）** 时，初始状态的影响随时间渐近消失，状态向量 $`\mathbf{s}[n]$成为过去输入序列$x_{\le n}`$ 的唯一确定性泛函；
+- 当储备池满足**回声状态性质（Echo State Property, ESP）** 时，初始状态的影响随时间渐近消失，状态向量 $\mathbf{s}[n]$ 成为过去输入序列 $x_{\le n}$ 的唯一确定性泛函；
 - Grigoryeva 与 Ortega (2018) 严格证明了：在有界输入与**衰减记忆（Fading Memory）** 算子空间上，ESN 与 Volterra 级数一样具备**通用一致逼近性质（Universal Uniform Approximation）**[N7]；
 - 与固定核 Volterra 相同，ESN 将非线性历史映射固定在前端特征提取层（储备池状态），从而使**输出参数的训练完全退化为凸线性回归问题**，彻底避开了 LSTM 在长序列 BPTT 训练中的梯度消失/爆炸与局部极小值困扰。
 
 对于磁带机与动态硬件建模研究，ESN 可以作为评估“随机高维递归特征 + 线性读出”与“精简正交极点基（Laguerre-Volterra）”之间参数效率差异的重要对照基线。
 
-![可微灰盒 DSP (DDSP / 4A-2A) 与回声状态网络 (ESN / 储备池计算) 架构对比图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02_可微DSP与储备池ESN架构对比图.svg)
+![可微灰盒 DSP (DDSP / 4A-2A) 与回声状态网络 (ESN / 储备池计算) 架构对比图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-04_可微DSP与储备池ESN架构对比图.svg)
 
-*图 02-03：左篇展示以 Teletronix LA-2A 光电耦合反馈环为例的可微灰盒 DSP（4A-2A）架构，通过隐函数定理（IFT）在不动点处直接计算闭式伴随梯度，将参数量压缩至 5 个物理可解释常量；右篇展示回声状态网络（ESN / 储备池计算），通过冻结满足回声状态性质（$\rho(\mathbf{A})<1$）的稀疏随机递归池并仅对读出层执行线性岭回归，架起无穷阶递归状态与 Volterra 线性回归之间的桥梁。*
+*图 02-04：左篇展示以 Teletronix LA-2A 光电耦合反馈环为例的可微灰盒 DSP（4A-2A）架构，通过隐函数定理（IFT）在不动点处直接计算闭式伴随梯度，将参数量压缩至 5 个物理可解释常量；右篇展示回声状态网络（ESN / 储备池计算），通过冻结满足回声状态性质（$\rho(\mathbf{A})<1$）的稀疏随机递归池并仅对读出层执行线性岭回归，架起无穷阶递归状态与 Volterra 线性回归之间的桥梁。*
 
 ## 2.15 应当怎样公平比较 Volterra、NAM 与灰盒模型？
 
@@ -1506,12 +1536,14 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 
 ---
 
+---
+
 # 03 混合建模、训练边界与实时约简
 
-> **版本：v7 · 2026-11-14 · 补充磁滞/双线性状态递推公式、ADAA显式推导与跨章精简版（继承 v6）**
+> **版本：v8 · 2026-11-15 · 加入三种商业光电动态建模结构、时变增益测量与模型对照**
 > **所属系列：Volterra Wiki**
-> **阅读定位：** 承接《02》的训练比较，讨论如何决定 Volterra 核与长期状态的职责，怎样引入白盒、唯象与神经网络，如何进行实时约简，并用 SKY SA-1A 与 Revenger 2A 两个商业项目检验这些思考。
-> **证据约定：** 数学推导是本章的候选研究框架，商业实现情况以可核查的公开材料为准；厂商宣传、用户评价、黑盒测量与内部源码证据分属不同证据等级。
+> **阅读定位：** 承接《02》的训练比较，讨论如何决定 Volterra 核与长期状态的职责，怎样引入白盒、唯象与神经网络，如何进行实时约简，并以 SKY SA-1A、Revenger 2A 和 noshige2A 的不同光电动态建模结构检验这些思考。
+> **阅读说明：** 本章把数学上的可实现结构与具体商业产品的行为特征放在一起理解。未获完整运行路径核对的细节只作为结构解释，不把单一测试点的符合程度等同于对全部内部机制的确认。
 
 ## 3.1 混合建模的核心任务：确立多模型职责分工与表达边界
 
@@ -1523,7 +1555,7 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 
 在启动训练前，至少需要明确六个设计维度：目标模拟的电平、频段、旋钮与工作点；哪些现象依赖短时历史；哪些属于慢速或路径依赖的内部状态；哪些属于非同步随机过程；实时音频线程允许多少延迟与 CPU 预算；以及是否需要跨采样率和跨硬件个体泛化。
 
-![混合建模研究平台总体架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/04_混合建模研究平台总体架构图.svg)
+![混合建模研究平台总体架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-01_混合建模研究平台总体架构图.svg)
 
 *图 03-01｜混合建模研究平台总体架构图：按时间尺度与非线性机制将线性频响、短时高阶 Volterra 核、显式物理/唯象状态及神经残差解耦。SVG 文件名保留历史素材编号。*
 
@@ -1535,11 +1567,11 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 \hat y[n]=h_0+\sum_{p=1}^{P}\sum_{k_1,\ldots,k_p=0}^{M_p-1}h_p[k_1,\ldots,k_p]\prod_{j=1}^{p}x[n-k_j],\qquad N_p=\binom{M_p+p-1}{p}.
 ```
 
-正如《01》第 1.13 节参数规模表所量化：在 $`48\,\mathrm{kHz}$采样率下，$M=64$（约$1.33\,\mathrm{ms}$）的三阶对称核已有$45,760$个独立参数，$M=256$（约$5.33\,\mathrm{ms}$）时飙升至$2,829,056`$ 个。因此，面对真实音频硬件，必须首先将系统记忆按物理机制切分为三个层次，并分配给不同的数学算子：
+正如《01》第 1.13 节参数规模表所量化：在 $48\,\mathrm{kHz}$ 采样率下，$M=64$（约 $1.33\,\mathrm{ms}$）的三阶对称核已有 $45,760$ 个独立参数，$M=256$（约 $5.33\,\mathrm{ms}$）时飙升至 $2,829,056$ 个。因此，面对真实音频硬件，必须首先将系统记忆按物理机制切分为三个层次，并分配给不同的数学算子：
 
-1. **小信号线性记忆（数毫秒至数百毫秒）**：如变压器低频高通滚降、耦合电容时间常数与均衡网络振铃，由一阶长 FIR 核 $`h_1[k]`$ 或稳定 IIR 极点滤波器承担；
-2. **短时非线性交叉记忆（亚毫秒至数毫秒）**：如放大级局部负反馈延迟、高频摆率限制（Slew-Rate Limiting）与级间瞬态互调，由短窗口高阶约简 Volterra 核（$`p\ge 2$,$M_p\ll M_1`$）承担；
-3. **慢速宏观演化与持久状态记忆（数十毫秒至数秒乃至路径保持）**：如光电单元（T4B）的双时间常数释放、电源滤波电容下陷（Power Supply Sag）、电子管热漂移以及磁芯/磁带剩磁，交由**低维显式状态变量 $`\mathbf{s}[n]`$** 承担。
+1. **小信号线性记忆（数毫秒至数百毫秒）**：如变压器低频高通滚降、耦合电容时间常数与均衡网络振铃，由一阶长 FIR 核 $h_1[k]$ 或稳定 IIR 极点滤波器承担；
+2. **短时非线性交叉记忆（亚毫秒至数毫秒）**：如放大级局部负反馈延迟、高频摆率限制（Slew-Rate Limiting）与级间瞬态互调，由短窗口高阶约简 Volterra 核（$p\ge 2$,$M_p\ll M_1$）承担；
+3. **慢速宏观演化与持久状态记忆（数十毫秒至数秒乃至路径保持）**：如光电单元（T4B）的双时间常数释放、电源滤波电容下陷（Power Supply Sag）、电子管热漂移以及磁芯/磁带剩磁，交由**低维显式状态变量 $\mathbf{s}[n]$** 承担。
 
 通过这一时间尺度解耦，高阶 Volterra 核无需强行扩展至秒级窗口，即可与慢速状态方程协同覆盖完整的硬件动态。
 
@@ -1551,23 +1583,23 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 | --- | --- | --- |
 | **V0** | 线性 FIR/IIR、静态 Waveshaper、简化 Hammerstein/Wiener | 最简无交叉记忆基线能解释多少方差与谐波？ |
 | **V1** | 对角 Volterra / 实信号 Memory Polynomial / SNLM | 是否需要各阶独立的频率相关饱和与群延迟塑形？ |
-| **V2** | Near-Diagonal / Banded（$`\lvert k_1-k_2\rvert\le B`$）/ GMP | 双脉冲与双音差频互调是否由相邻采样点的局部耦合主导？ |
+| **V2** | Near-Diagonal / Banded（$\lvert k_1-k_2\rvert\le B$）/ GMP | 双脉冲与双音差频互调是否由相邻采样点的局部耦合主导？ |
 | **V2-L** | Laguerre-Volterra / Kautz 正交时间基展开 | 较长的指数或振荡衰减记忆能否投影至少数极点滤波器输出？ |
 | **V3** | 稀疏非局部交叉核（Sparse Volterra，LASSO/OMP 筛选） | 是否存在局部带状结构无法覆盖的特定远距离延迟交互？ |
 | **V4** | 低秩张量核（CP / Tucker / Tensor Train 分解） | 稠密非对角交叉核能否由少数几条一维滤波器支路的乘积生成？ |
-| **V5** | 状态条件化 Volterra 核 $`h_p(\mathbf{k};\mathbf{s}[n])$与混合残差 | 短时核系数或支路增益是否随慢速物理状态$\mathbf{s}[n]`$ 显著迁移？ |
+| **V5** | 状态条件化 Volterra 核 $h_p(\mathbf{k};\mathbf{s}[n])$ 与混合残差 | 短时核系数或支路增益是否随慢速物理状态 $\mathbf{s}[n]$ 显著迁移？ |
 
-建议实验搜索从记忆网格 $`M\in\{32,64,128,256\}$、阶数$P\in\{3,5,7\}$及低秩模态数$R\in\{2,4,8,16\}$起步。每次升级结构时，必须同时检查封存测试集上的双音 IMD、条件数$\kappa_2(\mathbf{X})`$` 与每采样点乘加开销：若某次升级仅令训练集 ESR 微降，却未改善未见双音互调或瞬态恢复，则应回退至更紧凑的低一级结构。
+建议实验搜索从记忆网格 $M\in\{32,64,128,256\}$、阶数 $P\in\{3,5,7\}$ 及低秩模态数 $R\in\{2,4,8,16\}$ 起步。每次升级结构时，必须同时检查封存测试集上的双音 IMD、条件数 $\kappa_2(\mathbf{X})$ 与每采样点乘加开销：若某次升级仅令训练集 ESR 微降，却未改善未见双音互调或瞬态恢复，则应回退至更紧凑的低一级结构。
 
 ### 3.3.1 Laguerre-Volterra 网络（LVN）：极点正交基的时间压缩机制
 
-在 V2-L 分支中，**Laguerre-Volterra Network (LVN)** 通过一组共享实极点 $`a\in(0,1)$的离散正交全通级联滤波器，将长度为$M$的原始延迟线压缩为$K$个正交历史特征（$K\ll M$）。第$j$阶规范化离散 Laguerre 滤波器的$z`$ 域传递函数定义为：
+在 V2-L 分支中，**Laguerre-Volterra Network (LVN)** 通过一组共享实极点 $a\in(0,1)$ 的离散正交全通级联滤波器，将长度为 $M$ 的原始延迟线压缩为 $K$ 个正交历史特征（$K\ll M$）。第 $j$ 阶规范化离散 Laguerre 滤波器的 $z$ 域传递函数定义为：
 
 ```math
 L_j(z)=\frac{\sqrt{1-a^2}}{1-a z^{-1}}\left(\frac{z^{-1}-a}{1-a z^{-1}}\right)^j,\qquad j=0,1,\ldots,K-1.
 ```
 
-在实时 DSP 实现中，各阶特征 $`u_j[n]=( \ell_j\ast x )[n]$无需做长卷积，只需按一阶全通链逐采样递推更新（每采样点仅需$O(K)`$ 次乘加）：
+在实时 DSP 实现中，各阶特征 $u_j[n]=( \ell_j\ast x )[n]$ 无需做长卷积，只需按一阶全通链逐采样递推更新（每采样点仅需 $O(K)$ 次乘加）：
 
 ```math
 \begin{aligned}
@@ -1576,19 +1608,19 @@ u_j[n] &= a\,u_j[n-1] + u_{j-1}[n-1] - a\,u_{j-1}[n],\qquad j=1,\ldots,K-1.
 \end{aligned}
 ```
 
-随后，第 $`p$阶 Volterra 算子直接构建在这$K`$ 个正交特征的多重乘积之上：
+随后，第 $p$ 阶 Volterra 算子直接构建在这 $K$ 个正交特征的多重乘积之上：
 
 ```math
 y_p[n]=\sum_{0\le j_1\le\cdots\le j_p\le K-1}c_p[j_1,\ldots,j_p]\prod_{i=1}^{p}u_{j_i}[n].
 ```
 
-这样一来，第 $`p$阶对称核的独立参数量从$\binom{M+p-1}{p}$大幅降至$\binom{K+p-1}{p}$（例如将$M=256$压缩为$K=8$个 Laguerre 基时，三阶独立参数量从$282.9$万直接降至$\binom{10}{3}=120`$ 个！），并可进一步与**主动态模态（Principal Dynamic Modes, PDM）** 结合。[L1][L2]
+这样一来，第 $p$ 阶对称核的独立参数量从 $\binom{M+p-1}{p}$ 大幅降至 $\binom{K+p-1}{p}$（例如将 $M=256$ 压缩为 $K=8$ 个 Laguerre 基时，三阶独立参数量从 $282.9$ 万直接降至 $\binom{10}{3}=120$ 个），并可进一步与**主动态模态（Principal Dynamic Modes, PDM）** 结合。[L1][L2]
 
-需要注意，单一实极点 $`a`$ 的 Laguerre 基适合表征单调指数衰减记忆；若目标包含显著欠阻尼谐振（如变压器高频谐振峰），可替换为成对共轭复极点的 **Kautz 正交基**；若目标包含永久剩磁或非对称攻击/释放切换，仍需配合第 3.7 节的显式非线性状态方程。
+需要注意，单一实极点 $a$ 的 Laguerre 基适合表征单调指数衰减记忆；若目标包含显著欠阻尼谐振（如变压器高频谐振峰），可替换为成对共轭复极点的 **Kautz 正交基**；若目标包含永久剩磁或非对称攻击/释放切换，仍需配合第 3.7 节的显式非线性状态方程。
 
 ## 3.4 谐波阶数与核结构选择的解耦原则
 
-正如《01》第 1.7 与 1.9.1 节所证明，单音激励下观测到第 9 次谐波，既可能来自九阶多项式支路，也可能由两个低阶三阶模块级联（$`(x^3)^3=x^9$）、局部反馈环路或时变增益调制（见第 3.12 节）产生。因此，在 V0–V5 选型时，绝不能根据频谱仪上看到的最高谐波次数机械设定单级 Volterra 阶数$P`$，而应依据多电平增长斜率与双音互调残差综合判定。
+正如《01》第 1.7 与 1.9.1 节所证明，单音激励下观测到第 9 次谐波，既可能来自九阶多项式支路，也可能由两个低阶三阶模块级联（$(x^3)^3=x^9$）、局部反馈环路或时变增益调制（见第 3.12 节）产生。因此，在 V0–V5 选型时，绝不能根据频谱仪上看到的最高谐波次数机械设定单级 Volterra 阶数 $P$，而应依据多电平增长斜率与双音互调残差综合判定。
 
 ## 3.5 白盒物理建模的实时瓶颈与模型降阶区分
 
@@ -1600,11 +1632,11 @@ y_p[n]=\sum_{0\le j_1\le\cdots\le j_p\le K-1}c_p[j_1,\ldots,j_p]\prod_{i=1}^{p}u
 
 在实时插件开发中，必须严格区分**无损数值加速**与**有损模型约简**：
 1. **无损数值加速**：利用电路连接矩阵的稀疏性、Wave Digital Filters (WDF) 的树状散射解耦加上单非线性根部位隔离，或者对一维单调隐式方程构建高密度预计算查找表（LUT），在不改变物理方程解的前提下降低单步 Newton–Raphson 迭代开销；[R3][R4]
-2. **有损模型约简与代理（Model Order Reduction / Surrogate）**：通过本征正交分解（POD）、模态截断（$`\mathbf{q}\approx\boldsymbol{\Phi}_r\mathbf{a}`$）或用轻量神经网络替换昂贵的磁性/多端口非线性子模块，这类方法改变了原始控制方程，必须在工作域内单独量化截断与近似误差（完整的 DAE、Port-Hamiltonian 保无源性离散化、POD/DEIM 超降阶及神经算子理论将在《05 物理约束与实时代理建模》第 5.2–5.10 节系统推导）。
+2. **有损模型约简与代理（Model Order Reduction / Surrogate）**：通过本征正交分解（POD）、模态截断（$\mathbf{q}\approx\boldsymbol{\Phi}_r\mathbf{a}$）或用轻量神经网络替换昂贵的磁性/多端口非线性子模块，这类方法改变了原始控制方程，必须在工作域内单独量化截断与近似误差（完整的 DAE、Port-Hamiltonian 保无源性离散化、POD/DEIM 超降阶及神经算子理论将在《05 物理约束与实时代理建模》第 5.2–5.10 节系统推导）。
 
 ## 3.6 唯象建模（Phenomenological Modeling）与三类核心显式状态算子
 
-当白盒微观参数未知、而纯前馈黑盒又无法跨越长时记忆边界时，**唯象建模（Phenomenological Modeling）** 通过少量具有明确物理意义的宏观内部状态变量 $`\mathbf{s}[n]`$，以极低计算成本精确刻画慢速与路径依赖现象：
+当白盒微观参数未知、而纯前馈黑盒又无法跨越长时记忆边界时，**唯象建模（Phenomenological Modeling）** 通过少量具有明确物理意义的宏观内部状态变量 $\mathbf{s}[n]$，以极低计算成本精确刻画慢速与路径依赖现象：
 
 ```math
 \mathbf{s}[n+1] = \mathbf{f}\bigl(\mathbf{s}[n], x[n]; \boldsymbol{\theta}_s\bigr),\qquad
@@ -1615,25 +1647,25 @@ y[n] = g\bigl(x[n], \mathbf{s}[n]; \boldsymbol{\theta}_y\bigr).
 
 ### 3.6.1 速率无关与速率依赖 Play / Prandtl–Ishlinskii 磁滞算子
 
-针对磁带与变压器铁芯的**多分支路径依赖与永久剩磁（Remanence）**，经典的**Play 算子（间隙算子）** 将磁滞分解为一组具有不同阈值半径 $`r_m \ge 0$（$m=1,\ldots,M_h`$）的死区回隙单元（Backlash / Play Hysteron）：
+针对磁带与变压器铁芯的**多分支路径依赖与永久剩磁（Remanence）**，经典的**Play 算子（间隙算子）** 将磁滞分解为一组具有不同阈值半径 $r_m \ge 0$（$m=1,\ldots,M_h$）的死区回隙单元（Backlash / Play Hysteron）：
 
 ```math
 s_m^{\mathrm{play}}[n] = \max\!\Bigl(x[n]-r_m,\ \min\bigl(x[n]+r_m,\ s_m^{\mathrm{play}}[n-1]\bigr)\Bigr).
 ```
 
-当输入变化量未超出死区区间 $`[s_m[n-1]-r_m,\ s_m[n-1]+r_m]$时，状态$s_m[n]`$ 保持原值不变（即便输入归零，剩磁状态依然永久保留）；一旦跨越阈值，状态便沿外包络线推进。将多个不同阈值的 Play 算子加权求和即构成 **Prandtl–Ishlinskii (PI) 模型**。
+当输入变化量未超出死区区间 $[s_m[n-1]-r_m,\ s_m[n-1]+r_m]$ 时，状态 $s_m[n]$ 保持原值不变（即便输入归零，剩磁状态依然永久保留）；一旦跨越阈值，状态便沿外包络线推进。将多个不同阈值的 Play 算子加权求和即构成 **Prandtl–Ishlinskii (PI) 模型**。
 
-进一步地，真实磁带涂层与铁芯在高频瞬态下还表现出涡流损耗与磁畴弛豫引起的**速率依赖磁滞（Rate-Dependent Hysteresis，回线面积随频率升高而展宽）**。为此可引入**速率依赖增强型 Play 算子（Rate-Dependent Play, RD-Play）**，在状态更新中加入与输入变化率 $`\Delta x[n]=x[n]-x[n-1]`$ 相关的动态弛豫项或动态阈值缩放：
+进一步地，真实磁带涂层与铁芯在高频瞬态下还表现出涡流损耗与磁畴弛豫引起的**速率依赖磁滞（Rate-Dependent Hysteresis，回线面积随频率升高而展宽）**。为此可引入**速率依赖增强型 Play 算子（Rate-Dependent Play, RD-Play）**，在状态更新中加入与输入变化率 $\Delta x[n]=x[n]-x[n-1]$ 相关的动态弛豫项或动态阈值缩放：
 
 ```math
 s_m^{\mathrm{RD}}[n] = (1-\beta_m)\,s_m^{\mathrm{play}}\bigl(x[n],\,s_m^{\mathrm{RD}}[n-1];\,r_m(\lvert\Delta x[n]\rvert)\bigr) + \beta_m\,x[n].
 ```
 
-仅需 $`M_h=4\sim 8`$ 个标量 Play 状态，即可为前馈 Volterra 或神经分支提供真实的主回线、次回线（Minor Loops）与擦除记忆（Wiping-out Property）坐标。[R2]
+仅需 $M_h=4\sim 8$ 个标量 Play 状态，即可为前馈 Volterra 或神经分支提供真实的主回线、次回线（Minor Loops）与擦除记忆（Wiping-out Property）坐标。[R2]
 
 ### 3.6.2 双线性状态空间模型（Bilinear State-Space Model, Bilinear SSM）
 
-针对放大器电源下陷（Sag）、偏置漂移以及输入信号对系统极点/增益的乘性调制，**双线性状态空间模型**在标准线性状态方程中显式加入了**状态与输入的交叉乘积项 $`\mathbf{s}[n]\cdot x[n]`$**：
+针对放大器电源下陷（Sag）、偏置漂移以及输入信号对系统极点/增益的乘性调制，**双线性状态空间模型**在标准线性状态方程中显式加入了**状态与输入的交叉乘积项 $\mathbf{s}[n]\cdot x[n]$**：
 
 ```math
 \begin{aligned}
@@ -1642,7 +1674,7 @@ y[n] &= \mathbf{C}\mathbf{s}[n] + d\,x[n].
 \end{aligned}
 ```
 
-其中矩阵 $`\mathbf{N}$直接控制外部输入$x[n]$对内部状态演化速率与耦合权重的瞬时调制。从泛函展开角度看，双线性状态空间模型若按输入幂次迭代展开，天然生成一个无限记忆长度但由矩阵幂次$(\mathbf{A}, \mathbf{B}, \mathbf{N}, \mathbf{C})`$ 紧凑参数化的有理高阶 Volterra 级数，是连接“有限维状态方程”与“无穷维交叉 Volterra 核”的经典桥梁。
+其中矩阵 $\mathbf{N}$ 直接控制外部输入 $x[n]$ 对内部状态演化速率与耦合权重的瞬时调制。从泛函展开角度看，双线性状态空间模型若按输入幂次迭代展开，天然生成一个无限记忆长度但由矩阵幂次 $(\mathbf{A}, \mathbf{B}, \mathbf{N}, \mathbf{C})$ 紧凑参数化的有理高阶 Volterra 级数，是连接“有限维状态方程”与“无穷维交叉 Volterra 核”的经典桥梁。
 
 ### 3.6.3 非对称多时间常数光电/热包络状态（Asymmetric Multi-Stage Envelope）
 
@@ -1656,9 +1688,11 @@ s_{\mathrm{env},i}[n] = \bigl(1-\alpha_i[n]\bigr)s_{\mathrm{env},i}[n-1] + \alph
 \end{cases}
 ```
 
-当慢速池状态积累较高时，动态调慢主释放系数 $`\alpha_{\mathrm{rel}}`$，即可用 2 至 3 个标量状态复现长达数秒的程序相关释放记忆。
+当慢速池状态积累较高时，动态调慢主释放系数 $\alpha_{\mathrm{rel}}$，即可用 2 至 3 个标量状态复现长达数秒的程序相关释放记忆。
 
-![Laguerre 全通正交基网络 (V2-L)、RD-Play 磁滞算子簇与双线性状态空间 (Bilinear SSM) 机理图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03_Laguerre正交基与Play磁滞状态图.svg)
+SKY SA-1A 的一组光电压缩动态测试可以帮助理解为何需要多时间常数：在 $48\,\mathrm{kHz}$、MANUAL 模式、Attack / Release 设为 75/75 时，常规电平阶跃测得的 Release $T_{63}$ 约为 $163\,\mathrm{ms}$；但换成 $-18\,\mathrm{dBFS}$ 至 $-6\,\mathrm{dBFS}$ 的更强输入历史后，同类释放测量约为 $327\,\mathrm{ms}$。这说明在比较两个压缩器的“释放时间”时，必须同时固定前导信号幅度、保持时长、增益衰减深度与测试判据。这里的 $T_{63}$ 是指定激励条件下的响应特征，不应直接当成设备内部某一个固定 RC 元件的时间常数。
+
+![Laguerre 全通正交基网络 (V2-L)、RD-Play 磁滞算子簇与双线性状态空间 (Bilinear SSM) 机理图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-02_Laguerre正交基与Play磁滞状态图.svg)
 
 *图 03-03：左篇展示离散 Laguerre 一阶全通级联正交基网络（V2-L），以 $K=8$ 个正交递推状态将 $M=128$ 的二阶交叉核参数从 $8,256$ 压缩至 $36$ 个；右篇展示突破 Boyd–Chua 衰减记忆限制的 Prandtl–Ishlinskii 速率相关 RD-Play 磁滞算子簇（复现多值剩磁回线 $\pm B_r$）以及显式耦合慢包络与快音频的双线性状态空间模型（Bilinear SSM）。*
 
@@ -1672,11 +1706,11 @@ s_{\mathrm{env},i}[n] = \bigl(1-\alpha_i[n]\bigr)s_{\mathrm{env},i}[n-1] + \alph
 | 可解析求反导的无记忆静态非线性 | 一阶/二阶反导数抗混叠（ADAA1 / ADAA2）配合 2× 过采样 | 小分母病态阈值切换、补偿滤波器高频相位与群延迟 |
 | 对角 Volterra / 并联 Hammerstein 单项式支路 | Hopman–Bennett 无分母闭式多项式 ADAA（见《01》1.21 节）或支路过采样 | 各阶支路間の整数/半采样点延迟对齐（0.5 sample delay） |
 | 一般非对角 Volterra、反馈环路与神经网络残差 | 在统一的过采样域（如 2× / 4× / 8×）执行，经线性相位或最小相位抗混叠滤波器降采样回基带 | 感受野对应的真实物理时间缩放、训练采样率与推理采样率严格匹配 |
-| 动态门控与双路径混合输出 | 校准各支路相位与亚采样延迟后再执行非对称 Slew 平滑合成 | 时变门控权重 $`\alpha[n]`$ 自身带宽引起的调幅边带（AM Sidebands） |
+| 动态门控与双路径混合输出 | 校准各支路相位与亚采样延迟后再执行非对称 Slew 平滑合成 | 时变门控权重 $\alpha[n]$ 自身带宽引起的调幅边带（AM Sidebands） |
 
 ### 3.7.1 静态 Waveshaper 的 ADAA1 / ADAA2 显式公式与小分母阈值
 
-对于无记忆静态非线性 $`y=f(x)$，设其一阶反导数（原函数）为$F_1(x)=\int_0^x f(u)\,du$，二阶反导数为$F_2(x)=\int_0^x F_1(u)\,du`$。将离散输入序列视为分段线性连续信号并与三角/矩形保持核卷积后，**一阶与二阶反导数抗混叠（ADAA1 / ADAA2）** 的计算公式分别为：
+对于无记忆静态非线性 $y=f(x)$，设其一阶反导数（原函数）为 $F_1(x)=\int_0^x f(u)\,du$，二阶反导数为 $F_2(x)=\int_0^x F_1(u)\,du$。将离散输入序列视为分段线性连续信号并与三角/矩形保持核卷积后，**一阶与二阶反导数抗混叠（ADAA1 / ADAA2）** 的计算公式分别为：
 
 ```math
 \mathrm{ADAA}_1[f](x[n],x[n-1]) = \begin{cases}
@@ -1692,11 +1726,11 @@ f\!\left(\dfrac{x[n]+x[n-1]}{2}\right), & \lvert x[n]-x[n-1]\rvert \lt \varepsil
 ```
 
 在工程实现中必须注意三点边界：
-1. **小分母病态退化保护**：当相邻采样点极其接近（$`\lvert x[n]-x[n-1]\rvert \lt \varepsilon_{\mathrm{tol}}$，双精度下通常取$\varepsilon_{\mathrm{tol}}\approx 10^{-7}\sim 10^{-5}$）时，直接相除会发生严重的浮点有效数字抵消（Catastrophic Cancellation），必须切换至中点 Taylor 展开值（而如《01》第 1.21 节所示，当$f(x)=x^p`$ 为简化 Volterra 的多项式支路时，可利用因式分解精确消去分母，彻底免除除法与分支切换）；
-2. **固有亚采样延迟**：ADAA1 会引入 **$`0.5$个采样点**的固定群延迟（对应零阶保持核的中心），ADAA2 则引入 **$1.0$个采样点**的群延迟。因此，在并行混合架构（如“一阶线性支路 + ADAA1 非线性支路”或干湿比混合）中，**未采用 ADAA 的并行线性支路必须同步串联$0.5$（或$1.0`$）个采样点的全通/分数延迟滤波器**，否则两路信号在高频叠加时会发生严重的梳状滤波抵消！
-3. **非无记忆算子的适用边界**：标准 ADAA 严格建立在一维静态映射 $`f(x)$的原函数之上。对于包含跨时刻乘积$x[n-k_1]x[n-k_2]$（$\lvert k_1-k_2\rvert > 1`$）、多维状态耦合或多层神经网络的模块，无法直接套用单变量原函数公式，必须采用过采样并在统一的采样率下训练和推理。
+1. **小分母病态退化保护**：当相邻采样点极其接近（$\lvert x[n]-x[n-1]\rvert \lt \varepsilon_{\mathrm{tol}}$，双精度下通常取 $\varepsilon_{\mathrm{tol}}\approx 10^{-7}\sim 10^{-5}$）时，直接相除会发生严重的浮点有效数字抵消（Catastrophic Cancellation），必须切换至中点 Taylor 展开值（而如《01》第 1.21 节所示，当 $f(x)=x^p$ 为简化 Volterra 的多项式支路时，可利用因式分解精确消去分母，彻底免除除法与分支切换）；
+2. **固有亚采样延迟**：ADAA1 会引入 **$0.5$ 个采样点**的固定群延迟（对应零阶保持核的中心），ADAA2 则引入 **$1.0$ 个采样点**的群延迟。因此，在并行混合架构（如“一阶线性支路 + ADAA1 非线性支路”或干湿比混合）中，**未采用 ADAA 的并行线性支路必须同步串联 $0.5$（或 $1.0$）个采样点的全通/分数延迟滤波器**，否则两路信号在高频叠加时会发生严重的梳状滤波抵消。
+3. **非无记忆算子的适用边界**：标准 ADAA 严格建立在一维静态映射 $f(x)$ 的原函数之上。对于包含跨时刻乘积 $x[n-k_1]x[n-k_2]$（$\lvert k_1-k_2\rvert > 1$）、多维状态耦合或多层神经网络的模块，无法直接套用单变量原函数公式，必须采用过采样并在统一的采样率下训练和推理。
 
-![多速率抗混叠混合架构与 ADAA 0.5 采样群延迟精确对齐图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03_多速率抗混叠与半采样延迟对齐图.svg)
+![多速率抗混叠混合架构与 ADAA 0.5 采样群延迟精确对齐图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-03_多速率抗混叠与半采样延迟对齐图.svg)
 
 *图 03-04：展示基带（$1\times f_s$）线性/慢包络通路、一阶无分母多项式 $\mathrm{ADAA}_1$ 通路与高采样率（$4\times/8\times f_s$）交叉核/神经残差通路并联时的群延迟精确对齐机制。由于 $\mathrm{ADAA}_1$ 在区间 $[t_{n-1},t_n]$ 积分天然引入 $+0.5\,T_s$ 半采样群延迟，并联旁路必须串联 $0.5$ 采样分数延迟与整数过采样延迟补偿，从而彻底根除高频梳状相消（Comb Filtering）。*
 
@@ -1706,50 +1740,62 @@ f\!\left(\dfrac{x[n]+x[n-1]}{2}\right), & \lvert x[n]-x[n-1]\rvert \lt \varepsil
 
 | 模式名称 | 信号流与数学表达式 | 适用场景与核心优势 |
 | --- | --- | --- |
-| **模式 1：并行残差**<br>(Parallel Residual) | $`\hat y[n] = y_{\mathrm{base}}[n] + \alpha\bigl(\mathbf{s}[n]\bigr)\,\Delta y_{\mathrm{NN}}\bigl(\mathbf{x}_n, \mathbf{s}[n]\bigr)$| 主干线性频响与低阶谐波由可解释 Volterra / 白盒$y_{\mathrm{base}}`$ 锁定，轻量网络仅拟合残余高阶非理想失真 |
-| **模式 2：状态耦合**<br>(State-Coupled / Grey-Box) | $`\mathbf{s}[n+1] = \mathbf{G}_{\mathrm{phys}}(\mathbf{s}[n], x[n]) + \Delta\mathbf{G}_{\mathrm{NN}}(\mathbf{s}[n], x[n])$| 物理/唯象状态方程定义主时间常数与剩磁拓扑，小型网络修正非线性状态转移或调制 Volterra 核$h_p(\mathbf{k};\mathbf{s}[n])`$ |
-| **模式 3：串行级联**<br>(Serial Cascade) | $`v[n]=\mathcal{H}_{\mathrm{pre}}[x](n) \to z[n]=\mathcal{N}_{\theta}[v,\mathbf{s}](n) \to \hat{y}[n]=\mathcal{H}_{\mathrm{post}}[z](n)$| 严格对应“输入变压器/选频$\to$电子管放大/压缩核$\to`$ 输出变压器/均衡”的多级硬件物理拓扑 |
-| **模式 4：子系统代理**<br>(Component Surrogate) | $`\mathbf{F}_{\mathrm{circuit}}\bigl(\mathbf{z}_n, \mathbf{z}_{n-1}, \mathcal{M}_{\mathrm{NN}}(\mathbf{v}_{\mathrm{port},n})\bigr)=\mathbf{0}`$ | 保留完整电路拓扑与旋钮交互，仅将局部极昂贵的磁芯或电子管多极本构方程替换为神经/Chebyshev 代理 |
+| **模式 1：并行残差**<br>(Parallel Residual) | $\hat y[n] = y_{\mathrm{base}}[n] + \alpha\bigl(\mathbf{s}[n]\bigr)\,\Delta y_{\mathrm{NN}}\bigl(\mathbf{x}_n, \mathbf{s}[n]\bigr)$| 主干线性频响与低阶谐波由可解释 Volterra / 白盒 $y_{\mathrm{base}}$ 锁定，轻量网络仅拟合残余高阶非理想失真 |
+| **模式 2：状态耦合**<br>(State-Coupled / Grey-Box) | $\mathbf{s}[n+1] = \mathbf{G}_{\mathrm{phys}}(\mathbf{s}[n], x[n]) + \Delta\mathbf{G}_{\mathrm{NN}}(\mathbf{s}[n], x[n])$| 物理/唯象状态方程定义主时间常数与剩磁拓扑，小型网络修正非线性状态转移或调制 Volterra 核 $h_p(\mathbf{k};\mathbf{s}[n])$ |
+| **模式 3：串行级联**<br>(Serial Cascade) | $v[n]=\mathcal{H}_{\mathrm{pre}}[x](n) \to z[n]=\mathcal{N}_{\theta}[v,\mathbf{s}](n) \to \hat{y}[n]=\mathcal{H}_{\mathrm{post}}[z](n)$| 严格对应“输入变压器/选频 $\to$ 电子管放大/压缩核 $\to$ 输出变压器/均衡”的多级硬件物理拓扑 |
+| **模式 4：子系统代理**<br>(Component Surrogate) | $\mathbf{F}_{\mathrm{circuit}}\bigl(\mathbf{z}_n, \mathbf{z}_{n-1}, \mathcal{M}_{\mathrm{NN}}(\mathbf{v}_{\mathrm{port},n})\bigr)=\mathbf{0}$ | 保留完整电路拓扑与旋钮交互，仅将局部极昂贵的磁芯或电子管多极本构方程替换为神经/Chebyshev 代理 |
 
-![白盒与神经网络协同四种运行模式图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/04_白盒与神经网络协同四种运行模式图.svg)
+![白盒与神经网络协同四种运行模式图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-04_白盒与神经网络协同四种运行模式图.svg)
 
 *图 03-02｜白盒、Volterra 与神经网络协同的四种运行模式架构图。SVG 文件名保留历史素材编号。*
 
 ### 3.8.1 NARX、NOE 与长期自由运行（Free-Run）稳定性约束
 
 当混合模型采用模式 2（状态耦合）或包含输出反馈时，必须严格区分《00》第 0.23 节引入的两种训练与运行体制：[R1]
-- **NARX（Teacher Forcing / 开环单步预测）**：训练时将实测参考输出 $`y[n-k]`$（或由参考输出反推的教师状态）直接喂入回归器。由于每一步都被真实测量值强行拉回正轨，误差不会跨时刻累积，训练极易收敛；
-- **NOE（Nonlinear Output-Error / 闭环自由运行 Free-Run）**：推理部署时，插件完全没有真实硬件输出可用，只能将模型自己上一时刻预测的状态 $`\hat{\mathbf{s}}[n]$和输出$\hat{y}[n-k]`$ 持续回灌。
+- **NARX（Teacher Forcing / 开环单步预测）**：训练时将实测参考输出 $y[n-k]$（或由参考输出反推的教师状态）直接喂入回归器。由于每一步都被真实测量值强行拉回正轨，误差不会跨时刻累积，训练极易收敛；
+- **NOE（Nonlinear Output-Error / 闭环自由运行 Free-Run）**：推理部署时，插件完全没有真实硬件输出可用，只能将模型自己上一时刻预测的状态 $\hat{\mathbf{s}}[n]$ 和输出 $\hat{y}[n-k]$ 持续回灌。
 
-如果仅使用单步 Teacher Forcing 训练状态增量网络 $`\Delta\mathbf{G}_{\mathrm{NN}}$，哪怕验证集单步 ESR 低至$-40\,\mathrm{dB}`$，一旦切换到数分钟的闭环 Free-Run，微小的单步状态偏差就可能通过正反馈环路指数级放大，导致直流漂移、极限环自激（Limit Cycle Oscillation）甚至浮点溢出（`NaN` / `Inf`）。
+如果仅使用单步 Teacher Forcing 训练状态增量网络 $\Delta\mathbf{G}_{\mathrm{NN}}$，哪怕验证集单步 ESR 低至 $-40\,\mathrm{dB}$，一旦切换到数分钟的闭环 Free-Run，微小的单步状态偏差就可能通过正反馈环路指数级放大，导致直流漂移、极限环自激（Limit Cycle Oscillation）甚至浮点溢出（`NaN` / `Inf`）。
 
 为确保闭环长期自由运行稳定，工程上需实施三层保障：
 1. **多步展开课程训练（Unrolled BPTT Curriculum）**：从较短的展开窗口起步，逐步过渡到跨越数千至数万采样点的完全闭环 NOE / Free-Run 损失优化，并在初始状态上注入随机扰动以迫使轨迹具备吸引域恢复能力；
-2. **局部收缩与耗散结构约束**：对指数衰减型状态（如包络、热、电源滤波状态），要求总状态更新映射 $`\mathbf{G}_{\mathrm{total}}(\mathbf{s},x)$在不变集$\mathcal{D}$上关于状态$\mathbf{s}`$ 的 Jacobian 谱范数满足一致收缩条件：
+2. **局部收缩与耗散结构约束**：对指数衰减型状态（如包络、热、电源滤波状态），要求总状态更新映射 $\mathbf{G}_{\mathrm{total}}(\mathbf{s},x)$ 在不变集 $\mathcal{D}$ 上关于状态 $\mathbf{s}$ 的 Jacobian 谱范数满足一致收缩条件：
    ```math
    \sup_{\mathbf{s}\in\mathcal{D},\, \lvert x\rvert\le x_{\max}}\left\lVert\frac{\partial \mathbf{G}_{\mathrm{total}}(\mathbf{s},x)}{\partial \mathbf{s}}\right\rVert_2 \le q_c \lt 1,
    ```
-   例如将残差修正参数化为阻尼门控形式 $`s[n+1]=(1-\gamma(\mathbf{s},x))s[n]+\gamma(\mathbf{s},x)\,\tanh(\cdot)$，其中强制$\gamma(\mathbf{s},x)\in[\gamma_{\min}, \gamma_{\max}]\subset(0,1)`$；
-3. **磁滞系统的无源耗散边界（区分收缩性与多稳态剩磁）**：需要特别强调，全局一致收缩（$`q_c<1$）意味着相同输入下所有历史状态差异都会指数归零（即退化为衰减记忆），**若对速率无关磁滞状态（如 Play 算子$s_m^{\mathrm{play}}$）强加严格收缩约束$q_c<1$，反而会直接抹除其多分支永久剩磁记忆！** 对于磁滞子状态，正确的物理约束是**非扩张性（Non-expansiveness，$q_c\le 1$）、静态存储区间有界性（$\lvert s_m\rvert\le x_{\max}$）以及顺时针回线能量耗散正定性（$\oint H\,dB \ge 0`$）**。[R2]
+   例如将残差修正参数化为阻尼门控形式 $s[n+1]=(1-\gamma(\mathbf{s},x))s[n]+\gamma(\mathbf{s},x)\,\tanh(\cdot)$，其中强制 $\gamma(\mathbf{s},x)\in[\gamma_{\min}, \gamma_{\max}]\subset(0,1)$；
+3. **磁滞系统的无源耗散边界（区分收缩性与多稳态剩磁）**：需要特别强调，全局一致收缩（$q_c<1$）意味着相同输入下所有历史状态差异都会指数归零（即退化为衰减记忆），**若对速率无关磁滞状态（如 Play 算子 $s_m^{\mathrm{play}}$）强加严格收缩约束 $q_c<1$，反而会直接抹除其多分支永久剩磁记忆**。 对于磁滞子状态，正确的物理约束是**非扩张性（Non-expansiveness，$q_c\le 1$）、静态存储区间有界性（$\lvert s_m\rvert\le x_{\max}$）以及顺时针回线能量耗散正定性（$\oint H\,dB \ge 0$）**。[R2]
 
-## 3.9 商业混合压缩器案例剖析：SKY SA-1A 与 Revenger 2A
+## 3.9 三种商业光电压缩器的建模路线：状态库、物理求解与超网络
 
-我们可以用近期两款代表性的真空管光电压缩器商业插件，来检验上述混合建模框架的解释力：
+把三款产品放在一起，可以直观看到相似的压缩动态目标如何分配给不同的计算结构。需要先区分目标硬件：Acustica Audio **SKY SA-1A** 对应 Stam/Summit SA-1A，而 SevenTeamMusic **Revenger 2A** 与 **noshige2A** 对应 LA-2A 类设备。以下比较的是三种处理相似光电动态的数学路线，并不意味着三款产品复刻同一台机器。
 
-1. **案例 A：Acustica Audio SKY SA-1A 的状态条件化核假设**
-   Acustica Audio 在 [SKY SA-1A](https://www.acustica-audio.com/shop/products/SKYSA1A)（Stam Audio SA-1A 官方授权插件）的技术说明与 [Gearspace 官方讨论帖](https://gearspace.com/threads/acustica-audio-sky-sa-1a-official-stam-audio-tube-opto-compressor-plug-in.1471233/) 中强调：光电压缩器的谐波失真谱并非固定不变，而是随增益衰减（GR）深度与压缩恢复状态实时改变。[C1][C2] 在我们的 V5 混合建模框架中，这一现象可形式化为由慢速光电包络状态 $`s_{\mathrm{env}}[n]`$ 调制的**状态条件化 Volterra 模型**：
-   ```math
-   \hat{y}[n] = \sum_{k=0}^{M_1-1} h_1\bigl(k;\,s_{\mathrm{env}}[n]\bigr) x[n-k] + \sum_{k_1, k_2} h_2\bigl(k_1, k_2;\,s_{\mathrm{env}}[n]\bigr) x[n-k_1] x[n-k_2] + \cdots
-   ```
-   其中 $`s_{\mathrm{env}}[n]$遵循第 3.6.3 节的非对称多时间常数光电状态方程，核系数$h_p(\cdot;\,s_{\mathrm{env}})`$ 则可通过多工作点核基底插值（如 `simplenova` 式的双路径/多路径权重融和）实时合成。
-2. **案例 B：SevenTeamMusic Revenger 2A 的白盒 + 神经校正定位**
-   SevenTeamMusic 在 [Revenger 2A 官方技术页](https://www.seventeammusic.com/plugins/revenger-2a) 中将其描述为基于 LA-2A 电路拓扑并结合神经网络残差校正的混合架构（对应本章表中的**模式 1 / 模式 2**），提供 Classic 纯电路与 Unit A 混合模式，重点针对 T4 光电单元历史记忆、电子管放大级与变压器磁滞进行联合建模。[C3]
+| 产品与主表示 | 主要动态状态 | 参数改变时的处理方式 | 对研究平台的启发 |
+| --- | --- | --- | --- |
+| **SKY SA-1A：测量资源与包络调度** | 检测器、增益控制及核资源的工作点权重 | 有限状态资源按包络控制量插值或切换 | 测量资源可以存储增益及短时整形，不局限于一般频响 FIR |
+| **Revenger 2A：电路方程 + Unit A 神经校正** | 电容/非线性元件等电路状态，辅以轻量递归网络 | 改变物理控制量或切换 Classic / Unit A 路线 | 保留电路拓扑，再用网络补偿难以拟合的状态相关误差 |
+| **noshige2A：超网络 + 流式神经模型** | 音频网络跨块保持的隐藏状态 | 用参数条件化网络生成音频网络权重 | 控制参数泛化与长期记忆可以由两个网络分别承担 |
+
+**SKY：状态条件化的核资源。** 其 48 kHz 资源组可分为 41 个 100 ms 主序列、20 个 5 ms 短序列及 6 个 150 ms 长序列。在主序列中，主要能量集中在一个延迟约 1.5 ms 的抽头附近，整体表现更接近多工作点增益资源，而一些短序列还保留较弱的频率选择性。将其概括为“增益—平滑状态资源 + 小幅频响整形”的模型，比一概视为高阶音色核更加贴近当前数据所支持的结构。具体状态权重怎样从包络映射到资源，仍应视为尚待完整确认的控制关系。一个便于研究的等效表达式为：
+
+```math
+\hat y[n] = \sum_{i}w_i\bigl(\mathbf s_{\mathrm{env}}[n]\bigr)\,a_i\,x[n-d]
++\sum_m \mu_m\bigl(\mathbf s_{\mathrm{env}}[n]\bigr)\,(h_m*x)[n],
+```
+
+其中 $a_i$ 是主工作点增益，$d$ 是主通路的等效延迟，$h_m$ 是短时整形核。式中的 $w_i$、$\mu_m$ 为解释性状态权重，不等于已经确定的产品内部调度公式。对于具有包络纹波的压缩器，哪怕各个 $h_m$ 都是线性的，随输入改变的乘法权重仍然可能生成谐波或互调边带（见第 3.10 节）。
+
+**Revenger 2A：由电路承担主行为，网络修正残差。** Classic 路线以 21 节点的 MNA 数值求解为核心，对非线性支路实施迭代线性化，数值求解器自身保留跨采样点的电路状态。Unit A 另外使用较小的门控递归结构，将短帧音频特征映射为缓变增益修正；其实际应用形式更接近**乘性残差** $\hat y[n]=g_{\mathrm{corr}}[k]y_{\mathrm{circuit}}[n]$，而不是把一条完整的神经音频波形直接加到电路输出。$k$ 是相对音频采样较慢的网络更新帧。这里的电路求解与神经修正协作，使同一套主体方程不必依赖网络重新学习全部模拟电路规律。
+
+**noshige2A：用参数生成权重，用递归状态保存历史。** 其主要控制条件是 Peak Reduction 和 Comp/Limit。参数通过 gMLP 型超网络映射为后级音频网络的部分卷积权重、偏置和门控参数，流式网络则维持跨处理块的隐藏状态。其结构可写成 $\boldsymbol\theta=H_{\boldsymbol\phi}(\mathbf c)$、$\mathbf s[n+1]=F_{\boldsymbol\theta}(\mathbf s[n],x[n])$。不过，模型结构与资源配置说明了可实现的推理路径，不能单凭架构图推定其实际硬件复刻误差；最终仍需要完整音频输出和未见工作点上的独立验证。
+
+三类方法都要回答同一组问题：**哪些动态来自设备自身状态，哪些可以离散成工作点，哪些适合用神经网络表示，以及旋钮变化是否需要更新模型参数**。比较模型时，除了同一输入条件下的 THD、ESR，也应加入程序依赖释放、相同瞬时 GR 下的不同前史、双音侧带及实时延迟等测试。
 
 ## 3.10 动态增益调制引发谐波与互调失真的解析机制
 
 在诊断压缩器测量数据时，必须首先区分**电子管/变压器放大级的固有非线性失真**与**时变增益调制自身产生的调制失真（Gain Modulation Distortion）**。
 
-考虑一个不含任何电子管削波的理想乘法压控增益单元 $`y(t)=g(t)x(t)$。当输入单频正弦波$x(t)=A\sin(\omega_0 t)$时，若全波整流检波与平滑滤波器未能完全滤除$2\omega_0`$ 纹波，使增益控制信号保留了微弱的二倍频波动：
+考虑一个不含任何电子管削波的理想乘法压控增益单元 $y(t)=g(t)x(t)$。当输入单频正弦波 $x(t)=A\sin(\omega_0 t)$ 时，若全波整流检波与平滑滤波器未能完全滤除 $2\omega_0$ 纹波，使增益控制信号保留了微弱的二倍频波动：
 
 ```math
 g(t) = g_0 + \eta\,x^2(t) = g_0 + \eta A^2\sin^2(\omega_0 t),
@@ -1761,7 +1807,7 @@ g(t) = g_0 + \eta\,x^2(t) = g_0 + \eta A^2\sin^2(\omega_0 t),
 y(t)=g(t)x(t)=\left(g_0+\frac{3}{4}\eta A^2\right)A\sin(\omega_0 t) - \frac{1}{4}\eta A^3\sin(3\omega_0 t).
 ```
 
-可以看到，**哪怕放大通路本身完全线性，仅靠包络跟随器泄露的二倍频增益调制，就会在输出端通过乘法器精确生成与 $`A^3$成正比的三次谐波（且低频信号周期越接近 Attack/Release 时间常数，该调制三次谐波越强烈）！** 同理，在双音激励$\omega_1, \omega_2$下，包络差频波动$\lvert\omega_1-\omega_2\rvert`$ 调制高频探测音也会直接生成对称的调幅边带。因此，在利用 [SignalTrain LA-2A 公开数据集](https://zenodo.org/records/3824876) [C4] 或实测硬件数据训练混合模型时，必须先剥离纯增益调制基线，再将剩余残差归因于放大级 Volterra 核或变压器磁滞。
+可以看到，**哪怕放大通路本身完全线性，仅靠包络跟随器泄露的二倍频增益调制，就会在输出端通过乘法器精确生成与 $A^3$ 成正比的三次谐波（且低频信号周期越接近 Attack/Release 时间常数，该调制三次谐波越强烈）**。 同理，在双音激励 $\omega_1, \omega_2$ 下，包络差频波动 $\lvert\omega_1-\omega_2\rvert$ 调制高频探测音也会直接生成对称的调幅边带。因此，在利用 [SignalTrain LA-2A 公开数据集](https://zenodo.org/records/3824876) [C4] 或实测硬件数据训练混合模型时，应建立纯增益调制基线，再对比放大级非线性及磁滞模型的额外贡献。须注意：**观察到 H3 或亚谐波并不足以单独证明失真全部来自包络纹波**；若同时存在非线性整流、控制信号非对称性、周期倍化或其他动态状态，仍需通过固定增益、冻结包络或旁路局部模块等对照实验逐一排除。
 
 ## 3.11 黑盒系统辨识的可操作测试协议 (Test Bench T1–T6)
 
@@ -1769,11 +1815,11 @@ y(t)=g(t)x(t)=\left(g_0+\frac{3}{4}\eta A^2\right)A\sin(\omega_0 t) - \frac{1}{4
 
 | 测试组 | 激励信号与实验操作 | 核心观测指标 | 主要用来证伪或检验的假说 |
 | --- | --- | --- | --- |
-| **T1 双稳态/预磁化次回线测试** | 先施加正向或反向大幅预激励脉冲/半波，经规定静音间隔（超越前馈窗口 $`M$）后注入完全相同的微弱探针；遍历预激励幅度绘制局部次回线 | 探针输出差值$\Delta y[n]$、磁滞回线面积、剩磁保持时长 | 检验是否存在超越有限窗口$M`$ 的路径依赖与持久剩磁（区分 Play 磁滞与衰减记忆） |
-| **T2 等瞬时 GR / 异历史探针测试** | 构造两条不同前导包络（如“短促强瞬态”与“长时中等持续音”），精确调节幅度使两者在时刻 $`t_0$达到完全相同的瞬时增益衰减量$\mathrm{GR}(t_0)$，随即注入同一高频/复合探针 |$t_0$之后的恢复轨迹斜率、瞬时频响与谐波谱差异 | 证伪“单标量包络状态$s_{\mathrm{env}}`$ 足以表征全部压缩历史”（检验 T4B 多时间常数记忆） |
-| **T3 双音与包络调幅边带分离** | 固定低频强驱动音 $`f_1$叠加微弱高频探针$f_2$，扫描频率差$\Delta f$；同时运行一个具有相同包络轨迹但无放大级失真的纯乘法增益基线模型 | 扣除纯增益调制基线后的边带幅相残差（$f_2\pm k f_1`$） | 将“快包络增益调制产生的边带”与“电子管/变压器高阶 Volterra 交叉核互调”严格剥离 |
-| **T4 动态包络与稳态失真分离** | 在相同 RMS 电平下，交替送入稳态正弦与高波峰因数（Crest Factor）突发脉冲串，对比不同 Attack/Release 阶段下的瞬时谐波切片 | 动态 THD/IMD 随压缩状态的轨迹漂移 | 检验短时非线性核是否受慢速状态 $`\mathbf{s}[n]`$ 显著调制（验证 V5 状态条件化核） |
-| **T5 多速率与抗混叠边界测试** | 送入高频高电平单音（如 $`12\sim 18\,\mathrm{kHz}`$）与高频双音，分别在 1× / 2× / 4× / 8× 及 ADAA 开关下运行并重采样回基带比对 | 镜像折返伪影电平（Alias-to-Harmonic Ratio）、基带相位偏移与 CPU 耗时 | 量化无分母多项式 ADAA、静态 ADAA 与多速率滤波器的抗混叠性价比及支路对齐精度 |
+| **T1 双稳态/预磁化次回线测试** | 先施加正向或反向大幅预激励脉冲/半波，经规定静音间隔（超越前馈窗口 $M$）后注入完全相同的微弱探针；遍历预激励幅度绘制局部次回线 | 探针输出差值 $\Delta y[n]$、磁滞回线面积、剩磁保持时长 | 检验是否存在超越有限窗口 $M$ 的路径依赖与持久剩磁（区分 Play 磁滞与衰减记忆） |
+| **T2 等瞬时 GR / 异历史探针测试** | 构造两条不同前导包络（如“短促强瞬态”与“长时中等持续音”），精确调节幅度使两者在时刻 $t_0$ 达到完全相同的瞬时增益衰减量 $\mathrm{GR}(t_0)$，随即注入同一高频/复合探针 |$t_0$ 之后的恢复轨迹斜率、瞬时频响与谐波谱差异 | 证伪“单标量包络状态 $s_{\mathrm{env}}$ 足以表征全部压缩历史”（检验 T4B 多时间常数记忆） |
+| **T3 双音与包络调幅边带分离** | 固定低频强驱动音 $f_1$ 叠加微弱高频探针 $f_2$，扫描频率差 $\Delta f$；同时运行一个具有相同包络轨迹但无放大级失真的纯乘法增益基线模型 | 扣除纯增益调制基线后的边带幅相残差（$f_2\pm k f_1$） | 将“快包络增益调制产生的边带”与“电子管/变压器高阶 Volterra 交叉核互调”严格剥离 |
+| **T4 动态包络与稳态失真分离** | 在相同 RMS 电平下，交替送入稳态正弦与高波峰因数（Crest Factor）突发脉冲串，对比不同 Attack/Release 阶段下的瞬时谐波切片 | 动态 THD/IMD 随压缩状态的轨迹漂移 | 检验短时非线性核是否受慢速状态 $\mathbf{s}[n]$ 显著调制（验证 V5 状态条件化核） |
+| **T5 多速率与抗混叠边界测试** | 送入高频高电平单音（如 $12\sim 18\,\mathrm{kHz}$）与高频双音，分别在 1× / 2× / 4× / 8× 及 ADAA 开关下运行并重采样回基带比对 | 镜像折返伪影电平（Alias-to-Harmonic Ratio）、基带相位偏移与 CPU 耗时 | 量化无分母多项式 ADAA、静态 ADAA 与多速率滤波器的抗混叠性价比及支路对齐精度 |
 | **T6 长时间闭环 Free-Run 压力测试** | 从多组极端初始状态出发，连续运行数分钟复合信号（含满幅过载、阶跃直流偏置、静音恢复与旋钮快速自动化） | 状态范数有界性、是否出现 `NaN`/极限环自激、长时误差漂移与最坏块耗时 | 检验递归灰盒与 NOE 模型在宿主实时线程中的长期闭环可靠性 |
 
 当模型在 T1–T6 的某一特定测试组中暴露显著残差时，可结合参数灵敏度矩阵（Jacobian）或 Fisher 信息矩阵（见《04》第 4.14–4.15 节）定向补充下一轮辨识激励，从而形成“基线训练 $\to$ 专项证伪 $\to$ 靶向补测 $\to$ 实时约简”的完整工程闭环。
@@ -1802,6 +1848,8 @@ y(t)=g(t)x(t)=\left(g_0+\frac{3}{4}\eta A^2\right)A\sin(\omega_0 t) - \frac{1}{4
 
 ---
 
+---
+
 # 04 高级系统辨识：非线性算子、衰减记忆与随机正交展开
 
 > **版本：v3 · 2026-11-14 · Lee–Schetzen 互相关法、Boyd–Chua 严格定义与受控 Koopman 深化版（继承 v2）**
@@ -1816,16 +1864,16 @@ y(t)=g(t)x(t)=\left(g_0+\frac{3}{4}\eta A^2\right)A\sin(\omega_0 t) - \frac{1}{4
 y[n]=\sum_{k=0}^{\infty}h[k]x[n-k].
 ```
 
-对于非线性硬件，输出关系需要更一般的算子 $`\mathcal S$：$y=\mathcal S[x]$。有限长度 WAV 是一个有限维向量，持续运行的系统却需要接收任意长的输入历史。因此，我们在数学上研究有界序列空间（如$\ell^\infty(\mathbb{Z}_-)`$）或函数空间上的算子映射，再用有限状态、有限缓冲和有限参数构造实时近似。
+对于非线性硬件，输出关系需要更一般的算子 $\mathcal S$：$y=\mathcal S[x]$。有限长度 WAV 是一个有限维向量，持续运行的系统却需要接收任意长的输入历史。因此，我们在数学上研究有界序列空间（如 $\ell^\infty(\mathbb{Z}_-)$）或函数空间上的算子映射，再用有限状态、有限缓冲和有限参数构造实时近似。
 
 这里最核心的三个数学问题是：
-1. **正则性与光滑性**：系统算子 $`\mathcal{S}`$ 在工作点附近需要满足何种可微条件，才能合法展开为各阶多重线性积分/求和核？
+1. **正则性与光滑性**：系统算子 $\mathcal{S}$ 在工作点附近需要满足何种可微条件，才能合法展开为各阶多重线性积分/求和核？
 2. **记忆衰减性质**：无穷远以前的历史如何随时间衰减，使得有限维模型能够在一致范数意义下逼近真实系统？
 3. **统计正交性与可辨识性**：在随机激励或元件公差存在时，如何解除不同阶次之间的统计耦合，并定量设计最具信息量的测试信号？
 
 ## 4.2 Gâteaux 与 Fréchet 导数：算子局部敏感性的严格定义
 
-设赋范函数空间 $`\mathcal{X}$上的参考输入波形为$x_0$，沿任意扰动方向$v\in\mathcal{X}$施加幅度为$\varepsilon$的微弱探测信号。算子$\mathcal{S}$在$x_0$处沿方向$v`$ 的 **Gâteaux 导数（方向导数）** 定义为：
+设赋范函数空间 $\mathcal{X}$ 上的参考输入波形为 $x_0$，沿任意扰动方向 $v\in\mathcal{X}$ 施加幅度为 $\varepsilon$ 的微弱探测信号。算子 $\mathcal{S}$ 在 $x_0$ 处沿方向 $v$ 的 **Gâteaux 导数（方向导数）** 定义为：
 
 ```math
 D_G\mathcal S[x_0;v]
@@ -1833,20 +1881,20 @@ D_G\mathcal S[x_0;v]
 \frac{\mathcal S[x_0+\varepsilon v]-\mathcal S[x_0]}{\varepsilon}.
 ```
 
-在音频测量中，$`x_0$可以是一段正在驱动压缩器或磁带机的大幅度低频偏置信号，$v$则是一枚叠加在其上的微弱高频正弦探针或单位脉冲。此时$D_G\mathcal{S}[x_0;v]$直接刻画了**系统在工作轨迹$x_0`$ 瞬时偏置下的小信号线性化增量响应（动态微扰传递函数）**。
+在音频测量中，$x_0$ 可以是一段正在驱动压缩器或磁带机的大幅度低频偏置信号，$v$ 则是一枚叠加在其上的微弱高频正弦探针或单位脉冲。此时 $D_G\mathcal{S}[x_0;v]$ 直接刻画了**系统在工作轨迹 $x_0$ 瞬时偏置下的小信号线性化增量响应（动态微扰传递函数）**。
 
-Gâteaux 导数仅要求沿单一方向 $`v$极限存在；而更强的 **Fréchet 导数**则要求存在一个有界线性算子$D\mathcal{S}[x_0]\in\mathcal{L}(\mathcal{X},\mathcal{Y})$, 使得对所有方向上的微小扰动$h\in\mathcal{X}`$ 一致满足：
+Gâteaux 导数仅要求沿单一方向 $v$ 极限存在；而更强的 **Fréchet 导数**则要求存在一个有界线性算子 $D\mathcal{S}[x_0]\in\mathcal{L}(\mathcal{X},\mathcal{Y})$, 使得对所有方向上的微小扰动 $h\in\mathcal{X}$ 一致满足：
 
 ```math
 \lim_{\lVert h\rVert_{\mathcal{X}}\to 0}
 \frac{\bigl\lVert\mathcal S[x_0+h]-\mathcal S[x_0]-D\mathcal S[x_0](h)\bigr\rVert_{\mathcal{Y}}}{\lVert h\rVert_{\mathcal{X}}}=0,
 ```
 
-即余项满足 $`\lVert\mathcal{S}[x_0+h]-\mathcal{S}[x_0]-D\mathcal{S}[x_0](h)\rVert = o(\lVert h\rVert)$。高阶 Fréchet 导数$D^p\mathcal{S}[x_0]$则是对称的有界$p`$ 重线性算子（Multilinear Operator）。区分这两种导数具有直接的物理意义：理想硬削波或带死区折点的系统在某些轨迹上可能仅具有单侧方向导数而缺乏高阶 Fréchet 可微性，从而限制了局部泛函 Taylor 展开的有效域。
+即余项满足 $\lVert\mathcal{S}[x_0+h]-\mathcal{S}[x_0]-D\mathcal{S}[x_0](h)\rVert = o(\lVert h\rVert)$。高阶 Fréchet 导数 $D^p\mathcal{S}[x_0]$ 则是对称的有界 $p$ 重线性算子（Multilinear Operator）。区分这两种导数具有直接的物理意义：理想硬削波或带死区折点的系统在某些轨迹上可能仅具有单侧方向导数而缺乏高阶 Fréchet 可微性，从而限制了局部泛函 Taylor 展开的有效域。
 
 ## 4.3 从泛函 Taylor 展开到工作点依赖的 Volterra 核
 
-当算子 $`\mathcal{S}$在参考工作点$x_0$的邻域内满足$P`$ 阶连续 Fréchet 可微条件时，其泛函 Taylor 展开可写为：
+当算子 $\mathcal{S}$ 在参考工作点 $x_0$ 的邻域内满足 $P$ 阶连续 Fréchet 可微条件时，其泛函 Taylor 展开可写为：
 
 ```math
 \mathcal S[x_0+h]=
@@ -1854,7 +1902,7 @@ Gâteaux 导数仅要求沿单一方向 $`v$极限存在；而更强的 **Fréch
 D^p\mathcal S[x_0](\underbrace{h,\ldots,h}_{p\text{ 个}})+R_{P+1}(x_0,h).
 ```
 
-若系统因果且时不变，由 Riesz 表示定理及核表示理论，在时刻 $`n$处的第$p$阶$p$重线性映射可表示为多重离散卷积。将组合阶乘因子$1/p!`$ 吸收进对称核定义后：
+若系统因果且时不变，由 Riesz 表示定理及核表示理论，在时刻 $n$ 处的第 $p$ 阶 $p$ 重线性映射可表示为多重离散卷积。将组合阶乘因子 $1/p!$ 吸收进对称核定义后：
 
 ```math
 \frac{1}{p!}D^p\mathcal{S}[x_0](h,\ldots,h)[n]
@@ -1863,42 +1911,42 @@ h_p^{(x_0)}[k_1,\ldots,k_p]\prod_{i=1}^{p}h[n-k_i].
 ```
 
 这一严格推导揭示了两个极其关键的工程结论：
-1. **展开核对工作点 $`x_0$的依赖性**：标准 Volterra 级数是算子在零输入平衡点$x_0\equiv 0$处的 Maclaurin 展开；若设备存在直流偏置或慢变工作点漂移$x_0[n]$，则局部高阶核$h_p^{(x_0)}$会随工作点迁移（高阶核向低阶核发生缩并投影，例如零点处的三阶核$h_3$在偏置$x_0$下会向二阶核注入$3x_0 h_3`$ 的偶次不对称分量！）；
-2. **局部导数核与宽带回归核的区别**：泛函导数 $`D^p\mathcal{S}[0]$描述的是无穷小信号极限$\lVert h\rVert\to 0$下的渐近曲率；而在有限大信号范围$[-A,A]`$ 内通过最小二乘拟合得到的有限阶多项式核，则是为了最小化区间整体均方误差而包含了高阶截断余项折返修正的最佳逼近核（参见《01》第 1.11.1 节的多方差辨识）。
+1. **展开核对工作点 $x_0$ 的依赖性**：标准 Volterra 级数是算子在零输入平衡点 $x_0\equiv 0$ 处的 Maclaurin 展开；若设备存在直流偏置或慢变工作点漂移 $x_0[n]$，则局部高阶核 $h_p^{(x_0)}$ 会随工作点迁移（高阶核向低阶核发生缩并投影，例如零点处的三阶核 $h_3$ 在偏置 $x_0$ 下会向二阶核注入 $3x_0 h_3$ 的偶次不对称分量）；
+2. **局部导数核与宽带回归核的区别**：泛函导数 $D^p\mathcal{S}[0]$ 描述的是无穷小信号极限 $\lVert h\rVert\to 0$ 下的渐近曲率；而在有限大信号范围 $[-A,A]$ 内通过最小二乘拟合得到的有限阶多项式核，则是为了最小化区间整体均方误差而包含了高阶截断余项折返修正的最佳逼近核（参见《01》第 1.11.1 节的多方差辨识）。
 
 ## 4.4 衰减记忆（Fading Memory）的严格加权范数定义
 
-假设两段有界输入序列在最近 $`M$个采样点完全相同，而在$k > M`$ 的遥远过去经历过不同的激励。什么条件下我们可以用有限状态或有限窗口模型一致逼近该算子？
+假设两段有界输入序列在最近 $M$ 个采样点完全相同，而在 $k > M$ 的遥远过去经历过不同的激励。什么条件下我们可以用有限状态或有限窗口模型一致逼近该算子？
 
-按照 Boyd 与 Chua (1985) 的经典框架 [A1]，定义有界过去序列集合 $`K_M = \{x\in\ell^\infty(\mathbb{Z}_-) : \sup_{k\ge 0}\lvert x[-k]\rvert \le M_{\max}\}$，并选取一条严格正且在无穷远处单调递减趋于零的**记忆加权序列（Weighting Function）**$w_k \gt 0$（满足$\lim_{k\to\infty}w_k=0$，例如指数衰减权重$w_k=\lambda^k,\ 0\lt\lambda\lt 1`$）。定义过去序列空间上的**加权上确界范数**：
+按照 Boyd 与 Chua (1985) 的经典框架 [A1]，定义有界过去序列集合 $K_M = \{x\in\ell^\infty(\mathbb{Z}_-) : \sup_{k\ge 0}\lvert x[-k]\rvert \le M_{\max}\}$，并选取一条严格正且在无穷远处单调递减趋于零的**记忆加权序列（Weighting Function）**$w_k \gt 0$（满足 $\lim_{k\to\infty}w_k=0$，例如指数衰减权重 $w_k=\lambda^k,\ 0\lt\lambda\lt 1$）。定义过去序列空间上的**加权上确界范数**：
 
 ```math
 \lVert x-x'\rVert_w=\sup_{k\ge0}\,w_k\bigl\lvert x[-k]-x'[-k]\bigr\rvert.
 ```
 
-**定义（衰减记忆算子）**：若因果时不变算子 $`\mathcal{S}$在集合$K_M$上关于加权范数$\lVert\cdot\rVert_w$是连续的（由于$K_M$在加权范数拓扑下是紧致的，连续性自动等价于一致连续性），即对任意给定的误差容限$\varepsilon \gt 0$，存在$\delta \gt 0$，使得只要两段历史满足$\lVert P_{\le n}x - P_{\le n}x'\rVert_w \lt \delta$，就有当前输出差值$\lvert \mathcal{S}[x](n)-\mathcal{S}[x'](n)\rvert \lt \varepsilon$，则称系统$\mathcal{S}$在$K_M`$ 上具有**衰减记忆（Fading Memory）**。
+**定义（衰减记忆算子）**：若因果时不变算子 $\mathcal{S}$ 在集合 $K_M$ 上关于加权范数 $\lVert\cdot\rVert_w$ 是连续的（由于 $K_M$ 在加权范数拓扑下是紧致的，连续性自动等价于一致连续性），即对任意给定的误差容限 $\varepsilon \gt 0$，存在 $\delta \gt 0$，使得只要两段历史满足 $\lVert P_{\le n}x - P_{\le n}x'\rVert_w \lt \delta$，就有当前输出差值 $\lvert \mathcal{S}[x](n)-\mathcal{S}[x'](n)\rvert \lt \varepsilon$，则称系统 $\mathcal{S}$ 在 $K_M$ 上具有**衰减记忆（Fading Memory）**。
 
-这一加权范数直观而严谨地刻画了“远期历史权重的渐近遗忘”：由于 $`w_k\to 0$，无论两段输入在$k \gt M_0$之前相差多大（只要有界于$M_{\max}$），只要选定足够大的截断窗口$M_0$使$2M_{\max}\sup_{k\gt M_0}w_k \lt \delta$，远期历史差异在加权范数下就必然小于$\delta$，从而保证当前输出的截断误差严格小于$\varepsilon`$。
+这一加权范数直观而严谨地刻画了“远期历史权重的渐近遗忘”：由于 $w_k\to 0$，无论两段输入在 $k \gt M_0$ 之前相差多大（只要有界于 $M_{\max}$），只要选定足够大的截断窗口 $M_0$ 使 $2M_{\max}\sup_{k\gt M_0}w_k \lt \delta$，远期历史差异在加权范数下就必然小于 $\delta$，从而保证当前输出的截断误差严格小于 $\varepsilon$。
 
 ## 4.5 Boyd–Chua 通用逼近定理及其在音频建模中的推论
 
-基于上述衰减记忆定义，Boyd 与 Chua 利用紧致集 $`(K_M, \lVert\cdot\rVert_w)`$ 上的 **Stone–Weierstrass 定理**证明了非线性系统辨识中最核心的逼近定理 [A1]：
+基于上述衰减记忆定义，Boyd 与 Chua 利用紧致集 $(K_M, \lVert\cdot\rVert_w)$ 上的 **Stone–Weierstrass 定理**证明了非线性系统辨识中最核心的逼近定理 [A1]：
 
-> **定理（Boyd & Chua, 1985）**：设 $`\mathcal{S}$是定义在有界输入球$\lVert x\rVert_\infty \le M_{\max}$上的因果、时不变且具有衰减记忆的连续非线性算子。则对任意误差容限$\varepsilon \gt 0$，存在一个有限阶（$P<\infty$）、有限记忆（或由有限维稳定线性时不变滤波器组$\mathbf{L}(z)$驱动多元多项式读出函数$p(\cdot)$构成的）离散 Volterra 级数算子$\hat{\mathcal{S}}$，使得在所有输入序列$x\in K_M$与所有时刻$n`$ 上一致成立：
+> **定理（Boyd & Chua, 1985）**：设 $\mathcal{S}$ 是定义在有界输入球 $\lVert x\rVert_\infty \le M_{\max}$ 上的因果、时不变且具有衰减记忆的连续非线性算子。则对任意误差容限 $\varepsilon \gt 0$，存在一个有限阶（$P<\infty$）、有限记忆（或由有限维稳定线性时不变滤波器组 $\mathbf{L}(z)$ 驱动多元多项式读出函数 $p(\cdot)$ 构成的）离散 Volterra 级数算子 $\hat{\mathcal{S}}$，使得在所有输入序列 $x\in K_M$ 与所有时刻 $n$ 上一致成立：
 > ```math
 > \sup_{\lVert x\rVert_\infty \le M_{\max}}\ \sup_{n\in\mathbb{Z}}\bigl\lvert \mathcal{S}[x](n) - \hat{\mathcal{S}}[x](n)\bigr\rvert \lt \varepsilon.
 > ```
 
 这一定理在工程上有三项直接推论：
-1. **有限维线性滤波器组 + 多项式/神经读出的完备性**：定理中的逼近结构 $`\hat{y}[n]=p\bigl((B_1\ast x)[n],\ldots,(B_K\ast x)[n]\bigr)`$ 直接证明了第 01、03 章介绍的 **Laguerre–Volterra 网络（LVN）**、**Generalized Wiener 模型**与**前馈扩张卷积网络（WaveNet）** 能够一致逼近任意衰减记忆音频硬件；
-2. **持久磁滞的严格排除（反例定理）**：Boyd 与 Chua 在同一篇论文中证明，具有多分支剩磁或不可逆路径依赖的理想磁滞算子（以及具有双稳态触发或无穷周期保持的分频器）**违背加权范数下的连续性（即不具备衰减记忆）**，因此不可能在全输入集上由任何有限或无限阶收敛的纯前馈 Volterra 级数一致逼近。这从泛函分析层面彻底封死了“仅靠拉长前馈窗口 $`M`$ 或加深前馈 WaveNet 层数来完备复刻磁滞”的幻想；
-3. **存在性不等于低阶经济性**：Stone–Weierstrass 定理仅保证有限阶 $`P$与有限基数量$K$存在，但当目标接近强饱和折点或具有极慢松弛时间常数时，所需的$(P, K)`$ 可能超出实时 CPU 预算，此时仍需引入显式状态方程或有理逼近。
+1. **有限维线性滤波器组 + 多项式/神经读出的完备性**：定理中的逼近结构 $\hat{y}[n]=p\bigl((B_1\ast x)[n],\ldots,(B_K\ast x)[n]\bigr)$ 直接证明了第 01、03 章介绍的 **Laguerre–Volterra 网络（LVN）**、**Generalized Wiener 模型**与**前馈扩张卷积网络（WaveNet）** 能够一致逼近任意衰减记忆音频硬件；
+2. **持久磁滞的严格排除（反例定理）**：Boyd 与 Chua 在同一篇论文中证明，具有多分支剩磁或不可逆路径依赖的理想磁滞算子（以及具有双稳态触发或无穷周期保持的分频器）**违背加权范数下的连续性（即不具备衰减记忆）**，因此不可能在全输入集上由任何有限或无限阶收敛的纯前馈 Volterra 级数一致逼近。这从泛函分析层面彻底封死了“仅靠拉长前馈窗口 $M$ 或加深前馈 WaveNet 层数来完备复刻磁滞”的幻想；
+3. **存在性不等于低阶经济性**：Stone–Weierstrass 定理仅保证有限阶 $P$ 与有限基数量 $K$ 存在，但当目标接近强饱和折点或具有极慢松弛时间常数时，所需的 $(P, K)$ 可能超出实时 CPU 预算，此时仍需引入显式状态方程或有理逼近。
 
 ## 4.6 受控 Koopman 算子与扩展动态模态分解（EDMDc）
 
-当系统包含显式内部状态 $`\mathbf{s}[n]\in\mathbb{R}^d`$ 时，除了在输入历史空间做 Volterra 展开外，还可以在**状态可观测函数空间（Observable Space）** 进行线性化提升。
+当系统包含显式内部状态 $\mathbf{s}[n]\in\mathbb{R}^d$ 时，除了在输入历史空间做 Volterra 展开外，还可以在**状态可观测函数空间（Observable Space）** 进行线性化提升。
 
-对于受外部音频信号 $`u[n]$持续驱动的受控非线性状态系统$\mathbf{s}[n+1]=\mathbf{F}(\mathbf{s}[n], u[n])$，定义一组由$r`$ 个非线性基函数构成的**状态提升字典（Lifting Dictionary）**：
+对于受外部音频信号 $u[n]$ 持续驱动的受控非线性状态系统 $\mathbf{s}[n+1]=\mathbf{F}(\mathbf{s}[n], u[n])$，定义一组由 $r$ 个非线性基函数构成的**状态提升字典（Lifting Dictionary）**：
 
 ```math
 \boldsymbol{\psi}(\mathbf{s}) = \bigl[\psi_1(\mathbf{s}),\ \psi_2(\mathbf{s}),\ \ldots,\ \psi_r(\mathbf{s})\bigr]^\top \in \mathbb{R}^r,
@@ -1914,25 +1962,25 @@ h_p^{(x_0)}[k_1,\ldots,k_p]\prod_{i=1}^{p}h[n-k_i].
 \end{aligned}
 ```
 
-在给定状态—输入快照序列后，系数矩阵 $`[\mathbf{A}_{\mathcal{K}}, \mathbf{B}_{\mathcal{K}}, \mathbf{N}_{\mathcal{K}}]$可直接通过**带控制的扩展动态模态分解（EDMD with Control, EDMDc）** 用一步正则化最小二乘求出，并可通过对$\mathbf{A}_{\mathcal{K}}$施加谱半径约束（$\rho(\mathbf{A}_{\mathcal{K}})\lt 1`$）保证零输入自由演化渐近稳定。
+在给定状态—输入快照序列后，系数矩阵 $[\mathbf{A}_{\mathcal{K}}, \mathbf{B}_{\mathcal{K}}, \mathbf{N}_{\mathcal{K}}]$ 可直接通过**带控制的扩展动态模态分解（EDMD with Control, EDMDc）** 用一步正则化最小二乘求出，并可通过对 $\mathbf{A}_{\mathcal{K}}$ 施加谱半径约束（$\rho(\mathbf{A}_{\mathcal{K}})\lt 1$）保证零输入自由演化渐近稳定。
 
 ## 4.7 Carleman 线性化：多项式状态动力学的张量提升与截断
 
 与数据驱动的 Koopman 字典相平行，**Carleman 线性化（Carleman Linearization）** 针对已知解析多项式向量场的连续或离散非线性状态方程，通过构造状态的 Kronecker 幂张量将其转化为无穷维线性系统。[A3]
 
-以受输入 $`u(t)`$ 驱动的一维二次非线性状态方程为例：
+以受输入 $u(t)$ 驱动的一维二次非线性状态方程为例：
 
 ```math
 \dot{s}(t) = a_1 s(t) + a_2 s^2(t) + b_0 u(t) + b_1 s(t)u(t).
 ```
 
-定义第 $`k$阶状态单项式$z_k(t) = s^k(t)$（$k=1,2,\ldots,N_C$），由链式法则$\dot{z}_k = k s^{k-1}\dot{s}`$ 可得无穷维双线性微分方程组：
+定义第 $k$ 阶状态单项式 $z_k(t) = s^k(t)$（$k=1,2,\ldots,N_C$），由链式法则 $\dot{z}_k = k s^{k-1}\dot{s}$ 可得无穷维双线性微分方程组：
 
 ```math
 \dot{z}_k(t) = k\bigl(a_1 + b_1 u(t)\bigr)z_k(t) + k a_2\,z_{k+1}(t) + k b_0 u(t)\,z_{k-1}(t).
 ```
 
-在第 $`N_C$阶处将$z_{N_C+1}$截断置零后，原非线性状态方程即化为一个$N_C`$ 维的**双线性状态空间系统**（参见《03》第 3.6.2 节）：
+在第 $N_C$ 阶处将 $z_{N_C+1}$ 截断置零后，原非线性状态方程即化为一个 $N_C$ 维的**双线性状态空间系统**（参见《03》第 3.6.2 节）：
 
 ```math
 \dot{\mathbf{z}}(t) = \mathbf{A}_C\mathbf{z}(t) + u(t)\,\mathbf{N}_C\mathbf{z}(t) + \mathbf{b}_C u(t).
@@ -1945,20 +1993,20 @@ h_p^{(x_0)}[k_1,\ldots,k_p]\prod_{i=1}^{p}h[n-k_i].
 | 模型范式 | 核心提升/展开对象 | 数学结构优势 | 工程实现中必须检验的约束 |
 | --- | --- | --- | --- |
 | **Volterra / Laguerre-Volterra** | 输入历史乘积 / 正交极点滤波特征 | 阶次、谐波回流与跨时刻互调完全透明，参数线性凸回归 | 高阶维度增长、幂级数收敛半径与多方差局域性 |
-| **受控 Koopman / EDMDc** | 状态可观测函数字典 $`\boldsymbol{\psi}(\mathbf{s})`$ | 将非线性状态转移转化为提升空间的线性/双线性矩阵乘法 | 字典函数完备性、不变子空间闭合误差与状态可获取性 |
-| **Carleman 线性化** | 状态变量的 Kronecker 幂单项式 $`\mathbf{s}^{\otimes k}$| 无需随机训练，直接由解析电路方程导出结构化双线性矩阵 | 有限阶截断半径、高维状态维度膨胀（$O(d^{N_C})`$） |
-| **双线性状态空间 (Bilinear SSM)** | 状态与输入的一阶乘积耦合 $`\mathbf{N}\mathbf{s}[n]x[n]`$ | 极紧凑地表达电平依赖极点偏移、压缩调制与有理 Volterra 核 | 闭环 NOE 参数辨识与大信号输入下的谱半径稳定边界 |
+| **受控 Koopman / EDMDc** | 状态可观测函数字典 $\boldsymbol{\psi}(\mathbf{s})$ | 将非线性状态转移转化为提升空间的线性/双线性矩阵乘法 | 字典函数完备性、不变子空间闭合误差与状态可获取性 |
+| **Carleman 线性化** | 状态变量的 Kronecker 幂单项式 $\mathbf{s}^{\otimes k}$| 无需随机训练，直接由解析电路方程导出结构化双线性矩阵 | 有限阶截断半径、高维状态维度膨胀（$O(d^{N_C})$） |
+| **双线性状态空间 (Bilinear SSM)** | 状态与输入的一阶乘积耦合 $\mathbf{N}\mathbf{s}[n]x[n]$ | 极紧凑地表达电平依赖极点偏移、压缩调制与有理 Volterra 核 | 闭环 NOE 参数辨识与大信号输入下的谱半径稳定边界 |
 | **门控循环网络 (LSTM / GRU / ESN)** | 自适应门控隐状态或随机高维储备池 | 黑盒拟合复杂多时间尺度非线性，ESN 保持线性输出回归 | 长序列自由运行漂移、缺乏永久多稳态剩磁及物理可解释性 |
 
-![Fréchet 泛函导数偏置收缩、Boyd–Chua 衰减记忆定理与 Koopman/Carleman 线性提升图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/04_泛函导数_衰减记忆与Koopman提升图.svg)
+![Fréchet 泛函导数偏置收缩、Boyd–Chua 衰减记忆定理与 Koopman/Carleman 线性提升图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/04-01_泛函导数_衰减记忆与Koopman提升图.svg)
 
 *图 04-01：模块 I 展示 Gâteaux/Fréchet 泛函导数与非零工作点偏置 $x_0$ 下的高阶张量内积收缩定律（揭示奇对称三阶核 $\mathbf{H}_3$ 如何因动态偏置偏移衍生出二阶偶次谐波 $3x_0\sum h_3$）；模块 II 展示 Boyd–Chua 加权范数 $\|\cdot\|_w$ 下的衰减记忆逼近定理及针对剩磁分岔的显式状态增广公理；模块 III 对比 Carleman 精确张量提升、受控 Koopman（EDMDc）双线性算子提升与级联泛函李括号（Lie Bracket）非交换性判据。*
 
 ## 4.9 分数阶微积分（Fractional Calculus）：幂律衰减记忆与有理逼近实现
 
-在电子管热弛豫、铁氧体/磁带介质粘滞损耗（Magnetic After-effect / Viscosity）、扬声器悬边蠕变（Creep）以及电解电容介质吸收（Dielectric Absorption）中，系统在受激后的恢复往往不遵循单一指数衰减 $`e^{-t/\tau}$，而是跨越多个数量级时间尺度的**幂律衰减（Power-Law Decay，$t^{-\alpha}`$）**。
+在电子管热弛豫、铁氧体/磁带介质粘滞损耗（Magnetic After-effect / Viscosity）、扬声器悬边蠕变（Creep）以及电解电容介质吸收（Dielectric Absorption）中，系统在受激后的恢复往往不遵循单一指数衰减 $e^{-t/\tau}$，而是跨越多个数量级时间尺度的**幂律衰减（Power-Law Decay，$t^{-\alpha}$）**。
 
-当标量阶数满足 $`0\lt \alpha_{\mathrm{frac}}\lt 1`$ 时，连续时间 Caputo 分数阶导数与 Grünwald–Letnikov 离散分数阶差分分别定义为：
+当标量阶数满足 $0\lt \alpha_{\mathrm{frac}}\lt 1$ 时，连续时间 Caputo 分数阶导数与 Grünwald–Letnikov 离散分数阶差分分别定义为：
 
 ```math
 {}^CD_t^{\alpha_{\mathrm{frac}}} s(t)=
@@ -1969,9 +2017,9 @@ h_p^{(x_0)}[k_1,\ldots,k_p]\prod_{i=1}^{p}h[n-k_i].
 \binom{\alpha_{\mathrm{frac}}}{k}x[n-k].
 ```
 
-其中广义二项式系数满足递推关系 $`w_k^{(\alpha_{\mathrm{frac}})} = (-1)^k\binom{\alpha_{\mathrm{frac}}}{k} = \bigl(1-\frac{\alpha_{\mathrm{frac}}+1}{k}\bigr)w_{k-1}^{(\alpha_{\mathrm{frac}})}$，当延迟$k\to\infty$时按渐近幂律$O(k^{-\alpha_{\mathrm{frac}}-1})`$ 缓慢衰减（属于长尾衰减记忆，但非永久剩磁）。
+其中广义二项式系数满足递推关系 $w_k^{(\alpha_{\mathrm{frac}})} = (-1)^k\binom{\alpha_{\mathrm{frac}}}{k} = \bigl(1-\frac{\alpha_{\mathrm{frac}}+1}{k}\bigr)w_{k-1}^{(\alpha_{\mathrm{frac}})}$，当延迟 $k\to\infty$ 时按渐近幂律 $O(k^{-\alpha_{\mathrm{frac}}-1})$ 缓慢衰减（属于长尾衰减记忆，但非永久剩磁）。
 
-在实时音频插件中，直接截断 Grünwald–Letnikov 无穷级数需要数千个 FIR 抽头。更高效的工程实现是在目标听觉频带 $`[\omega_{\min}, \omega_{\max}]$（如$1\,\mathrm{Hz}\sim 20\,\mathrm{kHz}$）内，采用 **Oustaloup 递归极零点交错有理逼近**或连分式展开（CFE），将分数阶算子$s^{\alpha_{\mathrm{frac}}}$近似为$N_f$个一阶 RC 弛豫状态的并联/级联（通常取$N_f=4\sim 7$个对数等距分布的极零点对即可在全频带内将幅相误差控制在$0.2\,\mathrm{dB}`$ 以内）：[A4]
+在实时音频插件中，直接截断 Grünwald–Letnikov 无穷级数需要数千个 FIR 抽头。更高效的工程实现是在目标听觉频带 $[\omega_{\min}, \omega_{\max}]$（如 $1\,\mathrm{Hz}\sim 20\,\mathrm{kHz}$）内，采用 **Oustaloup 递归极零点交错有理逼近**或连分式展开（CFE），将分数阶算子 $s^{\alpha_{\mathrm{frac}}}$ 近似为 $N_f$ 个一阶 RC 弛豫状态的并联/级联（通常取 $N_f=4\sim 7$ 个对数等距分布的极零点对即可在全频带内将幅相误差控制在 $0.2\,\mathrm{dB}$ 以内）：[A4]
 
 ```math
 H_{\mathrm{frac}}(s) = s^{\alpha_{\mathrm{frac}}} \approx C_0 \prod_{m=1}^{N_f} \frac{1 + s/\omega_{z,m}}{1 + s/\omega_{p,m}},
@@ -1982,14 +2030,14 @@ H_{\mathrm{frac}}(s) = s^{\alpha_{\mathrm{frac}}} \approx C_0 \prod_{m=1}^{N_f} 
 ## 4.10 长尾衰减记忆与路径依赖的横向对照实验设计
 
 为了在工程中客观决定何时采用 Laguerre 正交基、何时采用分数阶极零点簇、何时采用 Play 磁滞算子，建议在统一基准下对比脉冲恢复曲线与预磁化探针响应：
-- 若余振尾部在对数—对数坐标（Log-Log Plot）下呈直线，说明系统受幂律弛豫主导，应优先选用 $`4\sim 6`$ 阶 Oustaloup 分数阶状态簇（相比数千抽头 FIR 可节省 99% 以上的乘加运算）；
+- 若余振尾部在对数—对数坐标（Log-Log Plot）下呈直线，说明系统受幂律弛豫主导，应优先选用 $4\sim 6$ 阶 Oustaloup 分数阶状态簇（相比数千抽头 FIR 可节省 99% 以上的乘加运算）；
 - 若静音足够长时间后，正负不同预激励极性下的微弱探针响应依然收敛到两条不同的基线，则说明存在非衰减的持久剩磁，必须引入第 3.6.1 节的 Play / Preisach 状态。
 
 ## 4.11 Wiener G-泛函与 Lee–Schetzen 互相关辨识法：解除阶次间的统计耦合
 
-在《01》第 1.11.1 节中我们看到，普通 Volterra 级数的单项式基 $`1, x, x^2, x^3, \ldots$在随机输入下彼此非正交（例如对零均值高斯白噪声$x[n]\sim\mathcal{N}(0,\sigma_x^2)$，有$\mathbb{E}[x[n]\cdot x^3[n]]=3\sigma_x^4\neq 0`$，导致三阶项严重污染一阶线性核的辨识）。
+在《01》第 1.11.1 节中我们看到，普通 Volterra 级数的单项式基 $1, x, x^2, x^3, \ldots$ 在随机输入下彼此非正交（例如对零均值高斯白噪声 $x[n]\sim\mathcal{N}(0,\sigma_x^2)$，有 $\mathbb{E}[x[n]\cdot x^3[n]]=3\sigma_x^4\neq 0$，导致三阶项严重污染一阶线性核的辨识）。
 
-Norbert Wiener 提出的 **Wiener G-泛函（Wiener G-functionals）** 通过在功率谱密度（方差）为 $`\sigma_x^2`$ 的高斯白噪声输入测度下对各阶 Volterra 泛函做 **Gram–Schmidt 正交化**，构造出一组满足跨阶严格统计正交的泛函展开 [A5]：
+Norbert Wiener 提出的 **Wiener G-泛函（Wiener G-functionals）** 通过在功率谱密度（方差）为 $\sigma_x^2$ 的高斯白噪声输入测度下对各阶 Volterra 泛函做 **Gram–Schmidt 正交化**，构造出一组满足跨阶严格统计正交的泛函展开 [A5]：
 
 ```math
 y[n] = \sum_{p=0}^{\infty} G_p\bigl[k_p;\,x\bigr](n),\qquad
@@ -2007,17 +2055,17 @@ G_3\bigl[k_3;\,x\bigr](n) &= \sum_{m_1,m_2,m_3=0}^{M-1}k_3[m_1,m_2,m_3]x[n-m_1]x
 \end{aligned}
 ```
 
-正是因为减去了常数项 $`-\sigma_x^2\sum k_2[m,m]$（消除二阶直流偏置对零阶的污染）与一阶回流项$-3\sigma_x^2\sum k_3[m_1,m_2,m_2]x[n-m_1]$（消除三阶奇次项对一阶线性核的增益污染），**Y. W. Lee 与 Martin Schetzen (1965)** 证明了各阶对称 Wiener 核$k_p`$ 可直接通过输出信号与高阶延迟乘积的**互相关（Lee–Schetzen Cross-Correlation Method）** 逐阶独立解出，而无需联立求解巨型病态矩阵：
+正是因为减去了常数项 $-\sigma_x^2\sum k_2[m,m]$（消除二阶直流偏置对零阶的污染）与一阶回流项 $-3\sigma_x^2\sum k_3[m_1,m_2,m_2]x[n-m_1]$（消除三阶奇次项对一阶线性核的增益污染），**Y. W. Lee 与 Martin Schetzen (1965)** 证明了各阶对称 Wiener 核 $k_p$ 可直接通过输出信号与高阶延迟乘积的**互相关（Lee–Schetzen Cross-Correlation Method）** 逐阶独立解出，而无需联立求解巨型病态矩阵：
 
 ```math
 k_p[m_1,\ldots,m_p] = \frac{1}{p!\,\sigma_x^{2p}}\,\mathbb{E}\Biggl[\Biggl(y[n]-\sum_{q=0}^{p-1}G_q[k_q;\,x](n)\Biggr)\prod_{i=1}^{p}x[n-m_i]\Biggr].
 ```
 
-当所有遅延坐标互不相同时（$`m_i\neq m_j$），由于低阶泛函与高阶多元乘积正交，公式进一步简化为直接高阶互相关$k_p[m_1,\ldots,m_p]=\frac{1}{p!\sigma_x^{2p}}\mathbb{E}[y[n]x[n-m_1]\cdots x[n-m_p]]$。辨识出最高$P$阶 Wiener 核$\{k_0,\ldots,k_P\}$后，再将上述显式公式中的相同阶次项合并同类项（例如一阶等效 Volterra 核为$h_1[m]=k_1[m]-3\sigma_x^2\sum_{m_2}k_3[m,m_2,m_2]+\cdots`$），即可还原为标准 Volterra 核。
+当所有遅延坐标互不相同时（$m_i\neq m_j$），由于低阶泛函与高阶多元乘积正交，公式进一步简化为直接高阶互相关 $k_p[m_1,\ldots,m_p]=\frac{1}{p!\sigma_x^{2p}}\mathbb{E}[y[n]x[n-m_1]\cdots x[n-m_p]]$。辨识出最高 $P$ 阶 Wiener 核 $\{k_0,\ldots,k_P\}$ 后，再将上述显式公式中的相同阶次项合并同类项（例如一阶等效 Volterra 核为 $h_1[m]=k_1[m]-3\sigma_x^2\sum_{m_2}k_3[m,m_2,m_2]+\cdots$），即可还原为标准 Volterra 核。
 
 ## 4.12 Wiener Chaos Decomposition（维纳混沌分解）在系统辨识中的确切含义
 
-在一维标量标准正态变量 $`\xi\sim\mathcal{N}(0,1)`$ 下，前几阶概率论 Hermite 多项式（Probabilists' Hermite Polynomials）定义为：
+在一维标量标准正态变量 $\xi\sim\mathcal{N}(0,1)$ 下，前几阶概率论 Hermite 多项式（Probabilists' Hermite Polynomials）定义为：
 
 ```math
 H_0(\xi)=1,\quad H_1(\xi)=\xi,\quad
@@ -2026,9 +2074,9 @@ H_3(\xi)=\xi^3-3\xi,\quad
 H_4(\xi)=\xi^4-6\xi^2+3,
 ```
 
-满足高斯测度下的正交归一关系 $`\mathbb{E}[H_m(\xi)H_n(\xi)]=n!\,\delta_{mn}`$。
+满足高斯测度下的正交归一关系 $\mathbb{E}[H_m(\xi)H_n(\xi)]=n!\,\delta_{mn}$。
 
-**Wiener Chaos Decomposition（维纳混沌分解）** 是这一正交性在无穷维高斯随机过程空间上的完备扩张定理（Cameron–Martin 定理）[A6]：任何具有有限二阶矩（$`\mathbb{E}[\lvert Y\rvert^2]\lt\infty$）且由独立标准高斯随机变量序列$\boldsymbol{\xi}=(\xi_1,\xi_2,\ldots,\xi_d)$驱动的非线性泛函输出$Y(\boldsymbol{\xi})$, 均可唯一展开为多元正交 Hermite 多项式基$\Psi_{\boldsymbol{\alpha}}(\boldsymbol{\xi})`$ 的均方收敛级数：
+**Wiener Chaos Decomposition（维纳混沌分解）** 是这一正交性在无穷维高斯随机过程空间上的完备扩张定理（Cameron–Martin 定理）[A6]：任何具有有限二阶矩（$\mathbb{E}[\lvert Y\rvert^2]\lt\infty$）且由独立标准高斯随机变量序列 $\boldsymbol{\xi}=(\xi_1,\xi_2,\ldots,\xi_d)$ 驱动的非线性泛函输出 $Y(\boldsymbol{\xi})$, 均可唯一展开为多元正交 Hermite 多项式基 $\Psi_{\boldsymbol{\alpha}}(\boldsymbol{\xi})$ 的均方收敛级数：
 
 ```math
 Y(\boldsymbol\xi)\approx
@@ -2040,13 +2088,13 @@ c_{\boldsymbol\alpha}\,
 \prod_{j=1}^{d}H_{\alpha_j}(\xi_j),
 ```
 
-其中多指标 $`\boldsymbol{\alpha}=(\alpha_1,\ldots,\alpha_d)\in\mathbb{N}_0^d$，总阶数为$\lvert\boldsymbol{\alpha}\rvert=\sum_{j=1}^d \alpha_j \le P_{\mathrm{PCE}}`$。需要再次强调，这里的“Chaos（混沌）”源自 Norbert Wiener 1938 年命名的高斯纯随机空间（Homogeneous Chaos），属**概率论与随机泛函正交基术语**，与洛伦兹吸引子、正 Lyapunov 指数等确定性非线性动力学混沌无任何关系。
+其中多指标 $\boldsymbol{\alpha}=(\alpha_1,\ldots,\alpha_d)\in\mathbb{N}_0^d$，总阶数为 $\lvert\boldsymbol{\alpha}\rvert=\sum_{j=1}^d \alpha_j \le P_{\mathrm{PCE}}$。需要再次强调，这里的“Chaos（混沌）”源自 Norbert Wiener 1938 年命名的高斯纯随机空间（Homogeneous Chaos），属**概率论与随机泛函正交基术语**，与洛伦兹吸引子、正 Lyapunov 指数等确定性非线性动力学混沌无任何关系。
 
 ## 4.13 Polynomial Chaos Expansion (PCE)：器件公差与硬件个体差异的统计建模
 
-在模拟音频硬件复刻中，同型号的两台真实机器（例如两台出厂年份不同的 LA-2A 或两台电子管前级）往往因为碳膜电阻 $`\pm 5\%\sim 10\%`$ 公差、耦合电容老化、电子管跨导离散性或 T4B 光敏电阻批次差异而呈现出可听的个体差异。
+在模拟音频硬件复刻中，同型号的两台真实机器（例如两台出厂年份不同的 LA-2A 或两台电子管前级）往往因为碳膜电阻 $\pm 5\%\sim 10\%$ 公差、耦合电容老化、电子管跨导离散性或 T4B 光敏电阻批次差异而呈现出可听的个体差异。
 
-利用 **广义多项式混沌展开（Generalized Polynomial Chaos Expansion, gPC / PCE）**（Xiu & Karniadakis, 2002）[A7]，我们可以将电路中的 $`d$个不确定器件参数（如偏置电阻、时间常数、磁芯饱和磁通）归一化为独立随机变量向量$\boldsymbol{\xi}=(\xi_1,\ldots,\xi_d)$，并根据参数的先验概率分布选择对应的 Wiener–Askey 正交多项式族（高斯分布选 Hermite 多项式，有界均匀公差区间$[-1,1]`$ 选 **Legendre 多项式**，Beta 分布选 Jacobi 多项式），将系统输出展开为：
+利用 **广义多项式混沌展开（Generalized Polynomial Chaos Expansion, gPC / PCE）**（Xiu & Karniadakis, 2002）[A7]，我们可以将电路中的 $d$ 个不确定器件参数（如偏置电阻、时间常数、磁芯饱和磁通）归一化为独立随机变量向量 $\boldsymbol{\xi}=(\xi_1,\ldots,\xi_d)$，并根据参数的先验概率分布选择对应的 Wiener–Askey 正交多项式族（高斯分布选 Hermite 多项式，有界均匀公差区间 $[-1,1]$ 选 **Legendre 多项式**，Beta 分布选 Jacobi 多项式），将系统输出展开为：
 
 ```math
 y[n;\boldsymbol\xi]\approx
@@ -2055,7 +2103,7 @@ c_{\boldsymbol\alpha}[n]\,
 \Psi_{\boldsymbol\alpha}(\boldsymbol\xi).
 ```
 
-只需在少量高斯求积节点（Stochastic Collocation）或稀疏网格上运行离线模型求出确定性系数序列 $`c_{\boldsymbol{\alpha}}[n]`$，即可利用基函数的正交性**零成本直接解析求出整个硬件种群在任意时刻的输出均值包络、方差波动带以及各元件对音色差异的全局方差贡献率（Sobol 灵敏度指标）**：
+只需在少量高斯求积节点（Stochastic Collocation）或稀疏网格上运行离线模型求出确定性系数序列 $c_{\boldsymbol{\alpha}}[n]$，即可利用基函数的正交性**零成本直接解析求出整个硬件种群在任意时刻的输出均值包络、方差波动带以及各元件对音色差异的全局方差贡献率（Sobol 灵敏度指标）**：
 
 ```math
 \mathbb E_{\boldsymbol{\xi}}\bigl[y[n;\boldsymbol\xi]\bigr]= c_{\boldsymbol0}[n],\qquad
@@ -2066,29 +2114,29 @@ c_{\boldsymbol\alpha}^2[n]\,
 S_j[n] = \frac{\sum_{\boldsymbol{\alpha}\in\mathcal{A}_j}c_{\boldsymbol{\alpha}}^2[n]\mathbb{E}[\Psi_{\boldsymbol{\alpha}}^2]}{\mathrm{Var}_{\boldsymbol{\xi}}(y[n;\boldsymbol{\xi}])}.
 ```
 
-在商业插件设计中，若某个内部元件的 Sobol 灵敏度指标 $`S_j$极高，就可以将该随机坐标$\xi_j`$ 直接暴露为插件面板上的“Variance / Tolerance / Tube Age（成色/老化度）”连续微调旋钮，从而用一套正交展开同时覆盖整个经典硬件家族的个体分布。
+在商业插件设计中，若某个内部元件的 Sobol 灵敏度指标 $S_j$ 极高，就可以将该随机坐标 $\xi_j$ 直接暴露为插件面板上的“Variance / Tolerance / Tube Age（成色/老化度）”连续微调旋钮，从而用一套正交展开同时覆盖整个经典硬件家族的个体分布。
 
 ## 4.14 可观测性与结构可辨识性：Rank 判据与参数解耦
 
-对于含内部状态与未知参数 $`\boldsymbol{\theta}\in\mathbb{R}^K`$ 的非线性模型
+对于含内部状态与未知参数 $\boldsymbol{\theta}\in\mathbb{R}^K$ 的非线性模型
 
 ```math
 \mathbf{s}[n+1]=\mathbf{F}(\mathbf{s}[n],u[n];\boldsymbol{\theta}),\qquad
 y[n]=H(\mathbf{s}[n],u[n];\boldsymbol{\theta}),
 ```
 
-在长度为 $`N$的激励序列$\mathbf{u}$下，设模型预测输出向量为$\hat{\mathbf{y}}(\boldsymbol{\theta},\mathbf{u})\in\mathbb{R}^N$。定义输出关于参数向量$\boldsymbol{\theta}`$ 的 **$N\times K$ 局部灵敏度矩阵（Sensitivity Jacobian Matrix）**：
+在长度为 $N$ 的激励序列 $\mathbf{u}$ 下，设模型预测输出向量为 $\hat{\mathbf{y}}(\boldsymbol{\theta},\mathbf{u})\in\mathbb{R}^N$。定义输出关于参数向量 $\boldsymbol{\theta}$ 的 **$N\times K$ 局部灵敏度矩阵（Sensitivity Jacobian Matrix）**：
 
 ```math
 \mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u}) = \frac{\partial \hat{\mathbf{y}}(\boldsymbol{\theta},\mathbf{u})}{\partial \boldsymbol{\theta}^\top} \in \mathbb{R}^{N\times K},\qquad
 \bigl[\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})\bigr]_{n,i} = \frac{\partial \hat{y}[n]}{\partial \theta_i}.
 ```
 
-**局部参数可辨识性判据**：在标称参数 $`\boldsymbol{\theta}_0$邻域内，模型参数由激励$\mathbf{u}$局部唯一可辨识的充要条件是灵敏度矩阵满列秩，即$\mathrm{rank}\bigl(\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})\bigr)=K$（等价于信息矩阵$\mathbf{J}_{\boldsymbol{\theta}}^\top\mathbf{J}_{\boldsymbol{\theta}}`$ 正定可逆）。若两个参数列向量线性相关（例如在第 1.9.1 节单音 ESS 激励下，Wiener–Hammerstein 前置增益与后置增益的灵敏度列完全共线），则矩阵奇异，必须通过改变激励结构（如引入双音或多幅度阶跃）打破列共线性。
+**局部参数可辨识性判据**：在标称参数 $\boldsymbol{\theta}_0$ 邻域内，模型参数由激励 $\mathbf{u}$ 局部唯一可辨识的充要条件是灵敏度矩阵满列秩，即 $\mathrm{rank}\bigl(\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})\bigr)=K$（等价于信息矩阵 $\mathbf{J}_{\boldsymbol{\theta}}^\top\mathbf{J}_{\boldsymbol{\theta}}$ 正定可逆）。若两个参数列向量线性相关（例如在第 1.9.1 节单音 ESS 激励下，Wiener–Hammerstein 前置增益与后置增益的灵敏度列完全共线），则矩阵奇异，必须通过改变激励结构（如引入双音或多幅度阶跃）打破列共线性。
 
 ## 4.15 Fisher 信息矩阵（FIM）、Cramér–Rao 下界与主动最优激励设计
 
-当测量输出包含加性高斯白噪声 $`y[n]=\hat{y}_{\boldsymbol{\theta}}[n]+w[n]$（$w[n]\sim\mathcal{N}(0,\sigma_w^2)$）时，似然函数$p(\mathbf{y}\mid\boldsymbol{\theta},\mathbf{u})`$ 对应的 **Fisher 信息矩阵（Fisher Information Matrix, FIM）** 具有极其简洁的闭式表达：
+当测量输出包含加性高斯白噪声 $y[n]=\hat{y}_{\boldsymbol{\theta}}[n]+w[n]$（$w[n]\sim\mathcal{N}(0,\sigma_w^2)$）时，似然函数 $p(\mathbf{y}\mid\boldsymbol{\theta},\mathbf{u})$ 对应的 **Fisher 信息矩阵（Fisher Information Matrix, FIM）** 具有极其简洁的闭式表达：
 
 ```math
 \mathcal I(\boldsymbol\theta;\mathbf u)=
@@ -2099,18 +2147,18 @@ y[n]=H(\mathbf{s}[n],u[n];\boldsymbol{\theta}),
 = \frac{1}{\sigma_w^2}\,\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})^\top\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u}).
 ```
 
-对于固定核 Volterra 线性回归 $`\hat{\mathbf{y}}=\mathbf{X}(\mathbf{u})\boldsymbol{\theta}$，灵敏度矩阵就是特征设计矩阵$\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})=\mathbf{X}(\mathbf{u})$，因此 Fisher 信息矩阵直接退化为$\mathcal{I}(\boldsymbol{\theta};\mathbf{u})=\frac{1}{\sigma_w^2}\mathbf{X}(\mathbf{u})^\top\mathbf{X}(\mathbf{u})$。由数理统计中的 **Cramér–Rao 不等式（CRLB）**，任何无偏参数估计器$\hat{\boldsymbol{\theta}}`$ 的协方差矩阵均受限于 Fisher 信息矩阵的逆：
+对于固定核 Volterra 线性回归 $\hat{\mathbf{y}}=\mathbf{X}(\mathbf{u})\boldsymbol{\theta}$，灵敏度矩阵就是特征设计矩阵 $\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})=\mathbf{X}(\mathbf{u})$，因此 Fisher 信息矩阵直接退化为 $\mathcal{I}(\boldsymbol{\theta};\mathbf{u})=\frac{1}{\sigma_w^2}\mathbf{X}(\mathbf{u})^\top\mathbf{X}(\mathbf{u})$。由数理统计中的 **Cramér–Rao 不等式（CRLB）**，任何无偏参数估计器 $\hat{\boldsymbol{\theta}}$ 的协方差矩阵均受限于 Fisher 信息矩阵的逆：
 
 ```math
 \mathrm{Cov}(\hat{\boldsymbol{\theta}}) \succeq \mathcal{I}(\boldsymbol{\theta};\mathbf{u})^{-1} = \sigma_w^2\bigl(\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})^\top\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})\bigr)^{-1}.
 ```
 
-这一公式将“设计什么样的测试音频最好”直接转化为一个可计算的数学优化问题——**主动最优激励设计（Optimal Input Design）**[A8]：在满足硬件安全峰值幅度 $`\lVert\mathbf{u}\rVert_\infty \le u_{\max}`$ 与频带限制的前提下，优化测试信号参数（如多音信号的频率分布、多方差台阶权重或脉冲间隔），以极小化参数置信椭球的体积或轴长：
-- **D-最优设计（D-Optimal）**：最大化 $`\log\det\mathcal{I}(\boldsymbol{\theta};\mathbf{u})`$，等价于最小化参数联合置信椭球的对数体积；
-- **A-最优设计（A-Optimal）**：最小化 $`\mathrm{tr}\bigl(\mathcal{I}(\boldsymbol{\theta};\mathbf{u})^{-1}\bigr)`$，等价于最小化所有待估核系数的平均方差；
-- **E-最优 / 条件数优化**：最大化最小特征值 $`\lambda_{\min}\bigl(\mathcal{I}(\boldsymbol{\theta};\mathbf{u})\bigr)`$，防止任何参数方向落入不可观测盲区。
+这一公式将“设计什么样的测试音频最好”直接转化为一个可计算的数学优化问题——**主动最优激励设计（Optimal Input Design）**[A8]：在满足硬件安全峰值幅度 $\lVert\mathbf{u}\rVert_\infty \le u_{\max}$ 与频带限制的前提下，优化测试信号参数（如多音信号的频率分布、多方差台阶权重或脉冲间隔），以极小化参数置信椭球的体积或轴长：
+- **D-最优设计（D-Optimal）**：最大化 $\log\det\mathcal{I}(\boldsymbol{\theta};\mathbf{u})$，等价于最小化参数联合置信椭球的对数体积；
+- **A-最优设计（A-Optimal）**：最小化 $\mathrm{tr}\bigl(\mathcal{I}(\boldsymbol{\theta};\mathbf{u})^{-1}\bigr)$，等价于最小化所有待估核系数的平均方差；
+- **E-最优 / 条件数优化**：最大化最小特征值 $\lambda_{\min}\bigl(\mathcal{I}(\boldsymbol{\theta};\mathbf{u})\bigr)$，防止任何参数方向落入不可观测盲区。
 
-![分数阶 Oustaloup 极零交错、Wiener 正交混沌展开 (PCE) 与 D-最优主动激励设计图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/04_Wiener正交混沌展开与主动激励设计图.svg)
+![分数阶 Oustaloup 极零交错、Wiener 正交混沌展开 (PCE) 与 D-最优主动激励设计图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/04-02_Wiener正交混沌展开与主动激励设计图.svg)
 
 *图 04-02：模块 I 展示分数阶幂律长尾记忆 $t^{-\alpha}$ 与 Oustaloup 负实轴极零点对数等比交错有理逼近；模块 II 展示高斯白噪声下 Wiener G-泛函的 Gram–Schmidt 正交解耦（消除 $-3\sigma_x^2$ 奇次交叉矩干扰）与用于硬件元件公差建模的多项式混沌展开（PCE）；模块 III 展示基于 Fisher 信息矩阵（FIM）的 D-最优主动激励设计（最大化 $\ln\det(\boldsymbol{\Phi}^\top\boldsymbol{\Phi})$ 收缩置信椭球）与 BIC/MDL 阶数判定。*
 
@@ -2118,12 +2166,12 @@ y[n]=H(\mathbf{s}[n],u[n];\boldsymbol{\theta}),
 
 | 实验编号 | 参考基准对象 | 参与对照的模型族 | 核心量化评估指标 |
 | --- | --- | --- | --- |
-| **Exp-A 衰减记忆逼近** | 多时间常数已知非线性系统 | 截断 FIR Volterra、Laguerre-Volterra (LVN)、ESN | 随基数量 $`K$增加的一致误差$\ell^\infty`$ 衰减率 |
+| **Exp-A 衰减记忆逼近** | 多时间常数已知非线性系统 | 截断 FIR Volterra、Laguerre-Volterra (LVN)、ESN | 随基数量 $K$ 增加的一致误差 $\ell^\infty$ 衰减率 |
 | **Exp-B 状态提升线性化** | 已知解析方程的非线性电路/压缩环路 | 受控 Koopman (EDMDc)、Carleman 截断、双线性 SSM | 闭环 Free-Run 轨迹误差、谱半径稳定裕度与每采样耗时 |
-| **Exp-C 幂律长尾弛豫** | 含粘滞磁后效或介质吸收的长尾系统 | 截断 Grünwald 分数阶、Oustaloup 有理极零簇、单极点 IIR | 对数时间轴恢复曲线误差（$`1\,\mathrm{ms}\sim 10\,\mathrm{s}`$）与滤波器阶数 |
-| **Exp-D 正交泛函解耦** | 多方差宽带激励下的电子管放大级 | 单项式幂基 Volterra、Wiener/Hermite 正交核、SNLM | 设计矩阵条件数 $`\kappa_2`$、跨电平泛化 ESR 与小信号奇次偏置 |
-| **Exp-E 器件公差传播** | 含 $`\pm 10\%`$ 随机元件公差的离线白盒电路 | Legendre/Hermite PCE、蒙特卡洛仿真（1000 次） | 均值/方差包络吻合度、Sobol 灵敏度排序与所需仿真次数 |
-| **Exp-F 主动最优激励** | 含耦合光电/偏置未知参数的灰盒压缩器 | 常规干声音乐、等距扫频、D-Optimal 信息驱动激励 | 参数估计协方差迹 $`\mathrm{tr}(\mathcal{I}^{-1})`$ 与未见测试集泛化误差 |
+| **Exp-C 幂律长尾弛豫** | 含粘滞磁后效或介质吸收的长尾系统 | 截断 Grünwald 分数阶、Oustaloup 有理极零簇、单极点 IIR | 对数时间轴恢复曲线误差（$1\,\mathrm{ms}\sim 10\,\mathrm{s}$）与滤波器阶数 |
+| **Exp-D 正交泛函解耦** | 多方差宽带激励下的电子管放大级 | 单项式幂基 Volterra、Wiener/Hermite 正交核、SNLM | 设计矩阵条件数 $\kappa_2$、跨电平泛化 ESR 与小信号奇次偏置 |
+| **Exp-E 器件公差传播** | 含 $\pm 10\%$ 随机元件公差的离线白盒电路 | Legendre/Hermite PCE、蒙特卡洛仿真（1000 次） | 均值/方差包络吻合度、Sobol 灵敏度排序与所需仿真次数 |
+| **Exp-F 主动最优激励** | 含耦合光电/偏置未知参数的灰盒压缩器 | 常规干声音乐、等距扫频、D-Optimal 信息驱动激励 | 参数估计协方差迹 $\mathrm{tr}(\mathcal{I}^{-1})$ 与未见测试集泛化误差 |
 
 ## 4.17 小结：高级理论如何赋能工程实践？
 
@@ -2152,9 +2200,11 @@ y[n]=H(\mathbf{s}[n],u[n];\boldsymbol{\theta}),
 
 ---
 
+---
+
 # 05 物理约束、模型降阶与神经代理：高精度数字建模如何进入实时音频
 
-> **版本：v3 · 2026-11-14 · 补充 DK 方法、WDF、离散梯度与 DEIM 超降阶公式版（继承 v2）**
+> **版本：v4 · 2026-11-15 · 增加 21 节点 MNA 光电压缩器、乘性神经修正与超网络部署实例**
 > **所属系列：Volterra Wiki**
 > **阅读定位：** 把《04》的系统辨识与算子理论连接到电路、结构振动、磁性材料和数值计算，研究物理先验、有限元降阶、科学机器学习与实时推理之间的工程分工。
 > **范围：** 只讨论具有具体数字建模任务的物理和数值方法。
@@ -2180,7 +2230,17 @@ y[n]=H(\mathbf{s}[n],u[n];\boldsymbol{\theta}),
 \qquad \mathbf y=\mathbf g(\mathbf z,\mathbf u,\boldsymbol\theta).
 ```
 
-其中 $`\mathbf z$包含节点电压、电感支路电流与可能的内部磁通/热状态，$\boldsymbol\theta$为元件物理参数向量，$\mathbf u`$ 为外部音频输入与偏置源。
+其中 $\mathbf z$ 包含节点电压、电感支路电流与可能的内部磁通/热状态，$\boldsymbol\theta$ 为元件物理参数向量，$\mathbf u$ 为外部音频输入与偏置源。
+
+在具体的光电压缩器实现中，**Revenger 2A 的电路主干可以作为 MNA 工程实例**：其求解器组织了 21 个节点变量，对非线性元件采用伴随电导和等效电流源的 Newton 型线性化，并将跨采样点持续演化的电容、光电相关状态留在电路求解过程中。每个采样点可以抽象为求解
+
+```math
+\mathbf F\bigl(\mathbf z[n];\mathbf z[n-1],\mathbf u[n],\mathbf c\bigr)=\mathbf 0,
+\qquad
+\mathbf J(\mathbf z^{(r)})\,\Delta\mathbf z^{(r)}=-\mathbf F(\mathbf z^{(r)}),
+```
+
+再令 $\mathbf z^{(r+1)}=\mathbf z^{(r)}+\Delta\mathbf z^{(r)}$ 迭代逼近当前时刻的一致解。实际实现还要设置不收敛回退、非有限数值清理及输入电平范围保护。这类结构与仅用一个非线性增益曲线乘以音频的模型有本质区别：**元件耦合与历史记忆由方程和持续状态共同产生**。对一般读者而言，这个案例说明 MNA 的用途；21 节点是该实例的实现规模，不能推广为 LA-2A 必须具有的固定节点数。
 
 在虚拟模拟（Virtual Analog, VA）建模中，为了兼顾无源稳定性与实时求解效率，最核心的两套结构化框架是 **离散 K 方法（Discretization-Kernel / DK-Method，状态空间分离法）** 与 **波数字滤波器（Wave Digital Filters, WDF）**：
 
@@ -2197,18 +2257,18 @@ David Yeh 等人系统化的 **DK 方法**[P8] 将线性储能元件（电容、
 \end{aligned}
 ```
 
-DK 方法的关键优势在于：无论电路包含多少个电阻、电容和运算放大器，**需要用 Newton–Raphson 迭代求解的非线性代数方程组被严格压缩到了非线性器件端口电压 $`\mathbf{v}_{\mathrm{nl}}\in\mathbb{R}^{N_{\mathrm{nl}}}`$ 的维度**：
+DK 方法的关键优势在于：无论电路包含多少个电阻、电容和运算放大器，**需要用 Newton–Raphson 迭代求解的非线性代数方程组被严格压缩到了非线性器件端口电压 $\mathbf{v}_{\mathrm{nl}}\in\mathbb{R}^{N_{\mathrm{nl}}}$ 的维度**：
 
 ```math
 \mathbf{F}_{\mathrm{DK}}(\mathbf{v}_{\mathrm{nl}}) = \mathbf{v}_{\mathrm{nl}} - \mathbf{p}[n] - \mathbf{K}\,\mathbf{i}_{\mathrm{nl}}(\mathbf{v}_{\mathrm{nl}}) = \mathbf{0},\qquad
 \mathbf{J}_{\mathrm{DK}}(\mathbf{v}_{\mathrm{nl}}) = \mathbf{I} - \mathbf{K}\,\frac{\partial \mathbf{i}_{\mathrm{nl}}(\mathbf{v}_{\mathrm{nl}})}{\partial \mathbf{v}_{\mathrm{nl}}^\top}.
 ```
 
-当某一级电路仅含单个一端口非线性元件（$`N_{\mathrm{nl}}=1$）或耗散矩阵$\mathbf{K}$对角占优时，不仅 Newton 步的矩阵求逆退化为标量除法，甚至可将一维隐式映射$p \mapsto i_{\mathrm{nl}}(v_{\mathrm{nl}}(p))`$ **离线预计算为一维均匀或切比雪夫查找表（1D LUT）**，实现零迭代的常数时间实时求值！
+当某一级电路仅含单个一端口非线性元件（$N_{\mathrm{nl}}=1$）或耗散矩阵 $\mathbf{K}$ 对角占优时，不仅 Newton 步的矩阵求逆退化为标量除法，甚至可将一维隐式映射 $p \mapsto i_{\mathrm{nl}}(v_{\mathrm{nl}}(p))$ **离线预计算为一维均匀或切比雪夫查找表（1D LUT）**，实现零迭代的常数时间实时求值。
 
 ### 5.2.2 波数字滤波器（WDF）与散射消除无延迟环
 
-Alfred Fettweis 创立、Kurt Werner 与 Alberto Bernardini 等人扩展的**波数字滤波器（Wave Digital Filters, WDF）**[P1] 则不再直接以电压 $`v$和电流$i$为变量，而是引入端口参考电阻（Port Resistance）$R_0 \gt 0$，定义**入射波$a$与反射波$b`$**：
+Alfred Fettweis 创立、Kurt Werner 与 Alberto Bernardini 等人扩展的**波数字滤波器（Wave Digital Filters, WDF）**[P1] 则不再直接以电压 $v$ 和电流 $i$ 为变量，而是引入端口参考电阻（Port Resistance）$R_0 \gt 0$，定义**入射波 $a$ 与反射波 $b$**：
 
 ```math
 a = v + R_0 i,\qquad b = v - R_0 i\qquad
@@ -2216,39 +2276,39 @@ a = v + R_0 i,\qquad b = v - R_0 i\qquad
 v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 ```
 
-通过合理选择各线性元件（电容 $`R_0=T_s/(2C)$、电感$R_0=2L/T_s$）与串并联适配器（Adaptors）的端口参考电阻，使其满足**无反射端口条件（Reflection-Free Port Condition，散射矩阵主对角元$S_{ii}=0$）**，即可将线性网络与根部非线性元件之间的无延迟反馈环（Delay-Free Loop）精确解耦，并将物理电路的无源性（Passivity）直接转化为散射矩阵的功率收缩性（$\lVert\mathbf{b}\rVert_2 \le \lVert\mathbf{a}\rVert_2$）。当电路包含多个非线性元件或非平面 R 型连接拓扑时，则可将多端口散射矩阵$\mathbf{a}=\mathbf{S}\mathbf{b}(\mathbf{a})+\mathbf{w}`$ 与波域 Newton–Raphson 或不动点松弛法结合。[P1]
+通过合理选择各线性元件（电容 $R_0=T_s/(2C)$、电感 $R_0=2L/T_s$）与串并联适配器（Adaptors）的端口参考电阻，使其满足**无反射端口条件（Reflection-Free Port Condition，散射矩阵主对角元 $S_{ii}=0$）**，即可将线性网络与根部非线性元件之间的无延迟反馈环（Delay-Free Loop）精确解耦，并将物理电路的无源性（Passivity）直接转化为散射矩阵的功率收缩性（$\lVert\mathbf{b}\rVert_2 \le \lVert\mathbf{a}\rVert_2$）。当电路包含多个非线性元件或非平面 R 型连接拓扑时，则可将多端口散射矩阵 $\mathbf{a}=\mathbf{S}\mathbf{b}(\mathbf{a})+\mathbf{w}$ 与波域 Newton–Raphson 或不动点松弛法结合。[P1]
 
 ## 5.3 能量、无源性与离散梯度法（Discrete Gradient）：超越梯形法的非线性稳定保证
 
-对于物理电路、扬声器机电耦合或磁芯系统，系统的总储存能量由 **Hamiltonian 储能函数** $`H(\mathbf{s})\ge 0$描述（如电容电荷能$q^2/(2C)$、电感磁通能$\phi^2/(2L)`$）。**端口哈密顿系统（Port-Hamiltonian System, PHS）**[P3] 将能量守恒交换、内部热/电阻耗散与外部端口注入统一写为：
+对于物理电路、扬声器机电耦合或磁芯系统，系统的总储存能量由 **Hamiltonian 储能函数** $H(\mathbf{s})\ge 0$ 描述（如电容电荷能 $q^2/(2C)$、电感磁通能 $\phi^2/(2L)$）。**端口哈密顿系统（Port-Hamiltonian System, PHS）**[P3] 将能量守恒交换、内部热/电阻耗散与外部端口注入统一写为：
 
 ```math
 \dot{\mathbf s}=\bigl[\mathbf J(\mathbf s)-\mathbf R(\mathbf s)\bigr]\nabla H(\mathbf s)+\mathbf G(\mathbf s)\mathbf u,\qquad
 \mathbf{y} = \mathbf{G}(\mathbf{s})^\top\nabla H(\mathbf{s}),
 ```
 
-其中反对称结构矩阵 $`\mathbf{J}(\mathbf{s})^\top=-\mathbf{J}(\mathbf{s})$满足$\nabla H^\top\mathbf{J}\nabla H \equiv 0$（内部能量无损流转），对称半正定耗散矩阵$\mathbf{R}(\mathbf{s})^\top=\mathbf{R}(\mathbf{s})\succeq \mathbf{0}`$ 描述不可逆损耗，从而保证连续时间下的**功率平衡与无源不等式（Passivity Inequality）**：
+其中反对称结构矩阵 $\mathbf{J}(\mathbf{s})^\top=-\mathbf{J}(\mathbf{s})$ 满足 $\nabla H^\top\mathbf{J}\nabla H \equiv 0$（内部能量无损流转），对称半正定耗散矩阵 $\mathbf{R}(\mathbf{s})^\top=\mathbf{R}(\mathbf{s})\succeq \mathbf{0}$ 描述不可逆损耗，从而保证连续时间下的**功率平衡与无源不等式（Passivity Inequality）**：
 
 ```math
 \frac{d}{dt}H(\mathbf{s}) = -\nabla H(\mathbf{s})^\top\mathbf{R}(\mathbf{s})\nabla H(\mathbf{s}) + \mathbf{y}^\top\mathbf{u} \le \mathbf{y}^\top\mathbf{u}.
 ```
 
-然而，在数字音频实现中有一个重要隐患：**当储能函数 $`H(\mathbf{s})$本身是高度非二次的强非线性函数（例如非线性变容二极管或磁芯饱和电感$H(\phi)`$）时，常规梯形法则（双线性变换）不再严格保持离散能量平衡**，在大信号高频驱动下可能产生虚假的数值能量注入并引发自激爆炸！
+然而，在数字音频实现中有一个重要隐患：**当储能函数 $H(\mathbf{s})$ 本身是高度非二次的强非线性函数（例如非线性变容二极管或磁芯饱和电感 $H(\phi)$）时，常规梯形法则（双线性变换）不再严格保持离散能量平衡**，在大信号高频驱动下可能产生虚假的数值能量注入并引发自激爆炸。
 
-为了在离散时间下严格保持非线性系统的能量平衡，Falaize & Hélie (2016) 与 Ducceschi & Bilbao (2022) 引入了**离散梯度法（Discrete Gradient Method）** 与**标量辅助变量/二次化非迭代格式**[P2][P3]：用满足方向差分恒等式与相容性条件的离散梯度算子 $`\overline{\nabla}H(\mathbf{s}_n, \mathbf{s}_{n-1})$替代连续梯度$\nabla H(\mathbf{s})`$：
+为了在离散时间下严格保持非线性系统的能量平衡，Falaize & Hélie (2016) 与 Ducceschi & Bilbao (2022) 引入了**离散梯度法（Discrete Gradient Method）** 与**标量辅助变量/二次化非迭代格式**[P2][P3]：用满足方向差分恒等式与相容性条件的离散梯度算子 $\overline{\nabla}H(\mathbf{s}_n, \mathbf{s}_{n-1})$ 替代连续梯度 $\nabla H(\mathbf{s})$：
 
 ```math
 \overline{\nabla}H(\mathbf{s}_n, \mathbf{s}_{n-1})^\top\bigl(\mathbf{s}_n - \mathbf{s}_{n-1}\bigr) = H(\mathbf{s}_n) - H(\mathbf{s}_{n-1}),\qquad
 \lim_{\mathbf{s}_n\to\mathbf{s}_{n-1}}\overline{\nabla}H(\mathbf{s}_n, \mathbf{s}_{n-1}) = \nabla H(\mathbf{s}_{n-1}).
 ```
 
-在一维标量状态 $`s`$ 下，离散梯度就是精确的割线差商：
+在一维标量状态 $s$ 下，离散梯度就是精确的割线差商：
 
 ```math
 \overline{\nabla}H(s_n, s_{n-1}) = \frac{H(s_n)-H(s_{n-1})}{s_n - s_{n-1}}.
 ```
 
-（读者可以立即发现：**一维离散梯度在数学形式上与第 01、03 章介绍的一阶反导数抗混叠 ADAA1 差商完全同构！** 这一深刻联系说明，用能量原函数的差商代替瞬时导数，不仅在频域抑制了非线性混叠，同时在时域严格保证了离散时间步长下的无条件无源稳定！）
+（读者可以立即发现：**一维离散梯度在数学形式上与第 01、03 章介绍的一阶反导数抗混叠 ADAA1 差商完全同构**。 这一深刻联系说明，用能量原函数的差商代替瞬时导数，不仅在频域抑制了非线性混叠，同时在时域严格保证了离散时间步长下的无条件无源稳定）
 
 将离散梯度代入中点离散格式，即可严格保证每一步采样更新都满足精确的离散能量耗散定律：
 
@@ -2258,7 +2318,7 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 
 从而从根源上杜绝了强过载下的数值发散。
 
-![DK 离散状态空间法、波数字滤波器 (WDF) 与端口哈密顿离散梯度无源架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/05_DK状态空间_WDF散射与离散梯度无源图.svg)
+![DK 离散状态空间法、波数字滤波器 (WDF) 与端口哈密顿离散梯度无源架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/05-01_DK状态空间_WDF散射与离散梯度无源图.svg)
 
 *图 05-01：方法 I 展示 Yeh 离散基尔霍夫状态空间法（DK-Method），将 $d$ 维线性储能状态递推与极低维（$N_{\mathrm{nl}}=1\sim 2$）非线性端口求根分离并离线烘焙为 1D/2D 样条查找表（LUT）；方法 II 展示 Fettweis 波数字滤波器（WDF），通过选择等于戴维南等效电阻的端口参考阻抗 $R_0$ 令根节点散射对角元 $S_{33}=0$，消除拓扑无延迟环；方法 III 展示端口哈密顿系统（pHS）的离散梯度法（Discrete Gradient），证明其割线差分公式 $\overline{\nabla}H=(H(s_n)-H(s_{n-1}))/(s_n-s_{n-1})$ 与一阶反导数抗混叠（$\mathrm{ADAA}_1$）严格数学同构，同时达成抗混叠与离散能量无条件单调耗散。*
 
@@ -2266,27 +2326,27 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 
 针对同一套物理方程，隐式 Euler（一阶精度，带人工高频数值阻尼）、梯形法（二阶精度，无数值阻尼但高频存在频率弯曲 Frequency Warping）与保结构离散梯度法具有不同的频响与谐波表现。
 
-在构建离线参考模型时，必须执行**时间步长自收敛测试（Step-Size Convergence Test）**：固定输入物理波形与初始状态，依次在 $`1\times, 2\times, 4\times, 8\times, 16\times, 32\times$过采样率下运行求解器，以$32\times$极细步长解作为真值基准，绘制各谐波幅度、相位与状态轨迹随步长$T_s$缩小的收敛阶曲线（验证是否达到理论的一阶$O(T_s)$或二阶$O(T_s^2)`$ 收敛斜率）。只有当离线教师模型在目标频带内达到步长收敛后，其输出才有资格作为实时模型的训练基准。
+在构建离线参考模型时，必须执行**时间步长自收敛测试（Step-Size Convergence Test）**：固定输入物理波形与初始状态，依次在 $1\times, 2\times, 4\times, 8\times, 16\times, 32\times$ 过采样率下运行求解器，以 $32\times$ 极细步长解作为真值基准，绘制各谐波幅度、相位与状态轨迹随步长 $T_s$ 缩小的收敛阶曲线（验证是否达到理论的一阶 $O(T_s)$ 或二阶 $O(T_s^2)$ 收敛斜率）。只有当离线教师模型在目标频带内达到步长收敛后，其输出才有资格作为实时模型的训练基准。
 
 ## 5.5 从有限元（FEM）到模态降阶：空间连续场的低维状态投影
 
-当建模对象涉及扬声器盆架/振膜大振幅非线性振动、弹簧混响（Spring Reverb）、钢板混响（Plate Reverb）或变压器铁芯涡流场时，偏微分方程（PDE）经空间有限元（FEM）离散后会产生维度高达 $`N_{\mathrm{FEM}}\sim 10^3\text{–}10^5`$ 的二阶微分方程组：
+当建模对象涉及扬声器盆架/振膜大振幅非线性振动、弹簧混响（Spring Reverb）、钢板混响（Plate Reverb）或变压器铁芯涡流场时，偏微分方程（PDE）经空间有限元（FEM）离散后会产生维度高达 $N_{\mathrm{FEM}}\sim 10^3\text{–}10^5$ 的二阶微分方程组：
 
 ```math
 \mathbf M\ddot{\mathbf q}(t)+\mathbf C\dot{\mathbf q}(t)+\mathbf K\mathbf q(t) + \mathbf{f}_{\mathrm{nl}}\bigl(\mathbf{q}(t)\bigr)=\mathbf b_{\mathrm{in}}\,u(t).
 ```
 
-通过求解线性化广义特征值问题 $`\mathbf{K}\boldsymbol{\phi}_i = \omega_i^2\mathbf{M}\boldsymbol{\phi}_i$，选取听觉频带内耦合最强的$r\ll N_{\mathrm{FEM}}$个本征模态组成模态矩阵$\boldsymbol{\Phi}_r=[\boldsymbol{\phi}_1,\ldots,\boldsymbol{\phi}_r]\in\mathbb{R}^{N_{\mathrm{FEM}}\times r}$（满足质量正交化$\boldsymbol{\Phi}_r^\top\mathbf{M}\boldsymbol{\Phi}_r=\mathbf{I}_r$），做 Galerkin 投影$\mathbf{q}(t)\approx\boldsymbol{\Phi}_r\mathbf{a}(t)$，即可将线性部分对角化为$r`$ 个二阶模态振子：
+通过求解线性化广义特征值问题 $\mathbf{K}\boldsymbol{\phi}_i = \omega_i^2\mathbf{M}\boldsymbol{\phi}_i$，选取听觉频带内耦合最强的 $r\ll N_{\mathrm{FEM}}$ 个本征模态组成模态矩阵 $\boldsymbol{\Phi}_r=[\boldsymbol{\phi}_1,\ldots,\boldsymbol{\phi}_r]\in\mathbb{R}^{N_{\mathrm{FEM}}\times r}$（满足质量正交化 $\boldsymbol{\Phi}_r^\top\mathbf{M}\boldsymbol{\Phi}_r=\mathbf{I}_r$），做 Galerkin 投影 $\mathbf{q}(t)\approx\boldsymbol{\Phi}_r\mathbf{a}(t)$，即可将线性部分对角化为 $r$ 个二阶模态振子：
 
 ```math
 \ddot{\mathbf{a}}(t) + \mathbf{\Gamma}_r\dot{\mathbf{a}}(t) + \mathbf{\Omega}_r^2\mathbf{a}(t) + \boldsymbol{\Phi}_r^\top\mathbf{f}_{\mathrm{nl}}\bigl(\boldsymbol{\Phi}_r\mathbf{a}(t)\bigr) = \bigl(\boldsymbol{\Phi}_r^\top\mathbf{b}_{\mathrm{in}}\bigr)u(t).
 ```
 
-这里需要明确区分：**有限元模态降阶压缩的是物理空间自由度 $`\mathbf{q}\in\mathbb{R}^{N_{\mathrm{FEM}}}`$**，而第 01、03 章的 **Volterra 低秩/Laguerre 约简压缩的是时间历史核坐标**。两者可在多物理场音频设备中无缝衔接。
+这里需要明确区分：**有限元模态降阶压缩的是物理空间自由度 $\mathbf{q}\in\mathbb{R}^{N_{\mathrm{FEM}}}$**，而第 01、03 章的 **Volterra 低秩/Laguerre 约简压缩的是时间历史核坐标**。两者可在多物理场音频设备中无缝衔接。
 
 ## 5.6 POD、SVD 与 DEIM 超降阶：突破非线性投影的计算瓶颈
 
-对于缺乏解析本征模态的强非线性场，可通过离线收集 $`N_s$个时间步的状态快照矩阵$\mathbf{X}_{\mathrm{snap}}=[\mathbf{q}(t_1),\ldots,\mathbf{q}(t_{N_s})]\in\mathbb{R}^{N_{\mathrm{FEM}}\times N_s}`$，执行奇异值分解（SVD）构建**本征正交分解（Proper Orthogonal Decomposition, POD）** 基底：
+对于缺乏解析本征模态的强非线性场，可通过离线收集 $N_s$ 个时间步的状态快照矩阵 $\mathbf{X}_{\mathrm{snap}}=[\mathbf{q}(t_1),\ldots,\mathbf{q}(t_{N_s})]\in\mathbb{R}^{N_{\mathrm{FEM}}\times N_s}$，执行奇异值分解（SVD）构建**本征正交分解（Proper Orthogonal Decomposition, POD）** 基底：
 
 ```math
 \mathbf X_{\mathrm{snap}}=\mathbf U\boldsymbol\Sigma\mathbf V^\top,\qquad
@@ -2300,42 +2360,55 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 \tilde{\mathbf{f}}_{\mathrm{nl}}(\mathbf{a}) = \underbrace{\boldsymbol{\Phi}_r^\top}_{r\times N_{\mathrm{FEM}}}\,\mathbf{f}_{\mathrm{nl}}\bigl(\underbrace{\boldsymbol{\Phi}_r\mathbf{a}}_{N_{\mathrm{FEM}}\times 1}\bigr)
 ```
 
-时，会出现一个著名的**伪降阶瓶颈（Lifting Bottleneck）**：为了算出 $`r$维向量$\tilde{\mathbf{f}}_{\mathrm{nl}}(\mathbf{a})$，程序必须先耗费$O(N_{\mathrm{FEM}}\cdot r)$将$\mathbf{a}$还原回$N_{\mathrm{FEM}}$维全空间，在全部$N_{\mathrm{FEM}}$个网格节点上逐点计算非线性函数$\mathbf{f}_{\mathrm{nl}}$，再耗费$O(r\cdot N_{\mathrm{FEM}})$投影回$r$维空间——其每采样计算复杂度依然与庞大的原始网格数$N_{\mathrm{FEM}}`$ 成正比，根本无法实时运行！
+时，会出现一个著名的**伪降阶瓶颈（Lifting Bottleneck）**：为了算出 $r$ 维向量 $\tilde{\mathbf{f}}_{\mathrm{nl}}(\mathbf{a})$，程序必须先耗费 $O(N_{\mathrm{FEM}}\cdot r)$ 将 $\mathbf{a}$ 还原回 $N_{\mathrm{FEM}}$ 维全空间，在全部 $N_{\mathrm{FEM}}$ 个网格节点上逐点计算非线性函数 $\mathbf{f}_{\mathrm{nl}}$，再耗费 $O(r\cdot N_{\mathrm{FEM}})$ 投影回 $r$ 维空间——其每采样计算复杂度依然与庞大的原始网格数 $N_{\mathrm{FEM}}$ 成正比，根本无法实时运行。
 
-为了彻底切断对全维网格 $`N_{\mathrm{FEM}}`$ 的依赖，必须引入**离散经验插值法（Discrete Empirical Interpolation Method, DEIM）** 等**超降阶（Hyper-Reduction）** 技术 [P9]：
-1. 对离线收集的非线性力快照矩阵 $`[\mathbf{f}_{\mathrm{nl}}(\mathbf{q}(t_1)),\ldots,\mathbf{f}_{\mathrm{nl}}(\mathbf{q}(t_{N_s}))]$再次执行 POD，提取$m$个非线性力基向量$\mathbf{U}_f\in\mathbb{R}^{N_{\mathrm{FEM}}\times m}$（$m\sim r \ll N_{\mathrm{FEM}}`$）；
-2. 利用贪心行枢轴选择算法，在原始网格中仅挑选 **$m$ 个最具代表性的空间插值采样点（Magic Points）**，记对应的行抽取选择矩阵为 $`\mathbf{P}=[\mathbf{e}_{p_1},\ldots,\mathbf{e}_{p_m}]\in\mathbb{R}^{N_{\mathrm{FEM}}\times m}`$；
-3. 预计算常矩阵 $`\mathbf{W}_{\mathrm{DEIM}} = \boldsymbol{\Phi}_r^\top\mathbf{U}_f(\mathbf{P}^\top\mathbf{U}_f)^{-1}\in\mathbb{R}^{r\times m}$与抽取基$\boldsymbol{\Phi}_{r,\mathbf{P}}=\mathbf{P}^\top\boldsymbol{\Phi}_r\in\mathbb{R}^{m\times r}$，则实时非线性模态力可**仅在这$m`$ 个空间网格点上求值**：
+为了彻底切断对全维网格 $N_{\mathrm{FEM}}$ 的依赖，必须引入**离散经验插值法（Discrete Empirical Interpolation Method, DEIM）** 等**超降阶（Hyper-Reduction）** 技术 [P9]：
+1. 对离线收集的非线性力快照矩阵 $[\mathbf{f}_{\mathrm{nl}}(\mathbf{q}(t_1)),\ldots,\mathbf{f}_{\mathrm{nl}}(\mathbf{q}(t_{N_s}))]$ 再次执行 POD，提取 $m$ 个非线性力基向量 $\mathbf{U}_f\in\mathbb{R}^{N_{\mathrm{FEM}}\times m}$（$m\sim r \ll N_{\mathrm{FEM}}$）；
+2. 利用贪心行枢轴选择算法，在原始网格中仅挑选 **$m$ 个最具代表性的空间插值采样点（Magic Points）**，记对应的行抽取选择矩阵为 $\mathbf{P}=[\mathbf{e}_{p_1},\ldots,\mathbf{e}_{p_m}]\in\mathbb{R}^{N_{\mathrm{FEM}}\times m}$；
+3. 预计算常矩阵 $\mathbf{W}_{\mathrm{DEIM}} = \boldsymbol{\Phi}_r^\top\mathbf{U}_f(\mathbf{P}^\top\mathbf{U}_f)^{-1}\in\mathbb{R}^{r\times m}$ 与抽取基 $\boldsymbol{\Phi}_{r,\mathbf{P}}=\mathbf{P}^\top\boldsymbol{\Phi}_r\in\mathbb{R}^{m\times r}$，则实时非线性模态力可**仅在这 $m$ 个空间网格点上求值**：
 
 ```math
 \tilde{\mathbf{f}}_{\mathrm{nl}}(\mathbf{a}) \approx \mathbf{W}_{\mathrm{DEIM}}\,\mathbf{f}_{\mathrm{nl}}\bigl(\boldsymbol{\Phi}_{r,\mathbf{P}}\mathbf{a}\bigr).
 ```
 
-通过 DEIM 超降阶（或将 $`r$维模态力$\tilde{\mathbf{f}}_{\mathrm{nl}}(\mathbf{a})$直接拟合成低阶多元 Chebyshev/Volterra 多项式），每采样点非线性运算复杂度从$O(N_{\mathrm{FEM}})$彻底降至与原始网格规模无关的$O(r\cdot m)$，使有限元物理模型真正具备进入$48\,\mathrm{kHz}`$ 实时音频插件的能力。
+通过 DEIM 超降阶（或将 $r$ 维模态力 $\tilde{\mathbf{f}}_{\mathrm{nl}}(\mathbf{a})$ 直接拟合成低阶多元 Chebyshev/Volterra 多项式），每采样点非线性运算复杂度从 $O(N_{\mathrm{FEM}})$ 彻底降至与原始网格规模无关的 $O(r\cdot m)$，使有限元物理模型真正具备进入 $48\,\mathrm{kHz}$ 实时音频插件的能力。
 
 ## 5.7 器件公差与虚拟硬件族群：结合 PCE 指导参数化设计
 
-将白盒 DAE 求解器与《04》第 4.13 节的广义多项式混沌展开（PCE）相结合，可以在离线阶段对真实硬件的元件公差（如电阻 $`\pm 5\%$、电容$\pm 10\%`$、电子管跨导离散度）进行高效不确定性量化。这不仅能区分“单台参考样机的元件老化偏差”与“电路拓扑的固有特性”，还能根据各元件的 Sobol 灵敏度指标决定哪些内部物理量值得暴露为用户可调的校准旋钮。
+将白盒 DAE 求解器与《04》第 4.13 节的广义多项式混沌展开（PCE）相结合，可以在离线阶段对真实硬件的元件公差（如电阻 $\pm 5\%$、电容 $\pm 10\%$、电子管跨导离散度）进行高效不确定性量化。这不仅能区分“单台参考样机的元件老化偏差”与“电路拓扑的固有特性”，还能根据各元件的 Sobol 灵敏度指标决定哪些内部物理量值得暴露为用户可调的校准旋钮。
 
 ## 5.8 物理白盒与神经网络的可解释协同与残差边界
 
-如《03》第 3.8 节所建立的四种协同模式，当拥有实时可运行的简化白盒或唯象模型 $`y_P[n]$（带内部物理状态$\mathbf{s}_P[n]`$）时，神经网络的引入应当严格遵循**最小侵入原则**：
-- 在输出端做加性残差修正 $`\hat{y}[n]=y_P[n]+\Delta y_{\boldsymbol{\theta}}(\mathbf{x}_n, \mathbf{s}_P[n])$时，必须将物理状态$\mathbf{s}_P[n]`$（如瞬时偏置电压、增益衰减状态或磁通估计）一并作为残差网络的辅助条件输入，否则纯短窗前馈残差网络将因看不见慢变物理状态而无法拟合依赖工作点的残余失真；
-- 在状态转移方程内部做灰盒修正 $`\mathbf{s}[n+1]=\mathbf{G}_P(\mathbf{s}[n],u[n])+\Delta\mathbf{G}_{\boldsymbol{\theta}}(\mathbf{s}[n],u[n])`$ 时，则必须施加第 5.3 节的无源耗散约束或第 3.8.1 节的闭环 NOE 稳定性约束。
+如《03》第 3.8 节所建立的四种协同模式，当拥有实时可运行的简化白盒或唯象模型 $y_P[n]$（带内部物理状态 $\mathbf{s}_P[n]$）时，神经网络的引入应当严格遵循**最小侵入原则**：
+- 在输出端做加性残差修正 $\hat{y}[n]=y_P[n]+\Delta y_{\boldsymbol{\theta}}(\mathbf{x}_n, \mathbf{s}_P[n])$ 时，必须将物理状态 $\mathbf{s}_P[n]$（如瞬时偏置电压、增益衰减状态或磁通估计）一并作为残差网络的辅助条件输入，否则纯短窗前馈残差网络将因看不见慢变物理状态而无法拟合依赖工作点的残余失真；
+- 在状态转移方程内部做灰盒修正 $\mathbf{s}[n+1]=\mathbf{G}_P(\mathbf{s}[n],u[n])+\Delta\mathbf{G}_{\boldsymbol{\theta}}(\mathbf{s}[n],u[n])$ 时，则必须施加第 5.3 节的无源耗散约束或第 3.8.1 节的闭环 NOE 稳定性约束。
+
+还应区分**波形加性残差**与**控制量乘性残差**。以 Revenger 2A 的 Unit A 为例，神经修正可以先对一帧输入/输出能量和峰值特征作编码，再由小型递归网络估计一项标量增益修正：
+
+```math
+\mathbf r[k+1]=\mathcal R_{\boldsymbol\theta}(\mathbf r[k],\mathbf f[k]),\qquad
+\hat y[n]=g_{\boldsymbol\theta}[k]y_P[n],\quad n\in\mathcal B_k.
+```
+
+实际播放时需要将帧级增益 $g_{\boldsymbol\theta}[k]$ 在相邻帧之间平滑过渡，避免块边界阶跃。这样的网络负责校正电路模型在不同压缩状态下的**动态增益误差**，并不意味着网络承担整个谐波信号的加性重建。控制量残差的优点是输出维度小、容易约束；代价是它无法独立补足所有与输入频率相关的波形失真，仍需通过更丰富的残差特征或物理分支处理。
+
+![物理电路求解与神经网络帧级增益修正的混合结构](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/05-02_MNA物理求解与RNN增益修正图.svg)
+
+*图 05-02｜以光电压缩器为例：MNA 求解器提供物理主干，轻量递归网络生成平滑的乘性增益校正。*
 
 ## 5.9 神经元件代理（Component Surrogate）与隐式代数环的单调性约束
 
-在模式 4（子系统代理）中，我们保留完整电路的 MNA / DK / WDF 拓扑，仅用小型神经网络或 Chebyshev/样条代理模型 $`\hat{\mathbf{i}}_{\mathrm{nl}}(\mathbf{v}_{\mathrm{nl}})`$ 替换计算昂贵的多极真空管（如三极管/五极管跨导与栅极电流曲面）或磁滞本构关系。
+在模式 4（子系统代理）中，我们保留完整电路的 MNA / DK / WDF 拓扑，仅用小型神经网络或 Chebyshev/样条代理模型 $\hat{\mathbf{i}}_{\mathrm{nl}}(\mathbf{v}_{\mathrm{nl}})$ 替换计算昂贵的多极真空管（如三极管/五极管跨导与栅极电流曲面）或磁滞本构关系。
 
-这里有一个极易导致实时插件崩溃的数值陷阱：如果代理模型 $\hat{\mathbf{i}}_{\mathrm{nl}}(\mathbf{v}_{\mathrm{nl}})$ 位于电路的隐式反馈回路（即 DK 方法方程 $\mathbf{v}_{\mathrm{nl}}-\mathbf{p}-\mathbf{K}\hat{\mathbf{i}}_{\mathrm{nl}}(\mathbf{v}_{\mathrm{nl}})=\mathbf{0}$）中，**一个在均方误差上拟合得很准、但局部导数（斜率）存在非物理负阻波动或高频振荡的神经网络，会直接破坏 Jacobian 矩阵 $\mathbf{I}-\mathbf{K}\nabla\hat{\mathbf{i}}_{\mathrm{nl}}$ 的单调正定性，导致 Newton–Raphson 求解器在多个伪解之间跳变或迭代发散！**
+这里有一个极易导致实时插件崩溃的数值陷阱：如果代理模型 $\hat{\mathbf{i}}_{\mathrm{nl}}(\mathbf{v}_{\mathrm{nl}})$ 位于电路的隐式反馈回路（即 DK 方法方程 $\mathbf{v}_{\mathrm{nl}}-\mathbf{p}-\mathbf{K}\hat{\mathbf{i}}_{\mathrm{nl}}(\mathbf{v}_{\mathrm{nl}})=\mathbf{0}$）中，**一个在均方误差上拟合得很准、但局部导数（斜率）存在非物理负阻波动或高频振荡的神经网络，会直接破坏 Jacobian 矩阵 $\mathbf{I}-\mathbf{K}\nabla\hat{\mathbf{i}}_{\mathrm{nl}}$ 的单调正定性，导致 Newton–Raphson 求解器在多个伪解之间跳变或迭代发散**。
 
 因此，嵌入隐式电路求解器的元件代理模型必须满足两项严格要求：
-1. **单调性与增量无源约束（Monotonicity & Incremental Passivity）**：对无源或单调有源器件端口，强制代理映射的 Jacobian 满足半正定单调性 $`\frac{\partial \hat{\mathbf{i}}_{\mathrm{nl}}}{\partial \mathbf{v}_{\mathrm{nl}}^\top} \succeq \mathbf{0}$（例如采用单调神经网络架构、正权重激活组合或带导数惩罚的 Hermite 样条插值），从数学上保证隐式方程在任意输入$\mathbf{p}[n]`$ 下存在**全局唯一解**且 Newton 迭代二次收敛；
-2. **解析预消解（Pre-computation out of the Loop）**：一旦元件代理确定，尽可能将隐式求根过程 $`\mathbf{p}\mapsto \hat{\mathbf{i}}_{\mathrm{nl}}(\mathbf{v}_{\mathrm{nl}}(\mathbf{p}))`$ 在离线阶段预计算并固化为直接映射代理或紧凑查找表，避免在实时音频回调的每个采样点内重复执行神经网络前向与 Jacobian 反向求导。
+1. **单调性与增量无源约束（Monotonicity & Incremental Passivity）**：对无源或单调有源器件端口，强制代理映射的 Jacobian 满足半正定单调性 $\frac{\partial \hat{\mathbf{i}}_{\mathrm{nl}}}{\partial \mathbf{v}_{\mathrm{nl}}^\top} \succeq \mathbf{0}$（例如采用单调神经网络架构、正权重激活组合或带导数惩罚的 Hermite 样条插值），从数学上保证隐式方程在任意输入 $\mathbf{p}[n]$ 下存在**全局唯一解**且 Newton 迭代二次收敛；
+2. **解析预消解（Pre-computation out of the Loop）**：一旦元件代理确定，尽可能将隐式求根过程 $\mathbf{p}\mapsto \hat{\mathbf{i}}_{\mathrm{nl}}(\mathbf{v}_{\mathrm{nl}}(\mathbf{p}))$ 在离线阶段预计算并固化为直接映射代理或紧凑查找表，避免在实时音频回调的每个采样点内重复执行神经网络前向与 Jacobian 反向求导。
 
 ## 5.10 神经算子（Neural Operators）：从一维时间序列到多维物理场代理
 
-当离线教师是依赖于几何尺寸、材料分布 $`a(\mathbf{r})$与空间激励$u(\mathbf{r},t)$的偏微分方程场（如箱体声学辐射或磁头三维边缘场）时，**神经算子（Neural Operators）**——如 **DeepONet**（通过 Branch Net 编码输入函数、Trunk Net 编码时空查询坐标）[P4] 与 **Fourier Neural Operator (FNO)**（在频域参数化全局积分核）[P5]——提供了在无穷维函数空间之间直接学习算子映射$\mathcal{G}_{\boldsymbol{\theta}}: (a, u)\mapsto q(\mathbf{r},t)`$ 的工具。
+当离线教师是依赖于几何尺寸、材料分布 $a(\mathbf{r})$ 与空间激励 $u(\mathbf{r},t)$ 的偏微分方程场（如箱体声学辐射或磁头三维边缘场）时，**神经算子（Neural Operators）**——如 **DeepONet**（通过 Branch Net 编码输入函数、Trunk Net 编码时空查询坐标）[P4] 与 **Fourier Neural Operator (FNO)**（在频域参数化全局积分核）[P5]——提供了在无穷维函数空间之间直接学习算子映射 $\mathcal{G}_{\boldsymbol{\theta}}: (a, u)\mapsto q(\mathbf{r},t)$ 的工具。
 
 在音频工程分工中，DeepONet 与 FNO 主要定位于**研发阶段的快速离线参数空间探索与合成数据生成**（代替耗时数小时的 FEM 网格重划分与求解）；若最终目标只是一个单点或双声道的实时效果器插件，仍应将神经算子生成的响应进一步蒸馏为第 5.5–5.6 节的低维模态状态或 Volterra/NAM 实时架构。
 
@@ -2351,29 +2424,29 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 +\lambda_B\mathcal L_{\rm boundary}(\boldsymbol\theta).
 ```
 
-在实际音频电路与磁滞训练中，直接相加这四项损失往往会遭遇严重的**量纲失配与多任务梯度冲突**：例如电路中的电容参数在纳法（$`10^{-9}\,\mathrm{F}$）量级、电阻在百千欧（$10^5\,\Omega$）量级，而音频采样率在$4.8\times 10^4\,\mathrm{Hz}$量级，未归一化的时间导数项$\dot{\mathbf{z}}$与微分方程残差$\mathcal{R}_F$的梯度范数可能比数据波形误差$\lVert\mathbf{y}_{\mathrm{ref}}-\hat{\mathbf{y}}\rVert^2$大出$6\sim 10`$ 个数量级，导致优化器完全忽略真实硬件录音数据而退化为拟合一个参数不准的理想方程。
+在实际音频电路与磁滞训练中，直接相加这四项损失往往会遭遇严重的**量纲失配与多任务梯度冲突**：例如电路中的电容参数在纳法（$10^{-9}\,\mathrm{F}$）量级、电阻在百千欧（$10^5\,\Omega$）量级，而音频采样率在 $4.8\times 10^4\,\mathrm{Hz}$ 量级，未归一化的时间导数项 $\dot{\mathbf{z}}$ 与微分方程残差 $\mathcal{R}_F$ 的梯度范数可能比数据波形误差 $\lVert\mathbf{y}_{\mathrm{ref}}-\hat{\mathbf{y}}\rVert^2$ 大出 $6\sim 10$ 个数量级，导致优化器完全忽略真实硬件录音数据而退化为拟合一个参数不准的理想方程。
 
 为此必须执行两步规范化处理：
-1. **无量纲化（Non-dimensionalization）**：在构造物理残差 $`\mathcal{R}_F$前，先用特征参考电压$V_0$、特征参考电流$I_0$与特征时间尺度$\tau_0$将所有电路状态、时间和阻抗无量纲化至$O(1)`$ 量级；
-2. **动态梯度范数平衡（Gradient Norm Balancing）**：在训练迭代中定期统计各项损失对网络权重的梯度范数 $`\lVert\nabla_{\boldsymbol{\theta}}\mathcal{L}_k\rVert_2$，动态更新权重系数$\lambda_k$使其梯度幅值保持在同一数量级，并在物理先验不完备的区域以实测配对音频误差$\mathcal{L}_y`$ 为最终判据。
+1. **无量纲化（Non-dimensionalization）**：在构造物理残差 $\mathcal{R}_F$ 前，先用特征参考电压 $V_0$、特征参考电流 $I_0$ 与特征时间尺度 $\tau_0$ 将所有电路状态、时间和阻抗无量纲化至 $O(1)$ 量级；
+2. **动态梯度范数平衡（Gradient Norm Balancing）**：在训练迭代中定期统计各项损失对网络权重的梯度范数 $\lVert\nabla_{\boldsymbol{\theta}}\mathcal{L}_k\rVert_2$，动态更新权重系数 $\lambda_k$ 使其梯度幅值保持在同一数量级，并在物理先验不完备的区域以实测配对音频误差 $\mathcal{L}_y$ 为最终判据。
 
 ## 5.12 多速率实时部署与硬实时音频线程安全规范
 
 一套工业级混合音频插件通常包含三个运行速率层级：
-1. **过采样高频非线性层（$`2\times\sim 8\times f_s`$）**：运行核心无记忆/短记忆强非线性乘积、隐式元件求解或小型神经残差；
-2. **基带采样率层（$`1\times f_s`$）**：运行一阶长线性 FIR/IIR、Laguerre/Kautz 正交基滤波器组、无分母多项式 ADAA 支路以及包络/磁滞状态更新；
-3. **控制率 / 降采样慢速状态层（$`f_s/8\sim f_s/64`$ 或每音频块 Sub-block 更新）**：更新热时间常数、慢速电源恢复、面板旋钮平滑（Parameter Smoothing）与状态条件化核系数插值。
+1. **过采样高频非线性层（$2\times\sim 8\times f_s$）**：运行核心无记忆/短记忆强非线性乘积、隐式元件求解或小型神经残差；
+2. **基带采样率层（$1\times f_s$）**：运行一阶长线性 FIR/IIR、Laguerre/Kautz 正交基滤波器组、无分母多项式 ADAA 支路以及包络/磁滞状态更新；
+3. **控制率 / 降采样慢速状态层（$f_s/8\sim f_s/64$ 或每音频块 Sub-block 更新）**：更新热时间常数、慢速电源恢复、面板旋钮平滑（Parameter Smoothing）与状态条件化核系数插值。
 
 同时，任何进入 VST3 / AU / AAX `processBlock()` 回调的代码必须严格遵守**硬实时音频线程安全规范（Real-Time Audio Thread Safety）**：
 - **零动态内存分配**：所有延迟线缓冲、FFT 工作区、Laguerre 状态与网络中间激活张量必须在 `prepareToPlay(sampleRate, maxBlockSize)` 阶段一次性预分配完毕，实时回调内严禁调用 `new`、`malloc`、`std::vector::push_back`；
 - **零阻塞同步原语**：严禁在音频线程中使用 `std::mutex`、文件 I/O 或系统调用；UI 线程与音频线程之间的旋钮参数与预设切换必须通过无锁原子变量（`std::atomic`）或无锁环形缓冲区（Lock-free SPSC Ring Buffer）传递；
-- **禁用非规格化浮点数（Flush-to-Zero / Denormals-Are-Zero, FTZ/DAZ）**：IIR 滤波器、Laguerre 全通链与慢速包络在静音衰减至 $`10^{-38}`$ 以下时会触发 CPU 微码级非规格化数（Subnormal Numbers）异常处理，导致 CPU 占用瞬间暴增数十倍，必须在音频块入口统一开启硬件 FTZ/DAZ 标志位。
+- **禁用非规格化浮点数（Flush-to-Zero / Denormals-Are-Zero, FTZ/DAZ）**：IIR 滤波器、Laguerre 全通链与慢速包络在静音衰减至 $10^{-38}$ 以下时会触发 CPU 微码级非规格化数（Subnormal Numbers）异常处理，导致 CPU 占用瞬间暴增数十倍，必须在音频块入口统一开启硬件 FTZ/DAZ 标志位。
 
 ## 5.13 离线白盒教师到实时混合学生的两阶段蒸馏管线
 
 当高精度白盒或 FEM+DAE 模型过于庞大而无法直接满足上述硬实时约束时，可采用**离线物理教师 $\to$ 实时混合学生（Teacher–Student Distillation）** 管线：
-1. **第一阶段（硬件校准离线教师）**：利用真实硬件的多方差扫频、双音与瞬态配对数据，校准离线白盒教师模型中的未知元件本构参数（记录**硬件—教师误差 $`E_{\mathrm{HW}\to\mathrm{T}}`$**）；
-2. **第二阶段（合成全覆盖激励蒸馏实时学生）**：利用校准后的离线教师生成覆盖全部旋钮组合、极端过载与多分支磁滞轨迹的大规模无噪合成数据集（并可导出教师的内部物理状态轨迹 $`\mathbf{s}_{\mathrm{T}}[n]$作为中间监督信号），训练紧凑的实时混合学生模型（如“Laguerre-Volterra + RD-Play 状态 + 微型残差网络”，记录**教师—学生误差$E_{\mathrm{T}\to\mathrm{S}}`$**）。
+1. **第一阶段（硬件校准离线教师）**：利用真实硬件的多方差扫频、双音与瞬态配对数据，校准离线白盒教师模型中的未知元件本构参数（记录**硬件—教师误差 $E_{\mathrm{HW}\to\mathrm{T}}$**）；
+2. **第二阶段（合成全覆盖激励蒸馏实时学生）**：利用校准后的离线教师生成覆盖全部旋钮组合、极端过载与多分支磁滞轨迹的大规模无噪合成数据集（并可导出教师的内部物理状态轨迹 $\mathbf{s}_{\mathrm{T}}[n]$ 作为中间监督信号），训练紧凑的实时混合学生模型（如“Laguerre-Volterra + RD-Play 状态 + 微型残差网络”，记录**教师—学生误差 $E_{\mathrm{T}\to\mathrm{S}}$**）。
 
 由三角不等式，最终插件相对于真实硬件的总体逼近误差受控于两段误差之和：
 
@@ -2385,19 +2458,21 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 
 将这两段误差分开归档，就能在听感或指标不达标时立即定位问题究竟出在“物理方程未校准硬件”，还是“实时学生结构约简过度”。
 
+除了固定参数的学生网络，也可以采用**参数生成网络 + 流式学生网络**的部署形式。以 noshige2A 的结构为例，控制向量经较小的 gMLP 型超网络生成音频网络权重，真正逐块执行的音频网络保存递归状态。这样可以把昂贵的“参数到权重”映射放到控制线程或非音频实时准备阶段，而把具备确定计算上界的音频网络放进实时处理路径。在实际插件中必须避免直接在音频线程中重新构造大规模权重对象；参数更新时的权重交接、连续性、延迟和跨采样率模型切换，也应纳入第 5.14 节的 L4/L5 验收。
+
 ## 5.14 实时物理—数据混合建模的五层验收协议
 
 | 验收层级 | 基准参考对象 | 核心量化验收指标 | 未达标时的第一排查方向 |
 | --- | --- | --- | --- |
 | **L1 物理校准层** | 真实模拟硬件配对实测 | 多电平频响、THD/IMD、T1–T4 历史探针残差 | 电路拓扑遗漏、磁滞/光电本构方程、测量链对齐 |
-| **L2 数值收敛层** | $`32\times`$ 极细步长离线参考解 | 步长收敛阶、大信号能量守恒、Newton 迭代次数上限 | 离散化方法（梯形 vs 离散梯度）、Jacobian 病态 |
-| **L3 降阶与代理层** | 已校准的高精度离线教师 | POD/DEIM 模态截断误差、元件代理曲线单调性与导数误差 | 模态数 $`r$、DEIM 插值点数$m`$、代理函数单调约束 |
-| **L4 闭环泛化层** | 封存测试集与极端压力激励 | T6 数分钟 Free-Run 无漂移、未采样旋钮插值平滑度 | NOE 展开训练长度、状态耗散边界 $`q_c`$、PCE/FiLM 覆盖 |
+| **L2 数值收敛层** | $32\times$ 极细步长离线参考解 | 步长收敛阶、大信号能量守恒、Newton 迭代次数上限 | 离散化方法（梯形 vs 离散梯度）、Jacobian 病态 |
+| **L3 降阶与代理层** | 已校准的高精度离线教师 | POD/DEIM 模态截断误差、元件代理曲线单调性与导数误差 | 模态数 $r$、DEIM 插值点数 $m$、代理函数单调约束 |
+| **L4 闭环泛化层** | 封存测试集与极端压力激励 | T6 数分钟 Free-Run 无漂移、未采样旋钮插值平滑度 | NOE 展开训练长度、状态耗散边界 $q_c$、PCE/FiLM 覆盖 |
 | **L5 硬实时部署层** | 目标宿主 DAW（64 采样缓冲） | 99.9% 分位最坏块耗时（WCET）、零 XRUN、FTZ/DAZ、T5 混叠抑制 | SIMD 向量化、LUT 缓存局部性、多速率相位对齐 |
 
-![POD + DEIM 超降阶 (Hyper-Reduction) 与实时音频插件五层渐进验收规范架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/05_POD_DEIM超降阶与实时蒸馏验收架构图.svg)
+![POD + DEIM 超降阶 (Hyper-Reduction) 与实时音频插件五层渐进验收规范架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/05-03_POD_DEIM超降阶与实时蒸馏验收架构图.svg)
 
-*图 05-02：上篇展示高维声学有限元（FEM / PDE）模态降阶中标准 Galerkin/POD 投影面临的 $O(N_{\mathrm{FEM}})$“提升瓶颈（Lifting Bottleneck）”，以及离散经验插值超降阶（DEIM Hyper-Reduction）如何仅在 $m=20\sim 40$ 个空间关键点（Magic Points）上求值非线性恢复力，将实时复杂度降至 $O(r\cdot m)$；下篇汇总从解析无源性、数值压力边界、时频抗混叠指标、双误差蒸馏审计（$E_{\mathrm{HW}\to\mathrm{T}}+E_{\mathrm{T}\to\mathrm{S}}$）到 `processBlock` 实时线程安全（零 `malloc`、零锁、开启 FTZ/DAZ）的五层渐进验收规范。*
+*图 05-03：上篇展示高维声学有限元（FEM / PDE）模态降阶中标准 Galerkin/POD 投影面临的 $O(N_{\mathrm{FEM}})$“提升瓶颈（Lifting Bottleneck）”，以及离散经验插值超降阶（DEIM Hyper-Reduction）如何仅在 $m=20\sim 40$ 个空间关键点（Magic Points）上求值非线性恢复力，将实时复杂度降至 $O(r\cdot m)$；下篇汇总从解析无源性、数值压力边界、时频抗混叠指标、双误差蒸馏审计（$E_{\mathrm{HW}\to\mathrm{T}}+E_{\mathrm{T}\to\mathrm{S}}$）到 `processBlock` 实时线程安全（零 `malloc`、零锁、开启 FTZ/DAZ）的五层渐进验收规范。*
 
 ## 5.15 本章与整部 Wiki 的关系
 
@@ -2421,14 +2496,16 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 
 ---
 
+---
+
 # 06 从 Volterra 理论到商业音频建模：Acustica Audio 的技术发展史
 
-> **版本：v9 · 2026-11-14 · 修复公式笔误、清除重复词句与结构终审版（继承 v8）**
+> **版本：v10 · 2026-11-15 · 补充 SKY/YELLOW/SNOW 的模型资源、动态控制及技术适用边界**
 > **所属系列：Volterra Wiki**
 > **阅读顺序：**《00_前置概念与术语约定_图文版.md》→《01_Volterra级数_图文版.md》→《02_从Volterra到神经网络_模型辨识与NAM.md》→《03_混合建模训练边界与实时约简.md》→《04_高级系统辨识_非线性算子与混沌分解.md》→《05_物理约束与实时代理建模.md》→本章。
-> **配图说明：** 本章配有 3 张工程架构与测量机制 SVG 图（`figures/02_*.svg`），请与 `figures/` 目录保持同级相对路径。
+> **配图说明：** 本章配有 4 张工程架构与测量机制 SVG 图（`figures/02_*.svg`），请与 `figures/` 目录保持同级相对路径。
 > **定位：** 作为全书最后一章，通过 Acustica Audio 的演进，将测量、模型约简、商业部署与证据边界串联起来。以 Acustica Audio 为主线，同时交代 Sintefex、Focusrite 和非线性扫频研究构成的技术背景。
-> **证据层级：** 下文将资料分为官方文档、同时代独立报道、用户提供的静态逆向报告、输入输出测量和研究解释五个层级。逆向部分沿用《REPORT_Volterra与NOVA架构详解_v2.md》的模块与地址描述，以“报告识别”标记；该报告涉及的 IDA 工程和加密资源尚无独立复核记录。官方 YELLOW 的相关术语依据产品资料，主体历史资料截至 2026 年 10 月，SKY SA-1A 新材料截至 2026 年 11 月。读者可按正文标号回溯到具体来源；对内部算法拓扑的讨论以可证实的结构层级为边界。
+> **阅读说明：** 本章把厂商公开的技术定义、代表性产品的结构实例和测量特征放在同一套数字建模语言中解释。商业产品的具体资源配置随版本与工作模式而异；文中展示的数学等效结构不必然等同于完整厂商内部算法。涉及尚无充分运行数据的部分，会明确保留条件和适用范围。
 
 ## 6.1 一个更现实的问题：数学理论怎样变成可以出售的音频插件？
 
@@ -2483,7 +2560,7 @@ Acustica 将其核心技术称为 **Vectorial Volterra Kernels Technology (V.V.K
 
 在评估商业参数宣传时，保持数学概念的精确对应尤为重要：
 - 厂商声称能够管理多达十万个元素，通常指整个多维度采样库（跨越不同旋钮档位、不同输入电平步距、不同阶次及脉冲长度）中管理的数据规模，而非在单个采样点上直接计算十万个独立的多维交叉张量项；
-- 界面或文档中出现的“最多九个谐波（9 harmonics / Volterra orders）”与完整九维核张量不同。两份可直接核验的早期学术文献清晰记录了历史演进：Armelloni 与 Farina (2005) 在非线性时变系统卷积研究中指出，面对其测试的强失真吉他效果，五阶对角 Volterra 近似尚显不足，建议该具体实验考虑扩展至十阶；[S28] Farina 在 2008 年的公开讲座第 80 页则明确记录，**当时的 Nebula** 使用最高五阶的对角 Volterra 核，并展示了重建高次谐波的局限。[S29] 结合后文静态逆向报告中识别出的点形器（Waveshaper）与跨缓冲乘法原语，现代引擎的等效谐波阶次更可能来自“多支路核 + 静态点形器/跨分支组合”的协同作用。
+- 界面或文档中出现的“最多九个谐波（9 harmonics / Volterra orders）”与完整九维核张量不同。两份可直接核验的早期学术文献清晰记录了历史演进：Armelloni 与 Farina (2005) 在非线性时变系统卷积研究中指出，面对其测试的强失真吉他效果，五阶对角 Volterra 近似尚显不足，建议该具体实验考虑扩展至十阶；[S28] Farina 在 2008 年的公开讲座第 80 页则明确记录，**当时的 Nebula** 使用最高五阶的对角 Volterra 核，并展示了重建高次谐波的局限。[S29] 至于现代实现中的等效谐波阶次，还可能由“多支路核 + 静态点形器 + 跨支路乘积”协同产生，因此不能从频谱最高出现 H9 就反推一定存在完整九维的 Volterra 核。
 
 ## 6.7 多工作点对角核插值与因子化非对角交叉记忆
 
@@ -2501,13 +2578,13 @@ Acustica 将其核心技术称为 **Vectorial Volterra Kernels Technology (V.V.K
 
 **这一解释性模型说明：即使每个静态工作点仅存储对角支路核 $g_{p,s}[k]$，一旦权重 $w_s(\mathbf{z}[n])$ 随过去输入包络动态改变，当前时刻的核系数就与过去时刻的输入幅度发生了乘性耦合，从而在整体输入—输出行为上涌现出等效的跨时刻动态记忆。**
 
-不仅如此，用户提供的 YELLOW／TAUPE 静态逆向报告进一步揭示：底层分支执行器除了支持单缓冲自乘幂次外，还提供了**将一个分支缓冲与另一个分支缓冲逐元素相乘的原语** [R1, §2.5、附录 A5]。设两条分支缓冲分别为线性滤波输出 $u[n]=\sum_{i=0}^{M-1} a[i]x[n-i]$ 与 $v[n]=\sum_{j=0}^{M-1} b[j]x[n-j]$，将二者逐点相乘即得：
+在结构化分支库中，除了单缓冲幂次处理，还可以引入**将一个已滤波分支与另一个已滤波分支逐点相乘**的运算。设两条分支缓冲分别为线性滤波输出 $u[n]=\sum_{i=0}^{M-1} a[i]x[n-i]$ 与 $v[n]=\sum_{j=0}^{M-1} b[j]x[n-j]$，将二者逐点相乘即得：
 
 ```math
 u[n]\cdot v[n] = \sum_{i=0}^{M-1}\sum_{j=0}^{M-1} a[i]b[j]\,x[n-i]x[n-j].
 ```
 
-这恰好构成了《01》第 1.14.6 节推导的**秩-1 因子化非对角二阶交叉核** $h_2[i,j]=\frac{1}{2}(a[i]b[j]+a[j]b[i])$！这一发现证实了共享引擎在代码原语层面具备以 $O(M)$ 滤波加一次乘法构造非对角交叉记忆的能力（至于某款具体插件预设是否激活了该原语，则取决于加密的 `.N2V`/`.N2S` 程序图资源）。
+这恰好构成了《01》第 1.14.6 节推导的**秩-1 因子化非对角二阶交叉核** $h_2[i,j]=\frac{1}{2}(a[i]b[j]+a[j]b[i])$。这说明只需两条一维滤波支路和一次逐点乘法，就能以约 $O(M)$ 的成本构造一个因子化非对角交叉核；在具体产品中是否采用该结构、采用多少条支路，仍须由实际模型配置与输出行为共同约束。
 
 ## 6.8 NAT：从采样模板到可复用设备库
 
@@ -2527,7 +2604,7 @@ Nebula 早期定位为能够载入第三方设备库的通用效果采样器；�
 
 一个多阶多工作点的采样式非线性模型若在时域逐样本直接计算长 FIR 卷积，CPU 消耗将极为高昂。Giancarlo 在 2007 年访谈中提到，最初的 Nebula 甚至未以实时运行作为先决目标，之后才持续进行多线程与算法级性能优化。[S5][S8]
 
-YELLOW／TAUPE 的静态逆向报告在二进制层面展示了现代引擎是如何解决这一算力瓶颈的：引擎内部实现了完整的**非均匀分区快速卷积（Partitioned Fast Convolution）调度器**、FFT 正逆变换、频域复数乘累加、按分区延迟线叠加以及针对短核的 SIMD 点积例程，底层数学运算调用了 Intel IPP 与多个专用指令集（AVX2/AVX-512 等）外部 bridge DLL [R1, §3、附录 A6–A8]。这意味着引擎会根据每条支路核 $g_p[k]$ 的长度与分区配置，自动分配短核时域 SIMD 与长尾分块频域卷积。
+以现代分支卷积引擎的实现方式为例，其计算底座可包括**非均匀分区快速卷积（Partitioned Fast Convolution）调度器**、FFT 正逆变换、频域复数乘累加、按分区延迟线叠加以及针对短核的 SIMD 点积例程，并结合 Intel IPP、AVX2 / AVX-512 等 SIMD 加速的短核运算。这类异构卷积计算可根据各支路核 $g_p[k]$ 的长度与块配置，在短核时域处理与长尾分区频域处理之间分配计算成本。
 
 ## 6.11 2019 年与 2022 年：AI 预设、Hyper 与显式动态控制器的演进
 
@@ -2542,67 +2619,88 @@ YELLOW／TAUPE 的静态逆向报告在二进制层面展示了现代引擎是�
 2. **Aria 与抗混叠更新**：在 Tiger Mix Ultra Flat、Amber 4 Ultra 与 Sand 4 Ultra 等产品中，Aria 引擎伴随实时动态计量显示与更新的抗混叠（Anti-Aliasing）算法推出。[S16][S17]
 3. **MUST（Modular Unified Synthesis Technology）**：在 THING 等虚拟合成器产品中，厂商将模拟电路行为建模与自家的非线性卷积/动态 Volterra 技术结合，向需要实时受控自激振荡器与滤波器谐振的电子乐器领域延伸。[S18]
 
-## 6.13 NOVA：官方混合建模声明与静态逆向报告中的模块级结构
+## 6.13 NOVA 与商业压缩器：结构化核、状态控制和神经模型如何协作？
 
-在 2026 年 3 月发布的 YELLOW 插件中，Acustica 正式推出 **NOVA（Neural Optimized Volterra Audio）**，称其结合了 Vectorial Volterra Kernels 与神经音频建模：在低输入电平时主要由 Volterra 部分保留硬件精细的线性频响、相位与微动态；随着驱动电平升高，神经模型对复杂强非线性的贡献平滑增大，且两部分同时协作运行。[S19][S20][S21]
+Acustica 在 YELLOW 的产品资料中将 **NOVA（Neural Optimized Volterra Audio）** 描述为结合 Vectorial Volterra Kernels 与神经音频建模的处理体系。对这类技术的理解需要区分三层对象：第一，分支库能够表达哪些非线性音频运算；第二，具体产品部署了哪些资源及质量档；第三，包络、增益律和神经计算怎样在实际音频流中发挥作用。即使不同产品使用相似的基础引擎，也可能选择完全不同的数据资源和动态控制路径。[S19][S20][S21]
 
-结合用户提供的《REPORT_Volterra与NOVA架构详解_v2.md》（基于 TAUPE Studio 与 YELLOW 二进制的静态逆向分析 [R1]），我们可以从工程代码结构层面审视其底层实现原语，同时严格区分**“二进制中存在某模块原语”**、**“加密资源配置可调用该原语”**与**“特定预设档位实际激活了该路径”**三个证据层级。
+### 6.13.1 可编排 Volterra 分支：线性核、跨支路乘积与有界点形器
 
-### 6.13.1 分支库：具有结构约束的可编排 Volterra 运算图
+一类可编排非线性卷积结构由多个处理分支组成。单条分支可以包含信号幂次 $x^p[n]$、一维 FIR 滤波、静态 Waveshaper 与输出权重；把多个滤波支路 $u[n]$ 与 $v[n]$ 逐点相乘，则能产生《01》第 1.14.6 节介绍的因子化非对角核。对于这类结构，存在 `simplefirvolterra`、`clippedfirvolterra` 等分支执行形式：前者面向较直接的 FIR／多项式组合，后者可以额外安排点形器等强非线性处理。一个模块可以组织有限数量的支路，但允许配置的支路数并不等于某款具体产品始终全数启用。
 
-静态逆向报告在共享底层引擎中定位了 `simplefirvolterra` 和 `clippedfirvolterra` 两类核心模块，其工厂构造函数按程序配置初始化各条处理分支（单模块循环上限为 `0x10` 即 16 条分支）[R1, 附录 A2–A5]。每条分支支持的基本运算原语包括：
-- 样本缓冲区复制与自乘幂次（构成 $x^p[n]$ 并联 Hammerstein / 对角 Volterra 支路）；
-- **跨分支缓冲区逐点相乘**（将两条已滤波分支 $u[n], v[n]$ 相乘，构成第 6.7 节所述的因子化非对角交叉核或三阶分离型交叉项 $u[n]v^2[n]$）；
-- 可选的静态点形器（Waveshaper）与分支专属的一维分区 FIR 卷积 $g_p[k]$；
-- 模块内置的峰值跟踪、dB 换算及保持/释放计数器 [R1, 附录 A10]。
+![商业引擎中的可编排 Volterra 分支库架构（对角支路、跨缓冲乘法与动态权重）](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-01_Acustica分支库与跨缓冲乘法架构图.svg)
 
-![商业引擎中的可编排 Volterra 分支库架构（对角支路、跨缓冲乘法与模块内动态层）](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02_Acustica分支库与跨缓冲乘法架构图.svg)
+*图 06-01｜结构化非线性分支库的运算抽象：一维 FIR、幂次、跨支路乘法与状态权重能够在同一条实时计算图中组合。*
 
-*图 06-01 | 商业引擎中的可编排 Volterra 分支库架构（基于静态逆向报告的模块级工程抽象）。展示 $\le 16$ 条分支如何组合自乘幂次、跨分支缓冲乘法 $u[n]\cdot v[n]$、点形器与分区 FFT 卷积；具体产品启用哪些支路取决于加密程序配置。*
+### 6.13.2 `simplenova`：软膝、双路径权重与控制状态连续性
 
-### 6.13.2 `simplenova`：电平触发双路径软膝渐变与备路径状态维护
-
-静态逆向报告中与 NOVA 命名直接关联的核心发现是名为 `simplenova` 的模块 [R1, §4、附录 A12]。该模块的运算序列可精确抽象为：
-1. **输入通道能量估计与软膝（Soft-Knee）映射**：计算输入信号电平并经软膝曲线映射为目标控制权重 $g_{\mathrm{target}}[n]\in[0,1]$；
-2. **非对称压摆率（Asymmetric Slew）平滑**：采用上行（Attack）较快、下行（Release）较慢的双速率递推更新瞬时混合权重 $g[n]$，防止权重在膝点附近随音频瞬时波形高速抖动而产生寄生调幅边带（AM Sidebands）；
-3. **双信号路径凸组合融和**：在基础信号路径 $u[n]$ 与高驱动信号路径 $v[n]$ 之间按 $g[n]$ 执行逐样本交叉渐变：
-   ```math
-   \hat{y}[n]=\bigl(1-g[n]\bigr)\,u[n]+g[n]\,v[n] =u[n]+g[n]\bigl(v[n]-u[n]\bigr).
-   ```
-
-报告同时观察到 `simplenova` 包含多个运行模式分支，其中 Mode 1 在权重倾向主路径时依然持续向备选路径馈入信号并维护其缓冲区状态 [R1, §4.3]。从实时 DSP 工程角度看，这种“备路径持续刷新（State Warmth / Buffer Priming）”能够确保当大信号瞬态突然触发权重向备选路径渐变时，备选路径的 FIR 历史延迟线与内部状态已经处于与当前音频同步的热态，从而彻底消除冷启动相位跳变与爆音。这也与厂商关于“两套模型同时运行、随电平平滑改变贡献”的公开技术描述高度吻合。
-
-![`simplenova` 电平触发双路径渐变器与备路径保鲜机制](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02_simplenova双路径渐变与保鲜机制图.svg)
-
-*图 06-02 | `simplenova` 电平触发双路径渐变器与 Mode 1 备路径保鲜机制。通过能量检测、软膝映射与非对称 slew 在两条处理路径 $u[n], v[n]$ 之间平滑融和。*
-
-### 6.13.3 点形器函数簇与渐近有界饱和
-
-报告进一步识别出约十五类静态点形函数（Pointwise Waveshapers），包括 $\arctan$、$\tanh$ 及其快速有理近似。例如报告中记录的一类 *desoras* 广义反正切饱和曲线具有如下解析形式：
+假设两条音频路径分别输出 $u[n]$、$v[n]$，由电平检测得到平滑权重 $g[n]\in[0,1]$。一种合理的双路径混合形式是：
 
 ```math
-f_p(x)=\mathrm{sgn}(x)\Bigl[\arctan\bigl(\lvert x\rvert^p\bigr)\Bigr]^{1/p}.
+\hat{y}[n]=\bigl(1-g[n]\bigr)u[n]+g[n]v[n].
 ```
 
-当 $\lvert x\rvert\to 0$ 时，由 $\arctan(u)\approx u$ 可知 $f_p(x)\approx x$（保持单位小信号线性增益，不破坏低电平频响）；当 $\lvert x\rvert\to\infty$ 时，$f_p(x)$ 平滑渐近趋向有限饱和上界 $\pm(\pi/2)^{1/p}$，且参数 $p$ 直接控制从线性区向饱和渐近线过渡的膝部锐度（$p$ 越大，膝部越接近硬限幅）。将这类全局有界的非多项式点形器与有限阶 Volterra 分支结合，正好解决了我们在《01》第 1.15 节指出的“纯有限阶多项式缺乏全局饱和上界、超范围外推易失控”的结构缺陷。[R1, §5、附录 A11]
+在 `simplenova` 型控制中，可以先对输入能量做软膝映射，再用上升与下降速率不同的平滑器更新 $g[n]$；备选路径持续维护输入历史，有助于降低切换时的冷启动瞬态。这种结构说明，**模型融合不只依赖两条路径各自的准确性，也依赖跨路径相位、延迟和状态连续性**。需要注意，双路径混合原语本身并不能说明具体产品的神经网络拓扑，或证明所有产品都始终并行执行两套完整模型。
 
-### 6.13.4 核心开放问题：神经网络位于实时推理路径还是离线蒸馏管线？
+![`simplenova` 电平触发双路径渐变器与备路径保鲜机制](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-02_simplenova双路径渐变与保鲜机制图.svg)
 
-对比厂商公开声明与静态逆向报告，最值得深入思考的现象是：厂商明确将 NOVA 定义为结合神经音频建模的技术 [S19]，而静态逆向报告在已检查的二进制函数中并未发现类似 NAM（WaveNet 扩张卷积层堆栈或 LSTM 门控矩阵乘法）的独立实时神经网络推理引擎 [R1, §4.5]。
+*图 06-02｜电平触发的双路径软膝渐变、非对称平滑与备选路径状态更新。*
 
-对此，遵循严谨的证据边界，应当并列保留两种需要在未来进一步验证的技术可能性：
-1. **离线神经教师学习 + 实时结构化核/点形器蒸馏假说（Offline Neural Teacher to Structured Runtime Distillation）**：正如《05》第 5.13 节所论述，研发团队完全可能在离线采集与拟合阶段使用深度神经网络（如 WaveNet 或混合神经算子）高精度学习真实硬件在不同驱动电平下的复杂响应，随后通过模型蒸馏或频域/多电平重采样，将训练好的神经模型“烘焙（Bake / Distill）”为多档位可编排 Volterra 分支核 $g_p[k]$、点形器参数与 `simplenova` 渐变路径（保存在 `.N2V`/`.N2S` 资源中），从而在实时插件端享受固定分支图的确定性低 CPU 与零自激风险；
-2. **算子融合或外部模块/未解密资源承载假说**：小型前馈网络（如单层或两层 1D 卷积加逐点激活）在数学上本来就与“多分支 FIR 滤波 + 点形器 + 加权求和”（参见《01》第 1.20 节）同构，或者在特定产品（如启用 GPU 加速的 CREAM 3 NOVA GPU Beta [S25]）中通过独立动态库与加密资源图加载。
+### 6.13.3 有界静态点形器与有限阶 Volterra 的互补作用
 
-无论最终属于哪一种具体工程形态，这一案例都生动展示了：**“利用神经建模技术提升音色精度”与“在实时音频回调里硬跑一张重型通用神经网络”绝非只有唯一解；将神经学习能力与结构化 Volterra 分支图相结合，本身就是极具实用价值的工业级方案。**
+静态点形函数（Pointwise Waveshaper）为 Volterra 型分支提供了另一种非线性表达。以广义反正切族为例，令 $p>0$：
 
-### 6.13.5 YELLOW 的三个质量档位与 NOVA 生态扩展
+```math
+f_p(x)=\operatorname{sgn}(x)\left[\arctan\left(\lvert x\rvert^p\right)\right]^{1/p}.
+```
 
-配置 XML 与逆向报告确认 YELLOW 包含 *Nova*、*Nova HQ*、*Legacy* 三个质量档位，分别映射至不同的 `.N2S`/`.N2V` 资源文件 [R1, 附录 A13–A15]。2026 年以来，Acustica 已将 NOVA 技术从 YELLOW 前级扩展至 SALT 2（NOVA 与 Hyper 协同）、AERO 2（面向吉他踏板/放大器多级链路的 NOVA Instrument）、CREAM 3（含 NOVA GPU Beta）以及包含 52 种前级模型的 GOLD 6。[S22][S24][S25][S30]
+其小信号近似为 $f_p(x)\approx x$，大信号渐近值为 $\pm(\pi/2)^{1/p}$。因此，有界非多项式点形器可以在较低复杂度下补足有限阶多项式在强过载区间缺乏全局饱和上界的问题。结合一维 FIR、分支乘积和电平条件权重，能够在同一套引擎中组合频率相关音色、强非线性与工作点变化，但仍须重视抗混叠与多路径延迟对齐。
 
-## 6.14 相同的引擎，不同的产品配置：YELLOW 与 TAUPE Studio 的部署差异
+### 6.13.4 YELLOW：Legacy、Nova 与 Nova HQ 的不同资源配置
 
-逆向报告通过对比 YELLOW 与 TAUPE Studio 揭示了现代商业插件的**“通用底层 DSP 虚拟机 + 声明式程序资源图”**架构：两款插件共享同一套核心二进制模块库（Volterra 分支执行器、分区 FFT 引擎、点形器与动态控制原语），区别在于外层加载的 `.N2V`/`.N2S` 加密数据与 XML 拓扑配置——YELLOW 串联了 NOVA 前级与光电压缩拓扑，而 TAUPE Studio 则在非线性磁带核之外专门调用了可变速分数延迟重采样缓冲来模拟磁带传输机构的 Speed 与 Wow & Flutter（机械抖晃）[R1, §6、附录 A14–A16]。
+YELLOW 将三种质量选项组织为不同的处理资源：**Legacy** 对应 HYPRE 型 Volterra 资源，**Nova** 对应 HYPRE_N 资源，**Nova HQ** 对应 HYPRE_NHQ 资源。Nova 系列另外配有专用 `NOVANAM.N2K` 数据容器（约 $15.4\,\mathrm{MB}$）。这说明 NOVA 家族至少包含独立命名的神经相关数据资源，也为“神经与向量化 Volterra 协同”的产品定位提供了一个具体的资源组织实例。
+
+不过，资源文件名和大小并不能独立确定网络是 WaveNet、LSTM 还是其他拓扑，也不能由资源存在直接推出每个实时块都发生了神经前向计算。准确的表述应当是：**YELLOW 具有纯 Volterra 与 NOVA 家族的不同程序资源，神经数据的精确拓扑、加载时机以及融合位置仍不宜单凭文件分类确定。** 这种多质量资源架构，也为单一品牌下按计算成本选择不同建模方案提供了设计参照。[S19]
+
+### 6.13.5 SKY SA-1A：增益状态资源与音频短核的不同职责
+
+SKY SA-1A 是面向 Stam/Summit SA-1A 光电压缩器的模型，与上述 YELLOW 前级并不采用完全相同的数据编排。以 $48\,\mathrm{kHz}$ 的 HYPERCOMP 资源为例，可见到 **20 个 5 ms 短序列、41 个 100 ms 主序列以及 6 个 150 ms 长序列**，合计 67 个序列资源。尤其是 41 个主序列，大部分能量集中在约第 72 个采样延迟位置，频率响应近乎平坦，主要表现为不同工作点的增益变化；短序列则承担较弱的频率选择性修正。
+
+因此，把这组资源理解成**测量增益工作点、平滑特征和微弱滤波整形的组合**，比一概把全部 67 个序列解释成高阶非线性音色 IR 更合适。一个面向教学的等效模型为：
+
+```math
+\hat y[n]=\sum_i w_i\bigl(\mathbf s_{\mathrm{env}}[n]\bigr)a_i x[n-d]
++\sum_m\mu_m\bigl(\mathbf s_{\mathrm{env}}[n]\bigr)(h_m*x)[n].
+```
+
+这里 $a_i$ 是离散增益状态，$h_m$ 是短时整形 FIR，$\mathbf s_{\mathrm{env}}[n]$ 包含包络相关的控制状态；权重 $w_i$ 和 $\mu_m$ 是**解释性表示**，不能直接当作已知的产品内部插值公式。主序列中出现的多次回落和重新上升，可以提示存在分段组织的工作点轴，但并不足以直接认定某个抽头比值就是设备真实的光电元件状态变量。
+
+![SKY SA-1A 的增益状态资源与包络调度模型](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-03_SKY增益状态资源与包络调度图.svg)
+
+*图 06-03｜SKY 类状态条件化核模型的教学抽象。预制序列资源与实时控制状态分工不同，支路内部为线性运算并不意味着整条信号链是线性的。*
+
+### 6.13.6 SNOW：离散程序选择与连续包络控制
+
+SNOW 类压缩器展示了另一种有实际价值的分工：把可枚举的档位型控制配置为若干核程序，而将连续的阈值、起音、释放与动态增益控制留在实时检测回路中。例如 Mode 的三种检测方式可理解为前馈 RMS、反馈 RMS 与反馈峰值等拓扑选择，Ratio 关联另一组压缩/释放特性程序，两组离散选项构成最多 $3\times3$ 的组合维度；Attack、Release、Threshold 等连续参数则无须各自拥有无限密度的预制核库。
+
+这里的关键结论是**结构离散化与动态参数连续化可以共存**。资源程序负责一个工作配置的频率与谐波特征，检测器、增益律和包络状态负责跨时间的实际增益动作。对测量密集型产品而言，这往往比为所有旋钮笛卡尔积组合都保存完整大规模资源更有实际可行性。不同 SNOW 程序的具体模式映射应按对应版本理解，不能将示例配置外推为所有产品的通用固定表。
+
+### 6.13.7 SKY 的外部测量：复刻准确度与机理归因需要分开评价
+
+在 2026 年 11 月 9 日的 SKY SA-1A Beta Vista 测量中，以 $100\,\mathrm{Hz}$、约 $5\,\mathrm{dB}$ 增益衰减为例，$48\,\mathrm{kHz}$ 下插件 THD 为 **5.46%**，目标硬件参考为 **5.59%**；当采样率提高到 $96\,\mathrm{kHz}$，插件结果为 **4.96%**。在 $1\,\mathrm{kHz}$、FIXED 模式的另一组条件下，插件 THD 约 **1.01%**，硬件参考约 **0.92%**。MANUAL 模式的 $1\,\mathrm{kHz}$ THD 约 **0.470%**，并可观察到 $500\,\mathrm{Hz}$ 与 $1500\,\mathrm{Hz}$ 附近的亚谐波谱线（约 $-61.4$ 与 $-60.5\,\mathrm{dBc}$）。[S31]
+
+这些数值说明在给定测试条件下，模型的谐波响应可以接近目标硬件，但并不能单独指认失真来自电子管静态曲线、控制纹波还是核资源插值。更能说明动态问题的，是相同旋钮 75/75 在不同前导输入下出现约 **163 ms** 与 **327 ms** 的释放 $T_{63}$ 差异；这恰好说明系统辨识不能只测一个稳态正弦或一种统一释放阶跃。测试时应同时记录输入电平、GR、阈值、采样率、FFT 窗口、控制模式和状态预处理，才能把结果正确用于模型判别。[S31]
+
+### 6.13.8 前级、EQ、磁带与压缩器：让每个子系统承担合适的任务
+
+不同模块对核、状态和参数控制的要求差异很大。前级常围绕短时谐波、互调与幅相关频响构建多工作点非线性分支；EQ 的主要任务是重建线性频响及随控制旋钮变化的滤波参数，在电平依赖显著时还可能与非线性或工作点状态共同作用；磁带除了饱和染色，还可能需要明确表示磁滞、走带抖晃、变速重采样与慢速动态；压缩器则必须把检测器、增益律、程序依赖起音/释放和音频路径增益动作作为核心系统。
+
+这些模块可以在统一的 DSP 平台中复用 FIR、Waveshaper、包络、重采样和路由等计算原语，但共享底层计算组件并不意味着各类设备都采用完全相同的 Volterra 结构。尤其对于压缩器，**明确保存和更新动态状态通常比无限延长前馈记忆核更经济**；在符合相关连续性和衰减记忆条件的数学讨论中，Volterra 的逼近能力仍然存在，与工程选择并不矛盾。
+
+## 6.14 同一计算平台上的不同产品：YELLOW、SKY 与 TAUPE Studio
+
+YELLOW、SKY SA-1A 与 TAUPE Studio 可以用于解释“公共运算引擎”和“具体音频模型”之间的差别。前者提供分区卷积、静态非线性、动态状态、参数映射及跨路径混合等可复用原语；后者由产品专属的核资源、控制程序与信号路由决定其声音功能。YELLOW 具有 Legacy / Nova / Nova HQ 的分级资源组合，SKY 更突出光电包络驱动的增益工作点资源，TAUPE Studio 则还需要走带速度与 Wow & Flutter 对应的变速/分数延迟处理。通过在同一平台中替换数据、状态模型与处理链，能够实现差异很大的音频设备建模目标。
+
+因此，学习一款商业模型时，不应仅凭某个模块名就推断整款产品“使用什么算法”，而应依次讨论**音频主通路、状态控制通路、核资源组织与实时执行预算**。这也与《03》第 3.8–3.9 节的混合架构划分保持一致。
 
 ## 6.15 Acustica Audio 商业建模路线演进时间线（2000–2026）
 
@@ -2617,7 +2715,7 @@ f_p(x)=\mathrm{sgn}(x)\Bigl[\arctan\bigl(\lvert x\rvert^p\bigr)\Bigr]^{1/p}.
 | **2010 年代中后期** | Acqua 独立插件线成熟，引入 Smooth3 逐样本核插值 [S7][S8] | 解决多离散工作点在旋钮调节与动态调制下的平滑过渡与伪影抑制 |
 | **2019 年** | 引入 AI 自适应预设辅助系统 [S12] | 机器学习首先在控制参数推荐层落地，未改动底层音频卷积核 |
 | **2022 年–2024 年** | 推出 Hyper / Hyper2 / Hyper3、Aria 与 MUST 架构 [S13–S18] | 引入多探测器显式动态控制、FIR（前段瞬态）+ IIR（长尾低频）混合滤波、抗混叠升级与电路—卷积混合乐器合成 |
-| **2026 年 3 月–11 月** | 发布 YELLOW、FIRE THE TUBE、AERO 2、SALT 2、CREAM 3、GOLD 6 及 SKY SA-1A，全面推广 NOVA 技术 [S19–S30][C1] | 官方确立 Volterra 与神经建模协同路线；静态逆向揭示可编排分支库、跨缓冲因子化乘法、`simplenova` 软膝双路径渐变与有界点形器架构 [R1] |
+| **2026 年 3 月–11 月** | 发布 YELLOW、FIRE THE TUBE、AERO 2、SALT 2、CREAM 3、GOLD 6 及 SKY SA-1A，全面推广 NOVA 技术 [S19–S30][C1] | Volterra 与神经建模协同成为可选产品路线，并逐渐形成多质量资源、结构化核、包络状态和动态滤波的组合方案 |
 
 ## 6.16 ESS 阶次分离与多路径架构如何共同塑造商业前级的失真个性？
 
@@ -2627,25 +2725,24 @@ f_p(x)=\mathrm{sgn}(x)\Bigl[\arctan\bigl(\lvert x\rvert^p\bigr)\Bigr]^{1/p}.
 2. **多电平向量采样与 `simplenova` 渐变对工作点迁移的动态补偿**：单次固定电平的 ESS 只能测得前后置滤波的综合乘积 $\lvert P(f)\rvert^p \lvert Q(pf)\rvert$。NAT 的多驱动电平采样与 NOVA 的 `simplenova` 能量触发双路径渐变，通过随输入能量平滑切换/融和低驱动与高驱动支路核簇，在工程上动态逼近了硬件频响与饱和膝点随输入电平迁移的行为。
 3. **跨分支缓冲乘法与有界点形器对多音互调及强过载的补全**：纯对角支路缺乏跨时刻乘积且受多项式收敛半径限制。引擎中引入的**跨缓冲乘法原语**（构造 $u[n]\cdot v[n]$ 因子化非对角交叉项）与 **`desoras` 等有界点形器**，恰好在低 CPU 开销下弥补了纯对角 Volterra 在多音差频互调与大信号软限幅边界上的短板。
 
-![Farina 指数扫频 (ESS) 谐波分离、上三角阶次反解与前级染色机制](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02_ESS扫频分离与商业前级染色机制图.svg)
+![Farina 指数扫频 (ESS) 谐波分离、上三角阶次反解与前级染色机制](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-04_ESS扫频分离与商业前级染色机制图.svg)
 
-*图 06-03 | Farina 指数扫频 (ESS) 谐波分离、Novák 上三角阶次反解与前级染色机制。展示负时间轴谐波脉冲响应 $H_{Hm}$ 如何经阶次反变换映射为支路核 $g_p[k]$，以及单次 ESS 在前后置滤波 $\lvert P(f)\rvert^3 \lvert Q(3f)\rvert$ 拆分上的可辨识性边界。*
+*图 06-04 | Farina 指数扫频 (ESS) 谐波分离、Novák 上三角阶次反解与前级染色机制。展示负时间轴谐波脉冲响应 $H_{Hm}$ 如何经阶次反变换映射为支路核 $g_p[k]$，以及单次 ESS 在前后置滤波 $\lvert P(f)\rvert^3 \lvert Q(3f)\rvert$ 拆分上的可辨识性边界。*
 
-## 6.17 证据分级总结表：我们对 Acustica 内部技术究竟知道多少？
+## 6.17 从商业案例回到系统辨识：模型选择的统一判断
 
-为了在技术研究与逆向分析中保持严格的学术与工程规范，本章涉及的全部结论按证据等级汇总如下：
+回顾本章的 Nebula、NAT、Hyper、NOVA，以及 SKY、YELLOW、SNOW 等不同产品，我们可以将现代数字建模归纳为四个可以独立设计的层级：
 
-| 技术命题与判断 | 当前证据等级 | 严谨的工程表述方式 |
-|---|---|---|
-| Nebula 自 2005 年起开发，早期受 Sintefex 动态卷积启发并结合 Farina 扫频 | 创始人同期专访 [S5] | 可作为有明确出处的历史事实引用 |
-| 早期 Nebula（2008 年前后）采用最高 5 阶对角 Volterra 核 | Angelo Farina 2008 公开讲座 [S29] | 确证早期版本的阶数上限，不直接外推至 2026 年现代引擎 |
-| NAT 通过多动态采样点、电平步距和模板组织设备核库，且将染色采样与独立压缩控制区分 | 第三方开发者实操文献与官方文档 [S7, S9–S11] | 确证其采样工程工作流与早期混合设计思路 |
-| Hyper / Hyper3 引入多探测器显式动态控制与 FIR（瞬态）+ IIR（长尾）混合滤波 | 官方产品技术白皮书 [S13–S16] | 确证现代引擎已采用“采样核 + 显式动态/IIR 状态”混合路线 |
-| YELLOW/TAUPE 共享引擎包含 `simplefirvolterra`、`clippedfirvolterra`（单模块上限 16 分支）及分区 FFT 卷积 | 静态逆向报告函数级定位 [R1, A2–A8] | 标注为“静态逆向报告识别出的运行时模块与分支上限” |
-| 分支执行器支持跨缓冲逐元素相乘（可生成因子化非对角交叉核 $u[n]\cdot v[n]$） | 静态逆向报告指令级定位 [R1, A5] | 证实引擎具备低秩非对角交叉记忆的原语能力；具体预设是否启用需解密 `.N2V` 确认 |
-| `simplenova` 模块执行能量检测、软膝映射、非对称 slew 平滑与双路径凸组合融和（含备路径状态刷新） | 静态逆向报告反编译逻辑 [R1, §4, A12] | 确证 `simplenova` 的模块级运算机制；不将该单一原语直接等同于全部 NOVA 技术体系 |
-| 引擎内置约 15 类静态点形器（含 `desoras` 广义反正切渐近有界饱和曲线及 ceiling 变体） | 静态逆向报告数学函数还原 [R1, §5, A11] | 确证引擎结合了无记忆有界点形器以克服纯多项式外推失控 |
-| 已检查二进制函数内未见独立的多层神经网络矩阵推理例程；神经模型可能用于离线学习并蒸馏至分支资源，或經算子融合/外部模块调用 | 静态逆向否定性观察 + 研究假说 [R1, §4.5] | 严格区分“厂商公开的 NOVA 神经建模声明”、“已检查代码未见独立网络层”与“离线蒸馏研究假说” |
+| 层级 | 需要解决的技术问题 | 可能采用的实现 |
+| --- | --- | --- |
+| **响应表达** | 怎样描述输入信号的短时频响、谐波与互调？ | FIR / IIR、结构化 Volterra、静态 Waveshaper、分支乘积 |
+| **动态记忆** | 怎样描述起音、释放、磁滞、热状态及工作点迁移？ | 包络检测器、显式状态方程、状态资源表、递归神经网络 |
+| **参数变化** | 旋钮如何连续影响频响、工作点和内部动力学？ | 程序切换、工作点插值、物理参数更新、超网络生成权重 |
+| **实时部署** | 怎样控制延迟、CPU、内存、抗混叠和状态连续性？ | 分区 FFT、SIMD、过采样、多速率、模型分档与代理约简 |
+
+不同产品在这些层级上的分工并不相同。某款插件有神经数据容器，并不自动说明它的每一帧都依赖神经推理；某组序列看起来像 FIR 文件，也不代表它一定承担音色滤波；一次 THD 接近硬件，也不能替代对多电平、多历史和多速率条件的系统验证。同样，一条明确的状态控制路径能在工程上降低模型的前馈记忆成本，却不能据此否认 Volterra 在合适函数类上的数学逼近性质。
+
+对研究者来说，更有实际价值的提问顺序是：**先测量目标系统的可观测行为，再选择表示短时非线性与长时动态的不同结构，最后用跨工作点验证判断增加的模型复杂性是否真的值得。** 这样才能把商业产品的技术经验转化为可检验、可比较、可迁移的系统辨识方法。
 
 ---
 
@@ -2681,4 +2778,7 @@ f_p(x)=\mathrm{sgn}(x)\Bigl[\arctan\bigl(\lvert x\rvert^p\bigr)\Bigr]^{1/p}.
 - **[S28] Armelloni, E. & Farina, A., 2005, *Emulation of Not-linear, Time-variant Devices by the Convolution Technique*.** https://angelofarina.it/Public/papers/211-AesItalia2005.pdf
 - **[S29] Angelo Farina, 2008, *Impulse Response Measurements by Exponential Sine Sweeps*, 公开讲座（第 75–80 页）.** https://www.angelofarina.it/Public/Presentations/audioprecision-workshop.pdf
 - **[S30] Acustica Audio, *GOLD 6*, 产品官方说明。** https://www.acustica-audio.com/shop/products/gold6
-- **[R1] 用户提供，2026-10-04 四轮静态分析整理，*《REPORT_Volterra与NOVA架构详解_v2.md》*。** 包含 YELLOW/TAUPE 共享引擎模块表、FIR 分支与因子化乘法原语、FFT 与外部运算桥、`simplenova` 控制模块、点形器、产品资源映射及附录 A1–A16 的地址索引。
+
+- **[S31]** Acustica Audio, *SKY SA-1A Beta (9 November update) — Vista measurement analysis*, 2026-11-09，16 页：给出 100 Hz / 1 kHz THD、谐波与亚谐波、程序依赖释放、侧链 HPF 和不同采样率下的对照测量。
+
+---

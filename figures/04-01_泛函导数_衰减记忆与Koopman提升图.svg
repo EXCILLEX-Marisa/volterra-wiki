@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="112%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/>
+      <feOffset in="vBlur" dx="0" dy="3" result="vOffset"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  
+  <rect width="1600" height="980" fill="#F8FAFC"/>
+
+  
+  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="68" y="48" width="234" height="28" rx="6" fill="#0F172A"/>
+  <text x="184.9" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 04-01 · 泛函导数与算子提升</text>
+  <text x="318" y="70" font-size="27" font-weight="bold" fill="#0F172A">Fréchet 泛函导数偏置收缩、Boyd–Chua 衰减记忆定理与 Koopman/Carleman 线性提升图</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">从无穷维泛函分析视角阐明工作点漂移衍生偶次谐波、磁滞违反衰减记忆公理及非线性状态空间的线性化提升</text>
+
+
+  
+    <rect x="48" y="144" width="480" height="738" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="48" y="144" width="480" height="54" rx="14" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+  <rect x="48" y="186" width="480" height="12" fill="#FEF3C7"/>
+  <line x1="48" y1="198" x2="528" y2="198" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="68" y="168" font-size="17" font-weight="bold" fill="#78350F">模块 I：Fréchet 泛函导数与工作点偏置收缩</text>
+  <text x="68" y="188" font-size="12.5" fill="#78350F">非零偏置 x₀ 下高阶核向低阶核的张量投影机制</text>
+    <rect x="560" y="144" width="480" height="738" rx="14" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="560" y="144" width="480" height="54" rx="14" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.5"/>
+  <rect x="560" y="186" width="480" height="12" fill="#E0F2FE"/>
+  <line x1="560" y1="198" x2="1040" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
+  <text x="580" y="168" font-size="17" font-weight="bold" fill="#075985">模块 II：Boyd–Chua 衰减记忆算子逼近定理</text>
+  <text x="580" y="188" font-size="12.5" fill="#075985">加权范数 ‖·‖_w 紧致性与 Volterra 成立的充要条件</text>
+    <rect x="1072" y="144" width="480" height="738" rx="14" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="1072" y="144" width="480" height="54" rx="14" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+  <rect x="1072" y="186" width="480" height="12" fill="#EDE9FE"/>
+  <line x1="1072" y1="198" x2="1552" y2="198" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="1092" y="168" font-size="17" font-weight="bold" fill="#5B21B6">模块 III：受控 Koopman 与 Carleman 线性提升</text>
+  <text x="1092" y="188" font-size="12.5" fill="#5B21B6">有限维非线性流形 ↔ 高维双线性算子空间的同构</text>
+
+  
+  <rect x="68" y="210" width="440" height="196" rx="10" fill="#FFFBEB" stroke="#FCD34D"/>
+  <text x="86" y="236" font-size="14" font-weight="bold" fill="#92400E">1. Volterra 核作为算子泛函导数 (Gâteaux / Fréchet)：</text>
+  <rect x="86" y="250" width="404" height="58" rx="6" fill="#FFFFFF" stroke="#D97706"/>
+  <text x="288" y="274" text-anchor="middle" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#78350F">h_p(τ₁,…,τ_p) = (1 / p!) · D^p H[0]( δ_{τ₁}, …, δ_{τ_p} )</text>
+  <text x="288" y="296" text-anchor="middle" font-size="11.5" fill="#92400E">在零工作点 x₀=0 处沿脉冲方向 δ_{τ_i} 的 p 阶混合泛函偏导</text>
+  <text x="86" y="332" font-size="12.5" fill="#334155">• <tspan font-weight="bold">多重线性对称化</tspan>：任何非对称核均可无损替换为置换平均</text>
+  <text x="100" y="352" font-size="11.2" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#475569">h_p,sym(k₁,…,k_p) = (1/p!) ∑_{π ∈ S_p} h_p(k_{π(1)},…,k_{π(p)})</text>
+  <text x="86" y="380" font-size="12.5" fill="#334155">• <tspan font-weight="bold">收敛半径</tspan>：由复化算子 H: ℂ^M → ℂ 距离最近的奇点决定</text>
+
+  
+  <rect x="68" y="420" width="440" height="442" rx="10" fill="#FEF2F2" stroke="#FCA5A5"/>
+  <text x="86" y="446" font-size="13.5" font-weight="bold" fill="#991B1B">2. 工作点偏置收缩定律 (Operating-Point Bias Contraction)：</text>
+  <text x="86" y="472" font-size="12.5" fill="#334155">当电子管栅极或磁带偏置发生偏移 x[n] = x₀ + δx[n] 时，高阶</text>
+  <text x="86" y="492" font-size="12.5" fill="#334155">核与常数 x₀ 发生张量内积收缩，直接重构低阶等效核：</text>
+
+  <rect x="86" y="508" width="404" height="114" rx="8" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="102" y="532" font-size="12" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#0F172A">h̃₁^(x₀)[k₁] = h₁[k₁] + 2x₀ ∑_{k₂} h₂[k₁,k₂]</text>
+  <text x="102" y="554" font-size="12" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#0284C7">              + 3x₀² ∑_{k₂,k₃} h₃[k₁,k₂,k₃]  (动态频响偏移)</text>
+  <text x="102" y="584" font-size="10.9" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#991B1B">h̃₂^(x₀)[k₁,k₂] = h₂[k₁,k₂] + 3x₀ ∑_{k₃} h₃[k₁,k₂,k₃]</text>
+  <text x="102" y="606" font-size="11.5" font-weight="bold" fill="#B91C1C">↑ 奇对称 3 阶核在非零偏置 x₀ 下收缩产生 2 阶偶次谐波项</text>
+
+  
+  <rect x="86" y="636" width="404" height="136" rx="8" fill="#FFFFFF" stroke="#FECACA"/>
+  <line x1="110" y1="704" x2="466" y2="704" stroke="#94A3B8" stroke-width="1"/>
+  <line x1="250" y1="646" x2="250" y2="760" stroke="#94A3B8" stroke-width="1"/>
+  <path d="M 130 750 C 200 748, 220 704, 250 704 C 280 704, 300 660, 370 658 L 450 656" fill="none" stroke="#D97706" stroke-width="2.8"/>
+  
+  <circle cx="250" cy="704" r="5" fill="#0284C7"/>
+  <text x="242" y="692" text-anchor="end" font-size="11" font-weight="bold" fill="#075985">x₀=0 (奇对称 h₂=0)</text>
+  <circle cx="305" cy="672" r="6" fill="#DC2626"/>
+  <text x="312" y="682" font-size="10.5" font-weight="bold" fill="#991B1B">偏置 x₀≠0 (f′′≠0 偶次项)</text>
+
+  <text x="86" y="796" font-size="12.5" fill="#334155">• <tspan font-weight="bold">物理诠释</tspan>：甲乙类电子管栅极整流引发 RC 偏置点动态移动 x₀(s_env)，</text>
+  <text x="100" y="818" font-size="12.5" fill="#334155">使原本奇对称的推挽级在强瞬态下涌现温暖的偶次谐波与频响压缩；</text>
+  <text x="86" y="842" font-size="11.4" font-weight="bold" fill="#991B1B">• 该收缩机制构成了第 03 章双线性状态空间交叉项 s_env[n]·x²[n] 的泛函基础</text>
+
+  
+  <rect x="580" y="210" width="440" height="310" rx="10" fill="#F0F9FF" stroke="#7DD3FC"/>
+  <text x="598" y="236" font-size="12.0" font-weight="bold" fill="#075985">1. Boyd–Chua (1985) 衰减记忆加权范数与 Stone–Weierstrass 逼近：</text>
+  <text x="598" y="262" font-size="12.5" fill="#334155">• 在无限有界序列空间 ℓ^∞(ℤ⁻) 上，普通一致范数下有界球不紧致；</text>
+  <text x="598" y="284" font-size="12.5" fill="#334155">• 引入严格递减记忆权重 w_k = λ^k (0 &lt; λ &lt; 1)，定义加权历史范数：</text>
+  <rect x="598" y="298" width="404" height="52" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.5"/>
+  <text x="800" y="322" text-anchor="middle" font-size="12.6" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#075985">‖ u ‖_w = sup_{k ≥ 0}  | u[-k] | · w_k,    lim_{k→∞} w_k = 0</text>
+  <text x="800" y="342" text-anchor="middle" font-size="11.5" fill="#0369A1">算子 H 在 ‖·‖_w 下连续  ⟺  久远历史对当前输出的影响一致趋零</text>
+
+  
+  <rect x="598" y="362" width="404" height="144" rx="8" fill="#FFFFFF" stroke="#BAE6FD"/>
+  <text x="800" y="382" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#075985">久远历史不同初态 u₁ ≠ u₂ (t &lt; -T) 在当前时刻的轨迹收敛对比</text>
+  <line x1="620" y1="444" x2="980" y2="444" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="740" y1="394" x2="740" y2="494" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text x="740" y="502" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#334155">t = -T 后输入完全相同</text>
+  
+  <path d="M 630 404 Q 700 410 740 422 Q 800 442 970 444" fill="none" stroke="#059669" stroke-width="2.5"/>
+  <path d="M 630 484 Q 700 478 740 466 Q 800 446 970 444" fill="none" stroke="#059669" stroke-width="2.5"/>
+  <text x="860" y="434" font-size="11" font-weight="bold" fill="#065F46">✓ 衰减记忆：轨迹合并</text>
+  
+  <line x1="740" y1="408" x2="970" y2="408" stroke="#DC2626" stroke-width="2" stroke-dasharray="4 2"/>
+  <line x1="740" y1="480" x2="970" y2="480" stroke="#DC2626" stroke-width="2" stroke-dasharray="4 2"/>
+  <text x="875" y="402" font-size="10.5" font-weight="bold" fill="#DC2626">✗ 剩磁 ±B_r：分岔</text>
+
+  <rect x="580" y="534" width="440" height="328" rx="10" fill="#ECFDF5" stroke="#6EE7B7"/>
+  <text x="598" y="560" font-size="14" font-weight="bold" fill="#065F46">2. 定理推论与状态增广救援方案 (State Augmentation)：</text>
+  <text x="598" y="586" font-size="12.5" fill="#334155">• <tspan font-weight="bold">紧致性桥梁</tspan>：振幅受限集 K_M = {|x[n]| ≤ M} 在加权范数 ‖·‖_w 下是</text>
+  <text x="612" y="606" font-size="11.0" fill="#334155">紧致拓扑空间 (Compact)，从而激活泛函 Stone–Weierstrass 稠密逼近定理：</text>
+  <rect x="598" y="620" width="404" height="42" rx="6" fill="#FFFFFF" stroke="#059669"/>
+  <text x="800" y="646" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#065F46">sup_{x ∈ K_M} | H[x][n] - ∑_{p=0}^P H_p[x][n] |  &lt;  ε</text>
+  <text x="598" y="688" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#991B1B">逆否命题（定理级禁区）</tspan>：铁芯/磁带剩磁、双稳态触发器与自激振荡器</text>
+  <text x="612" y="708" font-size="11.5" fill="#334155">违反 ‖·‖_w 连续性，单输入前馈空间存在逼近下界 ε₀ &gt; 0</text>
+  <text x="598" y="736" font-size="12.5" font-weight="bold" fill="#065F46">• <tspan font-weight="bold">状态增广重构定理</tspan>：引入 Play 磁滞算子向量 p[n] = P[x][n]，将映射</text>
+  <text x="612" y="758" font-size="12.1" fill="#334155">从单输入 x[n] 提升至增广输入对 z[n] = [ x[n], p₁[n], …, p_L[n] ]ᵀ；</text>
+  <text x="612" y="780" font-size="12.5" font-weight="bold" fill="#047857">在增广输入空间 z[n] 上，映射算子 H_aug[z] 恢复衰减记忆性质</text>
+  <rect x="598" y="796" width="404" height="48" rx="6" fill="#D1FAE5" stroke="#059669"/>
+  <text x="800" y="818" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#065F46">增广公理：非衰减系统 = 显式状态算子 P[x] + 衰减记忆 Volterra H_aug[x, P[x]]</text>
+  <text x="800" y="836" text-anchor="middle" font-size="10.6" fill="#047857">这为第 03 章「Play 磁滞 + V2-L」混合架构提供了严格的泛函分析完备性证明</text>
+
+  
+  <rect x="1092" y="210" width="440" height="330" rx="10" fill="#F5F3FF" stroke="#C4B5FD"/>
+  <text x="1110" y="236" font-size="14" font-weight="bold" fill="#5B21B6">1. Carleman 张量提升 vs 受控 Koopman (EDMDc) 谱提升：</text>
+
+  
+  <rect x="1110" y="252" width="404" height="176" rx="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+  
+  <rect x="1130" y="266" width="144" height="46" rx="6" fill="#EDE9FE" stroke="#7C3AED"/>
+  <text x="1202" y="287" text-anchor="middle" font-size="12" font-weight="bold" fill="#5B21B6">高维可观测量 z[n]</text>
+  <text x="1202" y="304" text-anchor="middle" font-size="10.5" fill="#6D28D9">z = Ψ(s) ∈ ℝ^D (D ≫ d)</text>
+
+  <line x1="1274" y1="289" x2="1342" y2="289" stroke="#059669" stroke-width="2.5" marker-end="url(#arr-green)"/>
+  <text x="1308" y="279" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#065F46">双线性算子 K</text>
+
+  <rect x="1346" y="266" width="150" height="46" rx="6" fill="#D1FAE5" stroke="#059669"/>
+  <text x="1421" y="287" text-anchor="middle" font-size="12" font-weight="bold" fill="#065F46">z[n+1] = A_K z + B_K x</text>
+  <text x="1421" y="304" text-anchor="middle" font-size="10.5" fill="#047857">+ x[n]·N_K·z[n]</text>
+
+  
+  <rect x="1130" y="366" width="144" height="46" rx="6" fill="#FEF3C7" stroke="#D97706"/>
+  <text x="1202" y="387" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400E">物理状态 s[n] ∈ ℝ^d</text>
+  <text x="1202" y="404" text-anchor="middle" font-size="10.5" fill="#B45309">(电容电压 / 磁通)</text>
+
+  <line x1="1274" y1="389" x2="1342" y2="389" stroke="#DC2626" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arr-red)"/>
+  <text x="1308" y="379" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#991B1B">非线性 F(s, x)</text>
+
+  <rect x="1346" y="366" width="150" height="46" rx="6" fill="#FEE2E2" stroke="#DC2626"/>
+  <text x="1421" y="387" text-anchor="middle" font-size="12" font-weight="bold" fill="#991B1B">s[n+1] = F(s[n], x[n])</text>
+  <text x="1421" y="404" text-anchor="middle" font-size="10.5" fill="#B91C1C">(强耦合非线性 ODE)</text>
+
+  
+  <line x1="1202" y1="366" x2="1202" y2="316" stroke="#7C3AED" stroke-width="2.2" marker-end="url(#arr-purple)"/>
+  <text x="1164" y="344" font-size="11" font-weight="bold" fill="#5B21B6">↑ 提升 Ψ(s)</text>
+  <line x1="1421" y1="312" x2="1421" y2="362" stroke="#0284C7" stroke-width="2.2" marker-end="url(#arr-blue)"/>
+  <text x="1458" y="344" font-size="10.5" font-weight="bold" fill="#075985">↓ 读出 C_K</text>
+
+  <text x="1110" y="452" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#5B21B6">Carleman 精确线性化</tspan>：取 Kronecker 幂张量 s^[p] = s ⊗ … ⊗ s，将</text>
+  <text x="1124" y="472" font-size="11.1" fill="#334155">d 维多项式 ODE 精确转化为高维双线性状态空间（进而导出解析 Volterra 核）</text>
+  <text x="1110" y="498" font-size="11.3" fill="#334155">• <tspan font-weight="bold" fill="#059669">EDMDc 数据驱动辨识</tspan>：通过奇异值回归直接从状态轨迹拟合 [A_K, B_K, N_K]</text>
+  <text x="1110" y="522" font-size="10.5" font-weight="bold" fill="#6D28D9">• 状态空间联系：结构化状态空间模型 (SSM) 可视为受控 Koopman 提升的参数化实现</text>
+
+  
+  <rect x="1092" y="554" width="440" height="308" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="1110" y="580" font-size="14" font-weight="bold" fill="#0F172A">2. 级联算子非交换性与泛函李括号 (Lie Bracket)：</text>
+  <text x="1110" y="606" font-size="11.5" fill="#334155">• 线性系统满足交换律 H_A∘H_B = H_B∘H_A，非线性级联不可交换：</text>
+  <text x="1124" y="626" font-size="12.5" font-weight="bold" fill="#92400E">「先均衡后削波 (Wiener)」 ≠ 「先削波后均衡 (Hammerstein)」</text>
+
+  <rect x="1110" y="640" width="404" height="86" rx="8" fill="#FFFFFF" stroke="#94A3B8"/>
+  <text x="1312" y="664" text-anchor="middle" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#0F172A">[ H_A , H_B ] := H_A ∘ H_B - H_B ∘ H_A ≠ 0</text>
+  <text x="1312" y="688" text-anchor="middle" font-size="10.9" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#5B21B6">ΔH₂^(W-H)(ω₁,ω₂) = [ H_L(ω₁+ω₂) - H_L(ω₁)H_L(ω₂) ] · c₂</text>
+  <text x="1312" y="710" text-anchor="middle" font-size="11" fill="#475569">二阶频域核的对称轴方向直接反映非线性单元与线性滤波器的级联次序</text>
+
+  <text x="1110" y="752" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#075985">拓扑盲辨识判据</tspan>：</text>
+  <text x="1124" y="774" font-size="10.5" fill="#334155">① 若 |H₂(ω₁,ω₂)| 等高线沿和频轴 ω₁+ω₂ = const 分布 → <tspan font-weight="bold" fill="#0284C7">Hammerstein (N-L)</tspan></text>
+  <text x="1124" y="796" font-size="10.6" fill="#334155">② 若 |H₂(ω₁,ω₂)| 等高线沿坐标轴 ω₁, ω₂ 独立乘积分布 → <tspan font-weight="bold" fill="#D97706">Wiener (L-N)</tspan></text>
+  <text x="1110" y="822" font-size="12.5" font-weight="bold" fill="#059669">• 工程意义：由双音二阶核切片对称轴可辅助辨识硬件内部块级联次序</text>
+
+
+  
+  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
+  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：偏置漂移通过张量内积收缩将 3 阶核投影为 2 阶偶次失真；违反 Boyd–Chua 衰减记忆的磁滞系统必须经显式状态增广或 Koopman 双线性提升恢复可逼近性。</text>
+</svg>
