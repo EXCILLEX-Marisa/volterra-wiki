@@ -1,5 +1,7 @@
 # 02 从 Volterra 级数到神经网络：同样是模型训练，本质与区别在哪里？
 
+[在线阅读本章（完整合订版）](https://excillex-marisa.github.io/volterra-wiki/#chapter-02)
+
 > **版本：v9 · 2026-11-15 · 增补非线性系统辨识与神经网络理论交叉史**
 > **所属系列：Volterra Wiki**
 > **阅读定位：** 从《01 Volterra 级数》的核辨识自然进入神经网络系统辨识；先解释为什么需要训练、两类模型如何学习、分别擅长什么，再认识 WaveNet、LSTM、NAM、可微分 DSP 与储备池计算及其实时音频工程。

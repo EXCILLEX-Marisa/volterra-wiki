@@ -1,0 +1,64 @@
+:root {
+  color-scheme: light dark;
+  --text: #172128;
+  --muted: #4c5b63;
+  --background: #fbfaf6;
+  --surface: #f2f0ea;
+  --line: #d7d6ce;
+  --link: #0d6559;
+  font-family: "Source Sans 3", "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #ebe9e0;
+    --muted: #b6c1c2;
+    --background: #141a1d;
+    --surface: #1c2427;
+    --line: #3b4749;
+    --link: #82d6bd;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  max-width: 76rem;
+  padding: clamp(1rem, 4vw, 3.5rem);
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+header { border-bottom: 1px solid var(--line); padding-bottom: 1.75rem; }
+h1, h2, h3, h4 { line-height: 1.35; scroll-margin-top: 1rem; }
+h1 { font-size: clamp(1.6rem, 4vw, 2.75rem); }
+main h1 { border-top: 1px solid var(--line); padding-top: 1.5rem; margin-top: 3rem; }
+h2 { margin-top: 2rem; }
+a { color: var(--link); text-underline-offset: .2em; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: .2em; }
+.links { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; }
+nav ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: .4rem 1.25rem;
+  padding: 0;
+  margin-bottom: 0;
+}
+blockquote { border-left: .2rem solid var(--line); color: var(--muted); margin-inline: 0; padding-left: 1rem; }
+hr { border: 0; border-top: 1px solid var(--line); }
+img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+code { background: var(--surface); font-size: .92em; padding: .08em .2em; }
+pre, .equation, .table-scroll { overflow-x: auto; }
+.equation { padding: .6rem .2rem; }
+.equation math { margin: 0 auto; width: max-content; }
+@media (max-width: 45rem) {
+  .inline-equation { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
+}
+table { border-collapse: collapse; width: 100%; margin: .75rem 0; }
+th, td { border: 1px solid var(--line); padding: .45rem .65rem; vertical-align: top; }
+th, tr:nth-child(even) { background: var(--surface); }
+footer { border-top: 1px solid var(--line); margin-top: 2.5rem; padding-block: 1rem; }

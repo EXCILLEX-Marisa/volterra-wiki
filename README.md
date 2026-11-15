@@ -1,8 +1,10 @@
 # 非线性音频系统的数字建模与系统辨识
 
+**[在线阅读 00—06 完整合订版](https://excillex-marisa.github.io/volterra-wiki/)** · **[下载完整 Markdown](downloads/Volterra_Wiki_00-06_完整合订版_GitHub图床.md?raw=true)**
+
 本书以音频工程师熟悉的线性卷积为起点，先回顾 Volterra 理论从泛函走向核辨识的历史，再进入非线性算子与历史记忆，并讨论与神经网络的理论交汇、白盒与唯象建模、概率统计、物理约束及实时约简。核心目标是建立一套能从真实音频硬件测量、训练和验证中使用的数学与工程知识体系。
 
-## 推荐阅读顺序
+## 分章阅读
 
 - [00 前置概念与术语约定](00_前置概念与术语约定_图文版.md)：建立系统、叠加原理、记忆与状态、泛函算子、多项式逼近、可辨识性及全书数学符号表。
 - [01 Volterra 级数](01_Volterra级数_图文版.md)：Volterra—Fréchet—Wiener—Lee–Schetzen 理论史、核、阶次、交叉记忆、ESS/Novák 阶次分离、多方差辨识、低秩与正交基约简、衰减记忆逼近条件。
@@ -11,12 +13,13 @@
 - [04 高级系统辨识：非线性算子、衰减记忆与随机正交展开](04_高级系统辨识_非线性算子与混沌分解.md)：Gâteaux/Fréchet、Boyd–Chua、Koopman/Carleman、分数阶记忆、Wiener Chaos、PCE、Fisher 信息。
 - [05 物理约束、模型降阶与神经代理](05_物理约束与实时代理建模.md)：电路 DAE、MNA 光电压缩器、神经控制残差、Port-Hamiltonian、有限元/POD、神经算子与离线蒸馏。
 - [06 Acustica Audio 技术发展史](06_Acustica_Audio技术发展史_含NOVA与商业建模案例.md)：从核测量到商业插件的历史桥梁、Nebula、VVKT、NAT、Acqua、NOVA，以及 YELLOW、SKY、SNOW 的商业技术案例。
-- [00—06 合订版下载与在线阅读](Volterra_Wiki_00-06_完整合订版_GitHub图床.md)
 
 ## 修订记录
 
-- [2026-11-15 商业建模案例扩充与发布校验](Volterra_Wiki_2026-11-15_案例补充与发布核查.md)
-- [此前发布前审查补充记录](Volterra_Wiki_发布前最终审查补充记录_2026-11-15.md)（历史记录，图数及部分章节名以本版为准）
+- [2026-11-15 商业建模案例扩充与发布校验](docs/revisions/Volterra_Wiki_2026-11-15_案例补充与发布核查.md)
+- [2026-11-15 SVG 文件命名修订记录](docs/revisions/Volterra_Wiki_2026-11-15_SVG命名修订记录.md)
+- [2026-11-15 发布前审查补充记录](docs/revisions/Volterra_Wiki_发布前最终审查补充记录_2026-11-15.md)
+- [2026-11-14 全篇审查与修订报告](docs/revisions/Volterra_Wiki_全篇审查与修订报告_2026-11-14.md)
 
 ## 本版选题边界
 

@@ -1,5 +1,7 @@
 # 06 从 Volterra 理论到商业音频建模：Acustica Audio 的技术发展史
 
+[在线阅读本章（完整合订版）](https://excillex-marisa.github.io/volterra-wiki/#chapter-06)
+
 > **版本：v11 · 2026-11-15 · 增补现代商业音频建模的历史衔接**
 > **所属系列：Volterra Wiki**
 > **阅读顺序：**《00_前置概念与术语约定_图文版.md》→《01_Volterra级数_图文版.md》→《02_从Volterra到神经网络_模型辨识与NAM.md》→《03_混合建模训练边界与实时约简.md》→《04_高级系统辨识_非线性算子与混沌分解.md》→《05_物理约束与实时代理建模.md》→本章。

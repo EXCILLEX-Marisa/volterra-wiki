@@ -1,5 +1,7 @@
 # 01 Volterra 级数
 
+[在线阅读本章（完整合订版）](https://excillex-marisa.github.io/volterra-wiki/#chapter-01)
+
 > **版本：v13 · 2026-11-15 · 增补 Volterra 理论与核辨识发展史**
 > **所属系列：Volterra Wiki**
 > **配图说明：** 本章 17 张 SVG 配图与 Markdown 文件配套提供，建议使用完整素材包以保持相对路径有效。
