@@ -1,13 +1,51 @@
 # 01 Volterra 级数
 
-> **版本：v12 · 2026-11-15 · 补充压缩器长状态与非线性增益控制的工程分工**
+> **版本：v13 · 2026-11-15 · 增补 Volterra 理论与核辨识发展史**
 > **所属系列：Volterra Wiki**
 > **配图说明：** 本章 17 张 SVG 配图与 Markdown 文件配套提供，建议使用完整素材包以保持相对路径有效。
 > **阅读定位：从前置概念进入 Volterra 的正式数学结构，建立它在非线性音频系统辨识中的用途、优势、成本与能力边界。**
 > **前置阅读：《00_前置概念与术语约定_图文版.md》。**
 > **本章原则：解释每一种数学结构为什么有必要出现，以及它到底比前一种模型多表达了什么。本章概览常见约简形式与核心辨识难点，为后续混合建模与高级算子章节打好基础。**
 
-本章以卷积及其历史记忆为切入点，建立 Volterra 级数的数学表达、核辨识和约简方法。它为后续神经网络、白盒电路、唯象状态和混合建模提供共同的系统辨识语言。
+本章先回顾 Volterra 级数从泛函理论走向非线性系统辨识的历史，再以卷积及输入历史为切入点，建立它的数学表达、核辨识和约简方法。它为后续神经网络、白盒电路、唯象状态和混合建模提供共同的系统辨识语言。
+
+## 历史导论：Volterra 级数是怎样从泛函理论走向系统辨识的？
+
+我们今天谈论 Volterra，往往会想到非线性卷积、谐波分阶与音频硬件采样。但这套理论的起点比数字信号处理早了近一个世纪。理解它的历史，可以看出研究问题曾发生过几次重要转变：最初是“怎样描述以整个函数为输入的数学映射”，后来变成“怎样分析真实的非线性动力系统”，再进一步变成“怎样通过实验得到未知系统的核”。直到这些问题逐渐得到回答，Volterra 级数才有机会进入数字音频建模。[VH1]
+
+### 十九世纪末至 1910 年：从普通函数走向泛函
+
+意大利数学家 **Vito Volterra** 在十九世纪八十年代研究一种比普通函数更一般的数学对象：映射所接收的自变量，可以是一整个函数。普通 Taylor 展开通过若干阶导数描述数值变量在某个参考点附近的变化；当自变量变成整条函数时，类似的逐阶展开就需要作用于函数的多线性项，以及相应的多重积分核。Volterra 的早期工作正是沿着这条思路展开的。它所面对的最初问题与音频失真、采样率或数字滤波器都没有直接关系。[VH1]
+
+1910 年，**Maurice Fréchet** 对连续泛函的表示问题进行了更严格的研究，并将其与 Weierstrass 多项式逼近思想联系起来。这里存在一项贯穿全书的重要区别：对某类连续映射进行多项式泛函**逼近**，与在某个工作点求出一条实际**收敛的 Taylor 型无穷级数**，并不具有相同的假设条件。后来 Boyd–Chua 关于衰减记忆的研究之所以重要，正因为它继续澄清了“怎样的系统、在什么输入集合上、按照什么误差标准可以逼近”这些问题。[VH1][VH4]
+
+文献里还会出现 **Volterra 积分方程（Volterra Integral Equation）**。两者源于同一位数学家的研究，但用途不同：Volterra 积分方程以具有历史积分上限的关系描述未知函数，常用于求解动力学问题；Volterra 级数则用一阶、二阶直到更高阶的泛函项展开输入—输出映射。两者可以在某些非线性系统的分析中联系起来，但不能只因为名称相同，就把积分方程当作 Volterra 级数。有关积分方程的专门数学体系，可参阅 Gripenberg、Londen 与 Staffans 的著作。[VH6]
+
+### 1930—1950 年代：Wiener 将随机过程与非线性系统接入这套理论
+
+**Norbert Wiener** 从布朗运动、随机积分和白噪声相关问题出发，逐渐发展出处理随机输入下非线性系统的方法。Schetzen 的历史回顾记录了 Wiener 在 **1942 年** 运用 Volterra 理论分析带非线性电阻的串联 RLC 电路的工作；这是早期将泛函展开用于实际非线性电路问题的重要案例。1945 年 **Cameron–Martin** 对随机泛函完备系统的工作，也为后来的正交展开提供了数学背景。[VH1]
+
+到了 1949 年，Wiener 已向 MIT 的 **Y. W. Lee** 研究团队介绍自己的非线性系统方法；1958 年的讲义进一步系统呈现了相关理论。在这条研究路线中，Volterra 展开的不同阶次通常并不会仅因为阶数不同就自动满足统计正交。Wiener 通过针对高斯随机激励构造正交泛函，使不同阶的响应贡献能够在指定统计意义下分离。由此发展出的 **Wiener 核** 与通常的 **Volterra 核** 相互关联，却不能直接当成同一组系数。它们的定义依赖所采用的展开体系与输入统计条件，转换时必须核对归一化和具体假设。有关 Wiener 正交泛函和核估计的推导将在《04》第 4.11–4.12 节展开。[VH1][VH2]
+
+### 1950—1960 年代：从级数表示转向系统、反馈与核的测量
+
+如果要用一条泛函级数研究真实设备，研究者就必须进一步面对级联、反馈、收敛与实际可计算性。**Bose** 在 1956 年提出 Gate Function Model；**Barrett** 在 1957 年系统研究了 Volterra 在非线性微分方程与反馈系统中的应用；**Brilliant** 在 1958 年讨论级联与收敛；**George** 在 1959 年建立系统代数并引入多维 Laplace 变换分析 Volterra 算子。与此同时，**Zames** 和 **Sandberg** 从算子、收缩映射与稳定性角度推动非线性反馈理论的发展。这些工作让 Volterra 从泛函表示逐渐进入工程系统分析。[VH1]
+
+真正接近现代黑盒辨识的问题是：假设设备的电路未知，我们能否只通过设计输入并观察输出，测得描述非线性历史交互的核？**Lee–Schetzen 互相关法** 是这段历史的重要转折。根据 Schetzen 的回顾，相关方法在 1961 年已形成、1962 年得到实验验证，并在 1965 年有正式论文发表。它利用输入的统计性质与互相关关系辨识 **Wiener 核**；若希望得到特定记法的 Volterra 核，还需要处理两种展开之间的关系。这种方法建立了由实验数据走向非线性算子表示的具体途径。[VH1][VH3]
+
+在同一时期，**Schetzen** 也研究有限 Volterra 算子的测量与综合；1964 年 **Alper** 和 **Bush** 的工作则推进了离散时间 Volterra 系统的研究。连续时间的多重积分核因而与后来在 DSP 中熟悉的多重延迟求和逐渐接轨。这里的关键困难随之显露：阶数与历史长度一旦增大，所需辨识的数据量和核参数量也会快速增长。[VH1]
+
+### 1970—1980 年代：核辨识、衰减记忆与有限计算资源
+
+进入二十世纪七十年代，研究已不局限于“级数能否写出来”。直接求解、基函数展开、时域互相关、频域方法及核形状的物理解释共同构成了系统辨识研究。1977 年的综述 *The Kernel Identification Method (1910–1977)* 对这段进展进行了系统梳理；1980 年 **Martin Schetzen** 出版 *The Volterra and Wiener Theories of Nonlinear Systems*，将算子展开、Wiener 体系、核测量与系统综合组织成较完整的工程理论框架。[VH1][VH5]
+
+1985 年，**Stephen Boyd** 与 **Leon Chua** 对衰减记忆（Fading Memory）条件下非线性算子的逼近给出了重要结果。这提醒我们，讨论 Volterra 的能力不能只看“无限阶可以写多少项”，还必须限定因果性、时不变性、连续性、输入集合和逼近的误差意义。与此同时，自适应非线性滤波研究逐渐关注 LMS、RLS 一类参数更新方案、核的截断以及如何在有限运算量下实现辨识。Ogunfunmi 的 *Adaptive Nonlinear System Identification* 对这些工程路线提供了后来的系统总结。[VH4][VH7]
+
+### 从理论史回到现代音频：为什么这条路线走得如此漫长？
+
+数学上允许高阶历史输入相乘，不意味着工程上就能完整辨识和实时求值。**参数维度、激励信号、测量噪声、数值病态和计算预算**，都在限制完整 Volterra 核的部署。由此发展出对角核、并联 Hammerstein、正交基函数、稀疏/低秩约简和状态混合等不同方向。它们是对具体问题作出的结构选择，不能只按出现年代排成单一的技术优劣序列。
+
+这也解释了整套 Wiki 的叙事安排：本章接下来从输入历史与多项式结构出发，正式定义 Volterra 级数；《02》会讨论神经网络如何在非线性系统辨识这一共同问题上与它交汇；《06》则把测量、核数据库、计算引擎与商业音频插件连接起来。历史说明了研究动机，接下来的数学与实验仍然决定一个模型是否成立。
 
 ## 1.1 我们真正想解决的，是哪一种音频建模问题？
 
@@ -649,6 +687,17 @@ $$
 - Alan V. Oppenheim, Ronald W. Schafer, *Discrete-Time Signal Processing*：离散时间系统、卷积、稳定性与频域基础。
 - Udo Zölzer, *Digital Audio Signal Processing* 及 *DAFX: Digital Audio Effects*：数字音频系统、非线性处理和实际 DSP 结构。
 - Giorgio Bertotti, *Hysteresis in Magnetism*：磁滞中的历史依赖、速率相关行为、分支与材料状态。
+
+### 历史资料补充
+
+- **[VH1]** Martin Schetzen (1980), *The Volterra and Wiener Theories of Nonlinear Systems*, Appendix B, pp. 517–521：Volterra、Fréchet、Wiener、Lee–Schetzen、Barrett、George、Brilliant、Zames 与离散 Volterra 的历史回顾。
+- **[VH2]** Norbert Wiener (1958), *Nonlinear Problems in Random Theory*：正交随机泛函与非线性系统分析的经典讲义。
+- **[VH3]** Y. W. Lee & Martin Schetzen (1965), *Measurement of the Wiener Kernels of a Non-linear System by Cross-correlation*, *International Journal of Control*. [NASA 文献记录](https://ntrs.nasa.gov/citations/19660032499)。
+- **[VH4]** S. Boyd & L. O. Chua (1985), *Fading Memory and the Problem of Approximating Nonlinear Operators with Volterra Series*. [Stanford 作者论文页](https://web.stanford.edu/~boyd/papers/fading_volterra.html)。
+- **[VH5]** *The Kernel Identification Method (1910–1977): Review of Theory, Calculation, Application, and Interpretation*, *Mathematical Biosciences*, 37, 135–190 (1977). [DOI](https://doi.org/10.1016/0025-5564(77)90091-8)。
+- **[VH6]** G. Gripenberg, S.-O. Londen & O. Staffans (1990), *Volterra Integral and Functional Equations*：积分方程及其数学背景，注意与 Volterra 级数的术语区别。
+- **[VH7]** T. Ogunfunmi (2007), *Adaptive Nonlinear System Identification: The Volterra and Wiener Model Approaches*：离散与自适应辨识方法、计算开销及参数估计。
+
 - **[V1]** S. Boyd & L. O. Chua (1985), *Fading Memory and the Problem of Approximating Nonlinear Operators with Volterra Series*, IEEE Trans. Circuits Syst., [DOI:10.1109/TCS.1985.1085649](https://doi.org/10.1109/TCS.1985.1085649)；[作者论文页](https://web.stanford.edu/~boyd/papers/fading_volterra.html)。
 - **[V2]** S. Orcioni, A. Terenzi, S. Cecchi, F. Piazza & A. Carini (2018), *Identification of Volterra Models of Tube Audio Devices Using Multiple-Variance Method*, J. Audio Eng. Soc., 66(10), 823–838, [DOI:10.17743/jaes.2018.0046](https://doi.org/10.17743/jaes.2018.0046)。
 - **[V3]** L. Tronchin & V. L. Coli (2015), *Further Investigations in the Emulation of Nonlinear Systems with Volterra Series*, J. Audio Eng. Soc., 63(9), 671–683, [DOI:10.17743/jaes.2015.0065](https://doi.org/10.17743/jaes.2015.0065)。

@@ -1,9 +1,33 @@
 # 02 从 Volterra 级数到神经网络：同样是模型训练，本质与区别在哪里？
 
-> **版本：v8 · 2026-11-15 · 补充超网络的参数到权重映射与实时递归推理实例**
+> **版本：v9 · 2026-11-15 · 增补非线性系统辨识与神经网络理论交叉史**
 > **所属系列：Volterra Wiki**
 > **阅读定位：** 从《01 Volterra 级数》的核辨识自然进入神经网络系统辨识；先解释为什么需要训练、两类模型如何学习、分别擅长什么，再认识 WaveNet、LSTM、NAM、可微分 DSP 与储备池计算及其实时音频工程。
 > **阅读建议：** 本章不要求读者预先掌握反向传播或深度学习，已经理解《00》的输入、输出、状态、泛化，以及《01》的 Volterra 核即可。
+
+## 历史导论：Volterra 与神经网络为什么会在系统辨识中相遇？
+
+上一章的历史始于泛函表示、随机过程和核测量。神经网络却有另一条发展脉络：早期人工神经元与感知机研究关注可学习的计算单元，后来多层网络、反向传播与序列模型逐渐形成独立体系。**神经网络并非由 Volterra 级数直接演变而来**；两者相遇，是因为非线性系统辨识开始同时使用显式多项式基和可训练的非线性函数族来描述未知动力系统。
+
+### 从可学习的函数到可辨识的动力系统
+
+1940—1960 年代的人工神经元、感知机与自适应学习研究，为后来可训练网络奠定基础。1980 年代，误差反向传播的广泛应用，使多层网络能够联合调整隐藏层参数。**Cybenko** 在 1989 年证明了满足特定条件的单隐藏层 Sigmoid 网络对紧集上连续函数的一类一致逼近结果。它与 Volterra 的多项式泛函逼近具有值得比较的数学精神，但定理的函数空间、输入对象以及逼近条件并不自动相同：有限维静态函数逼近不能直接代替无限历史的动态算子逼近。[NH1]
+
+1990 年，**Narendra 与 Parthasarathy** 在 *Identification and Control of Dynamical Systems Using Neural Networks* 中明确讨论使用多层与递归神经网络辨识、控制非线性动力系统，以及静态与动态反向传播。这是连接神经网络与传统系统辨识的一个重要学术节点。由此，研究者可以在同一项任务中比较不同建模结构：预先设定核与延迟特征后估计系数，或者利用可训练网络从数据中寻找更适合的中间表示。[NH2]
+
+### 历史记忆：从显式输入窗口到递归隐状态
+
+传统有限记忆 Volterra 模型把历史样本写进核的延迟索引；带时序结构的神经网络，则可以通过输入窗口或递归状态保存过去的信息。1997 年 **Hochreiter 与 Schmidhuber** 提出 LSTM，重点处理普通循环网络学习长时间依赖时梯度衰减等问题。它为长时间状态建模提供了另一种参数化方式，但递归网络具有长历史通路，不代表已经学习到了真实硬件的长时常数，也不代表其自由运行一定稳定。[NH3]
+
+2016 年的 **WaveNet** 使用因果扩张卷积处理原始音频，展示了在有限层数下覆盖较长历史窗口的高效结构。必须注意，最初的 WaveNet 是自回归音频生成模型；后来用于硬件输入—输出辨识的 WaveNet 类网络通常调整为由外部音频驱动的前馈回归结构。两者可以共享因果扩张卷积等计算组件，但预测目标与运行方式不同。[NH4]
+
+### 2019 年以后：音频硬件成为两类模型的共同实验对象
+
+**Wright、Damskägg 与 Välimäki** 等人在 DAFx 2019 讨论了使用 LSTM、GRU 与 WaveNet 类网络对电子管放大器和失真踏板进行实时黑盒建模，并给出 C++/JUCE 部署与运算开销比较。2020 年的后续研究进一步比较了深度前馈网络与递归网络的音频设备建模表现。**Steve Atkinson** 在 NAM 项目的历史回顾中指出，该项目从 2019 年起便以开源仓库形式探索吉他放大器的神经网络建模，后来逐渐形成独立的训练与实时推理生态。[NH5][NH6]
+
+到这一步，Volterra 与神经网络的交叉已经可以从三个层面理解。**表示层**：显式多项式核与可训练非线性特征，都在试图逼近同一个输入—输出映射；**记忆层**：有限核窗口、扩张卷积感受野与递归状态各自提供不同的历史组织方式；**训练层**：固定核 Volterra 常可化为对系数线性的回归，而一般深度网络需要对内部特征和权重共同优化。现实中还可以把 Volterra 核、物理状态、神经残差与参数生成网络组合起来，形成混合模型。它们的有效性需要通过同一套激励、测试集和实时预算比较，不能仅凭模型名称判断。[NH2][NH7]
+
+本章将沿这条历史交汇线索，依次比较固定核回归、神经网络训练、WaveNet、LSTM、NAM、参数条件化、可微 DSP 与储备池计算。至于这些技术如何成为商业插件中的核数据库、动态处理器和混合引擎，《06》再作集中讨论。
 
 ## 2.1 我们为什么会从 Volterra 讨论到神经网络？
 
@@ -294,6 +318,17 @@ $$
 ---
 
 ## 本章参考资料
+
+
+### 理论交叉史补充阅读
+
+- **[NH1]** G. Cybenko (1989), *Approximation by Superpositions of a Sigmoidal Function*. [DOI](https://doi.org/10.1007/BF02551274)。
+- **[NH2]** K. S. Narendra & K. Parthasarathy (1990), *Identification and Control of Dynamical Systems Using Neural Networks*. [DOI](https://doi.org/10.1109/72.80202)。
+- **[NH3]** S. Hochreiter & J. Schmidhuber (1997), *Long Short-Term Memory*. [DOI](https://doi.org/10.1162/neco.1997.9.8.1735)。
+- **[NH4]** A. van den Oord et al. (2016), *WaveNet: A Generative Model for Raw Audio*. [研究机构论文页](https://research.google/pubs/wavenet-a-generative-model-for-raw-audio/)。
+- **[NH5]** A. Wright, E.-P. Damskägg & V. Välimäki (2019), *Real-Time Black-Box Modelling With Recurrent Neural Networks*. [DAFx 论文档案](https://dafx.de/paper-archive/details/tieFMcaohHBxl_2yPyIGFA)；Wright et al. (2020), *Real-Time Guitar Amplifier Emulation with Deep Learning*. [Aalto 论文页](https://research.aalto.fi/en/publications/real-time-guitar-amplifier-emulation-with-deep-learning/)。
+- **[NH6]** Steve Atkinson (2024), *The History of NAM*. [NAM 官方历史回顾](https://www.neuralampmodeler.com/post/the-history-of-nam)。
+- **[NH7]** S. Boyd & L. O. Chua (1985), *Fading Memory and the Problem of Approximating Nonlinear Operators with Volterra Series*. [作者论文页](https://web.stanford.edu/~boyd/papers/fading_volterra.html)；Martin Schetzen (1980), *The Volterra and Wiener Theories of Nonlinear Systems*。
 
 - **[N1]** [NeuralAmpModelerCore 官方文档](https://neuralampmodelercore.readthedocs.io/en/latest/)：主要网络类型与 C++ 实时推理核心。
 - **[N2]** [NAM WaveNet 计算过程](https://neuralampmodelercore.readthedocs.io/en/latest/wavenet_walkthrough.html)：因果扩张卷积、残差跳跃连接与前馈回归式 WaveNet。

@@ -1,6 +1,6 @@
 # 非线性音频系统的数字建模与系统辨识（00—06 完整合订版 · 37 张 SVG 教学图）
 
-> **说明：** 本合订版与目录中的七篇独立 Markdown 同步；新增案例分别放在《01》《02》《03》《05》《06》。图片引用使用仓库 `main` 分支的 GitHub 原始文件链接；独立分章使用 `figures/` 相对路径。
+> **说明：** 本合订版与目录中的七篇独立 Markdown 同步；《01》《02》《06》分别补充理论起源、跨模型系统辨识与商业工程史，新增建模案例分别放在《01》《02》《03》《05》《06》。图片引用使用仓库 `main` 分支的 GitHub 原始文件链接；独立分章使用 `figures/` 相对路径。
 
 ---
 
@@ -593,14 +593,52 @@ $$
 
 # 01 Volterra 级数
 
-> **版本：v12 · 2026-11-15 · 补充压缩器长状态与非线性增益控制的工程分工**
+> **版本：v13 · 2026-11-15 · 增补 Volterra 理论与核辨识发展史**
 > **所属系列：Volterra Wiki**
 > **配图说明：** 本章 17 张 SVG 配图与 Markdown 文件配套提供，建议使用完整素材包以保持相对路径有效。
 > **阅读定位：从前置概念进入 Volterra 的正式数学结构，建立它在非线性音频系统辨识中的用途、优势、成本与能力边界。**
 > **前置阅读：《00_前置概念与术语约定_图文版.md》。**
 > **本章原则：解释每一种数学结构为什么有必要出现，以及它到底比前一种模型多表达了什么。本章概览常见约简形式与核心辨识难点，为后续混合建模与高级算子章节打好基础。**
 
-本章以卷积及其历史记忆为切入点，建立 Volterra 级数的数学表达、核辨识和约简方法。它为后续神经网络、白盒电路、唯象状态和混合建模提供共同的系统辨识语言。
+本章先回顾 Volterra 级数从泛函理论走向非线性系统辨识的历史，再以卷积及输入历史为切入点，建立它的数学表达、核辨识和约简方法。它为后续神经网络、白盒电路、唯象状态和混合建模提供共同的系统辨识语言。
+
+## 历史导论：Volterra 级数是怎样从泛函理论走向系统辨识的？
+
+我们今天谈论 Volterra，往往会想到非线性卷积、谐波分阶与音频硬件采样。但这套理论的起点比数字信号处理早了近一个世纪。理解它的历史，可以看出研究问题曾发生过几次重要转变：最初是“怎样描述以整个函数为输入的数学映射”，后来变成“怎样分析真实的非线性动力系统”，再进一步变成“怎样通过实验得到未知系统的核”。直到这些问题逐渐得到回答，Volterra 级数才有机会进入数字音频建模。[VH1]
+
+### 十九世纪末至 1910 年：从普通函数走向泛函
+
+意大利数学家 **Vito Volterra** 在十九世纪八十年代研究一种比普通函数更一般的数学对象：映射所接收的自变量，可以是一整个函数。普通 Taylor 展开通过若干阶导数描述数值变量在某个参考点附近的变化；当自变量变成整条函数时，类似的逐阶展开就需要作用于函数的多线性项，以及相应的多重积分核。Volterra 的早期工作正是沿着这条思路展开的。它所面对的最初问题与音频失真、采样率或数字滤波器都没有直接关系。[VH1]
+
+1910 年，**Maurice Fréchet** 对连续泛函的表示问题进行了更严格的研究，并将其与 Weierstrass 多项式逼近思想联系起来。这里存在一项贯穿全书的重要区别：对某类连续映射进行多项式泛函**逼近**，与在某个工作点求出一条实际**收敛的 Taylor 型无穷级数**，并不具有相同的假设条件。后来 Boyd–Chua 关于衰减记忆的研究之所以重要，正因为它继续澄清了“怎样的系统、在什么输入集合上、按照什么误差标准可以逼近”这些问题。[VH1][VH4]
+
+文献里还会出现 **Volterra 积分方程（Volterra Integral Equation）**。两者源于同一位数学家的研究，但用途不同：Volterra 积分方程以具有历史积分上限的关系描述未知函数，常用于求解动力学问题；Volterra 级数则用一阶、二阶直到更高阶的泛函项展开输入—输出映射。两者可以在某些非线性系统的分析中联系起来，但不能只因为名称相同，就把积分方程当作 Volterra 级数。有关积分方程的专门数学体系，可参阅 Gripenberg、Londen 与 Staffans 的著作。[VH6]
+
+### 1930—1950 年代：Wiener 将随机过程与非线性系统接入这套理论
+
+**Norbert Wiener** 从布朗运动、随机积分和白噪声相关问题出发，逐渐发展出处理随机输入下非线性系统的方法。Schetzen 的历史回顾记录了 Wiener 在 **1942 年** 运用 Volterra 理论分析带非线性电阻的串联 RLC 电路的工作；这是早期将泛函展开用于实际非线性电路问题的重要案例。1945 年 **Cameron–Martin** 对随机泛函完备系统的工作，也为后来的正交展开提供了数学背景。[VH1]
+
+到了 1949 年，Wiener 已向 MIT 的 **Y. W. Lee** 研究团队介绍自己的非线性系统方法；1958 年的讲义进一步系统呈现了相关理论。在这条研究路线中，Volterra 展开的不同阶次通常并不会仅因为阶数不同就自动满足统计正交。Wiener 通过针对高斯随机激励构造正交泛函，使不同阶的响应贡献能够在指定统计意义下分离。由此发展出的 **Wiener 核** 与通常的 **Volterra 核** 相互关联，却不能直接当成同一组系数。它们的定义依赖所采用的展开体系与输入统计条件，转换时必须核对归一化和具体假设。有关 Wiener 正交泛函和核估计的推导将在《04》第 4.11–4.12 节展开。[VH1][VH2]
+
+### 1950—1960 年代：从级数表示转向系统、反馈与核的测量
+
+如果要用一条泛函级数研究真实设备，研究者就必须进一步面对级联、反馈、收敛与实际可计算性。**Bose** 在 1956 年提出 Gate Function Model；**Barrett** 在 1957 年系统研究了 Volterra 在非线性微分方程与反馈系统中的应用；**Brilliant** 在 1958 年讨论级联与收敛；**George** 在 1959 年建立系统代数并引入多维 Laplace 变换分析 Volterra 算子。与此同时，**Zames** 和 **Sandberg** 从算子、收缩映射与稳定性角度推动非线性反馈理论的发展。这些工作让 Volterra 从泛函表示逐渐进入工程系统分析。[VH1]
+
+真正接近现代黑盒辨识的问题是：假设设备的电路未知，我们能否只通过设计输入并观察输出，测得描述非线性历史交互的核？**Lee–Schetzen 互相关法** 是这段历史的重要转折。根据 Schetzen 的回顾，相关方法在 1961 年已形成、1962 年得到实验验证，并在 1965 年有正式论文发表。它利用输入的统计性质与互相关关系辨识 **Wiener 核**；若希望得到特定记法的 Volterra 核，还需要处理两种展开之间的关系。这种方法建立了由实验数据走向非线性算子表示的具体途径。[VH1][VH3]
+
+在同一时期，**Schetzen** 也研究有限 Volterra 算子的测量与综合；1964 年 **Alper** 和 **Bush** 的工作则推进了离散时间 Volterra 系统的研究。连续时间的多重积分核因而与后来在 DSP 中熟悉的多重延迟求和逐渐接轨。这里的关键困难随之显露：阶数与历史长度一旦增大，所需辨识的数据量和核参数量也会快速增长。[VH1]
+
+### 1970—1980 年代：核辨识、衰减记忆与有限计算资源
+
+进入二十世纪七十年代，研究已不局限于“级数能否写出来”。直接求解、基函数展开、时域互相关、频域方法及核形状的物理解释共同构成了系统辨识研究。1977 年的综述 *The Kernel Identification Method (1910–1977)* 对这段进展进行了系统梳理；1980 年 **Martin Schetzen** 出版 *The Volterra and Wiener Theories of Nonlinear Systems*，将算子展开、Wiener 体系、核测量与系统综合组织成较完整的工程理论框架。[VH1][VH5]
+
+1985 年，**Stephen Boyd** 与 **Leon Chua** 对衰减记忆（Fading Memory）条件下非线性算子的逼近给出了重要结果。这提醒我们，讨论 Volterra 的能力不能只看“无限阶可以写多少项”，还必须限定因果性、时不变性、连续性、输入集合和逼近的误差意义。与此同时，自适应非线性滤波研究逐渐关注 LMS、RLS 一类参数更新方案、核的截断以及如何在有限运算量下实现辨识。Ogunfunmi 的 *Adaptive Nonlinear System Identification* 对这些工程路线提供了后来的系统总结。[VH4][VH7]
+
+### 从理论史回到现代音频：为什么这条路线走得如此漫长？
+
+数学上允许高阶历史输入相乘，不意味着工程上就能完整辨识和实时求值。**参数维度、激励信号、测量噪声、数值病态和计算预算**，都在限制完整 Volterra 核的部署。由此发展出对角核、并联 Hammerstein、正交基函数、稀疏/低秩约简和状态混合等不同方向。它们是对具体问题作出的结构选择，不能只按出现年代排成单一的技术优劣序列。
+
+这也解释了整套 Wiki 的叙事安排：本章接下来从输入历史与多项式结构出发，正式定义 Volterra 级数；《02》会讨论神经网络如何在非线性系统辨识这一共同问题上与它交汇；《06》则把测量、核数据库、计算引擎与商业音频插件连接起来。历史说明了研究动机，接下来的数学与实验仍然决定一个模型是否成立。
 
 ## 1.1 我们真正想解决的，是哪一种音频建模问题？
 
@@ -1242,6 +1280,17 @@ $$
 - Alan V. Oppenheim, Ronald W. Schafer, *Discrete-Time Signal Processing*：离散时间系统、卷积、稳定性与频域基础。
 - Udo Zölzer, *Digital Audio Signal Processing* 及 *DAFX: Digital Audio Effects*：数字音频系统、非线性处理和实际 DSP 结构。
 - Giorgio Bertotti, *Hysteresis in Magnetism*：磁滞中的历史依赖、速率相关行为、分支与材料状态。
+
+### 历史资料补充
+
+- **[VH1]** Martin Schetzen (1980), *The Volterra and Wiener Theories of Nonlinear Systems*, Appendix B, pp. 517–521：Volterra、Fréchet、Wiener、Lee–Schetzen、Barrett、George、Brilliant、Zames 与离散 Volterra 的历史回顾。
+- **[VH2]** Norbert Wiener (1958), *Nonlinear Problems in Random Theory*：正交随机泛函与非线性系统分析的经典讲义。
+- **[VH3]** Y. W. Lee & Martin Schetzen (1965), *Measurement of the Wiener Kernels of a Non-linear System by Cross-correlation*, *International Journal of Control*. [NASA 文献记录](https://ntrs.nasa.gov/citations/19660032499)。
+- **[VH4]** S. Boyd & L. O. Chua (1985), *Fading Memory and the Problem of Approximating Nonlinear Operators with Volterra Series*. [Stanford 作者论文页](https://web.stanford.edu/~boyd/papers/fading_volterra.html)。
+- **[VH5]** *The Kernel Identification Method (1910–1977): Review of Theory, Calculation, Application, and Interpretation*, *Mathematical Biosciences*, 37, 135–190 (1977). [DOI](https://doi.org/10.1016/0025-5564(77)90091-8)。
+- **[VH6]** G. Gripenberg, S.-O. Londen & O. Staffans (1990), *Volterra Integral and Functional Equations*：积分方程及其数学背景，注意与 Volterra 级数的术语区别。
+- **[VH7]** T. Ogunfunmi (2007), *Adaptive Nonlinear System Identification: The Volterra and Wiener Model Approaches*：离散与自适应辨识方法、计算开销及参数估计。
+
 - **[V1]** S. Boyd & L. O. Chua (1985), *Fading Memory and the Problem of Approximating Nonlinear Operators with Volterra Series*, IEEE Trans. Circuits Syst., [DOI:10.1109/TCS.1985.1085649](https://doi.org/10.1109/TCS.1985.1085649)；[作者论文页](https://web.stanford.edu/~boyd/papers/fading_volterra.html)。
 - **[V2]** S. Orcioni, A. Terenzi, S. Cecchi, F. Piazza & A. Carini (2018), *Identification of Volterra Models of Tube Audio Devices Using Multiple-Variance Method*, J. Audio Eng. Soc., 66(10), 823–838, [DOI:10.17743/jaes.2018.0046](https://doi.org/10.17743/jaes.2018.0046)。
 - **[V3]** L. Tronchin & V. L. Coli (2015), *Further Investigations in the Emulation of Nonlinear Systems with Volterra Series*, J. Audio Eng. Soc., 63(9), 671–683, [DOI:10.17743/jaes.2015.0065](https://doi.org/10.17743/jaes.2015.0065)。
@@ -1253,10 +1302,34 @@ $$
 
 # 02 从 Volterra 级数到神经网络：同样是模型训练，本质与区别在哪里？
 
-> **版本：v8 · 2026-11-15 · 补充超网络的参数到权重映射与实时递归推理实例**
+> **版本：v9 · 2026-11-15 · 增补非线性系统辨识与神经网络理论交叉史**
 > **所属系列：Volterra Wiki**
 > **阅读定位：** 从《01 Volterra 级数》的核辨识自然进入神经网络系统辨识；先解释为什么需要训练、两类模型如何学习、分别擅长什么，再认识 WaveNet、LSTM、NAM、可微分 DSP 与储备池计算及其实时音频工程。
 > **阅读建议：** 本章不要求读者预先掌握反向传播或深度学习，已经理解《00》的输入、输出、状态、泛化，以及《01》的 Volterra 核即可。
+
+## 历史导论：Volterra 与神经网络为什么会在系统辨识中相遇？
+
+上一章的历史始于泛函表示、随机过程和核测量。神经网络却有另一条发展脉络：早期人工神经元与感知机研究关注可学习的计算单元，后来多层网络、反向传播与序列模型逐渐形成独立体系。**神经网络并非由 Volterra 级数直接演变而来**；两者相遇，是因为非线性系统辨识开始同时使用显式多项式基和可训练的非线性函数族来描述未知动力系统。
+
+### 从可学习的函数到可辨识的动力系统
+
+1940—1960 年代的人工神经元、感知机与自适应学习研究，为后来可训练网络奠定基础。1980 年代，误差反向传播的广泛应用，使多层网络能够联合调整隐藏层参数。**Cybenko** 在 1989 年证明了满足特定条件的单隐藏层 Sigmoid 网络对紧集上连续函数的一类一致逼近结果。它与 Volterra 的多项式泛函逼近具有值得比较的数学精神，但定理的函数空间、输入对象以及逼近条件并不自动相同：有限维静态函数逼近不能直接代替无限历史的动态算子逼近。[NH1]
+
+1990 年，**Narendra 与 Parthasarathy** 在 *Identification and Control of Dynamical Systems Using Neural Networks* 中明确讨论使用多层与递归神经网络辨识、控制非线性动力系统，以及静态与动态反向传播。这是连接神经网络与传统系统辨识的一个重要学术节点。由此，研究者可以在同一项任务中比较不同建模结构：预先设定核与延迟特征后估计系数，或者利用可训练网络从数据中寻找更适合的中间表示。[NH2]
+
+### 历史记忆：从显式输入窗口到递归隐状态
+
+传统有限记忆 Volterra 模型把历史样本写进核的延迟索引；带时序结构的神经网络，则可以通过输入窗口或递归状态保存过去的信息。1997 年 **Hochreiter 与 Schmidhuber** 提出 LSTM，重点处理普通循环网络学习长时间依赖时梯度衰减等问题。它为长时间状态建模提供了另一种参数化方式，但递归网络具有长历史通路，不代表已经学习到了真实硬件的长时常数，也不代表其自由运行一定稳定。[NH3]
+
+2016 年的 **WaveNet** 使用因果扩张卷积处理原始音频，展示了在有限层数下覆盖较长历史窗口的高效结构。必须注意，最初的 WaveNet 是自回归音频生成模型；后来用于硬件输入—输出辨识的 WaveNet 类网络通常调整为由外部音频驱动的前馈回归结构。两者可以共享因果扩张卷积等计算组件，但预测目标与运行方式不同。[NH4]
+
+### 2019 年以后：音频硬件成为两类模型的共同实验对象
+
+**Wright、Damskägg 与 Välimäki** 等人在 DAFx 2019 讨论了使用 LSTM、GRU 与 WaveNet 类网络对电子管放大器和失真踏板进行实时黑盒建模，并给出 C++/JUCE 部署与运算开销比较。2020 年的后续研究进一步比较了深度前馈网络与递归网络的音频设备建模表现。**Steve Atkinson** 在 NAM 项目的历史回顾中指出，该项目从 2019 年起便以开源仓库形式探索吉他放大器的神经网络建模，后来逐渐形成独立的训练与实时推理生态。[NH5][NH6]
+
+到这一步，Volterra 与神经网络的交叉已经可以从三个层面理解。**表示层**：显式多项式核与可训练非线性特征，都在试图逼近同一个输入—输出映射；**记忆层**：有限核窗口、扩张卷积感受野与递归状态各自提供不同的历史组织方式；**训练层**：固定核 Volterra 常可化为对系数线性的回归，而一般深度网络需要对内部特征和权重共同优化。现实中还可以把 Volterra 核、物理状态、神经残差与参数生成网络组合起来，形成混合模型。它们的有效性需要通过同一套激励、测试集和实时预算比较，不能仅凭模型名称判断。[NH2][NH7]
+
+本章将沿这条历史交汇线索，依次比较固定核回归、神经网络训练、WaveNet、LSTM、NAM、参数条件化、可微 DSP 与储备池计算。至于这些技术如何成为商业插件中的核数据库、动态处理器和混合引擎，《06》再作集中讨论。
 
 ## 2.1 我们为什么会从 Volterra 讨论到神经网络？
 
@@ -1547,6 +1620,17 @@ $$
 ---
 
 ## 本章参考资料
+
+
+### 理论交叉史补充阅读
+
+- **[NH1]** G. Cybenko (1989), *Approximation by Superpositions of a Sigmoidal Function*. [DOI](https://doi.org/10.1007/BF02551274)。
+- **[NH2]** K. S. Narendra & K. Parthasarathy (1990), *Identification and Control of Dynamical Systems Using Neural Networks*. [DOI](https://doi.org/10.1109/72.80202)。
+- **[NH3]** S. Hochreiter & J. Schmidhuber (1997), *Long Short-Term Memory*. [DOI](https://doi.org/10.1162/neco.1997.9.8.1735)。
+- **[NH4]** A. van den Oord et al. (2016), *WaveNet: A Generative Model for Raw Audio*. [研究机构论文页](https://research.google/pubs/wavenet-a-generative-model-for-raw-audio/)。
+- **[NH5]** A. Wright, E.-P. Damskägg & V. Välimäki (2019), *Real-Time Black-Box Modelling With Recurrent Neural Networks*. [DAFx 论文档案](https://dafx.de/paper-archive/details/tieFMcaohHBxl_2yPyIGFA)；Wright et al. (2020), *Real-Time Guitar Amplifier Emulation with Deep Learning*. [Aalto 论文页](https://research.aalto.fi/en/publications/real-time-guitar-amplifier-emulation-with-deep-learning/)。
+- **[NH6]** Steve Atkinson (2024), *The History of NAM*. [NAM 官方历史回顾](https://www.neuralampmodeler.com/post/the-history-of-nam)。
+- **[NH7]** S. Boyd & L. O. Chua (1985), *Fading Memory and the Problem of Approximating Nonlinear Operators with Volterra Series*. [作者论文页](https://web.stanford.edu/~boyd/papers/fading_volterra.html)；Martin Schetzen (1980), *The Volterra and Wiener Theories of Nonlinear Systems*。
 
 - **[N1]** [NeuralAmpModelerCore 官方文档](https://neuralampmodelercore.readthedocs.io/en/latest/)：主要网络类型与 C++ 实时推理核心。
 - **[N2]** [NAM WaveNet 计算过程](https://neuralampmodelercore.readthedocs.io/en/latest/wavenet_walkthrough.html)：因果扩张卷积、残差跳跃连接与前馈回归式 WaveNet。
@@ -2525,12 +2609,22 @@ $$
 
 # 06 从 Volterra 理论到商业音频建模：Acustica Audio 的技术发展史
 
-> **版本：v10 · 2026-11-15 · 补充 SKY/YELLOW/SNOW 的模型资源、动态控制及技术适用边界**
+> **版本：v11 · 2026-11-15 · 增补现代商业音频建模的历史衔接**
 > **所属系列：Volterra Wiki**
 > **阅读顺序：**《00_前置概念与术语约定_图文版.md》→《01_Volterra级数_图文版.md》→《02_从Volterra到神经网络_模型辨识与NAM.md》→《03_混合建模训练边界与实时约简.md》→《04_高级系统辨识_非线性算子与混沌分解.md》→《05_物理约束与实时代理建模.md》→本章。
-> **配图说明：** 本章配有 4 张工程架构与测量机制 SVG 图（`figures/02_*.svg`），请与 `figures/` 目录保持同级相对路径。
+> **配图说明：** 本章配有 4 张工程架构与测量机制 SVG 图（`figures/06-*.svg`），请与 `figures/` 目录保持同级相对路径。
 > **定位：** 作为全书最后一章，通过 Acustica Audio 的演进，将测量、模型约简、商业部署与证据边界串联起来。以 Acustica Audio 为主线，同时交代 Sintefex、Focusrite 和非线性扫频研究构成的技术背景。
 > **阅读说明：** 本章把厂商公开的技术定义、代表性产品的结构实例和测量特征放在同一套数字建模语言中解释。商业产品的具体资源配置随版本与工作模式而异；文中展示的数学等效结构不必然等同于完整厂商内部算法。涉及尚无充分运行数据的部分，会明确保留条件和适用范围。
+
+## 历史桥梁：从十九世纪的泛函表示到今天的商业音频模型
+
+如果把《01》的发展史与《02》的神经网络史放在一起，现代音频建模就有了两条清楚的知识来源。第一条是 **Volterra—Wiener—Lee–Schetzen** 所代表的核表示与实验辨识传统：先建立可用于分析非线性历史响应的模型，再尝试通过测量估计参数。第二条是 **神经网络—非线性动力系统辨识—音频设备学习** 的路线：利用可训练的函数族从输入输出数据中学习复杂映射。这两条路线在数学结构上并不等价，也不存在必须先采用某一种模型才能发展另一种模型的历史顺序。
+
+商业音频插件还面对第三项约束：**怎样把模型变成稳定、低延迟、CPU 可负担并可随旋钮连续变化的软件产品**。因此，理论核能否辨识、测量结果能否可靠复现、核数据和参数能否高效组织，以及用户操作时内部状态能否连续更新，都是独立的工程问题。一个产品即使使用 Volterra 型分支，也可能同时包含 FIR/IIR、静态非线性、包络检测器、状态插值或神经处理；不能仅凭一个技术标签推断整条处理链。
+
+在这个背景下，二十世纪末至二十一世纪初出现了几项推动现代音频建模的条件：计算机卷积能力逐步提升，Sintefex 等厂商探索动态卷积，Angelo Farina 于 2000 年发表指数正弦扫频的非线性响应测量方法，随后 Nebula 将采样响应数据与通用播放引擎结合起来。这里还要区分 **ESS 分离得到的谐波响应**、按额外假设转换后的 **并联 Hammerstein 支路核**，以及完整多维 **Volterra 核**；单次测量能够识别的系统结构，总会受到激励方式和模型假设的限制。[S1][S2][S3][S4]
+
+本章选择 Acustica Audio 作为主要商业案例，是因为 Nebula、Acqua、Hyper 与 NOVA 的演进能够让我们看到模型表示、测量技术、实时算力与动态控制之间的长期权衡。Sintefex/Focusrite、神经音频建模和电路求解是相邻但不同的技术路线；本章会在必要处交代它们，重点仍放在 Acustica 产品体系内部的工程发展。由此，整套 Wiki 的三段历史便连为一体：**理论怎样产生、表示方法怎样交汇、工程产品怎样落地。**
 
 ## 6.1 一个更现实的问题：数学理论怎样变成可以出售的音频插件？
 
