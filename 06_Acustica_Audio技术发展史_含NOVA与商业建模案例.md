@@ -133,7 +133,7 @@ Acustica 在 YELLOW 的产品资料中将 **NOVA（Neural Optimized Volterra Aud
 
 ### 6.13.2 `simplenova`：软膝、双路径权重与控制状态连续性
 
-假设两条音频路径分别输出 $u[n]$、$v[n]$，由电平检测得到平滑权重 $g[n]\in[0,1]$。一种合理的双路径混合形式是：
+假设两条音频路径分别输出 $u[n],\;v[n]$，由电平检测得到平滑权重 $g[n]\in[0,1]$。一种合理的双路径混合形式是：
 
 ```math
 \hat{y}[n]=\bigl(1-g[n]\bigr)u[n]+g[n]v[n].
