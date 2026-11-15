@@ -3717,7 +3717,7 @@ $$
 
 由三角不等式，最终插件相对于真实硬件的总体逼近误差受控于两段误差之和：
 
-$
+$$
 \lVert \mathbf{y}_{\mathrm{HW}} - \hat{\mathbf{y}}_{\mathrm{Student}}\rVert \le
 \underbrace{\lVert \mathbf{y}_{\mathrm{HW}} - \mathbf{y}_{\mathrm{Teacher}}\rVert}_{E_{\mathrm{HW}\to\mathrm{T}}} +
 \underbrace{\lVert \mathbf{y}_{\mathrm{Teacher}} - \hat{\mathbf{y}}_{\mathrm{Student}}\rVert}_{E_{\mathrm{T}\to\mathrm{S}}}.
@@ -7442,7 +7442,7 @@ $$
 
 由三角不等式，最终插件相对于真实硬件的总体逼近误差受控于两段误差之和：
 
-$
+$$
 \lVert \mathbf{y}_{\mathrm{HW}} - \hat{\mathbf{y}}_{\mathrm{Student}}\rVert \le
 \underbrace{\lVert \mathbf{y}_{\mathrm{HW}} - \mathbf{y}_{\mathrm{Teacher}}\rVert}_{E_{\mathrm{HW}\to\mathrm{T}}} +
 \underbrace{\lVert \mathbf{y}_{\mathrm{Teacher}} - \hat{\mathbf{y}}_{\mathrm{Student}}\rVert}_{E_{\mathrm{T}\to\mathrm{S}}}.
@@ -11165,7 +11165,7 @@ $$
 
 由三角不等式，最终插件相对于真实硬件的总体逼近误差受控于两段误差之和：
 
-$
+$$
 \lVert \mathbf{y}_{\mathrm{HW}} - \hat{\mathbf{y}}_{\mathrm{Student}}\rVert \le
 \underbrace{\lVert \mathbf{y}_{\mathrm{HW}} - \mathbf{y}_{\mathrm{Teacher}}\rVert}_{E_{\mathrm{HW}\to\mathrm{T}}} +
 \underbrace{\lVert \mathbf{y}_{\mathrm{Teacher}} - \hat{\mathbf{y}}_{\mathrm{Student}}\rVert}_{E_{\mathrm{T}\to\mathrm{S}}}.
