@@ -43,21 +43,21 @@
 
 先把目标系统统一写成算子：
 
-$$
+```math
 y[n]=\mathcal S\{x\}[n].
-$$
+```
 
 这里的 $`\mathcal S`$ 代表真实设备对输入历史的处理。其内部机制通常只能通过有限测量部分掌握，于是建立带参数的近似模型：
 
-$$
+```math
 \hat y[n]=\hat{\mathcal S}_{\boldsymbol{\theta}}\{x\}[n].
-$$
+```
 
 训练就是根据成对输入输出数据 $`\mathcal D=\{(x^{(i)},y^{(i)})\}_{i=1}^N`$，寻找一组参数 $`\boldsymbol{\theta}`$，使模型在指定工作范围内预测得尽可能准确。若使用平方误差，可以写成：
 
-$$
+```math
 \boldsymbol{\theta}^\star=\arg\min_{\boldsymbol{\theta}} \sum_i\sum_n\left(y^{(i)}[n]-\hat y_{\boldsymbol{\theta}}^{(i)}[n]\right)^2.
-$$
+```
 
 无论采用 Volterra 还是神经网络，通常都要经历测量、对齐、选结构、训练、独立验证和部署这几个阶段。它们共同面临激励不足、参数不可辨识、训练噪声、过拟合以及训练范围之外的外推问题。
 
@@ -67,24 +67,24 @@ $$
 
 为了看清区别，不妨回顾《01》第 1.6 与 1.11 节中最简单的二阶、两点记忆模型（采用对称核记账 $`h_2[0,1]=h_2[1,0]`$）：
 
-$$
+```math
 \begin{aligned}
 \hat y[n]={}&h_0+h_1[0]x[n]+h_1[1]x[n-1]\\
 &+h_2[0,0]x^2[n]+2h_2[0,1]x[n]x[n-1]\\
 &+h_2[1,1]x^2[n-1].
 \end{aligned}
-$$
+```
 
 这里既有一阶记忆，也有平方和交叉乘积。模型对音频输入显然是非线性的；但如果输入数据已经给定，每一项 $`x[n],\;x^2[n],\;x[n]x[n-1]`$ 都可以预先计算出来，构成固定的显式特征向量 $`\boldsymbol{\phi}[n]`$。
 
 将每个时刻的特征排成设计矩阵 $`\mathbf X`$ 的一行，待估计的核系数排成列向量 $`\boldsymbol{\theta}`$，整个辨识问题即写为线性参数回归形式：
 
-$$
+```math
 \mathbf y\approx\mathbf X\boldsymbol{\theta},\qquad
 \boldsymbol{\theta}^\star
 =\arg\min_{\boldsymbol{\theta}}
 \bigl(\lVert\mathbf y-\mathbf X\boldsymbol{\theta}\rVert_2^2 + \lambda\lVert\boldsymbol{\theta}\rVert_2^2\bigr).
-$$
+```
 
 这就是《00》第 0.21 节强调的**参数线性性（Linear-in-the-Parameters）**：对已固定阶次、固定核支撑集和固定特征字典的 Volterra 模型，平方损失关于未知核系数 $`\boldsymbol{\theta}`$ 是严格凸二次函数，可通过一步闭式矩阵分解（如 QR / SVD / Cholesky）或递推最小二乘直接求得全局最优解。
 
@@ -94,17 +94,17 @@ $$
 
 再看一个最小的无记忆单隐藏层神经网络：
 
-$$
+```math
 \hat y[n]=\sum_{j=1}^{J}a_j\tanh(b_jx[n]+c_j)+d.
-$$
+```
 
 这里的输出权重 $`a_j`$、内部缩放 $`b_j`$ 与偏置 $`c_j`$ 均需通过训练决定。由于参数 $`b_j, c_j`$ 嵌套在非线性激活函数 $`\tanh(\cdot)`$ 内部，模型输出对待估计参数呈高度非线性依赖，损失函数曲面不再是具有唯一极小值的凸碗面，而是包含大量鞍点、局部极小值与平坦区域的非凸地形。
 
 对于多层深度网络，我们通过反向传播算法求取损失对各层参数的梯度，并利用一阶或二阶随机优化器（如 Adam）按步长 $`\eta_r`$ 迭代更新：
 
-$$
+```math
 \boldsymbol{\theta}_{r+1}=\boldsymbol{\theta}_r-\eta_r\nabla_{\boldsymbol{\theta}}\mathcal L(\boldsymbol{\theta}_r).
-$$
+```
 
 可以这样对比两者的表示机制：**固定核 Volterra 由研究者预先固定了一组描述输入历史的显式多项式基，优化器只需决定每个基函数的线性组合权重；深度神经网络则通过多层线性滤波与逐点非线性的交替复合，连同“用哪些中间特征来表征输入历史”也一并在训练中自适应习得。** 这种自适应特征学习赋予了神经网络逼近强饱和与复杂多级级联非线性的紧凑能力，同时也使内部权重难以像 Volterra 核那样直接拆解为独立的阶次贡献。
 
@@ -132,19 +132,19 @@ $$
 
 1. **前馈有限感受野架构（NFIR 型网络）**：网络在每个采样点显式读取过去有限长度 $`R_{\mathrm{RF}}`$ 的输入历史窗口，
 
-$$
+```math
 \hat y[n]=F_{\boldsymbol{\theta}}\bigl(x[n],x[n-1],\ldots,x[n-R_{\mathrm{RF}}+1]\bigr).
-$$
+```
 
    一维因果卷积网络（ConvNet）、时间卷积网络（TCN）以及 NAM 中广泛使用的前馈 WaveNet 变体均属此类。由于不含输出或隐状态的跨时刻自回归闭环，这类网络在有限输入下天然满足 BIBO 稳定，且在训练阶段可在整段音频上高度并行计算。
 2. **递归状态架构（State-Space / RNN 型网络）**：网络维护一个随采样点递推更新的内部隐状态向量 $`\mathbf{s}[n]`$，
 
-$$
+```math
 \begin{aligned}
 \mathbf{s}[n+1]&=G_{\boldsymbol{\theta}}(\mathbf{s}[n],x[n]),\\
 \hat y[n]&=H_{\boldsymbol{\theta}}(\mathbf{s}[n],x[n]).
 \end{aligned}
-$$
+```
 
    循环神经网络（RNN）、长短期记忆网络（LSTM）、门控循环单元（GRU）以及深度状态空间模型（SSM）均属此类。其历史影响通过状态向量持续传递，理论上可跨越任意长的时间尺度，但在训练时需采用沿时间反向传播（BPTT），且在部署时必须额外验证长序列闭环自由运行（Free-Run）的稳定性。
 
@@ -152,15 +152,15 @@ $$
 
 普通因果一维卷积可写为 $`z[n]=\sum_{k=0}^{K-1}w[k]x[n-k]`$，若保持步长为 1 且不跳过采样点，要覆盖数千个采样点的历史窗口，单层卷积核长度 $`K`$ 或网络层数 $`L`$ 必须线性增长。**因果扩张卷积（Causal Dilated Convolution）** 通过引入扩张率（Dilation Factor）$`d_\ell`$，让卷积核每隔 $`d_\ell`$ 个采样点抽取一次历史特征：
 
-$$
+```math
 z[n]=\sum_{k=0}^{K_\ell-1}w_\ell[k]\,h_{\ell-1}[n-d_\ell k].
-$$
+```
 
 当扩张率按指数序列 $`d_\ell=2^{\ell-1}`$（如 $`1, 2, 4, 8, \ldots, 512`$）逐层堆叠时，网络的理论感受野随层数呈指数增长：
 
-$$
+```math
 R_{\mathrm{RF}}=1+\sum_{\ell=1}^{L}(K_\ell-1)d_\ell.
-$$
+```
 
 例如单组 10 层、核长 $`K_\ell=3`$、扩张率 $`1\sim 512`$ 的堆叠即可覆盖 $`R_{\mathrm{RF}}=1+2\times(2^{10}-1)=2047`$ 个采样点（在 $`48\,\mathrm{kHz}`$ 下约 $`42.6\,\mathrm{ms}`$）。配合门控激活单元（如 $`\tanh(\mathbf{W}_f\ast \mathbf{h})\odot\sigma(\mathbf{W}_g\ast \mathbf{h})`$ 或简化激活）、$`1\times 1`$ 残差连接与跳跃连接（Skip Connections），网络既能保留底层高频瞬态细节，又能跨越多尺度时间窗口构建高阶非线性交互。
 
@@ -170,7 +170,7 @@ $$
 
 LSTM（长短期记忆网络）通过显式的门控循环单元来调节历史信息的写入、保留与擦除。设隐状态为 $`\mathbf{h}[n]`$、单元状态（Cell State）为 $`\mathbf{c}[n]`$，其标准状态递推方程为：
 
-$$
+```math
 \begin{aligned}
 \mathbf{f}[n]&=\sigma\bigl(\mathbf{W}_f x[n]+\mathbf{U}_f\mathbf{h}[n-1]+\mathbf{b}_f\bigr),\\
 \mathbf{i}[n]&=\sigma\bigl(\mathbf{W}_i x[n]+\mathbf{U}_i\mathbf{h}[n-1]+\mathbf{b}_i\bigr),\\
@@ -179,7 +179,7 @@ $$
 \mathbf{o}[n]&=\sigma\bigl(\mathbf{W}_o x[n]+\mathbf{U}_o\mathbf{h}[n-1]+\mathbf{b}_o\bigr),\qquad
 \mathbf{h}[n]=\mathbf{o}[n]\odot\tanh(\mathbf{c}[n]).
 \end{aligned}
-$$
+```
 
 其中 $`\mathbf{f}[n]\in(0,1)^D`$ 是遗忘门，$`\mathbf{i}[n]`$ 是输入门，$`\mathbf{o}[n]`$ 是输出门，$`\odot`$ 表示按元素Hadamard乘积。从动态系统视角看，遗忘门 $`\mathbf{f}[n]`$ 相当于一个**依赖输入与当前状态的时变一阶极点系数**：当某维度的 $`f_d[n]`$ 接近 $`1`$ 时，该状态通道表现为极慢的时间常数；当 $`f_d[n]`$ 变小时，状态迅速重置。
 
@@ -216,9 +216,9 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 
 若要构建连续可调的**参数条件化模型（Parametric / Conditioned Model）**，必须将面板控制参数向量 $`\mathbf{c}[n]`$（如旋钮归一化位置，这里遵循《00》第 0.24.2 节符号表记为 $`\mathbf{c}[n]`$，以区别于 Volterra 阶数 $`p`$ 与内部物理状态 $`\mathbf{s}[n]`$）显式作为模型的附加输入：
 
-$$
+```math
 \hat y[n]=F_{\boldsymbol{\theta}}\bigl(x_{\le n},\mathbf{c}[n]\bigr).
-$$
+```
 
 在神经网络中，这通常通过拼接输入通道、HyperNetwork 动态生成卷积权重或 **FiLM（Feature-wise Linear Modulation）** 仿射调制层实现；在 Volterra 体系中，则对应随控制参数 $`\mathbf{c}`$ 插值的核张量簇 $`h_p(k_1,\ldots,k_p;\mathbf{c})`$。
 
@@ -231,13 +231,13 @@ $$
 
 参数条件化还有一种更进一步的实现：用较小的网络 $`H_{\boldsymbol\phi}`$ 接收面板参数 $`\mathbf{c}`$，输出音频处理网络 $`F`$ 所使用的一部分卷积核、偏置或门控权重：
 
-$$
+```math
 \boldsymbol\theta(\mathbf c)=H_{\boldsymbol\phi}(\mathbf c),\qquad
 \begin{aligned}
 \mathbf s[n+1]&=G_{\boldsymbol\theta(\mathbf c)}(\mathbf s[n],x[n]),\\
 \hat y[n]&=F_{\boldsymbol\theta(\mathbf c)}(x[n],\mathbf s[n]).
 \end{aligned}
-$$
+```
 
 其中，$`\boldsymbol\phi`$ 是训练后保持固定的超网络参数，$`\boldsymbol\theta(\mathbf c)`$ 才是随用户旋钮改变的音频网络参数。这与把 $`\mathbf c`$ 简单拼接到每个音频采样点的输入特征中不同：前者改变处理模型本身的权重，后者通常在固定权重的网络内部改变条件激活。超网络无须在每一个音频采样点重新执行；当控制参数保持不变时，可以缓存其输出，从而控制实时开销。旋钮自动化时则需要缓变、分块更新或双权重状态交叉过渡，以避免参数跳变造成瞬态失真。
 
@@ -253,10 +253,10 @@ $$
 
 在音频系统辨识文献中，最常用的时域总体指标是**误差信号比（Error-to-Signal Ratio, ESR）**：
 
-$$
+```math
 \mathrm{ESR}=
 \frac{\sum_{n=0}^{N-1}\bigl(y[n]-\hat y[n]\bigr)^2}{\sum_{n=0}^{N-1} y^2[n]}.
-$$
+```
 
 通常还会配合预加重滤波器 $`H_{\mathrm{pre}}(z)=1-0.95z^{-1}`$ 计算高频加权 ESR，或结合多分辨率短时傅里叶变换（MR-STFT）幅度谱损失进行训练。工程验收还应从以下四个方面补充 ESR 指标的评价：
 
@@ -281,12 +281,12 @@ $$
 
 典型 ESN 维护一个维度较高的内部递归状态向量 $`\mathbf{s}[n]\in\mathbb{R}^D`$，其状态转移矩阵 $`\mathbf{A}`$ 与输入注入矩阵 $`\mathbf{B}`$ 在满足特定谱半径与缩放条件后**随机生成并保持固定**，训练阶段仅通过线性最小二乘或岭回归拟合输出读出层（Readout）$`\mathbf{C}`$ 与 $`d`$：
 
-$$
+```math
 \begin{aligned}
 \mathbf{s}[n+1]&=(1-\alpha_{\mathrm{leak}})\mathbf{s}[n]+\alpha_{\mathrm{leak}}\,\sigma\bigl(\mathbf{A}\mathbf{s}[n]+\mathbf{B}x[n]+\mathbf{b}\bigr),\\
 \hat y[n]&=\mathbf{C}\mathbf{s}[n]+d x[n].
 \end{aligned}
-$$
+```
 
 从系统辨识理论看，ESN 与 Volterra 级数有着深刻的数学同源性：
 - 当储备池满足**回声状态性质（Echo State Property, ESP）** 时，初始状态的影响随时间渐近消失，状态向量 $`\mathbf{s}[n]`$ 成为过去输入序列 $`x_{\le n}`$ 的唯一确定性泛函；

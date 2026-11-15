@@ -11,7 +11,7 @@
 - [04 高级系统辨识：非线性算子、衰减记忆与随机正交展开](04_高级系统辨识_非线性算子与混沌分解.md)：Gâteaux/Fréchet、Boyd–Chua、Koopman/Carleman、分数阶记忆、Wiener Chaos、PCE、Fisher 信息。
 - [05 物理约束、模型降阶与神经代理](05_物理约束与实时代理建模.md)：电路 DAE、MNA 光电压缩器、神经控制残差、Port-Hamiltonian、有限元/POD、神经算子与离线蒸馏。
 - [06 Acustica Audio 技术发展史](06_Acustica_Audio技术发展史_含NOVA与商业建模案例.md)：从核测量到商业插件的历史桥梁、Nebula、VVKT、NAT、Acqua、NOVA，以及 YELLOW、SKY、SNOW 的商业技术案例。
-- [00—06 完整合订版（GitHub 图床）](Volterra_Wiki_00-06_完整合订版_GitHub图床.md)
+- [00—06 合订版下载与在线阅读](Volterra_Wiki_00-06_完整合订版_GitHub图床.md)
 
 ## 修订记录
 
