@@ -56,6 +56,10 @@ class Preview(HTMLParser):
             # brackets and ampersands again inside the component's text.
             value = unescape("".join(parts)).strip()
             delimiter = "$$" if display else "$"
+            if display:
+                # GitHub's math-fence HTML adds a backslash before a newline
+                # following a TeX row break. The rendered row count is unchanged.
+                value = re.sub(r"(?<!\\)\\{3}(?=\n)", lambda _: r"\\", value)
             self.formulas.append(
                 (display, value.removeprefix(delimiter).removesuffix(delimiter).strip())
             )
@@ -89,7 +93,8 @@ def check_chapter(path, preview):
     for change, i, j, k, l in diff.get_opcodes():
         if change != "equal":
             lines = ", ".join(str(line) for _, line in expected[i:j]) or "none"
-            messages.append(f"{change} at source lines {lines}, preview formulas {k + 1}–{l}")
+            preview_range = f"{k + 1}–{l}" if k < l else "none"
+            messages.append(f"{change} at source lines {lines}, preview formulas {preview_range}")
     if messages:
         raise ValueError(f"{len(expected)} expected, {len(observed)} rendered\n  " + "\n  ".join(messages))
     return f"{len(observed)} formulas match"
