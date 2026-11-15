@@ -464,9 +464,11 @@ Markdown 表格里的竖线 `|` 是单元格分隔符。数学表达式在表格
 **收敛（Convergence）** 的直觉，是一个近似过程在规定的意义下越来越接近某个确定目标；**发散（Divergence）** 则表示不满足所讨论的收敛条件。讨论收敛时，必须指明“趋近什么、用什么距离衡量、在哪个输入范围内”。我们至少会遇到四种不同的收敛问题：
 
 1. **级数收敛**：例如几何级数
+
    $$
    1+x+x^2+\cdots=\frac{1}{1-x},\qquad \lvert x\rvert\lt 1.
    $$
+
    这个幂级数在 $`\lvert x\rvert\lt 1`$ 时收敛，在 $`\lvert x\rvert\geq 1`$ 时发散；但右侧函数 $`\frac{1}{1-x}`$ 在 $`x=-2`$ 等级数发散点依然有良好定义。因此，“目标映射存在”与“它的幂级数展开在某点收敛”是两回事。
 2. **函数逼近收敛**：当我们不断增加模型阶数、滤波器抽头或基函数数量时，预测函数是否在规定输入集合上靠近目标。这里还要区分逐点收敛与一致收敛（Uniform Convergence）：每个输入点分别变准，并不自动意味着整个工作区间上的最大误差上界同步趋于零。
 3. **数值迭代或训练优化的收敛**：Newton-Raphson 反复迭代可能收敛到某个方程解，也可能遇到不良初值或奇异 Jacobian；神经网络训练时损失下降，只代表优化器找到了局部下降方向，并不自动保证全局最优或测试集泛化。
@@ -544,14 +546,18 @@ $$
 当第 02 章把 Volterra 与音频神经网络（如 WaveNet、LSTM）放在同一套系统辨识框架下比较时，还会用到以下三组基本术语：
 
 1. **感受野（Receptive Field）**：对于因果扩张卷积网络（如 NAM 中的 WaveNet 变体），理论感受野指当前输出采样点最多能直接读取过去多少个输入采样点：
+
    $$
    R_{\mathrm{RF}}=1+\sum_{\ell=1}^{L}(K_\ell-1)d_\ell,
    $$
+
    其中 $`K_\ell`$ 与 $`d_\ell`$ 分别为第 $`\ell`$ 层的卷积核长度与扩张率。理论感受野对应前馈网络的历史窗口上限（类比 Volterra 的记忆长度 $`M`$），而实际训练后网络真正敏感的历史跨度称为**有效感受野（Effective Receptive Field）**；两者均不同于插件向宿主报告的 I/O 缓冲处理延迟。
 2. **梯度（Gradient）与反向传播（Backpropagation）**：当模型对参数呈非线性依赖时，无法直接用一步线性最小二乘求解，需通过反向传播在计算图上利用链式法则求取损失对参数的梯度 $`\nabla_{\boldsymbol{\theta}}L(\boldsymbol{\theta}_r)`$，并以学习率 $`\eta_r`$ 迭代更新参数：
+
    $$
    \boldsymbol{\theta}_{r+1}=\boldsymbol{\theta}_r-\eta_r\nabla_{\boldsymbol{\theta}}L(\boldsymbol{\theta}_r).
    $$
+
 3. **训练调度与正则化技巧**：训练过程中的**余弦退火（Cosine Annealing）** 用于平滑衰减学习率 $`\eta_r`$；**早停（Early Stopping）** 依据独立验证集误差停止迭代以抑制过拟合；**梯度裁剪（Gradient Clipping）** 限制单步梯度范数以缓解循环网络训练中的梯度爆炸。这些方法优化的是参数搜索过程，不能替代模型结构本身的历史表达能力或自由运行稳定性约束。
 
 ## 0.32 插值、外推与分布变化：一张测试曲线为什么不代表整个硬件？
@@ -815,15 +821,20 @@ $$
 
 当中间的静态非线性在工作区间内展开为多项式 $`f(v)=\sum_{p=1}^P a_p v^p`$ 时，这三类经典块结构均可直接写出其等效的 Volterra 核：
 1. **Hammerstein 模型的等效核**：由于 $`y[n]=\sum_{k=0}^{M-1}h[k]\sum_{p=1}^P a_p x^p[n-k]`$，其第 $`p`$ 阶核仅在主对角线 $`k_1=\cdots=k_p=k`$ 上非零：
+
    $$
    h_p^{\mathrm{H}}[k_1,\ldots,k_p]=a_p h[k_1]\,\delta[k_1-k_2]\cdots\delta[k_1-k_p].
    $$
+
 2. **Wiener 模型的等效核**：由于 $`v[n]=\sum_{k=0}^{M-1}g[k]x[n-k]`$，将其 $`p`$ 次幂展开后，第 $`p`$ 阶核是前置滤波器脉冲响应 $`g[k]`$ 的 $`p`$ 重外积（秩-1 可分离对称张量）：
+
    $$
    h_p^{\mathrm{W}}[k_1,\ldots,k_p]=a_p\prod_{i=1}^{p}g[k_i].
    $$
+
    可以看到，Wiener 模型的核天然遍布整个非对角平面（$`k_1\neq k_2`$ 处非零），但整张高维核完全由同一条一维滤波器 $`g[k]`$ 决定。
 3. **Wiener–Hammerstein 模型的等效核**：将前置滤波输出 $`v[n-m]`$ 的 $`p`$ 次幂再与后置滤波器 $`h[m]`$ 卷积，其第 $`p`$ 阶核为：
+
    $$
    h_p^{\mathrm{WH}}[k_1,\ldots,k_p]=a_p\sum_{m=0}^{M_h-1}h[m]\prod_{i=1}^{p}g[k_i-m].
    $$
@@ -878,13 +889,16 @@ $$
 
 1. **同步相位条件（Synchronized Swept Sine）**：若激励采用余弦相位 $`\cos(\phi(t))`$，利用三角恒等式将 $`\cos^p(\phi(t))`$ 展开为倍频余弦和时，各倍频项均保持零初相；若采用正弦相位 $`\sin(\phi(t))`$，则 $`\sin^3(\theta)=\frac{3}{4}\sin\theta-\frac{1}{4}\sin(3\theta)`$ 等展开中会出现随阶次交替的符号与 $`\pm\pi/2`$ 相位旋转（偶次幂变成 $`\cos`$，奇次幂带交替正负号）。此外，只有合理选择扫频参数使起始相位在各阶倍频分离点处满足相位同步，解卷积分离出的 $`H_{Hm}(\Omega)`$ 才能保持正确的复相位关系。
 2. **高阶向低次谐波回流的上三角反解**：以包含 $`p=1,3,5`$ 三个奇次支路的余弦扫频为例，由于
+
    $$
    \begin{aligned}
    \cos^3(\theta)&=\frac{3}{4}\cos(\theta)+\frac{1}{4}\cos(3\theta),\\
    \cos^5(\theta)&=\frac{10}{16}\cos(\theta)+\frac{5}{16}\cos(3\theta)+\frac{1}{16}\cos(5\theta),
    \end{aligned}
    $$
+
    实际测得的基波、三次与五次谐波复频谱 $`H_{H1}(\Omega), H_{H3}(\Omega), H_{H5}(\Omega)`$ 与对角支路传递函数 $`G_1(\Omega), G_3(\Omega), G_5(\Omega)`$ 满足上三角矩阵方程：
+
    $$
    \begin{bmatrix}
    H_{H1}(\Omega) \\
@@ -903,6 +917,7 @@ $$
    G_5(\Omega)
    \end{bmatrix}.
    $$
+
    一般地，对任意最高阶数 $`P`$，转换矩阵 $`\mathbf{T}_c`$ 的元素由单项式向 Chebyshev 多项式展开的二项式系数决定，必须**从最高阶 $`P`$ 向一阶逐级回代消元**，才能解出真正的支路核 $`G_p(\Omega)`$。
 
 同时，单次 ESS 测量存在固有的拓扑可辨识性边界：对一个前级频响为 $`P(f)`$、后级频响为 $`Q(f)`$ 的三阶 Wiener–Hammerstein 级联系统，单音扫频测得的三次谐波复频谱仅取决于乘积
@@ -1177,16 +1192,20 @@ $$
 
 为了抑制这一数字伪影，工程上有两条互补路径：
 1. **过采样（Oversampling）**：将采样率提升 $`M_{\mathrm{OS}}`$ 倍。要使最高 $`P`$ 阶多项式生成的谐波在折叠后不落入原始基带 $`[0, f_{\max}]`$，需满足 $`P\cdot f_{\max} \lt M_{\mathrm{OS}} f_s - f_{\max}`$，即在满带宽 $`f_{\max}\approx f_s/2`$ 下需满足
+
    $$
    M_{\mathrm{OS}} \ge \frac{P+1}{2}
    $$
+
    才可保证基带无混叠（若要求整个过采样奈奎斯特带内完全不折返则需 $`M_{\mathrm{OS}}\ge P`$）。
 2. **简化 Volterra / 并联 Hammerstein 支路的无分母多项式 ADAA**：在并行 Hammerstein（对角 Volterra）结构中，由于每条支路的非线性是纯单项式 $`f_p(x)=x^p`$（或 Legendre 多项式），其一阶反导数为 $`F_p(x)=\frac{x^{p+1}}{p+1}`$。Stefan Hopman 与 Christopher Bennett (2022) 指出 [V4]，将一阶反导数抗混叠（ADAA1）应用于单项式 $`x^p`$ 时，差商分母 $`x[n]-x[n-1]`$ 可由代数因式分解 $`a^{p+1}-b^{p+1}=(a-b)\sum_{j=0}^p a^{p-j}b^j`$ **精确消去**，化简为完全无除法、无小分母奇点且无需条件分支切换的闭式齐次多项式：
+
    $$
    \mathrm{ADAA}_1\bigl(x^p\bigr)[n]
    =\frac{x^{p+1}[n]-x^{p+1}[n-1]}{(p+1)\bigl(x[n]-x[n-1]\bigr)}
    =\frac{1}{p+1}\sum_{j=0}^{p}x^{p-j}[n]\,x^j[n-1].
    $$
+
    例如对三阶支路 $`x^3[n]`$，其 ADAA1 等效特征直接化为四项二元对称齐次式 $`\frac{1}{4}\bigl(x^3[n]+x^2[n]x[n-1]+x[n]x^2[n-1]+x^3[n-1]\bigr)`$，在代价上仅相当于向对角模型引入了固定权重的相邻一拍近对角交叉项，却能在无需高倍过采样除法的条件下显著压低高频混叠，并与输入低通滤波或适度过采样形成叠加增益（详见《03》第 3.8 节）。
 
 ## 1.22 怎样判断一个 Volterra 模型是否真的值得继续做？
@@ -1341,17 +1360,21 @@ $$
 与《00》第 0.8 节区分的“显式历史窗口”和“递推内部状态”完全对应，音频神经网络处理时间记忆同样分为两大主流架构范式：
 
 1. **前馈有限感受野架构（NFIR 型网络）**：网络在每个采样点显式读取过去有限长度 $`R_{\mathrm{RF}}`$ 的输入历史窗口，
+
    $$
    \hat y[n]=F_{\boldsymbol{\theta}}\bigl(x[n],x[n-1],\ldots,x[n-R_{\mathrm{RF}}+1]\bigr).
    $$
+
    一维因果卷积网络（ConvNet）、时间卷积网络（TCN）以及 NAM 中广泛使用的前馈 WaveNet 变体均属此类。由于不含输出或隐状态的跨时刻自回归闭环，这类网络在有限输入下天然满足 BIBO 稳定，且在训练阶段可在整段音频上高度并行计算。
 2. **递归状态架构（State-Space / RNN 型网络）**：网络维护一个随采样点递推更新的内部隐状态向量 $`\mathbf{s}[n]`$，
+
    $$
    \begin{aligned}
    \mathbf{s}[n+1]&=G_{\boldsymbol{\theta}}(\mathbf{s}[n],x[n]),\\
    \hat y[n]&=H_{\boldsymbol{\theta}}(\mathbf{s}[n],x[n]).
    \end{aligned}
    $$
+
    循环神经网络（RNN）、长短期记忆网络（LSTM）、门控循环单元（GRU）以及深度状态空间模型（SSM）均属此类。其历史影响通过状态向量持续传递，理论上可跨越任意长的时间尺度，但在训练时需采用沿时间反向传播（BPTT），且在部署时必须额外验证长序列闭环自由运行（Free-Run）的稳定性。
 
 ## 2.7 WaveNet 的因果扩张卷积：用对数级层数覆盖长历史窗口
@@ -1760,9 +1783,11 @@ $$
 为确保闭环长期自由运行稳定，工程上需实施三层保障：
 1. **多步展开课程训练（Unrolled BPTT Curriculum）**：从较短的展开窗口起步，逐步过渡到跨越数千至数万采样点的完全闭环 NOE / Free-Run 损失优化，并在初始状态上注入随机扰动以迫使轨迹具备吸引域恢复能力；
 2. **局部收缩与耗散结构约束**：对指数衰减型状态（如包络、热、电源滤波状态），要求总状态更新映射 $`\mathbf{G}_{\mathrm{total}}(\mathbf{s},x)`$ 在不变集 $`\mathcal{D}`$ 上关于状态 $`\mathbf{s}`$ 的 Jacobian 谱范数满足一致收缩条件：
+
    $$
    \sup_{\mathbf{s}\in\mathcal{D},\, \lvert x\rvert\le x_{\max}}\left\lVert\frac{\partial \mathbf{G}_{\mathrm{total}}(\mathbf{s},x)}{\partial \mathbf{s}}\right\rVert_2 \le q_c \lt 1,
    $$
+
    例如将残差修正参数化为阻尼门控形式 $`s[n+1]=(1-\gamma(\mathbf{s},x))s[n]+\gamma(\mathbf{s},x)\,\tanh(\cdot)`$，其中强制 $`\gamma(\mathbf{s},x)\in[\gamma_{\min}, \gamma_{\max}]\subset(0,1)`$；
 3. **磁滞系统的无源耗散边界（区分收缩性与多稳态剩磁）**：需要特别强调，全局一致收缩（$`q_c<1`$）意味着相同输入下所有历史状态差异都会指数归零（即退化为衰减记忆），**若对速率无关磁滞状态（如 Play 算子 $`s_m^{\mathrm{play}}`$）强加严格收缩约束 $`q_c<1`$，反而会直接抹除其多分支永久剩磁记忆**。 对于磁滞子状态，正确的物理约束是**非扩张性（Non-expansiveness，$`q_c\le 1`$）、静态存储区间有界性（$`\lvert s_m\rvert\le x_{\max}`$）以及顺时针回线能量耗散正定性（$`\oint H\,dB \ge 0`$）**。[R2]
 

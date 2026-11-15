@@ -228,15 +228,20 @@ $$
 
 当中间的静态非线性在工作区间内展开为多项式 $`f(v)=\sum_{p=1}^P a_p v^p`$ 时，这三类经典块结构均可直接写出其等效的 Volterra 核：
 1. **Hammerstein 模型的等效核**：由于 $`y[n]=\sum_{k=0}^{M-1}h[k]\sum_{p=1}^P a_p x^p[n-k]`$，其第 $`p`$ 阶核仅在主对角线 $`k_1=\cdots=k_p=k`$ 上非零：
+
    $$
    h_p^{\mathrm{H}}[k_1,\ldots,k_p]=a_p h[k_1]\,\delta[k_1-k_2]\cdots\delta[k_1-k_p].
    $$
+
 2. **Wiener 模型的等效核**：由于 $`v[n]=\sum_{k=0}^{M-1}g[k]x[n-k]`$，将其 $`p`$ 次幂展开后，第 $`p`$ 阶核是前置滤波器脉冲响应 $`g[k]`$ 的 $`p`$ 重外积（秩-1 可分离对称张量）：
+
    $$
    h_p^{\mathrm{W}}[k_1,\ldots,k_p]=a_p\prod_{i=1}^{p}g[k_i].
    $$
+
    可以看到，Wiener 模型的核天然遍布整个非对角平面（$`k_1\neq k_2`$ 处非零），但整张高维核完全由同一条一维滤波器 $`g[k]`$ 决定。
 3. **Wiener–Hammerstein 模型的等效核**：将前置滤波输出 $`v[n-m]`$ 的 $`p`$ 次幂再与后置滤波器 $`h[m]`$ 卷积，其第 $`p`$ 阶核为：
+
    $$
    h_p^{\mathrm{WH}}[k_1,\ldots,k_p]=a_p\sum_{m=0}^{M_h-1}h[m]\prod_{i=1}^{p}g[k_i-m].
    $$
@@ -291,13 +296,16 @@ $$
 
 1. **同步相位条件（Synchronized Swept Sine）**：若激励采用余弦相位 $`\cos(\phi(t))`$，利用三角恒等式将 $`\cos^p(\phi(t))`$ 展开为倍频余弦和时，各倍频项均保持零初相；若采用正弦相位 $`\sin(\phi(t))`$，则 $`\sin^3(\theta)=\frac{3}{4}\sin\theta-\frac{1}{4}\sin(3\theta)`$ 等展开中会出现随阶次交替的符号与 $`\pm\pi/2`$ 相位旋转（偶次幂变成 $`\cos`$，奇次幂带交替正负号）。此外，只有合理选择扫频参数使起始相位在各阶倍频分离点处满足相位同步，解卷积分离出的 $`H_{Hm}(\Omega)`$ 才能保持正确的复相位关系。
 2. **高阶向低次谐波回流的上三角反解**：以包含 $`p=1,3,5`$ 三个奇次支路的余弦扫频为例，由于
+
    $$
    \begin{aligned}
    \cos^3(\theta)&=\frac{3}{4}\cos(\theta)+\frac{1}{4}\cos(3\theta),\\
    \cos^5(\theta)&=\frac{10}{16}\cos(\theta)+\frac{5}{16}\cos(3\theta)+\frac{1}{16}\cos(5\theta),
    \end{aligned}
    $$
+
    实际测得的基波、三次与五次谐波复频谱 $`H_{H1}(\Omega), H_{H3}(\Omega), H_{H5}(\Omega)`$ 与对角支路传递函数 $`G_1(\Omega), G_3(\Omega), G_5(\Omega)`$ 满足上三角矩阵方程：
+
    $$
    \begin{bmatrix}
    H_{H1}(\Omega) \\
@@ -316,6 +324,7 @@ $$
    G_5(\Omega)
    \end{bmatrix}.
    $$
+
    一般地，对任意最高阶数 $`P`$，转换矩阵 $`\mathbf{T}_c`$ 的元素由单项式向 Chebyshev 多项式展开的二项式系数决定，必须**从最高阶 $`P`$ 向一阶逐级回代消元**，才能解出真正的支路核 $`G_p(\Omega)`$。
 
 同时，单次 ESS 测量存在固有的拓扑可辨识性边界：对一个前级频响为 $`P(f)`$、后级频响为 $`Q(f)`$ 的三阶 Wiener–Hammerstein 级联系统，单音扫频测得的三次谐波复频谱仅取决于乘积
@@ -590,16 +599,20 @@ $$
 
 为了抑制这一数字伪影，工程上有两条互补路径：
 1. **过采样（Oversampling）**：将采样率提升 $`M_{\mathrm{OS}}`$ 倍。要使最高 $`P`$ 阶多项式生成的谐波在折叠后不落入原始基带 $`[0, f_{\max}]`$，需满足 $`P\cdot f_{\max} \lt M_{\mathrm{OS}} f_s - f_{\max}`$，即在满带宽 $`f_{\max}\approx f_s/2`$ 下需满足
+
    $$
    M_{\mathrm{OS}} \ge \frac{P+1}{2}
    $$
+
    才可保证基带无混叠（若要求整个过采样奈奎斯特带内完全不折返则需 $`M_{\mathrm{OS}}\ge P`$）。
 2. **简化 Volterra / 并联 Hammerstein 支路的无分母多项式 ADAA**：在并行 Hammerstein（对角 Volterra）结构中，由于每条支路的非线性是纯单项式 $`f_p(x)=x^p`$（或 Legendre 多项式），其一阶反导数为 $`F_p(x)=\frac{x^{p+1}}{p+1}`$。Stefan Hopman 与 Christopher Bennett (2022) 指出 [V4]，将一阶反导数抗混叠（ADAA1）应用于单项式 $`x^p`$ 时，差商分母 $`x[n]-x[n-1]`$ 可由代数因式分解 $`a^{p+1}-b^{p+1}=(a-b)\sum_{j=0}^p a^{p-j}b^j`$ **精确消去**，化简为完全无除法、无小分母奇点且无需条件分支切换的闭式齐次多项式：
+
    $$
    \mathrm{ADAA}_1\bigl(x^p\bigr)[n]
    =\frac{x^{p+1}[n]-x^{p+1}[n-1]}{(p+1)\bigl(x[n]-x[n-1]\bigr)}
    =\frac{1}{p+1}\sum_{j=0}^{p}x^{p-j}[n]\,x^j[n-1].
    $$
+
    例如对三阶支路 $`x^3[n]`$，其 ADAA1 等效特征直接化为四项二元对称齐次式 $`\frac{1}{4}\bigl(x^3[n]+x^2[n]x[n-1]+x[n]x^2[n-1]+x^3[n-1]\bigr)`$，在代价上仅相当于向对角模型引入了固定权重的相邻一拍近对角交叉项，却能在无需高倍过采样除法的条件下显著压低高频混叠，并与输入低通滤波或适度过采样形成叠加增益（详见《03》第 3.8 节）。
 
 ## 1.22 怎样判断一个 Volterra 模型是否真的值得继续做？
