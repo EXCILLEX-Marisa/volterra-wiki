@@ -1,6 +1,8 @@
 # Volterra Wiki 00—06：合订版与在线阅读
 
-[下载完整合订版 Markdown](downloads/Volterra_Wiki_00-06_完整合订版_GitHub图床.md?raw=true)。合订版超出 GitHub 单文件富文本预览的限制；在 GitHub 上查看排版后的公式，请打开下面的章节。
+**[在线阅读完整合订版](https://excillex-marisa.github.io/volterra-wiki/)** · **[下载完整 Markdown](downloads/Volterra_Wiki_00-06_完整合订版_GitHub图床.md?raw=true)**
+
+也可以在 GitHub 中分章阅读：
 
 - [00 前置概念与术语约定](00_前置概念与术语约定_图文版.md)：建立系统、叠加原理、记忆与状态、泛函算子、多项式逼近、可辨识性及全书数学符号表。
 - [01 Volterra 级数](01_Volterra级数_图文版.md)：Volterra—Fréchet—Wiener—Lee–Schetzen 理论史、核、阶次、交叉记忆、ESS/Novák 阶次分离、多方差辨识、低秩与正交基约简、衰减记忆逼近条件。
