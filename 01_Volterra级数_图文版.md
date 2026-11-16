@@ -2,7 +2,7 @@
 
 [在线阅读本章（完整合订版）](https://excillex-marisa.github.io/volterra-wiki/#chapter-01)
 
-> **版本：v14 · 2026-11-16 · 核辨识、正交基与收敛知识结构融合**
+> **版本：v15 · 2026-11-16 · 理论史扩充与核辨识发展脉络完善**
 > **所属系列：Volterra Wiki**
 > **配图说明：** 本章 17 张 SVG 配图与 Markdown 文件配套提供，建议使用完整素材包以保持相对路径有效。
 > **阅读定位：从前置概念进入 Volterra 的正式数学结构，建立它在非线性音频系统辨识中的用途、优势、成本与能力边界。**
@@ -13,41 +13,85 @@
 
 ## 历史导论：Volterra 级数是怎样从泛函理论走向系统辨识的？
 
-我们今天谈论 Volterra，往往会想到非线性卷积、谐波分阶与音频硬件采样。但这套理论的起点比数字信号处理早了近一个世纪。理解它的历史，可以看出研究问题曾发生过几次重要转变：最初是“怎样描述以整个函数为输入的数学映射”，后来变成“怎样分析真实的非线性动力系统”，再进一步变成“怎样通过实验得到未知系统的核”。直到这些问题逐渐得到回答，Volterra 级数才有机会进入数字音频建模。[VH1]
+我们今天谈论 Volterra，往往会想到非线性卷积、谐波分阶与音频硬件测量。但这套理论的起点比数字信号处理早了近一个世纪。它的发展也不是某一位数学家一次性完成的单线发明史，而是几条研究路线逐渐交汇的结果：一条路线研究如何用泛函级数表示非线性映射；一条路线研究随机激励下如何正交分解和测量系统响应；另一条路线研究如何将这些表示用于真实动力系统，并控制辨识与计算成本。[VH1][VH5]
 
-### 十九世纪末至 1910 年：从普通函数走向泛函
+### 1887—1913 年：Volterra 与 Fréchet，把函数映射写成级数
 
-意大利数学家 **Vito Volterra** 在十九世纪八十年代研究一种比普通函数更一般的数学对象：映射所接收的自变量，可以是一整个函数。普通 Taylor 展开通过若干阶导数描述数值变量在某个参考点附近的变化；当自变量变成整条函数时，类似的逐阶展开就需要作用于函数的多线性项，以及相应的多重积分核。Volterra 的早期工作正是沿着这条思路展开的。它所面对的最初问题与音频失真、采样率或数字滤波器都没有直接关系。[VH1]
+意大利数学家 **Vito Volterra** 在 1887 年发表了关于“依赖于其他函数的函数”的系列研究。他关心的对象已经超出普通函数：自变量不再只是一个数，而可以是一整条函数或曲线。普通 Taylor 展开将数值函数拆成不同阶次的幂项；当输入对象变成函数时，对应的展开就需要多线性泛函以及多重积分形式。Volterra 的研究由此建立了后来以他命名的泛函级数思想。[VH1][VH8]
 
-1910 年，**Maurice Fréchet** 对连续泛函的表示问题进行了更严格的研究，并将其与 Weierstrass 多项式逼近思想联系起来。这里涉及两类不同的数学问题：对某类连续映射进行多项式泛函**逼近**，与在某个工作点求出一条实际**收敛的 Taylor 型无穷级数**，分别依赖不同的假设条件。后来 Boyd–Chua 关于衰减记忆的研究之所以重要，正因为它继续澄清了“怎样的系统、在什么输入集合上、按照什么误差标准可以逼近”这些问题。[VH1][VH4]
+1910 年，**Maurice Fréchet** 在《Sur les fonctionnelles continues》中系统研究连续泛函，并将其表示为多重积分泛函级数。Schetzen 对这段历史的概括是：Fréchet 将 Weierstrass 多项式逼近思想推广到函数空间，使连续泛函能够在相应条件下由不同整数阶的泛函项表示。这里的关键词是“在相应条件下”：这项工作为 Fréchet–Volterra 级数建立了重要数学基础，但不能将它理解为任意非线性系统在任意输入幅度下都必然拥有收敛的 Taylor 型无穷展开。[VH1][VH9]
 
-文献里还会出现 **Volterra 积分方程（Volterra Integral Equation）**。两者源于同一位数学家的研究，但用途不同：Volterra 积分方程以具有历史积分上限的关系描述未知函数，常用于求解动力学问题；Volterra 级数则用一阶、二阶直到更高阶的泛函项展开输入—输出映射。两者可以在某些非线性系统的分析中联系起来，阅读文献时需要依据具体定义辨认讨论对象。有关积分方程的专门数学体系，可参阅 Gripenberg、Londen 与 Staffans 的著作。[VH6]
+Volterra 后来又在 1912 年于巴黎讲授相关理论，并于 1913 年出版《Leçons sur les fonctions de lignes》。这使早期关于函数泛函的抽象思想逐渐形成更完整的数学体系。[VH1]
 
-### 1930—1950 年代：Wiener 将随机过程与非线性系统接入这套理论
+文献里还会出现 **Volterra 积分方程（Volterra Integral Equation）**。它与 Volterra 级数同样源于 Volterra 的研究，但数学对象和用途不同：积分方程通常以具有历史积分上限的关系描述未知函数；Volterra 级数则以不同阶的多线性积分核展开输入—输出映射。两者可以在非线性微分方程和动力系统分析中发生联系，阅读文献时应依据具体公式判断讨论对象。有关积分方程的专门数学体系，可参阅 Gripenberg、Londen 与 Staffans 的著作。[VH6]
 
-**Norbert Wiener** 从布朗运动、随机积分和白噪声相关问题出发，逐渐发展出处理随机输入下非线性系统的方法。Schetzen 的历史回顾记录了 Wiener 在 **1942 年** 运用 Volterra 理论分析带非线性电阻的串联 RLC 电路的工作；这是早期将泛函展开用于实际非线性电路问题的重要案例。1945 年 **Cameron–Martin** 对随机泛函完备系统的工作，也为后来的正交展开提供了数学背景。[VH1]
+### 1930—1949 年：Wiener 将随机过程、正交展开与非线性系统联系起来
 
-到了 1949 年，Wiener 已向 MIT 的 **Y. W. Lee** 研究团队介绍自己的非线性系统方法；1958 年的讲义进一步系统呈现了相关理论。在这条研究路线中，Volterra 展开的不同阶次通常还需要额外的正交化处理。Wiener 通过针对高斯随机激励构造正交泛函，使不同阶的响应贡献能够在指定统计意义下分离。由此发展出的 **Wiener 核** 与通常的 **Volterra 核** 相互关联，各自具有不同的系数定义。它们的定义依赖所采用的展开体系与输入统计条件，转换时必须核对归一化和具体假设。有关 Wiener 正交泛函和核估计的推导将在《04》第 4.11–4.12 节展开。[VH1][VH2]
+**Norbert Wiener** 的研究路线来自随机过程、布朗运动与 Wiener 积分。1938 年，他发表《The Homogeneous Chaos》，为随机泛函的分层表示提供了重要理论背景。这里的“Chaos”属于随机泛函展开的历史术语，与后来动力系统中通常所说的混沌运动并非同一个概念。[VH10]
 
-### 1950—1960 年代：从级数表示转向系统、反馈与核的测量
+1942 年，Wiener 已经将 Volterra 理论用于一个具体的非线性电路问题：带非线性电阻的串联 RLC 电路在白色高斯激励下的响应。这是 Volterra 表示进入实际非线性器件分析的重要早期案例。1947 年，**R. H. Cameron** 与 **W. T. Martin** 发表关于 Fourier–Hermite 泛函正交展开的研究，进一步发展了高斯随机过程下非线性泛函的正交表示。Wiener 后来将这些随机积分和正交泛函研究与 Volterra 级数结合，逐渐形成用于非线性系统分析与综合的 Wiener 理论。[VH1][VH11]
 
-如果要用一条泛函级数研究真实设备，研究者就必须进一步面对级联、反馈、收敛与实际可计算性。**Bose** 在 1956 年提出 Gate Function Model；**Barrett** 在 1957 年系统研究了 Volterra 在非线性微分方程与反馈系统中的应用；**Brilliant** 在 1958 年讨论级联与收敛；**George** 在 1959 年建立系统代数并引入多维 Laplace 变换分析 Volterra 算子。与此同时，**Zames** 和 **Sandberg** 从算子、收缩映射与稳定性角度推动非线性反馈理论的发展。这些工作让 Volterra 从泛函表示逐渐进入工程系统分析。[VH1]
+1949 年，Wiener 将自己的非线性系统方法介绍给 MIT Research Laboratory of Electronics 中由 **Y. W. Lee** 领导的研究团队。1958 年，他以讲义形式出版《Nonlinear Problems in Random Theory》，系统呈现这条研究路线的重要成果。[VH1][VH2]
 
-真正接近现代黑盒辨识的问题是：假设设备的电路未知，我们能否只通过设计输入并观察输出，测得描述非线性历史交互的核？**Lee–Schetzen 互相关法** 是这段历史的重要转折。根据 Schetzen 的回顾，相关方法在 1961 年已形成、1962 年得到实验验证，并在 1965 年有正式论文发表。它利用输入的统计性质与互相关关系辨识 **Wiener 核**；若希望得到特定记法的 Volterra 核，还需要处理两种展开之间的关系。这种方法建立了由实验数据走向非线性算子表示的具体途径。[VH1][VH3]
+这段历史带来了一个后来极为重要的区别：Volterra 核与 Wiener 核都可以描述非线性系统的多阶响应，但它们来自不同的展开约定。Volterra 核组织确定性输入历史的多阶交互；Wiener 核则结合高斯随机输入的统计性质，对泛函项进行正交化，使不同阶次的贡献能够在相应统计意义下分离。两套核之间存在转换关系，但定义、归一化和辨识条件并不相同。
 
-在同一时期，**Schetzen** 也研究有限 Volterra 算子的测量与综合；1964 年 **Alper** 和 **Bush** 的工作则推进了离散时间 Volterra 系统的研究。连续时间的多重积分核因而与后来在 DSP 中熟悉的多重延迟求和逐渐接轨。这里的关键困难随之显露：阶数与历史长度一旦增大，所需辨识的数据量和核参数量也会快速增长。[VH1]
+### 1950—1960 年代：从数学表示走向系统分析与实验核辨识
 
-### 1970—1980 年代：核辨识、衰减记忆与有限计算资源
+这一时期，Volterra 与 Wiener 两条研究路线逐渐形成各自的工程方法，并在系统辨识问题上相互交汇。
 
-进入二十世纪七十年代，研究已不局限于“级数能否写出来”。直接求解、基函数展开、时域互相关、频域方法及核形状的物理解释共同构成了系统辨识研究。1977 年的综述 *The Kernel Identification Method (1910–1977)* 对这段进展进行了系统梳理；1980 年 **Martin Schetzen** 出版 *The Volterra and Wiener Theories of Nonlinear Systems*，将算子展开、Wiener 体系、核测量与系统综合组织成较完整的工程理论框架。[VH1][VH5]
+在 Wiener 路线上，**A. G. Bose** 于 1956 年提出 Gate Function Model，尝试将最优非线性建模推广到非高斯输入与加权均方误差准则。Lee 团队持续研究 Wiener 模型的分析与综合，绝大部分早期成果发表在 MIT 的 Quarterly Progress Reports 与技术报告中。[VH1]
 
-1985 年，**Stephen Boyd** 与 **Leon Chua** 对衰减记忆（Fading Memory）条件下非线性算子的逼近给出了重要结果。讨论 Volterra 的逼近能力，需要同时交代因果性、时不变性、连续性、输入集合和误差意义。与此同时，自适应非线性滤波研究逐渐关注 LMS、RLS 一类参数更新方案、核的截断以及如何在有限运算量下实现辨识。Ogunfunmi 的 *Adaptive Nonlinear System Identification* 对这些工程路线提供了后来的系统总结。[VH4][VH7]
+真正改变实验辨识工作方式的是 **Lee–Schetzen 互相关法**。Martin Schetzen 的历史回顾将这项方法的形成时间记为 1961 年：它利用输入与输出之间的互相关关系测量 Wiener 核，并在 1962 年得到实验验证。Schetzen 随后将方法推广到非白色高斯输入；相关成果在 1965 年由 **Y. W. Lee** 与 **Martin Schetzen** 以《Measurement of the Wiener Kernels of a Non-linear System by Cross-correlation》正式发表。[VH1][VH3]
 
-### 从理论史回到现代音频：为什么这条路线走得如此漫长？
+这里需要特别强调：Lee–Schetzen 方法直接辨识的是 **Wiener 核**。如果目标是获得采用另一套定义的 Volterra 核，还必须根据输入统计条件与核转换关系完成换算。把互相关结果直接称为 Volterra 核，会掩盖两种展开体系之间的区别。
 
-数学上的高阶表示能力与工程上的辨识、实时求值成本密切相关。**参数维度、激励信号、测量噪声、数值病态和计算预算**，都在限制完整 Volterra 核的部署。由此发展出对角核、并联 Hammerstein、正交基函数、稀疏/低秩约简和状态混合等不同方向。它们是对具体问题作出的结构选择，应根据具体任务的结构与资源需求比较。
+与此同时，Volterra 理论也在发展。**Barrett** 于 1957 年系统研究 Volterra 级数在非线性微分方程和反馈系统中的应用；**Brilliant** 于 1958 年研究级联与收敛性质；**George** 于 1959 年建立系统代数，并使用多维 Laplace 变换分析 Volterra 算子；**Zames** 与 **Sandberg** 则从非线性算子、收缩映射和反馈稳定性角度推进相关研究。1963 年，Schetzen 研究了有限 Volterra 算子的测量与综合；1964 年，**Alper** 与 **Bush** 推进了离散时间 Volterra 系统的研究，使连续时间多重积分核与数字信号处理中熟悉的多重延迟求和进一步接轨。[VH1]
 
-这也解释了整套 Wiki 的叙事安排：本章接下来从输入历史与多项式结构出发，正式定义 Volterra 级数；《02》会讨论神经网络如何在非线性系统辨识这一共同问题上与它交汇；《06》则把测量、核数据库、计算引擎与商业音频插件连接起来。历史说明了研究动机，接下来的数学与实验仍然决定一个模型是否成立。
+这一时期最重要的工程变化，是研究者开始系统回答三个问题：如何设计激励，使不同阶次的响应可以被分辨；如何从测量数据中估计核；如何在有限参数和运算量下实现模型。今天我们使用的互相关辨识、核测量、离散 Volterra 模型与实验激励设计，都能在这段历史中找到对应的研究源头。
+
+### 1970—1980 年代：核辨识方法、工程体系与衰减记忆理论
+
+进入 1970 年代，研究重点逐渐从“能否写出一个级数”转向“怎样计算、解释和验证这些核”。直接求解、基函数展开、时域互相关、频域方法，以及核形状与物理系统特征之间的联系，共同构成了非线性系统辨识的重要方向。
+
+1977 年发表的综述《The Kernel Identification Method (1910–1977)》系统回顾了核辨识的理论、计算、应用和解释。1980 年，**Martin Schetzen** 出版《The Volterra and Wiener Theories of Nonlinear Systems》，将泛函展开、Wiener 正交化、核测量、系统综合及其历史文献组织成较完整的工程理论框架。对于今天希望从输入输出测量出发建立非线性音频模型的研究者，这本书仍然是重要的基础参考。[VH1][VH5]
+
+1985 年，**Stephen Boyd** 与 **Leon O. Chua** 发表《Fading Memory and the Problem of Approximating Nonlinear Operators with Volterra Series》，进一步澄清 Volterra 级数的逼近能力。它研究的核心问题是：在因果、时不变、连续性及衰减记忆等条件下，能否用 Volterra 级数在规定的误差意义下逼近非线性算子；论文还讨论了由有限维线性动力学与非线性读出构成的逼近实现。它为“具有无限历史的系统为何可以由有限结构近似”提供了重要理论依据，但结论始终依赖输入集合、连续性和记忆条件，不能被解释成任意非线性系统都能被有限阶 Volterra 模型精确复刻。[VH4]
+
+### 1990—2000 年代：正交基与参数约简，让高维核变得更可计算
+
+完整 Volterra 核的参数数量会随阶数和记忆长度迅速增长。以 $M$ 个历史采样点构造的第 $p$ 阶完整核为例，其原始系数规模通常与 $M^p$ 同阶。即使系统理论上可以由 Volterra 型算子逼近，直接存储和估计全部核系数仍然可能不适合实际计算。
+
+因此，研究者逐渐将正交基函数引入核表示。Laguerre、Kautz 以及广义正交基函数，可以沿核的各个延迟坐标展开原本高维的核函数。这样做的关键，是利用系统的主要时间尺度或模态结构，以较少的基函数表达较长的衰减记忆。基函数选择得当时，可以显著减少待估参数并改善数值条件；它并不会自动消除所有高阶交互，也不能保证任何系统都适合用同一组基函数表示。[VH12]
+
+2004 年，**Campello、Favier 与 do Amaral** 将 Laguerre 基的优化选择系统推广到任意阶离散时间 Volterra 核，推导了相应的全局最优展开方案，以减少达到给定截断误差所需的基函数数量。2006 年的后续工作又讨论了各个核坐标采用独立 Laguerre 极点的情形。[VH12]
+
+另一条重要路线是利用张量分解压缩高阶核。2011 年，**Favier、Kibangou 与 Bouilloc** 研究 Volterra-PARAFAC 模型，将高阶核视为对称张量并采用 PARAFAC 分解，以降低参数规模；论文还讨论了 Volterra 核正交基展开与 Tucker 型分解之间的联系。由此，Volterra 约简逐渐形成两种互补的思路：正交基主要压缩时间记忆坐标，张量分解主要压缩多维核的参数结构。[VH13]
+
+### 2010 年代至今：数字音频应用与现代模型的交汇
+
+进入现代数字音频研究之后，Volterra 级数逐渐与指数扫频测量、谐波阶次分离、硬件非线性辨识和实时插件实现结合。2012 年，Oliveira 等人对 Laguerre、Kautz 与其他正交基模型在非线性系统辨识中的应用进行了综述，比较了 Volterra、模糊模型和神经模型在正交基框架中的实现与限制。[VH14]
+
+在音频领域，Tronchin 与 Coli 于 2015 年继续研究 Volterra 级数对非线性系统的仿真；Orcioni 等人于 2018 年将多方差方法用于电子管音频设备的 Volterra 模型辨识。2022—2023 年，Hopman 与 Bennett 又围绕简化非线性 Volterra 模型研究抗混叠方法与多项式 ADAA，为低计算成本的非线性音频实现提供了新的工程路径。[V3][V2][V4]
+
+与此同时，神经网络、可微分 DSP、状态空间模型、物理电路求解和混合灰盒模型也在发展。它们并非 Volterra 理论的单一后继分支，而是在非线性系统表示、输入输出辨识、记忆建模和实时计算这些共同问题上逐渐交汇。固定核回归、低秩 Volterra、WaveNet、NAM、神经算子和物理约束网络之间的关系，正是后续章节要继续讨论的内容。
+
+### 为什么历史上会同时出现 Volterra 核与 Wiener 核？
+
+| 比较维度 | Volterra 展开 | Wiener 展开 |
+|---|---|---|
+| 数学出发点 | 多线性泛函与多重积分核 | 随机泛函与正交展开 |
+| 核的含义 | 组织确定性输入历史的多阶交互 | 对特定输入统计条件下的正交响应进行分阶表示 |
+| 重要条件 | 展开、收敛与逼近条件 | 输入统计性质及正交化约定 |
+| 典型辨识路线 | 直接核测量、激励设计、参数回归 | 高斯随机激励与互相关测量 |
+| 两者关系 | 可与 Wiener 表示建立核转换关系 | 正交化改变了核的定义和系数组织方式 |
+
+可以将两者的历史关系概括为：Volterra 提供了显式组织非线性历史交互的泛函表示；Wiener 将随机过程和正交泛函引入非线性系统分析；Lee–Schetzen 则把 Wiener 核的互相关测量推进到可执行的实验方法。理解这条发展链，才能正确区分理论核、实验估计量与最终用于数字实现的模型系数。
+
+### 从历史进入本章的数学问题
+
+这段历史最终汇聚到我们今天真正关心的工程任务：如何设计输入激励，分离并估计系统的非线性阶次；如何判断需要多少记忆长度与多少个交叉项；如何在辨识精度、模型规模、抗混叠和实时 CPU 预算之间取得平衡。
+
+本章接下来从输入历史与多项式结构出发，正式定义 Volterra 级数；《02》将讨论神经网络如何在非线性系统辨识这一共同问题上与它交汇；《03》继续研究状态耦合和混合模型；《04》展开泛函分析、随机正交展开与高级系统辨识；《06》则把测量、核数据库、计算引擎与商业音频插件连接起来。历史解释了研究问题如何形成，模型是否成立仍然需要数学条件和独立实验验证。
 
 ## 1.1 我们真正想解决的，是哪一种音频建模问题？
 
@@ -745,6 +789,13 @@ M_{\mathrm{OS}} \ge \frac{P+1}{2}
 - **[VH5]** *The Kernel Identification Method (1910–1977): Review of Theory, Calculation, Application, and Interpretation*, *Mathematical Biosciences*, 37, 135–190 (1977). [DOI](https://doi.org/10.1016/0025-5564(77)90091-8)。
 - **[VH6]** G. Gripenberg, S.-O. Londen & O. Staffans (1990), *Volterra Integral and Functional Equations*：积分方程及其数学背景，注意与 Volterra 级数的术语区别。
 - **[VH7]** T. Ogunfunmi (2007), *Adaptive Nonlinear System Identification: The Volterra and Wiener Model Approaches*：离散与自适应辨识方法、计算开销及参数估计。
+- **[VH8]** V. Volterra (1887), *Sopra le funzioni che dipendono da altre funzioni*, Rendiconti della Reale Accademia dei Lincei, 2° semestre, pp. 97–105, 141–146, 153–158。原始文献书目信息亦见 Schetzen (1980) 附录 B。
+- **[VH9]** M. Fréchet (1910), *Sur les fonctionnelles continues*, *Annales scientifiques de l'École Normale Supérieure*, 3e série, 27, 193–216. [DOI:10.24033/asens.619](https://doi.org/10.24033/asens.619)。
+- **[VH10]** N. Wiener (1938), *The Homogeneous Chaos*, *American Journal of Mathematics*, 60(4), 897–936. [DOI:10.2307/2371268](https://doi.org/10.2307/2371268)。
+- **[VH11]** R. H. Cameron & W. T. Martin (1947), *The Orthogonal Development of Non-Linear Functionals in Series of Fourier-Hermite Functionals*, *Annals of Mathematics*, 48(2), 385–392. [DOI:10.2307/1969178](https://doi.org/10.2307/1969178)。
+- **[VH12]** R. J. G. B. Campello, G. Favier & W. C. do Amaral (2004), *Optimal Expansions of Discrete-Time Volterra Models Using Laguerre Functions*, *Automatica*, 40(5), 815–822. [DOI:10.1016/j.automatica.2003.11.016](https://doi.org/10.1016/j.automatica.2003.11.016)。
+- **[VH13]** G. Favier, A. Y. Kibangou & T. Bouilloc (2012; online 2011), *Nonlinear System Modeling and Identification Using Volterra-PARAFAC Models*, *International Journal of Adaptive Control and Signal Processing*, 26(1), 30–53. [DOI:10.1002/acs.1272](https://doi.org/10.1002/acs.1272)。
+- **[VH14]** G. H. C. Oliveira, A. da Rosa, R. J. G. B. Campello, J. B. Machado & W. C. Amaral (2012), *An Introduction to Models Based on Laguerre, Kautz and Other Related Orthonormal Functions – Part II: Non-Linear Models*, *International Journal of Modelling, Identification and Control*, 16(1), 1–14. [DOI:10.1504/IJMIC.2012.046691](https://doi.org/10.1504/IJMIC.2012.046691)。
 
 - **[V1]** S. Boyd & L. O. Chua (1985), *Fading Memory and the Problem of Approximating Nonlinear Operators with Volterra Series*, IEEE Trans. Circuits Syst., [DOI:10.1109/TCS.1985.1085649](https://doi.org/10.1109/TCS.1985.1085649)；[作者论文页](https://web.stanford.edu/~boyd/papers/fading_volterra.html)。
 - **[V2]** S. Orcioni, A. Terenzi, S. Cecchi, F. Piazza & A. Carini (2018), *Identification of Volterra Models of Tube Audio Devices Using Multiple-Variance Method*, J. Audio Eng. Soc., 66(10), 823–838, [DOI:10.17743/jaes.2018.0046](https://doi.org/10.17743/jaes.2018.0046)。
