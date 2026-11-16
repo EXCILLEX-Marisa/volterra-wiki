@@ -46,7 +46,7 @@
 <rect x="122" y="220" width="8" height="8" rx="1.5" fill="#7C3AED" stroke="none" stroke-width="0" />
 <rect x="133" y="220" width="8" height="8" rx="1.5" fill="#7C3AED" stroke="none" stroke-width="0" />
 <text x="210" y="176" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="700" text-anchor="start" fill="#0F172A">完整有限阶 Volterra 表示</text>
-<text x="210" y="205" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="600" text-anchor="start" fill="#111827">ŷ[n] = h₀ + Σₚ Σₖ₁,…,ₖₚ hₚ[k₁,…,kₚ] · ∏ᵢ x[n−kᵢ]</text>
+<text x="210" y="205" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15.2" font-weight="600" text-anchor="start" fill="#111827">ŷ[n] = h₀ + Σₚ₌₁ᴾ Σₖ₁,…,ₖₚ hₚ[k₁,…,kₚ] · ∏ᵢ x[n−kᵢ]</text>
 <text x="1000" y="176" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="650" text-anchor="start" fill="#475569">约简与扩展的四个方向</text>
 <text x="1000" y="204" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#475569">裁剪坐标  ·  分解核张量  ·  组合模块  ·  引入内部状态</text>
 <rect x="48" y="258" width="736" height="294" rx="13" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.4" filter="url(#shadow)"/>
@@ -91,9 +91,9 @@
 <rect x="111" y="388" width="8" height="8" rx="1.5" fill="#E2E8F0" stroke="none" stroke-width="0" />
 <rect x="122" y="388" width="8" height="8" rx="1.5" fill="#E2E8F0" stroke="none" stroke-width="0" />
 <rect x="133" y="388" width="8" height="8" rx="1.5" fill="#0284C7" stroke="none" stroke-width="0" />
-<text x="210" y="337" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#0284C7">对角 Volterra / Memory Polynomial</text>
-<text x="210" y="361" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">仅保留 k₁ = … = kₚ 的主对角项</text>
-<text x="210" y="380" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">等效为各阶幂次支路分别滤波</text>
+<text x="210" y="337" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.2" font-weight="700" text-anchor="start" fill="#0284C7">对角 Volterra / MP</text>
+<text x="210" y="361" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="450" text-anchor="start" fill="#475569">只保留核主对角线上的坐标</text>
+<text x="210" y="380" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="450" text-anchor="start" fill="#475569">等效为各阶幂次支路分别滤波</text>
 <rect x="416" y="310" width="346" height="106" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
 <rect x="425" y="322" width="126" height="82" rx="6" fill="#E0F2FE" stroke="none" stroke-width="0" />
 <rect x="432" y="333" width="8" height="8" rx="1.5" fill="#0284C7" stroke="none" stroke-width="0" />
@@ -272,10 +272,10 @@
 <text x="66" y="594" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="750" text-anchor="start" fill="#D97706">III  经典串联与并联块结构</text>
 <rect x="62" y="618" width="346" height="106" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
 <rect x="71" y="630" width="126" height="82" rx="6" fill="#FEF3C7" stroke="none" stroke-width="0" />
-<rect x="75" y="651" width="30" height="28" rx="4" fill="#E0F2FE" stroke="#0284C7" stroke-width="1" />
-<rect x="150" y="651" width="30" height="28" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1" />
-<text x="90" y="669" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#0284C7">L</text>
-<text x="165" y="669" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#D97706">N</text>
+<rect x="75" y="651" width="30" height="28" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1" />
+<rect x="150" y="651" width="30" height="28" rx="4" fill="#E0F2FE" stroke="#0284C7" stroke-width="1" />
+<text x="90" y="669" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#D97706">N</text>
+<text x="165" y="669" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#0284C7">L</text>
 <path d="M106 665 L148 665" stroke="#D97706" stroke-width="1.7" fill="" stroke-linecap="round" stroke-linejoin="round" />
 <path d="M142 661 L148 665 L142 669" stroke="#D97706" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round" />
 <text x="210" y="645" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#D97706">Hammerstein（N → L）</text>
@@ -304,9 +304,9 @@
 <path d="M110 777 L116 781 L110 785" stroke="#D97706" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round" />
 <path d="M144 781 L161 781" stroke="#D97706" stroke-width="1.7" fill="" stroke-linecap="round" stroke-linejoin="round" />
 <path d="M155 777 L161 781 L155 785" stroke="#D97706" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-<text x="210" y="761" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#D97706">Wiener–Hammerstein（L → N → L）</text>
-<text x="210" y="785" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">非线性前后分别配置线性滤波</text>
-<text x="210" y="804" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">适合前后级选频共同塑形的系统</text>
+<text x="210" y="761" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.2" font-weight="700" text-anchor="start" fill="#D97706">Wiener–Hammerstein（L–N–L）</text>
+<text x="210" y="785" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="450" text-anchor="start" fill="#475569">非线性前后分别配置线性滤波</text>
+<text x="210" y="804" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="450" text-anchor="start" fill="#475569">适合前后级选频共同塑形的系统</text>
 <rect x="416" y="734" width="346" height="106" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
 <rect x="425" y="746" width="126" height="82" rx="6" fill="#FEF3C7" stroke="none" stroke-width="0" />
 <rect x="427" y="758" width="22" height="12" rx="2" fill="#E0F2FE" stroke="#0284C7" stroke-width="1" />
@@ -374,9 +374,9 @@
 <rect x="1193" y="746" width="126" height="82" rx="6" fill="#D1FAE5" stroke="none" stroke-width="0" />
 <path d="M1201 784 C1217 752,1283 752,1305 784 C1284 816,1218 816,1201 784 Z" stroke="#DC2626" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
 <path d="M1201 784 L1305 784" stroke="#94A3B8" stroke-width="1" fill="" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3"/>
-<text x="1332" y="761" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#059669">磁滞算子与神经残差</text>
-<text x="1332" y="785" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">Play / Preisach 等算子保存路径状态</text>
-<text x="1332" y="804" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">神经网络可补偿剩余建模误差</text>
+<text x="1332" y="761" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.2" font-weight="700" text-anchor="start" fill="#059669">磁滞算子 + 神经残差</text>
+<text x="1332" y="785" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="450" text-anchor="start" fill="#475569">Play / Preisach 算子保存路径状态</text>
+<text x="1332" y="804" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="450" text-anchor="start" fill="#475569">神经网络补偿剩余建模误差</text>
 <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A" stroke="none" stroke-width="0" />
 <circle cx="80" cy="929" r="8" fill="#38BDF8" stroke="none" stroke-width="1"/>
 <text x="102" y="935" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15.5" font-weight="650" text-anchor="start" fill="#F8FAFC">核心结论：不同模型家族对应不同的结构先验。实际系统可以组合核裁剪、低秩因子、滤波块与状态变量，按测量证据分配模型自由度。</text>
