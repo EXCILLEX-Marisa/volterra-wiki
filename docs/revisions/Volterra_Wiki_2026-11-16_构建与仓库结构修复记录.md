@@ -28,4 +28,8 @@ Figure count mismatch: repository 37, preview 18.
 
 ## 发布验证
 
-本记录在修复提交后补充 GitHub Actions 的最终构建结果。只有在新的阅读器构建与 Pages 发布均成功后，才将本轮状态标记为完成。
+- Run #26：原始图片路径混用导致构建失败，错误为 37 张仓库图片仅识别出 18 张。
+- Run #27：首次加入章节同步校验时，校验代码自身出现正则表达式转义错误；随后在 commit c90fba6 修正。
+- Run #28：GitHub Actions 构建与 GitHub Pages 发布均成功。
+
+最终构建日志确认：**7 个章节同步通过、1372 个公式完成排版、37 张配图全部通过文件清单验证**。Build 与 Deploy to GitHub Pages 两个 job 均为 success。
