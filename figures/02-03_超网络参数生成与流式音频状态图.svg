@@ -1,35 +1,186 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980"><defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L10,4 z" fill="#334155"/></marker></defs>
-<rect x="0" y="0" width="1600" height="980" fill="#F8FAFC"/>
-<rect x="48" y="28" width="1504" height="98" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
-<rect x="70" y="47" width="208" height="32" rx="6" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
-<text x="174" y="70" text-anchor="middle" font-size="15" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 02-03 · 超网络</text>
-<text x="306" y="70" text-anchor="start" font-size="28" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">参数条件化超网络与流式音频模型</text>
-<text x="72" y="107" text-anchor="start" font-size="16" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#64748B">区分“参数决定模型权重”与“内部状态保存时间历史”两种职责</text>
-<rect x="48" y="147" width="1504" height="724" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
-<text x="85" y="198" text-anchor="start" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">参数路径：控制值改变时更新权重，稳定时可缓存</text>
-<rect x="82" y="225" width="355" height="172" rx="14" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
-<text x="260" y="273" text-anchor="middle" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">面板条件向量 c</text><text x="260" y="311" text-anchor="middle" font-size="21" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">Peak Reduction、Comp/Limit</text><text x="260" y="349" text-anchor="middle" font-size="21" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">Gain 单独控制输出电平</text>
-<path d="M437 307 L523 307" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<rect x="535" y="225" width="530" height="172" rx="14" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
-<text x="800" y="268" text-anchor="middle" font-size="22" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">超网络 Hφ(c)</text><text x="800" y="311" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">gMLP / 门控单元</text><text x="800" y="354" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">低频率参数到权重映射</text>
-<path d="M1066 307 L1149 307" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<rect x="1160" y="225" width="354" height="172" rx="14" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
-<text x="1337" y="269" text-anchor="middle" font-size="22" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">生成音频模型权重</text><text x="1337" y="311" text-anchor="middle" font-size="22" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#059669">卷积核 / 偏置 / 门控参数</text>
-<path d="M1337 397 L1337 468" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<text x="84" y="465" text-anchor="start" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">音频路径：每个处理块更新内部状态</text>
-<rect x="84" y="501" width="271" height="126" rx="14" fill="#EFF6FF" stroke="#0284C7" stroke-width="2"/>
-<text x="219" y="544" text-anchor="middle" font-size="21" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">输入音频 x[n]</text><text x="219" y="579" text-anchor="middle" font-size="21" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">按块送入网络</text>
-<path d="M355 566 L443 566" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<rect x="456" y="487" width="646" height="198" rx="14" fill="#EFF6FF" stroke="#0284C7" stroke-width="2"/>
-<text x="779" y="541" text-anchor="middle" font-size="23" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">流式 U-Net 型处理网络</text><text x="779" y="585" text-anchor="middle" font-size="23" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">门控卷积 / 下采样 / 上采样</text><text x="779" y="629" text-anchor="middle" font-size="23" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">包含跨块状态 s[n]</text>
-<path d="M1105 566 L1200 566" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<rect x="1213" y="503" width="295" height="124" rx="14" fill="#EFF6FF" stroke="#0284C7" stroke-width="2"/>
-<text x="1360" y="550" text-anchor="middle" font-size="23" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">音频输出</text><text x="1360" y="584" text-anchor="middle" font-size="23" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">y[n]</text>
-<path d="M1337 469 L1002 487" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arrow)" stroke-dasharray="8,5"/>
-<rect x="498" y="733" width="570" height="102" rx="14" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2"/>
-<text x="783" y="766" text-anchor="middle" font-size="19" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">流式状态反馈：s[n] → s[n+1]</text><text x="783" y="796" text-anchor="middle" font-size="19" font-weight="400" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">状态跨音频块延续，不随每个旋钮改变而清零</text>
-<path d="M777 732 L777 691" stroke="#7C3AED" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-<rect x="48" y="899" width="1504" height="54" rx="12" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
-<text x="800" y="935" text-anchor="middle" font-size="18" font-weight="700" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">超网络学习“参数如何改变处理器”，流式模型学习“历史如何改变当前输出”</text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+<title id="title">图 02-03：参数条件化超网络与流式音频状态</title><desc id="desc">控制参数经超网络生成并缓存音频模型权重；音频网络按块处理信号，内部状态跨块持续递推。Gain 独立控制输出电平。</desc>
+<defs><filter id="shadow" x="-5%" y="-5%" width="110%" height="112%"><feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/><feOffset in="b" dx="0" dy="3" result="o"/><feComponentTransfer><feFuncA type="linear" slope=".07"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect x="0" y="0" width="1600" height="980" rx="0" fill="#F8FAFC" stroke="none" stroke-width="1"/>
+<rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+<rect x="70" y="47" width="208" height="32" rx="6" fill="#0F172A" stroke="none" stroke-width="0"/>
+<text x="174" y="69" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">图 02-03 · 超网络</text>
+<text x="306" y="70" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="27" font-weight="750" text-anchor="start" fill="#0F172A">参数条件化与流式音频网络：两种时间尺度、两种职责</text>
+<text x="72" y="107" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15.5" font-weight="400" text-anchor="start" fill="#475569">控制参数决定音频模型的权重；流式状态保存输入历史。二者通过权重装载与状态递推协同工作。</text>
+<rect x="48" y="145" width="1504" height="286" rx="14" fill="#FFFFFF" stroke="#F5D69B" stroke-width="1.4"/>
+<rect x="48" y="145" width="1504" height="48" rx="12" fill="#FEF3C7" stroke="none" stroke-width="0"/>
+<rect x="48" y="181" width="1504" height="12" rx="0" fill="#FEF3C7" stroke="none" stroke-width="1"/>
+<text x="70" y="177" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="750" text-anchor="start" fill="#D97706">A｜控制参数路径（低频率更新 / 事件触发）</text>
+<text x="1518" y="177" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="550" text-anchor="end" fill="#475569">旋钮不变时，生成的权重可以缓存</text>
+<rect x="74" y="214" width="224" height="154" rx="9" fill="#FFFBEB" stroke="#F5D69B" stroke-width="1.2"/>
+<text x="92" y="240" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#D97706">面板条件</text>
+<text x="92" y="269" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="600" text-anchor="start" fill="#475569">Peak Reduction</text>
+<path d="M92 289 L267 289" stroke="#CBD5E1" stroke-width="3" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M92 289 L211 289" stroke="#D97706" stroke-width="3" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="211" cy="289" r="6" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+<text x="92" y="322" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="600" text-anchor="start" fill="#475569">Comp / Limit</text>
+<path d="M92 342 L267 342" stroke="#CBD5E1" stroke-width="3" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M92 342 L165.5 342" stroke="#D97706" stroke-width="3" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="165.5" cy="342" r="6" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+<text x="92" y="352" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="550" text-anchor="start" fill="#475569">归一化后组成 c</text>
+<path d="M300 290 L334 290" stroke="#D97706" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M328 286 L334 290 L328 294" stroke="#D97706" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="340" y="237" width="136" height="108" rx="9" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+<text x="408" y="263" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="#D97706">控制向量</text>
+<text x="408" y="292" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="650" text-anchor="middle" fill="#111827">c = [c₁,c₂]</text>
+<text x="408" y="322" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11" font-weight="500" text-anchor="middle" fill="#475569">旋钮位置 / 模式</text>
+<path d="M478 290 L520 290" stroke="#D97706" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M514 286 L520 290 L514 294" stroke="#D97706" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="526" y="214" width="250" height="154" rx="9" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.3"/>
+<text x="651" y="240" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="750" text-anchor="middle" fill="#7C3AED">超网络 Hφ(c)</text>
+<path d="M554 277 L592 261" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M554 277 L592 298" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M554 320 L592 298" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M554 320 L592 335" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M592 261 L632 277" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M592 298 L632 277" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M592 298 L632 320" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M592 335 L632 320" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M632 277 L670 298" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M632 320 L670 298" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="554" cy="277" r="5" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<circle cx="554" cy="320" r="5" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<circle cx="592" cy="261" r="5" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<circle cx="592" cy="298" r="5" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<circle cx="592" cy="335" r="5" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<circle cx="632" cy="277" r="5" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<circle cx="632" cy="320" r="5" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<circle cx="670" cy="298" r="5" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+<text x="706" y="278" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="start" fill="#7C3AED">gMLP</text>
+<text x="706" y="298" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="start" fill="#7C3AED">/ SGU</text>
+<text x="651" y="352" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11" font-weight="500" text-anchor="middle" fill="#475569">学习控制量到权重的映射</text>
+<path d="M778 290 L814 290" stroke="#7C3AED" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M808 286 L814 290 L808 294" stroke="#7C3AED" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="820" y="226" width="230" height="130" rx="9" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.2"/>
+<text x="935" y="252" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#7C3AED">生成音频网络参数</text>
+<rect x="854" y="267" width="16" height="11" rx="2" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="876" y="267" width="16" height="11" rx="2" fill="#DDD6FE" stroke="none" stroke-width="0"/>
+<rect x="898" y="267" width="16" height="11" rx="2" fill="#DDD6FE" stroke="none" stroke-width="0"/>
+<rect x="920" y="267" width="16" height="11" rx="2" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="942" y="267" width="16" height="11" rx="2" fill="#DDD6FE" stroke="none" stroke-width="0"/>
+<rect x="854" y="284" width="16" height="11" rx="2" fill="#DDD6FE" stroke="none" stroke-width="0"/>
+<rect x="876" y="284" width="16" height="11" rx="2" fill="#DDD6FE" stroke="none" stroke-width="0"/>
+<rect x="898" y="284" width="16" height="11" rx="2" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="920" y="284" width="16" height="11" rx="2" fill="#DDD6FE" stroke="none" stroke-width="0"/>
+<rect x="942" y="284" width="16" height="11" rx="2" fill="#DDD6FE" stroke="none" stroke-width="0"/>
+<rect x="854" y="301" width="16" height="11" rx="2" fill="#DDD6FE" stroke="none" stroke-width="0"/>
+<rect x="876" y="301" width="16" height="11" rx="2" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="898" y="301" width="16" height="11" rx="2" fill="#DDD6FE" stroke="none" stroke-width="0"/>
+<rect x="920" y="301" width="16" height="11" rx="2" fill="#DDD6FE" stroke="none" stroke-width="0"/>
+<rect x="942" y="301" width="16" height="11" rx="2" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<text x="935" y="333" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.3" font-weight="550" text-anchor="middle" fill="#475569">θ(c) = {卷积核、偏置、门控}</text>
+<path d="M1052 290 L1084 290" stroke="#7C3AED" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1078 286 L1084 290 L1078 294" stroke="#7C3AED" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="1090" y="214" width="205" height="154" rx="9" fill="#D1FAE5" stroke="#059669" stroke-width="1.2"/>
+<text x="1192" y="240" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#059669">权重缓存</text>
+<rect x="1122" y="258" width="140" height="37" rx="6" fill="#FFFFFF" stroke="#86D7B7" stroke-width="1"/>
+<text x="1192" y="282" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#059669">θ(c)</text>
+<rect x="1111" y="310" width="162" height="24" rx="12" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<text x="1192" y="327" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#059669">c 未变化 → 复用</text>
+<text x="1192" y="352" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="10.8" font-weight="500" text-anchor="middle" fill="#475569">参数改变时重新生成</text>
+<rect x="1320" y="214" width="204" height="154" rx="9" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.2"/>
+<text x="1422" y="240" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#0284C7">独立输出控制</text>
+<text x="1342" y="277" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="600" text-anchor="start" fill="#475569">Gain</text>
+<path d="M1342 297 L1502 297" stroke="#CBD5E1" stroke-width="3" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1342 297 L1457.2 297" stroke="#0284C7" stroke-width="3" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="1457.2" cy="297" r="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/>
+<text x="1422" y="339" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.2" font-weight="550" text-anchor="middle" fill="#475569">只调输出电平，不进入 c</text>
+<text x="70" y="409" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="550" text-anchor="start" fill="#475569">自动化时：对权重做缓变、分块更新或双权重交叉过渡，避免参数瞬间跳变。</text>
+<rect x="48" y="452" width="1504" height="418" rx="14" fill="#FFFFFF" stroke="#93C5FD" stroke-width="1.4"/>
+<rect x="48" y="452" width="1504" height="48" rx="12" fill="#E0F2FE" stroke="none" stroke-width="0"/>
+<rect x="48" y="488" width="1504" height="12" rx="0" fill="#E0F2FE" stroke="none" stroke-width="1"/>
+<text x="70" y="484" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="750" text-anchor="start" fill="#0284C7">B｜音频路径（逐块处理 / 状态跨块延续）</text>
+<rect x="1292" y="464" width="224" height="24" rx="12" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<text x="1404" y="481" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#0284C7">采样率音频流</text>
+<rect x="74" y="568" width="190" height="146" rx="9" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.2"/>
+<text x="169" y="595" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#0284C7">输入音频</text>
+<text x="169" y="622" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="650" text-anchor="middle" fill="#111827">x[n]</text>
+<path d="M96 664 L242 664" stroke="#CBD5E1" stroke-width="1" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M96 664 L 97.46 661.3136194337627 L 98.92 658.7031622392989 L 100.38 656.266753270789 L 101.84 654.0998023581274 L 103.3 652.2910838788325 L 104.76 650.9188143743861 L 106.22 650.04689781419 L 107.68 649.7215171419883 L 109.14 649.9682522473244 L 110.6 650.7898974864039 L 112.06 652.1651356436986 L 113.52 654.0481994852834 L 114.98 656.3696169851827 L 116.44 659.0380926129958 L 117.9 661.9435260251538 L 119.36 664.9611129460942 L 120.82 667.9564133499597 L 122.28 670.7912121350338 L 123.74000000000001 673.3299405850598 L 125.2 675.4463765439561 L 126.66 677.030300975099 L 128.12 677.9937618807675 L 129.57999999999998 678.2765865060825 L 131.04 677.8507918268772 L 132.5 676.7235731654099 L 133.96 674.938601978213 L 135.42000000000002 672.5754357662579 L 136.88 669.7469336558378 L 138.34 666.5946770594535 L 139.8 663.2825111363929 L 141.26 659.988443467124 L 142.72 656.8952543513561 L 144.18 654.1802806752411 L 145.64 652.0049243623173 L 147.1 650.5044992864324 L 148.56 649.7790602771239 L 150.01999999999998 649.8858490020998 L 151.48000000000002 650.8339405662493 L 152.94 652.5815806076855 L 154.4 655.0365673607688 L 155.86 658.0598615640546 L 157.32 661.4724073285051 L 158.78 665.0649302016025 L 160.24 668.6102582149505 L 161.7 671.8775030325739 L 163.16 674.6472576373371 L 164.62 676.726830261246 L 166.07999999999998 677.9644559317207 L 167.54 678.2614187126408 L 169 677.5810870526948 L 170.46 675.9540140579206 L 171.92000000000002 673.4784804676343 L 173.38 670.3161507313014 L 174.84 666.6828556043092 L 176.3 662.8348860668067 L 177.76 659.0515564310922 L 179.22 655.6151395601132 L 180.68 652.7895636376243 L 182.14 650.7994589965995 L 183.6 649.8112304857743 L 185.06 649.9177879756207 L 186.51999999999998 651.128386326626 L 187.98000000000002 653.3647089277512 L 189.44 656.4638902713633 L 190.9 660.1886395925051 L 192.36 664.2440370904139 L 193.82 668.2999733187638 L 195.28 672.0176432890709 L 196.74 675.0780434611086 L 198.2 677.2101025135961 L 199.66 678.2159475574734 L 201.12 677.9908948799983 L 202.57999999999998 676.5360694618123 L 204.04 673.9620909576724 L 205.5 670.4829843362808 L 206.96 666.4003286025892 L 208.42000000000002 662.0785764541487 L 209.88 657.9133777168746 L 211.34 654.2955302198004 L 212.8 651.5737759833191 L 214.26 650.0199822822053 L 215.72 649.8002408810705 L 217.18 650.9550574972056 L 218.64 653.3910944612081 L 220.1 656.885916695752 L 221.56 661.1059546386889 L 223.01999999999998 665.6365488561748 L 224.48 670.0216133546407 L 225.94 673.8092915035776 L 227.4 676.5991187134912 L 228.86 678.0857675977794 L 230.32 678.0945163806774 L 231.78 676.6041831381041 L 233.23999999999998 673.754383040528 L 234.7 669.8355087872351 L 236.16 665.2616650862453 L 237.62 660.5287199399188 L 239.07999999999998 656.1614540585765 L 240.54 652.6552748264855 L 242 650.4189129473052" stroke="#0284C7" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="169" y="700" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle" fill="#475569">连续采样序列</text>
+<path d="M266 640 L305 640" stroke="#0284C7" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M299 636 L305 640 L299 644" stroke="#0284C7" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="312" y="568" width="188" height="146" rx="9" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+<text x="406" y="595" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#475569">分块 / 缓冲</text>
+<rect x="338" y="621" width="21" height="32" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+<rect x="365" y="621" width="21" height="32" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+<rect x="392" y="621" width="21" height="32" rx="3" fill="#E0F2FE" stroke="#0284C7" stroke-width="1"/>
+<rect x="419" y="621" width="21" height="32" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+<rect x="446" y="621" width="21" height="32" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+<text x="406" y="680" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="550" text-anchor="middle" fill="#111827">Bₖ = {x[n]}ₙ∈块 k</text>
+<text x="406" y="701" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.2" font-weight="500" text-anchor="middle" fill="#475569">块间保留状态</text>
+<path d="M502 640 L545 640" stroke="#0284C7" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M539 636 L545 640 L539 644" stroke="#0284C7" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="552" y="526" width="648" height="246" rx="11" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.3"/>
+<text x="876" y="552" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="750" text-anchor="middle" fill="#0284C7">流式 U-Net 型音频网络</text>
+<text x="590" y="580" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="650" text-anchor="start" fill="#0284C7">Encoder</text>
+<text x="1044" y="580" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="650" text-anchor="start" fill="#059669">Decoder</text>
+<rect x="590" y="596" width="105" height="82" rx="6" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.2"/>
+<text x="642.5" y="638" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="650" text-anchor="middle" fill="#0284C7">门控卷积</text>
+<rect x="720" y="604" width="82" height="66" rx="6" fill="#DBEAFE" stroke="#0284C7" stroke-width="1.2"/>
+<text x="761" y="638" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="650" text-anchor="middle" fill="#0284C7">↓2</text>
+<rect x="827" y="611" width="65" height="52" rx="6" fill="#BFDBFE" stroke="#0284C7" stroke-width="1.2"/>
+<text x="859.5" y="638" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="650" text-anchor="middle" fill="#0284C7">↓2</text>
+<rect x="918" y="611" width="82" height="52" rx="6" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+<text x="959" y="642" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#7C3AED">瓶颈</text>
+<rect x="1026" y="611" width="65" height="52" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.2"/>
+<text x="1058.5" y="638" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="650" text-anchor="middle" fill="#059669">↑2</text>
+<rect x="1110" y="604" width="68" height="66" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.2"/>
+<text x="1144" y="638" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="650" text-anchor="middle" fill="#059669">↑2</text>
+<path d="M697 637 L717 637" stroke="#0284C7" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M711 633 L717 637 L711 641" stroke="#0284C7" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M803 637 L824 637" stroke="#0284C7" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M818 633 L824 637 L818 641" stroke="#0284C7" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M894 637 L915 637" stroke="#7C3AED" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M909 633 L915 637 L909 641" stroke="#7C3AED" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1002 637 L1023 637" stroke="#059669" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1017 633 L1023 637 L1017 641" stroke="#059669" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1093 637 L1107 637" stroke="#059669" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1101 633 L1107 637 L1101 641" stroke="#059669" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M690 603 L1120 603" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/>
+<path d="M690 603 L690 615" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1120 603 L1120 615" stroke="#A78BFA" stroke-width="1.2" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<text x="905" y="596" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="10.5" font-weight="550" text-anchor="middle" fill="#7C3AED">跨层特征连接</text>
+<rect x="780" y="690" width="190" height="48" rx="7" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.1"/>
+<text x="875" y="710" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="#7C3AED">内部状态 s[n]</text>
+<text x="875" y="728" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="10.7" font-weight="500" text-anchor="middle" fill="#475569">跨块递推，不因旋钮变化而清零</text>
+<path d="M875 689 C875 670 875 670 875 662" stroke="#7C3AED" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M869 668 L875 662 L881 668" stroke="#7C3AED" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="875" y="762" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="10.7" font-weight="600" text-anchor="middle" fill="#7C3AED">s[n+1] = Gθ(c)(s[n], x[n])</text>
+<path d="M1192 369 L1192 511 L876 511 L876 523" stroke="#7C3AED" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 4"/>
+<path d="M870 517 L876 523 L882 517" stroke="#7C3AED" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1026" y="506" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11" font-weight="650" text-anchor="middle" fill="#7C3AED">装载缓存权重 θ(c)</text>
+<path d="M1202 640 L1230 640" stroke="#0284C7" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1224 636 L1230 640 L1224 644" stroke="#0284C7" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="1236" y="590" width="104" height="100" rx="8" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.2"/>
+<text x="1288" y="615" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="#0284C7">Gain</text>
+<text x="1288" y="641" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#0284C7">× g</text>
+<text x="1288" y="668" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle" fill="#475569">输出电平</text>
+<path d="M1342 640 L1370 640" stroke="#0284C7" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1364 636 L1370 640 L1364 644" stroke="#0284C7" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="1376" y="568" width="148" height="146" rx="9" fill="#D1FAE5" stroke="#059669" stroke-width="1.2"/>
+<text x="1450" y="595" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#059669">输出</text>
+<text x="1450" y="622" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="650" text-anchor="middle" fill="#111827">ŷ[n]</text>
+<path d="M1397 664 L1503 664" stroke="#CBD5E1" stroke-width="1" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1397 664 L 1398.06 658.8317919800095 L 1399.12 654.5514419902532 L 1400.18 651.7215155237172 L 1401.24 650.685086326078 L 1402.3 651.5256047065742 L 1403.36 654.0640298616074 L 1404.42 657.892377313639 L 1405.48 662.4378224136174 L 1406.54 667.0474688630944 L 1407.6 671.081362565408 L 1408.66 674.0006054322746 L 1409.72 675.4385411907142 L 1410.78 675.245729533087 L 1411.84 673.5033620347012 L 1412.9 670.5043185066279 L 1413.96 666.7055666292343 L 1415.02 662.6594489823775 L 1416.08 658.9340706185925 L 1417.14 656.0341670051854 L 1418.2 654.3333852850363 L 1419.26 654.0269671443496 L 1420.32 655.110698267909 L 1421.38 657.3881589615291 L 1422.44 660.5043266529952 L 1423.5 664 L 1424.56 667.3788182467356 L 1425.62 670.177181739819 L 1426.68 672.0273021577796 L 1427.74 672.7048882516224 L 1428.8 672.1553827306077 L 1429.86 670.4958370624336 L 1430.92 667.9929791713164 L 1431.98 665.021304504984 L 1433.04 662.0076569361848 L 1434.1 659.3704191171867 L 1435.16 657.4619063353734 L 1436.22 656.5218273835478 L 1437.28 656.6478818195253 L 1438.34 657.7869890445622 L 1439.4 659.7476730875059 L 1440.46 662.231182286151 L 1441.52 664.8764117507467 L 1442.58 667.3119515631657 L 1443.64 669.2078209254001 L 1444.7 670.3197406251348 L 1445.76 670.5200675471315 L 1446.82 669.8115568833435 L 1447.88 668.3226218950338 L 1448.94 666.2853656129554 L 1450 664 L 1451.06 661.7910307208389 L 1452.12 659.9615452212505 L 1453.18 658.7519923931361 L 1454.24 658.3090070781575 L 1455.3 658.6682571845589 L 1456.36 659.7532179994544 L 1457.42 661.3895108651406 L 1458.48 663.3323019732244 L 1459.54 665.3025336967354 L 1460.6 667.0266800989981 L 1461.66 668.2744080902817 L 1462.72 668.8890033046218 L 1463.78 668.8065927230981 L 1464.84 668.061878837346 L 1465.9 666.7800428518832 L 1466.96 665.1563995767169 L 1468.02 663.4270284780291 L 1469.08 661.8347461381886 L 1470.14 660.5952840326064 L 1471.2 659.8683445294292 L 1472.26 659.7373768406798 L 1473.32 660.2005797051066 L 1474.38 661.1740004124862 L 1475.44 662.505897014275 L 1476.5 664 L 1477.56 665.4441573709956 L 1478.62 666.6402197129597 L 1479.68 667.4309888054992 L 1480.74 667.7205992196884 L 1481.8 667.4857323548185 L 1482.86 666.77641775599 L 1483.92 665.7066589207809 L 1484.98 664.4365207954967 L 1486.04 663.148442824961 L 1487.1 662.0212480020213 L 1488.16 661.2055211412593 L 1489.22 660.8037173600383 L 1490.28 660.8575949082134 L 1491.34 661.3444663452849 L 1492.4 662.1824919820725 L 1493.46 663.2439808972055 L 1494.52 664.3745914688044 L 1495.58 665.415577551988 L 1496.64 666.225900426431 L 1497.7 666.7011515092256 L 1498.76 666.7867742269583 L 1499.82 666.4839461898105 L 1500.88 665.847553143106 L 1501.94 664.9767993879393 L 1503 664" stroke="#059669" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1450" y="700" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle" fill="#475569">连续音频</text>
+<path d="M1422 369 L1422 546 L1288 546 L1288 587" stroke="#0284C7" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/>
+<path d="M1282 581 L1288 587 L1294 581" stroke="#0284C7" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="74" y="776" width="620" height="70" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+<text x="94" y="802" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="700" text-anchor="start" fill="#D97706">参数网络：</text>
+<text x="177" y="802" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="600" text-anchor="start" fill="#111827">θ(c) = Hφ(c)</text>
+<text x="94" y="827" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="500" text-anchor="start" fill="#475569">旋钮变化时更新模型权重；权重稳定时缓存复用。</text>
+<rect x="710" y="776" width="810" height="70" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+<text x="730" y="802" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="700" text-anchor="start" fill="#0284C7">流式网络：</text>
+<text x="814" y="802" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="600" text-anchor="start" fill="#111827">s[n+1] = Gθ(c)(s[n], x[n])    ŷ[n] = Fθ(c)(x[n], s[n])</text>
+<text x="730" y="827" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="500" text-anchor="start" fill="#475569">权重由控制参数决定，状态由连续音频历史决定；两者在不同时间尺度上更新。</text>
+<rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A" stroke="none" stroke-width="0"/>
+<circle cx="80" cy="929" r="8" fill="#38BDF8" stroke="none" stroke-width="1"/>
+<text x="102" y="935" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15.5" font-weight="650" text-anchor="start" fill="#F8FAFC">核心结论：超网络负责把旋钮位置映射为模型权重；流式网络负责跨块保存音频历史。Gain 则保持为独立的输出电平控制。</text>
 </svg>
