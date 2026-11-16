@@ -866,9 +866,9 @@ y[n]&=g[n]x[n].
 
 只要这一远期历史留下的内部磁化状态差异没有随时间完全衰减，任何仅查看最近 $`M`$ 个输入采样点、且不包含内部状态变量的前馈模型（无论是有限记忆 Volterra 还是固定感受野的 WaveNet），在静音或相同近期输入持续超过 $`M`$ 个采样点后，其输出必然完全重合，从而在结构上丢失区分历史路径的能力。对于此类持久路径依赖现象，必须引入 Play / Prandtl–Ishlinskii 算子、速率依赖（RD-Play）算子、Preisach 或 Jiles–Atherton 等显式磁滞状态模型（详见《03》第 3.7、3.14 节）。
 
-![不同类型非线性行为对有限阶、有限记忆 Volterra 实现的挑战](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-15_能力边界图.svg)
+![Volterra 的能力边界与建模选择：平滑衰减记忆、硬削波、慢包络和持久磁滞的结构示意](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-15_能力边界图.svg)
 
-*图 01-14 | 不同类型非线性行为对有限阶、有限记忆 Volterra 实现的挑战。*
+*图 01-15｜Volterra 的能力边界与建模选择。分别考察理论逼近条件、有限阶精度与实时计算成本；以平滑短记忆、硬削波、慢动态和持久磁滞为例，说明 Volterra、正交基、分段映射及显式状态模型的适用场景。*
 
 ## 1.19 时变、随机噪声与多通道耦合
 
