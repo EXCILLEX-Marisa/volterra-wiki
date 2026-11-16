@@ -26,7 +26,7 @@
 <rect x="68" y="372" width="696" height="142" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1"/>
 <rect x="82" y="386" width="88" height="29" rx="7" fill="#D97706" stroke="none" stroke-width="0"/>
 <text x="126" y="406" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="750" text-anchor="middle" fill="#FFFFFF">STEP 2</text>
-<text x="190" y="406" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="650" text-anchor="start" fill="#111827">静态映射能否解释不同输入频率下的失真？</text>
+<text x="190" y="406" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="650" text-anchor="start" fill="#111827">失真是否主要由当前样本的幅值决定？</text>
 <path d="M190 421 L744 421" stroke="#E2E8F0" stroke-width="1" fill="" stroke-linecap="round" stroke-linejoin="round" />
 <rect x="94" y="438" width="35" height="25" rx="12" fill="#FEF3C7" stroke="none" stroke-width="0"/>
 <text x="111.5" y="455" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#D97706">是</text>
@@ -90,7 +90,7 @@
 <path d="M1205 311.6852608787341 L 1207.2 311.60037554560836 L 1209.4 311.4927632282918 L 1211.6 311.3564406242898 L 1213.8 311.18391084116166 L 1216 310.9658177814709 L 1218.2 310.69054430319517 L 1220.4 310.34375952911773 L 1222.6 309.90793241374547 L 1224.8 309.3618476643976 L 1227 308.68018887757034 L 1229.2 307.8332943816449 L 1231.4 306.78724383837806 L 1233.6 305.504493281799 L 1235.8 303.94532875681153 L 1238 302.07042545696584 L 1240.2 299.84473470866965 L 1242.4 297.2427194565577 L 1244.6 294.25457883363634 L 1246.8 290.8925651201777 L 1249 287.1959414358057 L 1251.2 283.2328303841066 L 1253.4 279.09748362352 L 1255.6 274.90251637648 L 1257.8 270.7671696158934 L 1260 266.80405856419435 L 1262.2 263.1074348798223 L 1264.4 259.74542116636366 L 1266.6 256.7572805434423 L 1268.8 254.15526529133035 L 1271 251.92957454303414 L 1273.2 250.0546712431885 L 1275.4 248.495506718201 L 1277.6 247.21275616162197 L 1279.8 246.1667056183551 L 1282 245.31981112242968 L 1284.2 244.6381523356024 L 1286.4 244.09206758625453 L 1288.6 243.65624047088227 L 1290.8 243.30945569680483 L 1293 243.0341822185291 L 1295.2 242.8160891588383 L 1297.4 242.64355937571017 L 1299.6 242.5072367717082 L 1301.8 242.39962445439164 L 1304 242.3147391212659" stroke="#D97706" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
 <text x="1336" y="243" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#D97706">静态多项式 / SNLM</text>
 <text x="1336" y="267" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">用幅值基函数表达无记忆失真</text>
-<text x="1336" y="286" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">Legendre 基可改善高阶特征数值性</text>
+<text x="1336" y="286" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">正交幅值基改善高阶数值性</text>
 <rect x="1336" y="375" width="52" height="25" rx="12" fill="#FEF3C7" stroke="none" stroke-width="0"/>
 <text x="1362" y="392" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#D97706">无记忆</text>
 <rect x="836" y="424" width="330" height="194" rx="9" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
@@ -140,7 +140,7 @@
 <text x="960" y="489" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#D97706">Σ</text>
 <text x="986" y="455" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#D97706">对角 Volterra / PH</text>
 <text x="986" y="479" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">各阶幂次支路分别经过 FIR</text>
-<text x="986" y="498" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">适合谐波为主、交叉记忆较弱的系统</text>
+<text x="986" y="498" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">谐波为主、交叉记忆较弱时</text>
 <rect x="986" y="587" width="62" height="25" rx="12" fill="#FEF3C7" stroke="none" stroke-width="0"/>
 <text x="1017" y="604" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#D97706">对角记忆</text>
 <rect x="1186" y="424" width="330" height="194" rx="9" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
@@ -187,7 +187,7 @@
 <text x="1310" y="490" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#7C3AED">×</text>
 <text x="1336" y="455" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#7C3AED">带状 / 低秩 / 稀疏核</text>
 <text x="1336" y="479" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">保留局部或少量显著交叉坐标</text>
-<text x="1336" y="498" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">适合双音、双脉冲残差明显的系统</text>
+<text x="1336" y="498" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">双音、双脉冲残差明显时</text>
 <rect x="1336" y="587" width="62" height="25" rx="12" fill="#EDE9FE" stroke="none" stroke-width="0"/>
 <text x="1367" y="604" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#7C3AED">交叉记忆</text>
 <rect x="836" y="636" width="330" height="194" rx="9" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
