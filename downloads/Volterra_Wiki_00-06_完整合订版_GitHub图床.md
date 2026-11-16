@@ -6,8 +6,6 @@
 
 # 00 前置概念与术语约定
 
-[在线阅读本章（完整合订版）](https://excillex-marisa.github.io/volterra-wiki/#chapter-00)
-
 > **版本：v16 · 2026-11-16 · 全书符号与运算记法扩充**
 > **所属系列：Volterra Wiki**
 > **阅读定位：在学习 Volterra 级数之前，建立音频非线性系统建模所需的直觉、基本语言和判断边界。**
@@ -120,7 +118,7 @@ y[n]=G\bigl(\mathbf{s}[n],x[n]\bigr).
 
 还要特别留意**初始状态（Initial State）**。即使两段测量使用完全相同的输入，如果设备开始时的温度、包络值或磁化状态不同，输出也可能不同。此时“同一个输入对应两个输出”可能源于未受控的初始条件，而未必代表随机噪声。这也是复杂硬件辨识经常出现重复性问题的原因之一。
 
-![输入历史与内部状态的两种建模视角](figures/00-01_记忆_状态_关系图.svg)
+![输入历史与内部状态的两种建模视角](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/00-01_%E8%AE%B0%E5%BF%86_%E7%8A%B6%E6%80%81_%E5%85%B3%E7%B3%BB%E5%9B%BE.svg)
 
 *图 00-01 | 输入历史与内部状态的两种建模视角。保存历史与递归状态可以相互转化，延迟线本身也可以被视为状态。*
 
@@ -144,7 +142,7 @@ c\,x[n-2]x[n-7].
 
 某些非线性设备可以通过“线性滤波 + 静态 waveshaper + 线性滤波”的组合得到很好的近似。具体建模时，可以根据测量表现与计算预算选择合适的块结构。Volterra 的核心价值在于提供一套统一、明确的数学语言来组织历史输入之间的非线性交互。
 
-![线性卷积、动态卷积与 Volterra 高阶卷积的概念对照](figures/00-02_线性卷积_动态卷积_非线性卷积对比图.svg)
+![线性卷积、动态卷积与 Volterra 高阶卷积的概念对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/00-02_%E7%BA%BF%E6%80%A7%E5%8D%B7%E7%A7%AF_%E5%8A%A8%E6%80%81%E5%8D%B7%E7%A7%AF_%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%8D%B7%E7%A7%AF%E5%AF%B9%E6%AF%94%E5%9B%BE.svg)
 
 *图 00-02 | 线性卷积、动态卷积与 Volterra 高阶卷积的概念对照。注意“动态卷积”在商业音频语境中的定义并不统一：若卷积核由输入信号驱动而变化，整体处理也可以是非线性的；三者并非严格互斥的分类。*
 
@@ -167,7 +165,6 @@ y(\cdot)=\mathcal{H}[x(\cdot)].
 这时 $`\mathcal{H}`$ 是**算子（Operator）**，作用对象是整个信号，结果也是一个信号。三个词之间的关系由此变得自然：**函数通常处理有限维变量，泛函将函数映射为数值，算子则将一个函数映射为另一个函数。** 在广义数学用法里，泛函也可被看作取值于标量的特殊算子。它们的严格数学性质将在《04》第 4.1—4.3 节中展开。
 
 为什么 Volterra 要用到它们？因为我们最终需要描述的是一种对整个输入历史施加处理规律、生成输出波形的系统映射。Volterra 级数可以视为对这类输入—输出算子进行幂级数式表示的一条路径。阅读到这里，先建立这一概念即可。相关的严格定义将在后续章节展开。
-
 
 ## 0.7 建模结构与系统辨识的基本思路
 
@@ -417,12 +414,7 @@ $`L^2`$ 与 $`\ell^2`$ 的区别尤其重要：前者通常用于连续时间函
 
 ---
 
-**章节导航：** [🏠 返回目录 (README)](README.md) ｜ [➡️ 下一章：01 Volterra 级数](01_Volterra级数_图文版.md)
-
-
 # 01 Volterra 级数
-
-[在线阅读本章（完整合订版）](https://excillex-marisa.github.io/volterra-wiki/#chapter-01)
 
 > **版本：v15 · 2026-11-16 · 理论史扩充与核辨识发展脉络完善**
 > **所属系列：Volterra Wiki**
@@ -525,7 +517,7 @@ Volterra 后来又在 1912 年于巴黎讲授相关理论，并于 1913 年出�
 
 同时，许多滤波器与静态非线性的级联或并联组合，同样能够制造复杂的动态失真。真正的研究问题在于：**在指定的输入范围和测量条件下，哪一种结构能以合理的参数数量和运行成本，解释设备所表现出的输入—输出关系？** 接下来，我们先用一个只包含两个历史变量的模型把这件事讲清楚。
 
-![静态非线性、线性卷积与 Volterra 的能力对照](figures/01-01_能力层级图.svg)
+![静态非线性、线性卷积与 Volterra 的能力对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-01_%E8%83%BD%E5%8A%9B%E5%B1%82%E7%BA%A7%E5%9B%BE.svg)
 
 *图 01-01 | 静态非线性、线性卷积与 Volterra 的能力对照。注意“静态非线性（有非线性、无记忆）”与“线性卷积（有记忆、无非线性）”分别扩展了两个正交的能力维度，二者汇合后构成同时具备记忆与高阶非线性交互的 Volterra 模型。*
 
@@ -563,7 +555,7 @@ y=a+0.2b+0.1ab.
 
 再往前走一步：如果模型同时依赖最近几十、几百个采样点，那么类似 $`x[n-2]x[n-7]`$ 的组合就会大量出现。我们需要一套统一的数学记账方式来组织这些乘积。**Volterra 级数，正是把这类不同阶数、不同历史位置的输入乘积组织起来的一种通用表示。**
 
-![二阶非对角项如何使两个不同历史位置的输入产生联合贡献](figures/01-02_二阶交叉记忆示意图.svg)
+![二阶非对角项如何使两个不同历史位置的输入产生联合贡献](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-02_%E4%BA%8C%E9%98%B6%E4%BA%A4%E5%8F%89%E8%AE%B0%E5%BF%86%E7%A4%BA%E6%84%8F%E5%9B%BE.svg)
 
 *图 01-02 | 二阶非对角项如何使两个不同历史位置的输入产生联合贡献。*
 
@@ -619,7 +611,7 @@ h_p(\tau_1,\ldots,\tau_p)
 
 上面的式子默认使用零附近的输入作为变量、采用因果历史，并且把各阶核直接定义为对应求和式里的系数。有的泛函分析文献会在展开式里显式写出 $`1/p!`$，有的则把这一系数吸收到核定义中（参见《04》第 4.3 节）。两种写法在保持一致的情况下可以互相转换；**本 Wiki 默认使用已经吸收 $`1/p!`$ 系数的工程核记法**，在对照不同文献时需先核对这一约定。
 
-![一阶、二阶与三阶 Volterra 核的维度直觉](figures/01-03_什么是Volterra核.svg)
+![一阶、二阶与三阶 Volterra 核的维度直觉](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-03_%E4%BB%80%E4%B9%88%E6%98%AFVolterra%E6%A0%B8.svg)
 
 *图 01-03 | 一阶、二阶与三阶 Volterra 核的维度直觉。它们分别拥有一个、两个和三个延迟索引。*
 
@@ -639,7 +631,7 @@ f(x_0+u)=f(x_0)+f'(x_0)u+\frac{f''(x_0)}{2!}u^2+\cdots.
 
 此外，在文献检索时应注意区分 **Volterra 级数（Volterra Series）** 与 **Volterra 积分方程（Volterra Integral Equation）**：两者同源但研究对象不同，本 Wiki 聚焦于非线性系统的 Volterra 级数表示及其工程约简。
 
-![从静态 Taylor 幂级数到带历史输入的 Volterra 展开的直观对应](figures/01-04_Taylor与Volterra关系图.svg)
+![从静态 Taylor 幂级数到带历史输入的 Volterra 展开的直观对应](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-04_Taylor%E4%B8%8EVolterra%E5%85%B3%E7%B3%BB%E5%9B%BE.svg)
 
 *图 01-04 | 从静态 Taylor 幂级数到带历史输入的 Volterra 展开的直观对应。*
 
@@ -721,11 +713,11 @@ H_p[ax](n)=a^pH_p[x](n).
 
 三阶项则会进一步产生 $`2\omega_1\pm\omega_2`$ 与 $`2\omega_2\pm\omega_1`$ 等三阶互调边带（IMD3）。特别是当 $`\omega_1`$ 与 $`\omega_2`$ 较为接近时，差频 $`\omega_2-\omega_1`$ 落入低频区，而三阶差频 $`2\omega_1-\omega_2`$ 与 $`2\omega_2-\omega_1`$ 紧贴在基频两侧，直接出现在基频附近的可听频段。对于混音、母带以及模拟硬件建模来说，单音谐波测试只能反映频域主对角切片，多音互调测试才是检验非对角交叉核与动态调制的关键手段。
 
-![Volterra 阶次、核阶数和输出谐波的关系：阶次决定乘积因子数量，与具体输出谐波次数分别理解](figures/01-05_什么是阶次_理论上能实现几阶.svg)
+![Volterra 阶次、核阶数和输出谐波的关系：阶次决定乘积因子数量，与具体输出谐波次数分别理解](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-05_%E4%BB%80%E4%B9%88%E6%98%AF%E9%98%B6%E6%AC%A1_%E7%90%86%E8%AE%BA%E4%B8%8A%E8%83%BD%E5%AE%9E%E7%8E%B0%E5%87%A0%E9%98%B6.svg)
 
 *图 01-05 | Volterra 阶次、核阶数和输出谐波的区别：阶次对应乘积因子数量及核的阶数。在无偏置单频激励下，同一次奇（或偶）次谐波会同时受到多个不同奇（或偶）数阶次的共同贡献，奇阶与偶阶各自独立。*
 
-![从单频谐波到多音互调，再到不同输入时刻之间的非线性交互](figures/01-06_谐波_互调_动态交互图.svg)
+![从单频谐波到多音互调，再到不同输入时刻之间的非线性交互](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-06_%E8%B0%90%E6%B3%A2_%E4%BA%92%E8%B0%83_%E5%8A%A8%E6%80%81%E4%BA%A4%E4%BA%92%E5%9B%BE.svg)
 
 *图 01-06 | 从单频谐波到多音互调，再到不同输入时刻之间的非线性交互。*
 
@@ -780,11 +772,11 @@ y[n]=h_0+\sum_{p=1}^{P}A^p\,h_p[n,n,\ldots,n].
 
 通过遍历脉冲间隔 $`d`$ 并结合多幅度电平组合（剥离三阶及以上交叉项的混入），双脉冲实验能够直接测量二阶核在距离主对角线为 $`d`$ 的次对角线上的分布。
 
-![单脉冲、双脉冲和 ESS 可以观察的系统性质不同](figures/01-07_测量方法对比图.svg)
+![单脉冲、双脉冲和 ESS 可以观察的系统性质不同](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-07_%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94%E5%9B%BE.svg)
 
 *图 01-07 | 单脉冲、双脉冲和 ESS 可以观察的系统性质不同。ESS 分离出的谐波响应对应频域一维切片，不应直接等同于完整高维 Volterra 核。*
 
-![从实验激励和响应数据到动态卷积分支、或到高阶 Volterra 核辨识的两条路径](figures/01-08_非线性卷积采集与Volterra核生成流程图.svg)
+![从实验激励和响应数据到动态卷积分支、或到高阶 Volterra 核辨识的两条路径](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-08_%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%8D%B7%E7%A7%AF%E9%87%87%E9%9B%86%E4%B8%8EVolterra%E6%A0%B8%E7%94%9F%E6%88%90%E6%B5%81%E7%A8%8B%E5%9B%BE.svg)
 
 *图 01-08 | 从实验激励和响应数据到动态卷积分支、或到高阶 Volterra 核辨识的两条路径。*
 
@@ -867,7 +859,7 @@ A_{H3}(f)=\frac{A^3}{4}\,P^3(f)\,Q(3f).
 
 或使用自适应滤波中的 LMS、RLS 算法递推求解，而无需像深度神经网络那样在高度非凸的参数空间中进行反向传播搜索。
 
-![神经网络权重学习与 Volterra 核系数辨识的共同点及区别](figures/01-09_为什么Volterra也需要训练模型.svg)
+![神经网络权重学习与 Volterra 核系数辨识的共同点及区别](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-09_%E4%B8%BA%E4%BB%80%E4%B9%88Volterra%E4%B9%9F%E9%9C%80%E8%A6%81%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B.svg)
 
 *图 01-09 | 神经网络权重学习与 Volterra 核系数辨识的共同点及区别。*
 
@@ -887,7 +879,7 @@ A_{H3}(f)=\frac{A^3}{4}\,P^3(f)\,Q(3f).
 
 这一原理也说明多方差激励的必要性：**覆盖小信号到强驱动区的多方差激励，有助于区分不同阶次的贡献，并检验截断 Volterra 模型在宽动态范围内的泛化表现。**
 
-![多方差跨电平辨识 (Multiple-Variance) 与无分母多项式 ADAA / SNLM 机制图](figures/01-10_多方差辨识与多项式ADAA机制图.svg)
+![多方差跨电平辨识 (Multiple-Variance) 与无分母多项式 ADAA / SNLM 机制图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-10_%E5%A4%9A%E6%96%B9%E5%B7%AE%E8%BE%A8%E8%AF%86%E4%B8%8E%E5%A4%9A%E9%A1%B9%E5%BC%8FADAA%E6%9C%BA%E5%88%B6%E5%9B%BE.svg)
 
 *图 01-10：左篇展示单一高电平辨识中未建模高阶奇次项（$`p=5,7`$）向低阶核（$`\hat{h}_1, \hat{h}_3`$）回折投影引发的“局域性失配问题（Locality Problem）”及多方差 Vandermonde 尺度解耦；右篇展示 Hopman–Bennett 无分母多项式一阶/二阶反导数抗混叠（Polynomial ADAA）代数因式分解与基于移位 Legendre 正交基的紧凑型 SNLM 架构。*
 
@@ -914,7 +906,7 @@ A_{H3}(f)=\frac{A^3}{4}\,P^3(f)\,Q(3f).
 
 因此，系统辨识的数据采集本质上是受控实验设计。验证同样需要覆盖对齐后的时域残差、跨电平 THD/IMD、瞬态包络差分、历史条件化探针与未见音乐素材。
 
-![测量、建模与独立验证构成反复迭代的实验闭环，不是“喂更多音乐”就能自动完成辨识](figures/01-11_实验设计与验证闭环图.svg)
+![测量、建模与独立验证构成反复迭代的实验闭环，不是“喂更多音乐”就能自动完成辨识](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-11_%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1%E4%B8%8E%E9%AA%8C%E8%AF%81%E9%97%AD%E7%8E%AF%E5%9B%BE.svg)
 
 *图 01-11 | 测量、建模与独立验证构成反复迭代的实验闭环。*
 
@@ -944,7 +936,7 @@ N_2=\frac{48\,000\times48\,001}{2}=1\,152\,024\,000
 
 个独立系数。因此，工程上必须从“完整高维张量”转向“结构化约简”与“慢速状态解耦”。
 
-![完整 Volterra 核的参数规模随阶数和记忆长度快速增长](figures/01-12_参数爆炸图.svg)
+![完整 Volterra 核的参数规模随阶数和记忆长度快速增长](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-12_%E5%8F%82%E6%95%B0%E7%88%86%E7%82%B8%E5%9B%BE.svg)
 
 *图 01-12 | 完整 Volterra 核的参数规模随阶数和记忆长度快速增长。图中并列对比了全张量坐标数 $`M^p`$ 与对称核独立参数数量 $`\binom{M+p-1}{p}`$。*
 
@@ -954,7 +946,7 @@ N_2=\frac{48\,000\times48\,001}{2}=1\,152\,024\,000
 
 理解约简时，应首先分析每一种方法提出的结构假设。完整 Volterra 允许每一阶、每一种延迟组合拥有独立的系数；约简模型则通过限制阶次、限制非对角支撑集、利用低秩可分离分解或正交时间基投影，用极少自由度保留目标系统的核心非线性记忆。
 
-![Volterra 核平面裁剪与结构实现：完整核、对角核、带状核、稀疏核、并联 Hammerstein、低秩分解、正交基展开和因子化交叉项](figures/01-13_常见约简形式示意图.svg)
+![Volterra 核平面裁剪与结构实现：完整核、对角核、带状核、稀疏核、并联 Hammerstein、低秩分解、正交基展开和因子化交叉项](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-13_%E5%B8%B8%E8%A7%81%E7%BA%A6%E7%AE%80%E5%BD%A2%E5%BC%8F%E7%A4%BA%E6%84%8F%E5%9B%BE.svg)
 
 *图 01-13｜两类互补的 Volterra 约简视角。上排以二阶核平面展示坐标保留方式；下排以信号流展示并联 Hammerstein、低秩因子分解、正交时间基与块结构交叉耦合。*
 
@@ -1041,7 +1033,7 @@ z_r[n]=(B_r \ast x)[n],\qquad r=1,\ldots,K,
 | Laguerre / Kautz / OBF | 长衰减记忆可由少数极点正交基概括 | 将历史维度从采样点数 $`M`$ 压缩至基数量 $`K\ll M`$ |
 | Hybrid (分阶/状态混合) | 不同阶次与时间尺度具有异构物理机制 | 按需组合短时核与慢速状态变量 |
 
-![常见 Volterra 模型及相关块结构的关系导览](figures/01-14_Volterra模型家族关系图.svg)
+![常见 Volterra 模型及相关块结构的关系导览](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-14_Volterra%E6%A8%A1%E5%9E%8B%E5%AE%B6%E6%97%8F%E5%85%B3%E7%B3%BB%E5%9B%BE.svg)
 
 *图 01-14 | Volterra 模型家族与相关非线性块结构的分类导览：从核坐标裁剪、张量与时间基压缩，到经典块结构及显式状态混合。*
 
@@ -1116,7 +1108,7 @@ y[n]&=g[n]x[n].
 
 只要这一远期历史留下的内部磁化状态差异没有随时间完全衰减，任何仅查看最近 $`M`$ 个输入采样点、且不包含内部状态变量的前馈模型（无论是有限记忆 Volterra 还是固定感受野的 WaveNet），在静音或相同近期输入持续超过 $`M`$ 个采样点后，其输出必然完全重合，从而在结构上丢失区分历史路径的能力。对于此类持久路径依赖现象，必须引入 Play / Prandtl–Ishlinskii 算子、速率依赖（RD-Play）算子、Preisach 或 Jiles–Atherton 等显式磁滞状态模型（详见《03》第 3.7、3.14 节）。
 
-![Volterra 的能力边界与建模选择：平滑衰减记忆、硬削波、慢包络和持久磁滞的结构示意](figures/01-15_能力边界图.svg)
+![Volterra 的能力边界与建模选择：平滑衰减记忆、硬削波、慢包络和持久磁滞的结构示意](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-15_%E8%83%BD%E5%8A%9B%E8%BE%B9%E7%95%8C%E5%9B%BE.svg)
 
 *图 01-15｜Volterra 的能力边界与建模选择。分别考察理论逼近条件、有限阶精度与实时计算成本；以平滑短记忆、硬削波、慢动态和持久磁滞为例，说明 Volterra、正交基、分段映射及显式状态模型的适用场景。*
 
@@ -1171,11 +1163,11 @@ M_{\mathrm{OS}} \ge \frac{P+1}{2}
 
 面对未知的音频设备，合理的研发路径应当遵循“由简入繁、逐级证伪”的实验闭环：先建立线性脉冲响应与静态 waveshaper 基线，再依次测试对角记忆多项式（或 SNLM）、近对角/低秩交叉核与正交基展开。在统一的训练/测试集划分、统一的对齐基准与相同的实时 CPU 预算下，用多维指标（时域残差、多电平 THD、双音 IMD、双脉冲交互与长历史探针）检验每一项新增自由度是否带来真实的泛化收益。
 
-![基于目标系统特征选择候选模型的初步启发式地图](figures/01-16_模型选择决策图.svg)
+![基于目标系统特征选择候选模型的初步启发式地图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-16_%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E5%86%B3%E7%AD%96%E5%9B%BE.svg)
 
 *图 01-16 | 非线性音频系统模型选择决策图。通过输入电平、静态非线性、交叉记忆与状态机制逐步筛选候选架构。*
 
-![从实验目标到结构选择、参数训练、独立验证的工作流程](figures/01-17_Volterra辨识流程图.svg)
+![从实验目标到结构选择、参数训练、独立验证的工作流程](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/01-17_Volterra%E8%BE%A8%E8%AF%86%E6%B5%81%E7%A8%8B%E5%9B%BE.svg)
 
 *图 01-17 | Volterra 系统辨识六阶段流程：测量同步、持续激励、结构选择、参数估计、独立验证与实时部署。*
 
@@ -1226,11 +1218,7 @@ M_{\mathrm{OS}} \ge \frac{P+1}{2}
 
 ---
 
-**章节导航：** [⬅️ 上一章：00 前置概念与术语约定](00_前置概念与术语约定_图文版.md) ｜ [🏠 返回目录 (README)](README.md) ｜ [➡️ 下一章：02 从 Volterra 到神经网络](02_从Volterra到神经网络_模型辨识与NAM.md)
-
-
 # 02 从 Volterra 级数到神经网络：同样是模型训练，本质与区别在哪里？
-
 
 > **版本：v10 · 2026-11-16 · 训练、记忆结构与泛化知识融合**
 > **所属系列：Volterra Wiki**
@@ -1356,7 +1344,7 @@ y[n]=\mathcal S\{x\}[n].
 | 历史与状态机制 | 显式有限延迟窗口（或外接 Laguerre 极点基 / 状态变量） | 因果扩张卷积感受野（WaveNet/TCN）或门控循环状态（LSTM/GRU） |
 | 公平比较基准 | 统一测试集误差、跨电平泛化、混叠抑制、峰值 CPU 与延迟 | 同左 |
 
-![Volterra 与神经网络的训练和实时推理流程对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-01_Volterra与NAM训练推理对比图.svg)
+![Volterra 与神经网络的训练和实时推理流程对照](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-01_Volterra%E4%B8%8ENAM%E8%AE%AD%E7%BB%83%E6%8E%A8%E7%90%86%E5%AF%B9%E6%AF%94%E5%9B%BE.svg)
 
 *图 02-01｜固定核 Volterra 与神经网络在结构选择、训练和实时推理上的主要差别。SVG 文件名保留历史素材编号。*
 
@@ -1431,7 +1419,7 @@ LSTM（长短期记忆网络）通过显式的门控循环单元来调节历史�
 - 在训练阶段，截断时间反向传播（TBPTT）的窗口长度与状态预热（Warm-up）长度直接决定了网络能否观测到慢速状态变化；
 - 在推理阶段，当输入变为零（静音）时，若偏置项使得遗忘门 $`\mathbf{f}[n]\lt 1`$，单元状态 $`\mathbf{c}[n]`$ 仍会按指数速率缓慢衰减回固定不动点，无法天然保持速率无关磁滞（Rate-Independent Hysteresis）所需的永久多分支剩磁状态。
 
-![WaveNet 历史感受野与 LSTM 递归状态的对比](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-02_WaveNet感受野与LSTM递归状态对比图.svg)
+![WaveNet 历史感受野与 LSTM 递归状态的对比](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-02_WaveNet%E6%84%9F%E5%8F%97%E9%87%8E%E4%B8%8ELSTM%E9%80%92%E5%BD%92%E7%8A%B6%E6%80%81%E5%AF%B9%E6%AF%94%E5%9B%BE.svg)
 
 *图 02-02｜因果扩张感受野（有限窗口前馈展开）与门控递归状态（内部状态向量跨采样递推）是两种不同的历史信息组织方式。*
 
@@ -1489,7 +1477,7 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 
 这套设计的启发在于，**可调旋钮空间和动态记忆状态属于两个不同的学习任务**。超网络解决“旋钮变动后模型参数如何连续变化”，流式网络解决“相同旋钮下设备的历史状态如何影响下一个采样点”。网络结构能够说明其设计思路，但特定设备上的声音误差和未采样参数位置的泛化精度，仍需独立的硬件配对测试验证。
 
-![参数条件化超网络与流式音频网络的职责分工](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-03_超网络参数生成与流式音频状态图.svg)
+![参数条件化超网络与流式音频网络的职责分工](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-03_%E8%B6%85%E7%BD%91%E7%BB%9C%E5%8F%82%E6%95%B0%E7%94%9F%E6%88%90%E4%B8%8E%E6%B5%81%E5%BC%8F%E9%9F%B3%E9%A2%91%E7%8A%B6%E6%80%81%E5%9B%BE.svg)
 
 *图 02-03｜Peak Reduction 与 Comp/Limit 等控制参数经超网络生成并缓存音频网络权重；流式 U-Net 保持跨块状态，Gain 独立控制输出电平。*
 
@@ -1545,7 +1533,7 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 
 对于磁带机与动态硬件建模研究，ESN 可以作为评估“随机高维递归特征 + 线性读出”与“精简正交极点基（Laguerre-Volterra）”之间参数效率差异的重要对照基线。
 
-![可微灰盒 DSP (DDSP / 4A-2A) 与回声状态网络 (ESN / 储备池计算) 架构对比图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-04_可微DSP与储备池ESN架构对比图.svg)
+![可微灰盒 DSP (DDSP / 4A-2A) 与回声状态网络 (ESN / 储备池计算) 架构对比图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-04_%E5%8F%AF%E5%BE%AEDSP%E4%B8%8E%E5%82%A8%E5%A4%87%E6%B1%A0ESN%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94%E5%9B%BE.svg)
 
 *图 02-04：左篇展示以 Teletronix LA-2A 光电耦合反馈环为例的可微灰盒 DSP（4A-2A）架构，通过隐函数定理（IFT）在不动点处直接计算闭式伴随梯度，将参数量压缩至 5 个物理可解释常量；右篇展示回声状态网络（ESN / 储备池计算），通过冻结满足回声状态性质（$`\rho(\mathbf{A})<1`$）的稀疏随机递归池并仅对读出层执行线性岭回归，架起无穷阶递归状态与 Volterra 线性回归之间的桥梁。*
 
@@ -1568,7 +1556,6 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 ---
 
 ## 本章参考资料
-
 
 ### 理论交叉史补充阅读
 
@@ -1593,7 +1580,6 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 
 # 03 混合建模、训练边界与实时约简
 
-
 > **版本：v9 · 2026-11-16 · 实验设计与可辨识性知识融合**
 > **所属系列：Volterra Wiki**
 > **阅读定位：** 承接《02》的训练比较，讨论如何决定 Volterra 核与长期状态的职责，怎样引入白盒、唯象与神经网络，如何进行实时约简，并以 SKY SA-1A、Revenger 2A 和 noshige2A 的不同光电动态建模结构检验这些思考。
@@ -1609,7 +1595,7 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 
 在启动训练前，至少需要明确六个设计维度：目标模拟的电平、频段、旋钮与工作点；哪些现象依赖短时历史；哪些属于慢速或路径依赖的内部状态；哪些属于非同步随机过程；实时音频线程允许多少延迟与 CPU 预算；以及是否需要跨采样率和跨硬件个体泛化。
 
-![混合建模研究平台总体架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-01_混合建模研究平台总体架构图.svg)
+![混合建模研究平台总体架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-01_%E6%B7%B7%E5%90%88%E5%BB%BA%E6%A8%A1%E7%A0%94%E7%A9%B6%E5%B9%B3%E5%8F%B0%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84%E5%9B%BE.svg)
 
 *图 03-01｜混合建模研究平台总体架构图：按时间尺度与非线性机制将线性频响、短时高阶 Volterra 核、显式物理/唯象状态及神经残差解耦。SVG 文件名保留历史素材编号。*
 
@@ -1748,7 +1734,7 @@ s_{\mathrm{env},i}[n] = \bigl(1-\alpha_i[n]\bigr)s_{\mathrm{env},i}[n-1] + \alph
 
 SKY SA-1A 的一组光电压缩动态测试可以帮助理解为何需要多时间常数：在 $`48\,\mathrm{kHz}`$、MANUAL 模式、Attack / Release 设为 75/75 时，常规电平阶跃测得的 Release $`T_{63}`$ 约为 $`163\,\mathrm{ms}`$；但换成 $`-18\,\mathrm{dBFS}`$ 至 $`-6\,\mathrm{dBFS}`$ 的更强输入历史后，同类释放测量约为 $`327\,\mathrm{ms}`$。这说明在比较两个压缩器的“释放时间”时，应同时固定前导信号幅度、保持时长、增益衰减深度与测试判据。这里的 $`T_{63}`$ 是指定激励条件下的响应特征，与设备内部固定 RC 元件时间常数之间仍需额外的物理辨识。
 
-![Laguerre 全通正交基网络 (V2-L)、RD-Play 磁滞算子簇与双线性状态空间 (Bilinear SSM) 机理图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-02_Laguerre正交基与Play磁滞状态图.svg)
+![Laguerre 全通正交基网络 (V2-L)、RD-Play 磁滞算子簇与双线性状态空间 (Bilinear SSM) 机理图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-02_Laguerre%E6%AD%A3%E4%BA%A4%E5%9F%BA%E4%B8%8EPlay%E7%A3%81%E6%BB%9E%E7%8A%B6%E6%80%81%E5%9B%BE.svg)
 
 *图 03-03：左篇展示离散 Laguerre 一阶全通级联正交基网络（V2-L），以 $`K=8`$ 个正交递推状态将 $`M=128`$ 的二阶交叉核参数从 $`8,256`$ 压缩至 $`36`$ 个；右篇展示突破 Boyd–Chua 衰减记忆限制的 Prandtl–Ishlinskii 速率相关 RD-Play 磁滞算子簇（复现多值剩磁回线 $`\pm B_r`$）以及显式耦合慢包络与快音频的双线性状态空间模型（Bilinear SSM）。*
 
@@ -1786,7 +1772,7 @@ f\!\left(\dfrac{x[n]+x[n-1]}{2}\right), & \lvert x[n]-x[n-1]\rvert \lt \varepsil
 2. **固有亚采样延迟**：ADAA1 会引入 **$`0.5`$ 个采样点**的固定群延迟（对应零阶保持核的中心），ADAA2 则引入 **$`1.0`$ 个采样点**的群延迟。因此，在并行混合架构（如“一阶线性支路 + ADAA1 非线性支路”或干湿比混合）中，**未采用 ADAA 的并行线性支路必须同步串联 $`0.5`$（或 $`1.0`$）个采样点的全通/分数延迟滤波器**，否则两路信号在高频叠加时会发生严重的梳状滤波抵消。
 3. **非无记忆算子的适用边界**：标准 ADAA 严格建立在一维静态映射 $`f(x)`$ 的原函数之上。对于包含跨时刻乘积 $`x[n-k_1]x[n-k_2]`$（$`\lvert k_1-k_2\rvert > 1`$）、多维状态耦合或多层神经网络的模块，通常需要采用过采样，并在统一的采样率下进行训练和推理。
 
-![多速率抗混叠混合架构与 ADAA 0.5 采样群延迟精确对齐图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-03_多速率抗混叠与半采样延迟对齐图.svg)
+![多速率抗混叠混合架构与 ADAA 0.5 采样群延迟精确对齐图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-03_%E5%A4%9A%E9%80%9F%E7%8E%87%E6%8A%97%E6%B7%B7%E5%8F%A0%E4%B8%8E%E5%8D%8A%E9%87%87%E6%A0%B7%E5%BB%B6%E8%BF%9F%E5%AF%B9%E9%BD%90%E5%9B%BE.svg)
 
 *图 03-04：展示基带（$`1\times f_s`$）线性/慢包络通路、一阶无分母多项式 $`\mathrm{ADAA}_1`$ 通路与高采样率（$`4\times/8\times f_s`$）交叉核/神经残差通路并联时的群延迟精确对齐机制。由于 $`\mathrm{ADAA}_1`$ 在区间 $`[t_{n-1},t_n]`$ 积分天然引入 $`+0.5\,T_s`$ 半采样群延迟，并联旁路必须串联 $`0.5`$ 采样分数延迟与整数过采样延迟补偿，从而彻底根除高频梳状相消（Comb Filtering）。*
 
@@ -1801,7 +1787,7 @@ f\!\left(\dfrac{x[n]+x[n-1]}{2}\right), & \lvert x[n]-x[n-1]\rvert \lt \varepsil
 | **模式 3：串行级联**<br>(Serial Cascade) | $`v[n]=\mathcal{H}_{\mathrm{pre}}[x](n) \to z[n]=\mathcal{N}_{\theta}[v,\mathbf{s}](n) \to \hat{y}[n]=\mathcal{H}_{\mathrm{post}}[z](n)`$| 严格对应“输入变压器/选频 $`\to`$ 电子管放大/压缩核 $`\to`$ 输出变压器/均衡”的多级硬件物理拓扑 |
 | **模式 4：子系统代理**<br>(Component Surrogate) | $`\mathbf{F}_{\mathrm{circuit}}\bigl(\mathbf{z}_n, \mathbf{z}_{n-1}, \mathcal{M}_{\mathrm{NN}}(\mathbf{v}_{\mathrm{port},n})\bigr)=\mathbf{0}`$ | 保留完整电路拓扑与旋钮交互，仅将局部极昂贵的磁芯或电子管多极本构方程替换为神经/Chebyshev 代理 |
 
-![白盒与神经网络协同四种运行模式图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-04_白盒与神经网络协同四种运行模式图.svg)
+![白盒与神经网络协同四种运行模式图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/03-04_%E7%99%BD%E7%9B%92%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8D%8F%E5%90%8C%E5%9B%9B%E7%A7%8D%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F%E5%9B%BE.svg)
 
 *图 03-02｜白盒、Volterra 与神经网络协同的四种运行模式架构图。SVG 文件名保留历史素材编号。*
 
@@ -1914,7 +1900,6 @@ y(t)=g(t)x(t)=\left(g_0+\frac{3}{4}\eta A^2\right)A\sin(\omega_0 t) - \frac{1}{4
 
 # 04 高级系统辨识：非线性算子、衰减记忆与随机正交展开
 
-
 > **版本：v4 · 2026-11-16 · 函数空间前置铺垫与算子理论融合**
 > **所属系列：Volterra Wiki**
 > **阅读定位：** 承接《01》的 Volterra 核、《02》的训练方法与《03》的混合模型边界。本章讨论能够直接用于音频非线性系统辨识的高级算子理论、记忆表示、统计正交展开与主动实验设计。
@@ -1933,7 +1918,7 @@ y[n]=\sum_{k=0}^{\infty}h[k]x[n-k].
 
 从最熟悉的静态函数 $`f(x)`$ 出发：函数把数值映射成数值；固定输出时刻的泛函 $`\mathcal F_{t_0}[x]`$ 接收一条波形并给出一个标量；完整的系统算子 $`\mathcal S[x]`$ 则将整条输入波形映射为整条输出波形。Volterra 的泛函展开、神经算子与 Koopman 提升都在处理这种更一般的映射关系，只是采用了不同的数学表示。
 
-![函数、泛函与算子的基本关系：从标量函数进入信号映射](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/00-03_函数_泛函_算子关系图.svg)
+![函数、泛函与算子的基本关系：从标量函数进入信号映射](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/00-03_%E5%87%BD%E6%95%B0_%E6%B3%9B%E5%87%BD_%E7%AE%97%E5%AD%90%E5%85%B3%E7%B3%BB%E5%9B%BE.svg)
 
 *图 04-导读｜函数、泛函与算子的关系。沿用前置课程绘制的概念图，作为后续严格导数与函数空间的直观入口。*
 
@@ -2085,7 +2070,7 @@ f(x)=
 | **双线性状态空间 (Bilinear SSM)** | 状态与输入的一阶乘积耦合 $`\mathbf{N}\mathbf{s}[n]x[n]`$ | 极紧凑地表达电平依赖极点偏移、压缩调制与有理 Volterra 核 | 闭环 NOE 参数辨识与大信号输入下的谱半径稳定边界 |
 | **门控循环网络 (LSTM / GRU / ESN)** | 自适应门控隐状态或随机高维储备池 | 黑盒拟合复杂多时间尺度非线性，ESN 保持线性输出回归 | 长序列自由运行漂移、缺乏永久多稳态剩磁及物理可解释性 |
 
-![Fréchet 泛函导数偏置收缩、Boyd–Chua 衰减记忆定理与 Koopman/Carleman 线性提升图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/04-01_泛函导数_衰减记忆与Koopman提升图.svg)
+![Fréchet 泛函导数偏置收缩、Boyd–Chua 衰减记忆定理与 Koopman/Carleman 线性提升图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/04-01_%E6%B3%9B%E5%87%BD%E5%AF%BC%E6%95%B0_%E8%A1%B0%E5%87%8F%E8%AE%B0%E5%BF%86%E4%B8%8EKoopman%E6%8F%90%E5%8D%87%E5%9B%BE.svg)
 
 *图 04-01：模块 I 展示 Gâteaux/Fréchet 泛函导数与非零工作点偏置 $`x_0`$ 下的高阶张量内积收缩定律（揭示奇对称三阶核 $`\mathbf{H}_3`$ 如何因动态偏置偏移衍生出二阶偶次谐波 $`3x_0\sum h_3`$）；模块 II 展示 Boyd–Chua 加权范数 $`\|\cdot\|_w`$ 下的衰减记忆逼近定理及针对剩磁分岔的显式状态增广公理；模块 III 对比 Carleman 精确张量提升、受控 Koopman（EDMDc）双线性算子提升与级联泛函李括号（Lie Bracket）非交换性判据。*
 
@@ -2251,7 +2236,7 @@ y[n]=H(\mathbf{s}[n],u[n];\boldsymbol{\theta}),
 - **A-最优设计（A-Optimal）**：最小化 $`\mathrm{tr}\bigl(\mathcal{I}(\boldsymbol{\theta};\mathbf{u})^{-1}\bigr)`$，等价于最小化所有待估核系数的平均方差；
 - **E-最优 / 条件数优化**：最大化最小特征值 $`\lambda_{\min}\bigl(\mathcal{I}(\boldsymbol{\theta};\mathbf{u})\bigr)`$，改善各参数方向的可观测性。
 
-![分数阶 Oustaloup 极零交错、Wiener 正交混沌展开 (PCE) 与 D-最优主动激励设计图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/04-02_Wiener正交混沌展开与主动激励设计图.svg)
+![分数阶 Oustaloup 极零交错、Wiener 正交混沌展开 (PCE) 与 D-最优主动激励设计图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/04-02_Wiener%E6%AD%A3%E4%BA%A4%E6%B7%B7%E6%B2%8C%E5%B1%95%E5%BC%80%E4%B8%8E%E4%B8%BB%E5%8A%A8%E6%BF%80%E5%8A%B1%E8%AE%BE%E8%AE%A1%E5%9B%BE.svg)
 
 *图 04-02：模块 I 展示分数阶幂律长尾记忆 $`t^{-\alpha}`$ 与 Oustaloup 负实轴极零点对数等比交错有理逼近；模块 II 展示高斯白噪声下 Wiener G-泛函的 Gram–Schmidt 正交解耦（消除 $`-3\sigma_x^2`$ 奇次交叉矩干扰）与用于硬件元件公差建模的多项式混沌展开（PCE）；模块 III 展示基于 Fisher 信息矩阵（FIM）的 D-最优主动激励设计（最大化 $`\ln\det(\boldsymbol{\Phi}^\top\boldsymbol{\Phi})`$ 收缩置信椭球）与 BIC/MDL 阶数判定。*
 
@@ -2294,7 +2279,6 @@ y[n]=H(\mathbf{s}[n],u[n];\boldsymbol{\theta}),
 ---
 
 # 05 物理约束、模型降阶与神经代理：高精度数字建模如何进入实时音频
-
 
 > **版本：v5 · 2026-11-16 · 物理符号、数值收敛和模型降阶知识融合**
 > **所属系列：Volterra Wiki**
@@ -2416,7 +2400,7 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 
 从而从根源上杜绝了强过载下的数值发散。
 
-![DK 离散状态空间法、波数字滤波器 (WDF) 与端口哈密顿离散梯度无源架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/05-01_DK状态空间_WDF散射与离散梯度无源图.svg)
+![DK 离散状态空间法、波数字滤波器 (WDF) 与端口哈密顿离散梯度无源架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/05-01_DK%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4_WDF%E6%95%A3%E5%B0%84%E4%B8%8E%E7%A6%BB%E6%95%A3%E6%A2%AF%E5%BA%A6%E6%97%A0%E6%BA%90%E5%9B%BE.svg)
 
 *图 05-01：方法 I 展示 Yeh 离散基尔霍夫状态空间法（DK-Method），将 $`d`$ 维线性储能状态递推与极低维（$`N_{\mathrm{nl}}=1\sim 2`$）非线性端口求根分离并离线烘焙为 1D/2D 样条查找表（LUT）；方法 II 展示 Fettweis 波数字滤波器（WDF），通过选择等于戴维南等效电阻的端口参考阻抗 $`R_0`$ 令根节点散射对角元 $`S_{33}=0`$，消除拓扑无延迟环；方法 III 展示端口哈密顿系统（pHS）的离散梯度法（Discrete Gradient），证明其割线差分公式 $`\overline{\nabla}H=(H(s_n)-H(s_{n-1}))/(s_n-s_{n-1})`$ 与一阶反导数抗混叠（$`\mathrm{ADAA}_1`$）严格数学同构，同时达成抗混叠与离散能量无条件单调耗散。*
 
@@ -2492,7 +2476,7 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 
 实际播放时需要将帧级增益 $`g_{\boldsymbol\theta}[k]`$ 在相邻帧之间平滑过渡，避免块边界阶跃。这样的网络以控制量残差修正为主，用于校正电路模型在不同压缩状态下的**动态增益误差**。控制量残差的优点是输出维度小、容易约束；若还需补足与输入频率相关的波形失真，则要结合更丰富的残差特征或物理分支。
 
-![物理电路求解与神经网络帧级增益修正的混合结构](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/05-02_MNA物理求解与RNN增益修正图.svg)
+![物理电路求解与神经网络帧级增益修正的混合结构](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/05-02_MNA%E7%89%A9%E7%90%86%E6%B1%82%E8%A7%A3%E4%B8%8ERNN%E5%A2%9E%E7%9B%8A%E4%BF%AE%E6%AD%A3%E5%9B%BE.svg)
 
 *图 05-02｜以光电压缩器为例：MNA 逐采样求解电路状态；RNN 根据输入/输出帧级特征估计增益，并经平滑后乘到物理输出上。*
 
@@ -2570,7 +2554,7 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 | **L4 闭环泛化层** | 封存测试集与极端压力激励 | T6 数分钟 Free-Run 无漂移、未采样旋钮插值平滑度 | NOE 展开训练长度、状态耗散边界 $`q_c`$、PCE/FiLM 覆盖 |
 | **L5 硬实时部署层** | 目标宿主 DAW（64 采样缓冲） | 99.9% 分位最坏块耗时（WCET）、零 XRUN、FTZ/DAZ、T5 混叠抑制 | SIMD 向量化、LUT 缓存局部性、多速率相位对齐 |
 
-![POD + DEIM 超降阶 (Hyper-Reduction) 与实时音频插件五层渐进验收规范架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/05-03_POD_DEIM超降阶与实时蒸馏验收架构图.svg)
+![POD + DEIM 超降阶 (Hyper-Reduction) 与实时音频插件五层渐进验收规范架构图](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/05-03_POD_DEIM%E8%B6%85%E9%99%8D%E9%98%B6%E4%B8%8E%E5%AE%9E%E6%97%B6%E8%92%B8%E9%A6%8F%E9%AA%8C%E6%94%B6%E6%9E%B6%E6%9E%84%E5%9B%BE.svg)
 
 *图 05-03：上篇展示高维声学有限元（FEM / PDE）模态降阶中标准 Galerkin/POD 投影面临的 $`O(N_{\mathrm{FEM}})`$“提升瓶颈（Lifting Bottleneck）”，以及离散经验插值超降阶（DEIM Hyper-Reduction）如何仅在 $`m=20\sim 40`$ 个空间关键点（Magic Points）上求值非线性恢复力，将实时复杂度降至 $`O(r\cdot m)`$；下篇汇总从解析无源性、数值压力边界、时频抗混叠指标、双误差蒸馏审计（$`E_{\mathrm{HW}\to\mathrm{T}}+E_{\mathrm{T}\to\mathrm{S}}`$）到 `processBlock` 实时线程安全（零 `malloc`、零锁、开启 FTZ/DAZ）的五层渐进验收规范。*
 
@@ -2597,7 +2581,6 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 ---
 
 # 06 从 Volterra 理论到商业音频建模：Acustica Audio 的技术发展史
-
 
 > **版本：v11 · 2026-11-15 · 增补现代商业音频建模的历史衔接**
 > **所属系列：Volterra Wiki**
@@ -2736,7 +2719,7 @@ Acustica 在 YELLOW 的产品资料中将 **NOVA（Neural Optimized Volterra Aud
 
 一类可编排非线性卷积结构由多个处理分支组成。单条分支可以包含信号幂次 $`x^p[n]`$、一维 FIR 滤波、静态 Waveshaper 与输出权重；把多个滤波支路 $`u[n]`$ 与 $`v[n]`$ 逐点相乘，则能产生《01》第 1.14.6 节介绍的因子化非对角核。对于这类结构，存在 `simplefirvolterra`、`clippedfirvolterra` 等分支执行形式：前者面向较直接的 FIR／多项式组合，后者可以额外安排点形器等强非线性处理。一个模块可以组织有限数量的支路，实际启用支路数还取决于具体产品的程序配置与运行模式。
 
-![商业引擎中的可编排 Volterra 分支库架构（对角支路、跨缓冲乘法与动态权重）](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-01_Acustica分支库与跨缓冲乘法架构图.svg)
+![商业引擎中的可编排 Volterra 分支库架构（对角支路、跨缓冲乘法与动态权重）](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-01_Acustica%E5%88%86%E6%94%AF%E5%BA%93%E4%B8%8E%E8%B7%A8%E7%BC%93%E5%86%B2%E4%B9%98%E6%B3%95%E6%9E%B6%E6%9E%84%E5%9B%BE.svg)
 
 *图 06-01｜结构化非线性分支库的运算抽象：一维 FIR、幂次、跨支路乘法与状态权重能够在同一条实时计算图中组合。*
 
@@ -2750,7 +2733,7 @@ Acustica 在 YELLOW 的产品资料中将 **NOVA（Neural Optimized Volterra Aud
 
 在 `simplenova` 型控制中，可以先对输入能量做软膝映射，再用上升与下降速率不同的平滑器更新 $`g[n]`$；备选路径持续维护输入历史，有助于降低切换时的冷启动瞬态。这种结构说明，**模型融合需要同时兼顾各条路径的建模精度，以及路径之间的相位、延迟与状态连续性**。双路径混合原语描述的是控制与路由方式；具体产品的神经网络拓扑及实时执行路径，还需要运行数据确认。
 
-![`simplenova` 电平触发双路径渐变器与备路径保鲜机制](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-02_simplenova双路径渐变与保鲜机制图.svg)
+![`simplenova` 电平触发双路径渐变器与备路径保鲜机制](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-02_simplenova%E5%8F%8C%E8%B7%AF%E5%BE%84%E6%B8%90%E5%8F%98%E4%B8%8E%E4%BF%9D%E9%B2%9C%E6%9C%BA%E5%88%B6%E5%9B%BE.svg)
 
 *图 06-02｜电平触发的双路径软膝渐变、非对称平滑与备选路径状态更新。*
 
@@ -2783,7 +2766,7 @@ SKY SA-1A 是面向 Stam Audio SA-1A 光电压缩器的模型，采用了与上�
 
 这里 $`a_i`$ 是离散增益状态，$`h_m`$ 是短时整形 FIR，$`\mathbf s_{\mathrm{env}}[n]`$ 包含包络相关的控制状态；权重 $`w_i`$ 和 $`\mu_m`$ 是**解释性表示**，需要与已确认的产品内部插值公式区分。主序列中出现的多次回落和重新上升，可以提示存在分段组织的工作点轴，而具体光电元件状态变量的对应关系还需要额外的测量证据。
 
-![SKY SA-1A 的增益状态资源与包络调度模型](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-03_SKY增益状态资源与包络调度图.svg)
+![SKY SA-1A 的增益状态资源与包络调度模型](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-03_SKY%E5%A2%9E%E7%9B%8A%E7%8A%B6%E6%80%81%E8%B5%84%E6%BA%90%E4%B8%8E%E5%8C%85%E7%BB%9C%E8%B0%83%E5%BA%A6%E5%9B%BE.svg)
 
 *图 06-03｜SKY 类状态条件化核模型的教学抽象。预制序列资源与实时控制状态分工不同，线性支路与非线性控制可以组合形成整体非线性处理。*
 
@@ -2834,7 +2817,7 @@ YELLOW、SKY SA-1A 与 TAUPE Studio 可以用于解释“公共运算引擎”�
 2. **多电平向量采样与 `simplenova` 渐变对工作点迁移的动态补偿**：单次固定电平的 ESS 只能测得前后置滤波的综合乘积 $`\lvert P(f)\rvert^p \lvert Q(pf)\rvert`$。NAT 的多驱动电平采样与 NOVA 的 `simplenova` 能量触发双路径渐变，通过随输入能量平滑切换/融和低驱动与高驱动支路核簇，在工程上动态逼近了硬件频响与饱和膝点随输入电平迁移的行为。
 3. **跨分支缓冲乘法与有界点形器对多音互调及强过载的补全**：纯对角支路缺乏跨时刻乘积且受多项式收敛半径限制。引擎中引入的**跨缓冲乘法原语**（构造 $`u[n]\cdot v[n]`$ 因子化非对角交叉项）与 **`desoras` 等有界点形器**，恰好在低 CPU 开销下弥补了纯对角 Volterra 在多音差频互调与大信号软限幅边界上的短板。
 
-![Farina 指数扫频 (ESS) 谐波分离、上三角阶次反解与前级染色机制](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-04_ESS扫频分离与商业前级染色机制图.svg)
+![Farina 指数扫频 (ESS) 谐波分离、上三角阶次反解与前级染色机制](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/06-04_ESS%E6%89%AB%E9%A2%91%E5%88%86%E7%A6%BB%E4%B8%8E%E5%95%86%E4%B8%9A%E5%89%8D%E7%BA%A7%E6%9F%93%E8%89%B2%E6%9C%BA%E5%88%B6%E5%9B%BE.svg)
 
 *图 06-04 | Farina 指数扫频 (ESS) 谐波分离、Novák 上三角阶次反解与前级染色机制。展示负时间轴谐波脉冲响应 $`H_{Hm}`$ 如何经阶次反变换映射为支路核 $`g_p[k]`$，以及单次 ESS 在前后置滤波 $`\lvert P(f)\rvert^3 \lvert Q(3f)\rvert`$ 拆分上的可辨识性边界。*
 

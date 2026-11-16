@@ -17,7 +17,8 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = "https://github.com/EXCILLEX-Marisa/volterra-wiki"
-BUNDLE = "Volterra_Wiki_00-06_完整合订版_GitHub图床.md"
+BUNDLE = "downloads/Volterra_Wiki_00-06_完整合订版_GitHub图床.md"
+INDEX = "README.md"
 MATH = re.compile(
     r"^(?P<prefix>[ \t]*(?:> )?)```math[ \t]*\n"
     r"(?P<block>.*?)^(?P=prefix)```[ \t]*$"
@@ -100,8 +101,8 @@ def check_chapter(path, preview):
     return f"{len(observed)} formulas match"
 
 
-def check_index(path, preview, chapters):
-    for target in [*(quote(p.name) for p in chapters), f"downloads/{quote(path.name)}"]:
+def check_index(preview, chapters):
+    for target in [*(quote(p.name) for p in chapters), quote(BUNDLE, safe="/")]:
         if not any(target.lower() in link.lower() for link in preview.links):
             raise ValueError(f"missing preview link: {target}")
     return "seven chapter links and download link present"
@@ -116,8 +117,9 @@ def main():
         parser.error(f"expected seven chapters, found {len(chapters)}")
 
     def check(path):
+        relative_path = path.relative_to(ROOT).as_posix()
         request = Request(
-            f"{REPO}/blob/{quote(args.ref, safe='')}/{quote(path.name)}",
+            f"{REPO}/blob/{quote(args.ref, safe='')}/{quote(relative_path, safe='/')}",
             headers={"User-Agent": "volterra-wiki-math-check"},
         )
         with urlopen(request, timeout=30) as response:
@@ -125,11 +127,11 @@ def main():
             preview.feed(response.read().decode("utf-8"))
         if not preview.article:
             raise ValueError("GitHub did not return a rendered Markdown article")
-        if path.name == BUNDLE:
-            return check_index(path, preview, chapters)
+        if relative_path == INDEX:
+            return check_index(preview, chapters)
         return check_chapter(path, preview)
 
-    paths = [*chapters, ROOT / BUNDLE]
+    paths = [*chapters, ROOT / INDEX]
     ok = True
     with ThreadPoolExecutor(max_workers=4) as pool:
         for path, result in zip(paths, [pool.submit(check, path) for path in paths]):

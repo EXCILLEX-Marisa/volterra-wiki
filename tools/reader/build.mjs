@@ -77,7 +77,7 @@ md.renderer.rules.image = (tokens, index, ...args) => {
   if (src.startsWith(rawFigures)) {
     const filename = decodeURIComponent(src.slice(rawFigures.length));
     if (basename(filename) !== filename || !filename.endsWith(".svg")) {
-      throw Error(`Invalid figure filename: ${filename}`);
+      throw Error("Invalid figure filename: " + filename);
     }
     figures.add(filename);
     image.attrSet("src", "figures/" + encodeURIComponent(filename));
@@ -85,6 +85,8 @@ md.renderer.rules.image = (tokens, index, ...args) => {
     image.attrSet("decoding", "async");
     image.attrSet("width", "1600");
     image.attrSet("height", "980");
+  } else if (src.startsWith("figures/")) {
+    throw Error("The consolidated edition must use GitHub raw figure URLs; found relative path: " + src);
   }
   return renderImage(tokens, index, ...args);
 };
@@ -125,6 +127,31 @@ if (chapters.map(chapter => chapter.id).join(",") !== "chapter-00,chapter-01,cha
 const title = tokens[1].content;
 const body = md.renderer.render(tokens.slice(3), md.options, {});
 const chapterFiles = (await readdir(repoPath)).filter(name => /^0[0-6]_.*\.md$/.test(name));
+function normalizeChapter(content) {
+  return content
+    .replace(/!\\[([^\\]]*)\\]\\([^)]+\\)/g, "![$1](FIGURE)")
+    .replace(/^\\[在线阅读本章（完整合订版）\\]\\([^)]+\\)\\s*$/gm, "")
+    .replace(/^\\*\\*章节导航：\\*\\*.*$/gm, "")
+    .replace(/\\r\\n/g, "\\n")
+    .replace(/[ \\t]+$/gm, "")
+    .replace(/\\n{3,}/g, "\\n\\n")
+    .trim();
+}
+const chapterMatches = [...source.matchAll(/^# (0[0-6]) .+$/gm)];
+if (chapterMatches.length !== 7) {
+  throw Error("The consolidated edition must include seven chapter headings; found " + chapterMatches.length + ".");
+}
+for (let i = 0; i < chapterMatches.length; i++) {
+  const id = chapterMatches[i][1];
+  const filename = chapterFiles.find(name => name.startsWith(id + "_"));
+  if (!filename) throw Error("Missing source chapter file for chapter " + id + ".");
+  const end = chapterMatches[i + 1]?.index ?? source.length;
+  const bundledChapter = source.slice(chapterMatches[i].index, end);
+  const sourceChapter = await readFile(join(repoPath, filename), "utf8");
+  if (normalizeChapter(bundledChapter) !== normalizeChapter(sourceChapter)) {
+    throw Error("Consolidated chapter " + id + " is out of sync with " + filename + ". Rebuild the bundle from the chapter source.");
+  }
+}
 function countMath(content) {
   return [...content.matchAll(/\$`[^`\r\n]+`\$|^(?:> )?```math[ \t]*\r?$/gm)].length;
 }
@@ -135,9 +162,15 @@ for (const filename of chapterFiles) {
 if (expected !== inlineCount + displayCount || expected !== countMath(source)) {
   throw Error(`Formula count mismatch: chapters ${expected}, preview ${inlineCount + displayCount}.`);
 }
-const figureCount = (await readdir(join(repoPath, "figures"))).filter(name => name.endsWith(".svg")).length;
-if (figures.size !== figureCount) {
-  throw Error(`Figure count mismatch: repository ${figureCount}, preview ${figures.size}.`);
+const figureFiles = new Set((await readdir(join(repoPath, "figures"))).filter(name => name.endsWith(".svg")));
+const missingFigures = [...figures].filter(filename => !figureFiles.has(filename));
+const unreferencedFigures = [...figureFiles].filter(filename => !figures.has(filename));
+if (missingFigures.length || unreferencedFigures.length) {
+  throw Error(
+    "Figure inventory mismatch: " + figures.size + " referenced, " + figureFiles.size + " stored. " +
+    "Missing files: " + (missingFigures.join(", ") || "none") + ". " +
+    "Unreferenced files: " + (unreferencedFigures.join(", ") || "none") + "."
+  );
 }
 const escape = md.utils.escapeHtml;
 const toc = chapters.map(({id, title}) => `<li><a href="#${id}">${escape(title)}</a></li>`).join("\n");
@@ -168,4 +201,4 @@ await Promise.all([
   copyFile(join(dirname(fileURLToPath(import.meta.url)), "reader.css"), join(output, "reader.css")),
   ...[...figures].map(filename => copyFile(join(repoPath, "figures", filename), join(output, "figures", filename))),
 ]);
-console.log(`Built 7 chapters, ${inlineCount + displayCount} formulas and ${figures.size} figures.`);
+console.log(`Built 7 synchronized chapters, ${inlineCount + displayCount} formulas and ${figures.size} verified figures.`);
