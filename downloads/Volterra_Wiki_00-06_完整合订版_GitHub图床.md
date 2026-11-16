@@ -1231,7 +1231,7 @@ NAM 项目在 2026 年推出了新一代架构规范 **Architecture A2**（同�
 
 ![参数条件化超网络与流式音频网络的职责分工](https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/02-03_超网络参数生成与流式音频状态图.svg)
 
-*图 02-03｜控制参数经超网络生成音频模型权重；音频网络保存跨块状态并连续处理输入信号。*
+*图 02-03｜Peak Reduction 与 Comp/Limit 等控制参数经超网络生成并缓存音频网络权重；流式 U-Net 保持跨块状态，Gain 独立控制输出电平。*
 
 ## 2.12 误差指标与评估范围：怎样理解较低的 ESR？
 
