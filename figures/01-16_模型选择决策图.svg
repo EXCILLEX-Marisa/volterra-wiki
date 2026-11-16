@@ -80,7 +80,7 @@
 <rect x="943" y="268" width="9" height="5" rx="2" fill="#0284C7" stroke="none" stroke-width="0"/>
 <text x="986" y="243" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#0284C7">LTI FIR / IIR</text>
 <text x="986" y="267" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">用脉冲响应描述线性记忆</text>
-<text x="986" y="286" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">适合电平变化下响应保持稳定的系统</text>
+<text x="986" y="286" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">输入电平改变时响应仍稳定</text>
 <rect x="986" y="375" width="62" height="25" rx="12" fill="#E0F2FE" stroke="none" stroke-width="0"/>
 <text x="1017" y="392" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#0284C7">低复杂度</text>
 <rect x="1186" y="212" width="330" height="194" rx="9" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
@@ -138,8 +138,8 @@
 <rect x="920" y="491" width="26" height="12" rx="3" fill="#FFFFFF" stroke="#D97706" stroke-width="1"/>
 <path d="M893 496 L918 496" stroke="#D97706" stroke-width="1.3" fill="" stroke-linecap="round" stroke-linejoin="round" />
 <text x="960" y="489" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#D97706">Σ</text>
-<text x="986" y="455" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#D97706">对角 Volterra / PH</text>
-<text x="986" y="479" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">各阶幂次支路分别经过 FIR</text>
+<text x="986" y="455" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#D97706">对角 Volterra / MP</text>
+<text x="986" y="479" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">并联幂次支路分别经过 FIR</text>
 <text x="986" y="498" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">谐波为主、交叉记忆较弱时</text>
 <rect x="986" y="587" width="62" height="25" rx="12" fill="#FEF3C7" stroke="none" stroke-width="0"/>
 <text x="1017" y="604" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#D97706">对角记忆</text>
