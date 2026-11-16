@@ -98,7 +98,7 @@
 <rect x="426" y="580" width="290" height="178" rx="9" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
 <text x="571" y="607" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#7C3AED">轻量门控递归网络</text>
 <rect x="460" y="631" width="94" height="62" rx="7" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1.2"/>
-<text x="507" y="657" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="650" text-anchor="middle" fill="#7C3AED">GRU / 门控</text>
+<text x="507" y="657" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="650" text-anchor="middle" fill="#7C3AED">RNN 单元</text>
 <text x="507" y="678" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#111827">r[k]</text>
 <rect x="586" y="631" width="94" height="62" rx="7" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1.2"/>
 <text x="633" y="657" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="650" text-anchor="middle" fill="#7C3AED">控制读出</text>
