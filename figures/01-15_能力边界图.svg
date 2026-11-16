@@ -1,186 +1,165 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif">
-  <defs>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="112%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/>
-      <feOffset in="vBlur" dx="0" dy="3" result="vOffset"/>
-      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
-      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <marker id="arr-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#475569"/>
-    </marker>
-    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#0284C7"/>
-    </marker>
-    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#D97706"/>
-    </marker>
-    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7C3AED"/>
-    </marker>
-    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#059669"/>
-    </marker>
-    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#DC2626"/>
-    </marker>
-  </defs>
-
-  
-  <rect width="1600" height="980" fill="#F8FAFC"/>
-
-  
-  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
-  <rect x="68" y="48" width="204" height="28" rx="6" fill="#0F172A"/>
-  <text x="170.2" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 01-15 · 理论与工程边界</text>
-  <text x="288" y="70" font-size="27" font-weight="bold" fill="#0F172A">Volterra 级数能力边界五级光谱图（从理想收敛区到定理级失效禁区）</text>
-  <text x="68" y="104" font-size="15.5" fill="#475569">结合解析收敛半径 R_c、多项式齐次缩放 a^p、Gibbs 折点振铃、慢包络维度灾难与 Boyd–Chua 衰减记忆定理给出定量判据</text>
-
-
-  
-
-  
-  <rect x="48" y="142" width="1504" height="138" rx="14" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="1.8" filter="url(#shadow)"/>
-  <rect x="48" y="142" width="220" height="138" rx="14" fill="#D1FAE5" stroke="#6EE7B7" stroke-width="1.5"/>
-  <text x="158" y="188" text-anchor="middle" font-size="17" font-weight="bold" fill="#065F46">① 理想适用区</text>
-  <text x="158" y="214" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#047857">温和光滑非线性</text>
-  <text x="158" y="238" text-anchor="middle" font-size="12.5" fill="#065F46">低阶 + 快速衰减记忆</text>
-  <rect x="88" y="248" width="140" height="22" rx="11" fill="#059669"/>
-  <text x="158" y="263" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FFFFFF">P ≤ 3, M ≤ 64</text>
-
-  <text x="288" y="172" font-size="15" font-weight="bold" fill="#0F172A">典型场景：甲类电子管微饱和、模拟调音台通道染色、扬声器小信号柔顺度非线性</text>
-  <text x="288" y="198" font-size="13.5" fill="#334155">• 数学特征：输入位于复平面收敛圆内 (|x| &lt; R_c)，泛函算子满足 Boyd–Chua 紧致衰减记忆 (Fading Memory)</text>
-  <text x="288" y="222" font-size="13.5" fill="#334155">• 截断收敛性：3 阶截断余项 R₄ 低于 -80 dB，线性最小二乘 (OLS/Ridge) 具备全局唯一闭式最优解</text>
-  <text x="288" y="246" font-size="13.5" font-weight="bold" fill="#059669">• 推荐架构：1 阶线性 FIR + 2/3 阶对角及近对角带状 Volterra 核 (D ≤ 8)</text>
-
-  
-  <rect x="1160" y="154" width="376" height="114" rx="10" fill="#F8FAFC" stroke="#A7F3D0"/>
-  <line x1="1180" y1="211" x2="1320" y2="211" stroke="#CBD5E1" stroke-width="1"/>
-  <line x1="1250" y1="166" x2="1250" y2="256" stroke="#CBD5E1" stroke-width="1"/>
-  <path d="M 1186 246 C 1216 244, 1230 211, 1250 211 C 1270 211, 1284 178, 1314 176" fill="none" stroke="#059669" stroke-width="3"/>
-  <text x="1250" y="263" text-anchor="middle" font-size="11" font-weight="bold" fill="#065F46">光滑解析曲线 (|x| &lt; R_c)</text>
-  <line x1="1356" y1="242" x2="1516" y2="242" stroke="#CBD5E1" stroke-width="1"/>
-  <path d="M 1362 174 Q 1396 236 1510 241" fill="none" stroke="#0284C7" stroke-width="2.5" stroke-dasharray="3 2"/>
-  <line x1="1366" y1="242" x2="1366" y2="178" stroke="#059669" stroke-width="3"/>
-  <line x1="1384" y1="242" x2="1384" y2="204" stroke="#059669" stroke-width="3"/>
-  <line x1="1402" y1="242" x2="1402" y2="222" stroke="#059669" stroke-width="3"/>
-  <line x1="1420" y1="242" x2="1420" y2="233" stroke="#059669" stroke-width="3"/>
-  <line x1="1438" y1="242" x2="1438" y2="238" stroke="#059669" stroke-width="3"/>
-  <text x="1436" y="263" text-anchor="middle" font-size="11" font-weight="bold" fill="#075985">指数快速衰减记忆</text>
-
-  
-  <rect x="48" y="292" width="1504" height="138" rx="14" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="1.8" filter="url(#shadow)"/>
-  <rect x="48" y="292" width="220" height="138" rx="14" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.5"/>
-  <text x="158" y="338" text-anchor="middle" font-size="17" font-weight="bold" fill="#075985">② 宽动态电平区</text>
-  <text x="158" y="364" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0369A1">幂次缩放发散风险</text>
-  <text x="158" y="388" text-anchor="middle" font-size="12.5" fill="#075985">Locality 局部性问题</text>
-  <rect x="88" y="398" width="140" height="22" rx="11" fill="#0284C7"/>
-  <text x="158" y="413" text-anchor="middle" font-size="10.6" font-weight="bold" fill="#FFFFFF">y_p(a·x) = a^p·y_p(x)</text>
-
-  <text x="288" y="322" font-size="15" font-weight="bold" fill="#0F172A">典型场景：输入推子跨越 -30 dBFS ～ +6 dBFS 宽动态范围的母带饱和器与总线处理器</text>
-  <text x="288" y="348" font-size="13.5" fill="#334155">• 数学瓶颈：p 阶多项式齐次性导致增益超标时输出按 a^p 幂次爆炸，无水平渐近线 (lim_{|x|→∞}|P(x)| = ∞)</text>
-  <text x="288" y="372" font-size="13.5" fill="#334155">• 单电平辨识偏差：高电平截断拟合会将 p=5,7 余项回折进 h₁, h₃，造成低电平音色发闷失真</text>
-  <text x="288" y="396" font-size="13.5" font-weight="bold" fill="#0284C7">• 工程对策：多方差辨识 (Multiple-Variance) + Legendre 正交多项式基 (SNLM) 或 [L/M] Padé 有理逼近</text>
-
-  
-  <rect x="1160" y="304" width="376" height="114" rx="10" fill="#F8FAFC" stroke="#BAE6FD"/>
-  <line x1="1180" y1="361" x2="1516" y2="361" stroke="#CBD5E1" stroke-width="1"/>
-  <line x1="1348" y1="314" x2="1348" y2="408" stroke="#CBD5E1" stroke-width="1"/>
-  
-  <rect x="1288" y="318" width="120" height="86" fill="#E0F2FE" fill-opacity="0.45" stroke="#0284C7" stroke-dasharray="3 2"/>
-  
-  <path d="M 1190 392 L 1288 388 C 1318 386, 1330 361, 1348 361 C 1366 361, 1378 336, 1408 334 L 1506 330" fill="none" stroke="#059669" stroke-width="2.8"/>
-  
-  <path d="M 1256 314 C 1276 392, 1318 386, 1348 361 C 1378 336, 1420 330, 1440 408" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <text x="1464" y="325" font-size="10.5" font-weight="bold" fill="#059669">Padé 有理渐近</text>
-  <text x="1468" y="402" font-size="10.5" font-weight="bold" fill="#DC2626">a^p 幂次发散</text>
-  <text x="1348" y="413" text-anchor="middle" font-size="10.5" fill="#075985">训练区间 [-A, A]</text>
-
-  
-  <rect x="48" y="442" width="1504" height="138" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.8" filter="url(#shadow)"/>
-  <rect x="48" y="442" width="220" height="138" rx="14" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
-  <text x="158" y="488" text-anchor="middle" font-size="17" font-weight="bold" fill="#92400E">③ 强失真折点区</text>
-  <text x="158" y="514" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#B45309">硬削波与死区交越</text>
-  <text x="158" y="538" text-anchor="middle" font-size="12.5" fill="#92400E">C¹ 导数不连续</text>
-  <rect x="88" y="548" width="140" height="22" rx="11" fill="#D97706"/>
-  <text x="158" y="563" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FFFFFF">Gibbs 振铃 + 混叠</text>
-
-  <text x="288" y="472" font-size="15" font-weight="bold" fill="#0F172A">典型场景：母带 Brickwall 硬削波器 (Hard Clipper)、二极管死区整流、高增益吉他失真破音</text>
-  <text x="288" y="498" font-size="13.5" fill="#334155">• 数学瓶颈：函数在阈值 ±T 处高阶导数不存在 (f ∉ C^∞)，高阶多项式逼近在折点附近产生剧烈 Gibbs 过冲振铃</text>
-  <text x="288" y="522" font-size="13.5" fill="#334155">• 混叠风暴：P 阶展开将带宽展宽 P 倍 (P·f_max)，无抗混叠时高频谐波镜像折叠回基底频带产生金属噪音</text>
-  <text x="288" y="546" font-size="13.5" font-weight="bold" fill="#B45309">• 工程对策：分段三次软削波 + Hopman–Bennett 无分母多项式 ADAA + 2×/4× 多速率过采样</text>
-
-  
-  <rect x="1160" y="454" width="376" height="114" rx="10" fill="#F8FAFC" stroke="#FDE68A"/>
-  <line x1="1180" y1="511" x2="1516" y2="511" stroke="#CBD5E1" stroke-width="1"/>
-  <line x1="1348" y1="464" x2="1348" y2="558" stroke="#CBD5E1" stroke-width="1"/>
-  
-  <polyline points="1196,544 1296,544 1400,478 1500,478" fill="none" stroke="#0F172A" stroke-width="2.5"/>
-  
-  <path d="M 1196 544 Q 1230 554 1260 538 Q 1284 558 1296 544 L 1400 478 Q 1412 464 1436 484 Q 1466 468 1500 478" fill="none" stroke="#D97706" stroke-width="2.2"/>
-  <circle cx="1296" cy="544" r="4.5" fill="#DC2626"/>
-  <circle cx="1400" cy="478" r="4.5" fill="#DC2626"/>
-  <text x="1448" y="468" text-anchor="middle" font-size="11" font-weight="bold" fill="#B45309">Gibbs 折点过冲</text>
-  <text x="1250" y="528" text-anchor="middle" font-size="11" font-weight="bold" fill="#991B1B">±T 导数间断</text>
-
-  
-  <rect x="48" y="592" width="1504" height="138" rx="14" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="1.8" filter="url(#shadow)"/>
-  <rect x="48" y="592" width="220" height="138" rx="14" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
-  <text x="158" y="638" text-anchor="middle" font-size="17" font-weight="bold" fill="#5B21B6">④ 超长记忆尺度区</text>
-  <text x="158" y="664" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#6D28D9">压限器慢包络与偏置</text>
-  <text x="158" y="688" text-anchor="middle" font-size="12.5" fill="#5B21B6">τ_rel = 100～1000 ms</text>
-  <rect x="88" y="698" width="140" height="22" rx="11" fill="#7C3AED"/>
-  <text x="158" y="713" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FFFFFF">O(M^P) 维度爆炸</text>
-
-  <text x="288" y="622" font-size="15" font-weight="bold" fill="#0F172A">典型场景：光学/电子管压限器 (LA-2A / CL1B)、电源轨电容充放电下垂 (Sag)、电子管栅极偏置漂移</text>
-  <text x="288" y="648" font-size="13.5" fill="#334155">• 数学瓶颈：500 ms 释放时间在 48 kHz 下对应 M = 24,000 拍，纯 FIR 型 Volterra 核参数量达 10¹² 彻底不可行</text>
-  <text x="288" y="672" font-size="13.5" fill="#334155">• 非对称时间常数：Attack (1 ms) 与 Release (300 ms) 属于分段状态依赖递归，违反固定线性卷积核假设</text>
-  <text x="288" y="696" font-size="13.5" font-weight="bold" fill="#5B21B6">• 工程对策：显式一阶非对称包络状态机 s_env[n] + 双线性状态空间 (Bilinear SSM) / 可微灰盒 DSP (4A-2A)</text>
-
-  
-  <rect x="1160" y="604" width="376" height="114" rx="10" fill="#F8FAFC" stroke="#DDD6FE"/>
-  <line x1="1180" y1="696" x2="1516" y2="696" stroke="#CBD5E1" stroke-width="1.2"/>
-  
-  <rect x="1186" y="616" width="52" height="80" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
-  <text x="1212" y="634" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#5B21B6">FIR 窗 M</text>
-  <text x="1212" y="648" text-anchor="middle" font-size="10.5" fill="#6D28D9">(~2 ms)</text>
-  
-  <path d="M 1186 696 L 1196 624 Q 1260 682 1506 693" fill="none" stroke="#DC2626" stroke-width="2.8"/>
-  <text x="1380" y="656" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#991B1B">慢包络释放尾 s_env[n] (100～1000 ms)</text>
-  <text x="1380" y="676" text-anchor="middle" font-size="11" fill="#5B21B6">超出有限窗 M 的慢释放尾部被截断</text>
-
-  
-  <rect x="48" y="742" width="1504" height="142" rx="14" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="1.8" filter="url(#shadow)"/>
-  <rect x="48" y="742" width="220" height="142" rx="14" fill="#FEE2E2" stroke="#FCA5A5" stroke-width="1.5"/>
-  <text x="158" y="788" text-anchor="middle" font-size="17" font-weight="bold" fill="#991B1B">⑤ 理论禁区 (失效)</text>
-  <text x="158" y="814" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#B91C1C">铁芯与磁带多值磁滞</text>
-  <text x="158" y="838" text-anchor="middle" font-size="12.5" fill="#991B1B">违反衰减记忆公理</text>
-  <rect x="88" y="848" width="140" height="22" rx="11" fill="#DC2626"/>
-  <text x="158" y="863" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#FFFFFF">非唯一多分支映射</text>
-
-  <text x="288" y="772" font-size="15" font-weight="bold" fill="#0F172A">典型场景：磁带机磁畴剩磁 (Remanence ±B_r)、音频变压器硅钢/坡莫合金铁芯磁滞回线、自激振荡器</text>
-  <text x="288" y="798" font-size="13.5" fill="#334155">• 定理级失效根源：输入归零 H→0 后输出保持不同剩磁 +B_r ≠ -B_r，直接违反 Boyd–Chua 衰减记忆 (Fading Memory) 充要条件</text>
-  <text x="288" y="822" font-size="13.5" fill="#334155">• 无论将 Volterra 阶数 P 或记忆 M 推至多大，单值时间卷积算子永远无法表征依赖历史极值路径的闭合回环</text>
-  <text x="288" y="848" font-size="13.5" font-weight="bold" fill="#DC2626">• 唯一正确路线：引入显式内部状态算子 —— Play / Prandtl–Ishlinskii 磁滞算子簇、Jiles–Atherton 微分方程或 LSTM/GRU</text>
-
-  
-  <rect x="1160" y="754" width="376" height="118" rx="10" fill="#F8FAFC" stroke="#FECACA"/>
-  <line x1="1190" y1="813" x2="1506" y2="813" stroke="#94A3B8" stroke-width="1.2"/>
-  <line x1="1348" y1="762" x2="1348" y2="864" stroke="#94A3B8" stroke-width="1.2"/>
-  
-  <path d="M 1220 852 C 1260 780, 1348 772, 1476 774" fill="none" stroke="#DC2626" stroke-width="2.6"/>
-  <path d="M 1476 774 C 1436 846, 1348 854, 1220 852" fill="none" stroke="#7C3AED" stroke-width="2.6"/>
-  
-  <circle cx="1348" cy="790" r="5" fill="#DC2626"/>
-  <circle cx="1348" cy="836" r="5" fill="#7C3AED"/>
-  <text x="1384" y="793" font-size="11" font-weight="bold" fill="#991B1B">+B_r (上支剩磁)</text>
-  <text x="1384" y="842" font-size="11" font-weight="bold" fill="#5B21B6">-B_r (下支剩磁)</text>
-  <text x="1254" y="778" font-size="11" font-weight="bold" fill="#DC2626">H=0 处一输入对多输出</text>
-
-
-  
-  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
-  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
-  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：Volterra 级数严禁强行拟合硬削波折点、百毫秒级慢压缩包络与多值磁滞回线；超越前两级区域必须引入 ADAA、Laguerre 基与显式状态算子。</text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="svg-title svg-desc">
+<title id="svg-title">图 01-15：Volterra 的能力边界与建模选择</title>
+<desc id="svg-desc">从理论逼近条件、有限阶模型精度与实时成本三个维度比较光滑短记忆非线性、硬削波、慢包络与持久磁滞，并说明适合的建模方法。</desc>
+<defs>
+<filter id="shadow" x="-5%" y="-5%" width="110%" height="112%"><feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/><feOffset in="b" dx="0" dy="3" result="off"/><feComponentTransfer><feFuncA type="linear" slope="0.075"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<marker id="arrow-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 1.5 L8.5 5 L0 8.5 Z" fill="#64748B"/></marker>
+</defs>
+<rect x="0" y="0" width="1600" height="980" rx="0" fill="#F8FAFC" stroke="none" stroke-width="1" />
+<rect x="48" y="28" width="1504" height="101" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
+<rect x="68" y="45" width="126" height="31" rx="6" fill="#0F172A" stroke="none" stroke-width="1" />
+<text x="131" y="67" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#FFFFFF">图 01-15</text>
+<text x="212" y="71" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="750" text-anchor="start" fill="#0F172A">Volterra 的能力边界与建模选择</text>
+<text x="69" y="108" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15.3" font-weight="400" text-anchor="start" fill="#475569">区分数学逼近条件、有限阶模型精度与实时计算代价，再为不同非线性机制选择合适的模型。</text>
+<rect x="48" y="144" width="1504" height="83" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.3" filter="url(#shadow)"/>
+<rect x="67" y="163" width="203" height="44" rx="8" fill="#0F172A" stroke="none" stroke-width="1" />
+<text x="168" y="192" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#FFFFFF">先辨认三种问题</text>
+<rect x="300" y="159" width="324" height="53" rx="9" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.2" />
+<text x="314" y="179" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="720" text-anchor="start" fill="#075985">A  理论逼近</text>
+<text x="314" y="199" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.8" font-weight="400" text-anchor="start" fill="#075985">输入域与收敛条件</text>
+<rect x="716" y="159" width="324" height="53" rx="9" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.2" />
+<text x="730" y="179" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="720" text-anchor="start" fill="#92400E">B  有限阶精度</text>
+<text x="730" y="199" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.8" font-weight="400" text-anchor="start" fill="#92400E">目标范围内的误差</text>
+<rect x="1132" y="159" width="389" height="53" rx="9" fill="#F3E8FF" stroke="#D8B4FE" stroke-width="1.2" />
+<text x="1146" y="179" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="720" text-anchor="start" fill="#6B21A8">C  实时成本</text>
+<text x="1146" y="199" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.8" font-weight="400" text-anchor="start" fill="#6B21A8">参数量、计算和稳定性</text>
+<path d="M 638 186 L 696 186" stroke="#94A3B8" stroke-width="2.5" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<path d="M 1054 186 L 1112 186" stroke="#94A3B8" stroke-width="2.5" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<rect x="48" y="244" width="358" height="630" rx="15" fill="#FFFFFF" stroke="#82D0CB" stroke-width="1.5" filter="url(#shadow)"/>
+<path d="M 63 245 H 391 Q 405 245 405 259 V 287 H 49 V 259 Q 49 245 63 245 Z" stroke="none" stroke-width="0" fill="#0F8A8D" stroke-linejoin="round" stroke-linecap="round" />
+<text x="66" y="274" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16.7" font-weight="700" text-anchor="start" fill="#FFFFFF">1. 光滑非线性与衰减记忆</text>
+<rect x="63" y="305" width="328" height="294" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+<path d="M 64 615 L 390 615" stroke="#E2E8F0" stroke-width="1" fill="" stroke-linejoin="round" stroke-linecap="round" />
+<rect x="63" y="798" width="328" height="57" rx="10" fill="#E0F5F2" stroke="#82D0CB" stroke-width="1" />
+<rect x="430" y="244" width="358" height="630" rx="15" fill="#FFFFFF" stroke="#F5CD79" stroke-width="1.5" filter="url(#shadow)"/>
+<path d="M 445 245 H 773 Q 787 245 787 259 V 287 H 431 V 259 Q 431 245 445 245 Z" stroke="none" stroke-width="0" fill="#D97706" stroke-linejoin="round" stroke-linecap="round" />
+<text x="448" y="274" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16.7" font-weight="700" text-anchor="start" fill="#FFFFFF">2. 硬削波与折点</text>
+<rect x="445" y="305" width="328" height="294" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+<path d="M 446 615 L 772 615" stroke="#E2E8F0" stroke-width="1" fill="" stroke-linejoin="round" stroke-linecap="round" />
+<rect x="445" y="798" width="328" height="57" rx="10" fill="#FEF3C7" stroke="#F5CD79" stroke-width="1" />
+<rect x="812" y="244" width="358" height="630" rx="15" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="1.5" filter="url(#shadow)"/>
+<path d="M 827 245 H 1155 Q 1169 245 1169 259 V 287 H 813 V 259 Q 813 245 827 245 Z" stroke="none" stroke-width="0" fill="#7C3AED" stroke-linejoin="round" stroke-linecap="round" />
+<text x="830" y="274" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16.7" font-weight="700" text-anchor="start" fill="#FFFFFF">3. 慢动态与长时间常数</text>
+<rect x="827" y="305" width="328" height="294" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+<path d="M 828 615 L 1154 615" stroke="#E2E8F0" stroke-width="1" fill="" stroke-linejoin="round" stroke-linecap="round" />
+<rect x="827" y="798" width="328" height="57" rx="10" fill="#EEE9FD" stroke="#C4B5FD" stroke-width="1" />
+<rect x="1194" y="244" width="358" height="630" rx="15" fill="#FFFFFF" stroke="#F5A3BD" stroke-width="1.5" filter="url(#shadow)"/>
+<path d="M 1209 245 H 1537 Q 1551 245 1551 259 V 287 H 1195 V 259 Q 1195 245 1209 245 Z" stroke="none" stroke-width="0" fill="#D63365" stroke-linejoin="round" stroke-linecap="round" />
+<text x="1212" y="274" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16.7" font-weight="700" text-anchor="start" fill="#FFFFFF">4. 持久磁滞与路径依赖</text>
+<rect x="1209" y="305" width="328" height="294" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+<path d="M 1210 615 L 1536 615" stroke="#E2E8F0" stroke-width="1" fill="" stroke-linejoin="round" stroke-linecap="round" />
+<rect x="1209" y="798" width="328" height="57" rx="10" fill="#FCE7EF" stroke="#F5A3BD" stroke-width="1" />
+<rect x="277" y="318" width="100" height="28" rx="14" fill="#E0F5F2" stroke="none" stroke-width="1" />
+<text x="327" y="337" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#0F8A8D">短记忆</text>
+<path d="M 95 425 L 348 425" stroke="#64748B" stroke-width="1.5" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<path d="M 214 486 L 214 347" stroke="#64748B" stroke-width="1.5" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<text x="350" y="442" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="400" text-anchor="start" fill="#475569">x</text>
+<text x="198" y="344" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="400" text-anchor="start" fill="#475569">y</text>
+<path d="M 97 374 L 339 374" stroke="#B7C5CE" stroke-width="1.1" fill="" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 5" />
+<path d="M 97 476 L 339 476" stroke="#B7C5CE" stroke-width="1.1" fill="" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 5" />
+<path d="M 99.0 476.8 L 100.4 476.8 L 101.8 476.8 L 103.3 476.8 L 104.7 476.7 L 106.1 476.7 L 107.5 476.7 L 108.9 476.7 L 110.3 476.7 L 111.8 476.6 L 113.2 476.6 L 114.6 476.6 L 116.0 476.5 L 117.4 476.5 L 118.8 476.5 L 120.3 476.4 L 121.7 476.4 L 123.1 476.3 L 124.5 476.3 L 125.9 476.2 L 127.4 476.2 L 128.8 476.1 L 130.2 476.0 L 131.6 476.0 L 133.0 475.9 L 134.4 475.8 L 135.9 475.7 L 137.3 475.6 L 138.7 475.5 L 140.1 475.4 L 141.5 475.3 L 142.9 475.1 L 144.4 475.0 L 145.8 474.8 L 147.2 474.7 L 148.6 474.5 L 150.0 474.3 L 151.5 474.1 L 152.9 473.9 L 154.3 473.7 L 155.7 473.4 L 157.1 473.2 L 158.5 472.9 L 160.0 472.6 L 161.4 472.2 L 162.8 471.9 L 164.2 471.5 L 165.6 471.1 L 167.0 470.7 L 168.5 470.3 L 169.9 469.8 L 171.3 469.3 L 172.7 468.7 L 174.1 468.1 L 175.6 467.5 L 177.0 466.8 L 178.4 466.1 L 179.8 465.4 L 181.2 464.6 L 182.6 463.8 L 184.1 462.9 L 185.5 462.0 L 186.9 461.0 L 188.3 460.0 L 189.7 458.9 L 191.1 457.8 L 192.6 456.6 L 194.0 455.3 L 195.4 454.0 L 196.8 452.7 L 198.2 451.3 L 199.7 449.8 L 201.1 448.3 L 202.5 446.7 L 203.9 445.1 L 205.3 443.4 L 206.7 441.7 L 208.2 440.0 L 209.6 438.2 L 211.0 436.4 L 212.4 434.5 L 213.8 432.7 L 215.2 430.8 L 216.7 428.8 L 218.1 426.9 L 219.5 425.0 L 220.9 423.1 L 222.3 421.2 L 223.8 419.2 L 225.2 417.3 L 226.6 415.5 L 228.0 413.6 L 229.4 411.8 L 230.8 410.0 L 232.3 408.3 L 233.7 406.6 L 235.1 404.9 L 236.5 403.3 L 237.9 401.7 L 239.3 400.2 L 240.8 398.7 L 242.2 397.3 L 243.6 396.0 L 245.0 394.7 L 246.4 393.4 L 247.9 392.2 L 249.3 391.1 L 250.7 390.0 L 252.1 389.0 L 253.5 388.0 L 254.9 387.1 L 256.4 386.2 L 257.8 385.4 L 259.2 384.6 L 260.6 383.9 L 262.0 383.2 L 263.4 382.5 L 264.9 381.9 L 266.3 381.3 L 267.7 380.7 L 269.1 380.2 L 270.5 379.7 L 272.0 379.3 L 273.4 378.9 L 274.8 378.5 L 276.2 378.1 L 277.6 377.8 L 279.0 377.4 L 280.5 377.1 L 281.9 376.8 L 283.3 376.6 L 284.7 376.3 L 286.1 376.1 L 287.5 375.9 L 289.0 375.7 L 290.4 375.5 L 291.8 375.3 L 293.2 375.2 L 294.6 375.0 L 296.1 374.9 L 297.5 374.7 L 298.9 374.6 L 300.3 374.5 L 301.7 374.4 L 303.1 374.3 L 304.6 374.2 L 306.0 374.1 L 307.4 374.0 L 308.8 374.0 L 310.2 373.9 L 311.6 373.8 L 313.1 373.8 L 314.5 373.7 L 315.9 373.7 L 317.3 373.6 L 318.7 373.6 L 320.2 373.5 L 321.6 373.5 L 323.0 373.5 L 324.4 373.4 L 325.8 373.4 L 327.2 373.4 L 328.7 373.3 L 330.1 373.3 L 331.5 373.3 L 332.9 373.3 L 334.3 373.3 L 335.7 373.2 L 337.2 373.2 L 338.6 373.2 L 340.0 373.2" stroke="#0F8A8D" stroke-width="3.1" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<text x="78" y="335" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.1" font-weight="650" text-anchor="start" fill="#0F8A8D">静态传递曲线</text>
+<path d="M 105 572 L 352 572" stroke="#64748B" stroke-width="1.4" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<path d="M 105 572 L 105 507" stroke="#64748B" stroke-width="1.4" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<path d="M 107 572 L 107.0 513.0 L 108.9 516.0 L 110.8 518.9 L 112.7 521.7 L 114.7 524.3 L 116.6 526.7 L 118.5 529.1 L 120.4 531.3 L 122.3 533.4 L 124.2 535.4 L 126.2 537.3 L 128.1 539.0 L 130.0 540.7 L 131.9 542.4 L 133.8 543.9 L 135.7 545.3 L 137.7 546.7 L 139.6 548.0 L 141.5 549.2 L 143.4 550.4 L 145.3 551.5 L 147.2 552.6 L 149.2 553.6 L 151.1 554.5 L 153.0 555.4 L 154.9 556.3 L 156.8 557.1 L 158.7 557.9 L 160.6 558.6 L 162.6 559.3 L 164.5 559.9 L 166.4 560.6 L 168.3 561.2 L 170.2 561.7 L 172.1 562.2 L 174.1 562.8 L 176.0 563.2 L 177.9 563.7 L 179.8 564.1 L 181.7 564.5 L 183.6 564.9 L 185.6 565.3 L 187.5 565.6 L 189.4 565.9 L 191.3 566.3 L 193.2 566.6 L 195.1 566.8 L 197.1 567.1 L 199.0 567.4 L 200.9 567.6 L 202.8 567.8 L 204.7 568.0 L 206.6 568.2 L 208.5 568.4 L 210.5 568.6 L 212.4 568.8 L 214.3 569.0 L 216.2 569.1 L 218.1 569.3 L 220.0 569.4 L 222.0 569.5 L 223.9 569.7 L 225.8 569.8 L 227.7 569.9 L 229.6 570.0 L 231.5 570.1 L 233.5 570.2 L 235.4 570.3 L 237.3 570.4 L 239.2 570.5 L 241.1 570.5 L 243.0 570.6 L 244.9 570.7 L 246.9 570.8 L 248.8 570.8 L 250.7 570.9 L 252.6 570.9 L 254.5 571.0 L 256.4 571.1 L 258.4 571.1 L 260.3 571.1 L 262.2 571.2 L 264.1 571.2 L 266.0 571.3 L 267.9 571.3 L 269.9 571.3 L 271.8 571.4 L 273.7 571.4 L 275.6 571.4 L 277.5 571.5 L 279.4 571.5 L 281.4 571.5 L 283.3 571.5 L 285.2 571.6 L 287.1 571.6 L 289.0 571.6 L 290.9 571.6 L 292.8 571.7 L 294.8 571.7 L 296.7 571.7 L 298.6 571.7 L 300.5 571.7 L 302.4 571.7 L 304.3 571.7 L 306.3 571.8 L 308.2 571.8 L 310.1 571.8 L 312.0 571.8 L 313.9 571.8 L 315.8 571.8 L 317.8 571.8 L 319.7 571.8 L 321.6 571.8 L 323.5 571.9 L 325.4 571.9 L 327.3 571.9 L 329.3 571.9 L 331.2 571.9 L 333.1 571.9 L 335.0 571.9 L 335 572 Z" stroke="none" stroke-width="0" fill="#B7E6E0" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 107.0 513.0 L 108.9 516.0 L 110.8 518.9 L 112.7 521.7 L 114.7 524.3 L 116.6 526.7 L 118.5 529.1 L 120.4 531.3 L 122.3 533.4 L 124.2 535.4 L 126.2 537.3 L 128.1 539.0 L 130.0 540.7 L 131.9 542.4 L 133.8 543.9 L 135.7 545.3 L 137.7 546.7 L 139.6 548.0 L 141.5 549.2 L 143.4 550.4 L 145.3 551.5 L 147.2 552.6 L 149.2 553.6 L 151.1 554.5 L 153.0 555.4 L 154.9 556.3 L 156.8 557.1 L 158.7 557.9 L 160.6 558.6 L 162.6 559.3 L 164.5 559.9 L 166.4 560.6 L 168.3 561.2 L 170.2 561.7 L 172.1 562.2 L 174.1 562.8 L 176.0 563.2 L 177.9 563.7 L 179.8 564.1 L 181.7 564.5 L 183.6 564.9 L 185.6 565.3 L 187.5 565.6 L 189.4 565.9 L 191.3 566.3 L 193.2 566.6 L 195.1 566.8 L 197.1 567.1 L 199.0 567.4 L 200.9 567.6 L 202.8 567.8 L 204.7 568.0 L 206.6 568.2 L 208.5 568.4 L 210.5 568.6 L 212.4 568.8 L 214.3 569.0 L 216.2 569.1 L 218.1 569.3 L 220.0 569.4 L 222.0 569.5 L 223.9 569.7 L 225.8 569.8 L 227.7 569.9 L 229.6 570.0 L 231.5 570.1 L 233.5 570.2 L 235.4 570.3 L 237.3 570.4 L 239.2 570.5 L 241.1 570.5 L 243.0 570.6 L 244.9 570.7 L 246.9 570.8 L 248.8 570.8 L 250.7 570.9 L 252.6 570.9 L 254.5 571.0 L 256.4 571.1 L 258.4 571.1 L 260.3 571.1 L 262.2 571.2 L 264.1 571.2 L 266.0 571.3 L 267.9 571.3 L 269.9 571.3 L 271.8 571.4 L 273.7 571.4 L 275.6 571.4 L 277.5 571.5 L 279.4 571.5 L 281.4 571.5 L 283.3 571.5 L 285.2 571.6 L 287.1 571.6 L 289.0 571.6 L 290.9 571.6 L 292.8 571.7 L 294.8 571.7 L 296.7 571.7 L 298.6 571.7 L 300.5 571.7 L 302.4 571.7 L 304.3 571.7 L 306.3 571.8 L 308.2 571.8 L 310.1 571.8 L 312.0 571.8 L 313.9 571.8 L 315.8 571.8 L 317.8 571.8 L 319.7 571.8 L 321.6 571.8 L 323.5 571.9 L 325.4 571.9 L 327.3 571.9 L 329.3 571.9 L 331.2 571.9 L 333.1 571.9 L 335.0 571.9" stroke="#0F8A8D" stroke-width="2.4" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<text x="78" y="502" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.8" font-weight="650" text-anchor="start" fill="#0F8A8D">历史影响</text>
+<text x="352" y="590" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#475569">k</text>
+<text x="109" y="507" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#475569">h[k]</text>
+<circle cx="73" cy="634" r="4.1" fill="#0F8A8D" stroke="none" stroke-width="1"/>
+<text x="86" y="638" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="650" text-anchor="start" fill="#111827">机制</text>
+<text x="86" y="660" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#475569">局部光滑响应与逐渐衰减的历史影响</text>
+<circle cx="73" cy="695" r="4.1" fill="#0F8A8D" stroke="none" stroke-width="1"/>
+<text x="86" y="699" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="650" text-anchor="start" fill="#111827">建模</text>
+<text x="86" y="721" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#475569">低阶核、短记忆 FIR 或并联 Hammerstein</text>
+<text x="77" y="816" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="700" text-anchor="start" fill="#0F8A8D">选型提示</text>
+<text x="77" y="838" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15.2" font-weight="650" text-anchor="start" fill="#111827">先以有限阶 Volterra 建立基线</text>
+<rect x="635" y="318" width="125" height="28" rx="14" fill="#FEF3C7" stroke="none" stroke-width="1" />
+<text x="697.5" y="337" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#D97706">折点误差</text>
+<text x="460" y="337" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.1" font-weight="650" text-anchor="start" fill="#D97706">输入—输出关系</text>
+<path d="M 470 450 L 734 450" stroke="#64748B" stroke-width="1.5" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<path d="M 597 512 L 597 352" stroke="#64748B" stroke-width="1.5" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<text x="731" y="467" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="400" text-anchor="start" fill="#475569">x</text>
+<text x="585" y="351" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="400" text-anchor="start" fill="#475569">y</text>
+<path d="M 478.0 512.4 L 479.5 512.4 L 480.9 512.4 L 482.4 512.3 L 483.8 512.3 L 485.3 512.2 L 486.8 512.1 L 488.2 512.0 L 489.7 511.9 L 491.1 511.8 L 492.6 511.7 L 494.0 511.6 L 495.5 511.5 L 497.0 511.3 L 498.4 511.2 L 499.9 511.0 L 501.3 510.8 L 502.8 510.7 L 504.3 510.5 L 505.7 510.3 L 507.2 510.1 L 508.6 509.9 L 510.1 509.7 L 511.6 509.5 L 513.0 509.3 L 514.5 509.1 L 515.9 508.9 L 517.4 508.6 L 518.8 508.4 L 520.3 508.2 L 521.8 508.0 L 523.2 507.7 L 524.7 507.5 L 526.1 507.3 L 527.6 507.0 L 529.1 506.8 L 530.5 506.5 L 532.0 506.3 L 533.4 506.0 L 534.9 505.8 L 536.4 505.5 L 537.8 505.2 L 539.3 505.0 L 540.7 504.7 L 542.2 504.4 L 543.6 504.1 L 545.1 503.7 L 546.6 503.4 L 548.0 503.0 L 549.5 502.6 L 550.9 502.2 L 552.4 501.7 L 553.9 501.2 L 555.3 500.7 L 556.8 500.1 L 558.2 499.5 L 559.7 498.8 L 561.2 498.1 L 562.6 497.4 L 564.1 496.6 L 565.5 495.7 L 567.0 494.7 L 568.4 493.7 L 569.9 492.6 L 571.4 491.5 L 572.8 490.3 L 574.3 489.0 L 575.7 487.6 L 577.2 486.1 L 578.7 484.6 L 580.1 482.9 L 581.6 481.2 L 583.0 479.4 L 584.5 477.6 L 586.0 475.6 L 587.4 473.6 L 588.9 471.5 L 590.3 469.3 L 591.8 467.1 L 593.2 464.8 L 594.7 462.4 L 596.2 460.0 L 597.6 457.5 L 599.1 455.1 L 600.5 452.5 L 602.0 450.0 L 603.5 447.5 L 604.9 444.9 L 606.4 442.5 L 607.8 440.0 L 609.3 437.6 L 610.8 435.2 L 612.2 432.9 L 613.7 430.7 L 615.1 428.5 L 616.6 426.4 L 618.0 424.4 L 619.5 422.4 L 621.0 420.6 L 622.4 418.8 L 623.9 417.1 L 625.3 415.4 L 626.8 413.9 L 628.3 412.4 L 629.7 411.0 L 631.2 409.7 L 632.6 408.5 L 634.1 407.4 L 635.6 406.3 L 637.0 405.3 L 638.5 404.3 L 639.9 403.4 L 641.4 402.6 L 642.8 401.9 L 644.3 401.2 L 645.8 400.5 L 647.2 399.9 L 648.7 399.3 L 650.1 398.8 L 651.6 398.3 L 653.1 397.8 L 654.5 397.4 L 656.0 397.0 L 657.4 396.6 L 658.9 396.3 L 660.4 395.9 L 661.8 395.6 L 663.3 395.3 L 664.7 395.0 L 666.2 394.8 L 667.6 394.5 L 669.1 394.2 L 670.6 394.0 L 672.0 393.7 L 673.5 393.5 L 674.9 393.2 L 676.4 393.0 L 677.9 392.7 L 679.3 392.5 L 680.8 392.3 L 682.2 392.0 L 683.7 391.8 L 685.2 391.6 L 686.6 391.4 L 688.1 391.1 L 689.5 390.9 L 691.0 390.7 L 692.4 390.5 L 693.9 390.3 L 695.4 390.1 L 696.8 389.9 L 698.3 389.7 L 699.7 389.5 L 701.2 389.3 L 702.7 389.2 L 704.1 389.0 L 705.6 388.8 L 707.0 388.7 L 708.5 388.5 L 710.0 388.4 L 711.4 388.3 L 712.9 388.2 L 714.3 388.1 L 715.8 388.0 L 717.2 387.9 L 718.7 387.8 L 720.2 387.7 L 721.6 387.7 L 723.1 387.6 L 724.5 387.6 L 726.0 387.6" stroke="#2563EB" stroke-width="2.9" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 478.0 501.5 L 479.5 501.5 L 480.9 501.5 L 482.4 501.5 L 483.8 501.5 L 485.3 501.5 L 486.8 501.5 L 488.2 501.5 L 489.7 501.5 L 491.1 501.5 L 492.6 501.5 L 494.0 501.5 L 495.5 501.5 L 497.0 501.5 L 498.4 501.5 L 499.9 501.5 L 501.3 501.5 L 502.8 501.5 L 504.3 501.5 L 505.7 501.5 L 507.2 501.5 L 508.6 501.5 L 510.1 501.5 L 511.6 501.5 L 513.0 501.5 L 514.5 501.5 L 515.9 501.5 L 517.4 501.5 L 518.8 501.5 L 520.3 501.5 L 521.8 501.5 L 523.2 501.5 L 524.7 501.5 L 526.1 501.5 L 527.6 501.5 L 529.1 501.5 L 530.5 501.5 L 532.0 501.5 L 533.4 501.5 L 534.9 501.5 L 536.4 501.5 L 537.8 501.5 L 539.3 501.5 L 540.7 501.5 L 542.2 501.5 L 543.6 501.5 L 545.1 501.5 L 546.6 501.5 L 548.0 501.5 L 549.5 501.5 L 550.9 501.5 L 552.4 501.5 L 553.9 501.5 L 555.3 501.5 L 556.8 501.5 L 558.2 501.5 L 559.7 501.5 L 561.2 501.5 L 562.6 501.5 L 564.1 501.5 L 565.5 501.1 L 567.0 499.0 L 568.4 497.0 L 569.9 494.9 L 571.4 492.9 L 572.8 490.8 L 574.3 488.8 L 575.7 486.8 L 577.2 484.7 L 578.7 482.7 L 580.1 480.6 L 581.6 478.6 L 583.0 476.6 L 584.5 474.5 L 586.0 472.5 L 587.4 470.4 L 588.9 468.4 L 590.3 466.3 L 591.8 464.3 L 593.2 462.3 L 594.7 460.2 L 596.2 458.2 L 597.6 456.1 L 599.1 454.1 L 600.5 452.0 L 602.0 450.0 L 603.5 448.0 L 604.9 445.9 L 606.4 443.9 L 607.8 441.8 L 609.3 439.8 L 610.8 437.7 L 612.2 435.7 L 613.7 433.7 L 615.1 431.6 L 616.6 429.6 L 618.0 427.5 L 619.5 425.5 L 621.0 423.4 L 622.4 421.4 L 623.9 419.4 L 625.3 417.3 L 626.8 415.3 L 628.3 413.2 L 629.7 411.2 L 631.2 409.2 L 632.6 407.1 L 634.1 405.1 L 635.6 403.0 L 637.0 401.0 L 638.5 398.9 L 639.9 398.5 L 641.4 398.5 L 642.8 398.5 L 644.3 398.5 L 645.8 398.5 L 647.2 398.5 L 648.7 398.5 L 650.1 398.5 L 651.6 398.5 L 653.1 398.5 L 654.5 398.5 L 656.0 398.5 L 657.4 398.5 L 658.9 398.5 L 660.4 398.5 L 661.8 398.5 L 663.3 398.5 L 664.7 398.5 L 666.2 398.5 L 667.6 398.5 L 669.1 398.5 L 670.6 398.5 L 672.0 398.5 L 673.5 398.5 L 674.9 398.5 L 676.4 398.5 L 677.9 398.5 L 679.3 398.5 L 680.8 398.5 L 682.2 398.5 L 683.7 398.5 L 685.2 398.5 L 686.6 398.5 L 688.1 398.5 L 689.5 398.5 L 691.0 398.5 L 692.4 398.5 L 693.9 398.5 L 695.4 398.5 L 696.8 398.5 L 698.3 398.5 L 699.7 398.5 L 701.2 398.5 L 702.7 398.5 L 704.1 398.5 L 705.6 398.5 L 707.0 398.5 L 708.5 398.5 L 710.0 398.5 L 711.4 398.5 L 712.9 398.5 L 714.3 398.5 L 715.8 398.5 L 717.2 398.5 L 718.7 398.5 L 720.2 398.5 L 721.6 398.5 L 723.1 398.5 L 724.5 398.5 L 726.0 398.5" stroke="#E85D2A" stroke-width="2.8" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 560 392 L 560 504" stroke="#F0AF72" stroke-width="1.1" fill="" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 5" />
+<path d="M 634 392 L 634 504" stroke="#F0AF72" stroke-width="1.1" fill="" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 5" />
+<text x="462" y="518" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="750" text-anchor="start" fill="#E85D2A">——</text>
+<text x="494" y="518" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.4" font-weight="400" text-anchor="start" fill="#475569">硬削波</text>
+<text x="589" y="518" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="750" text-anchor="start" fill="#2563EB">——</text>
+<text x="620" y="518" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.4" font-weight="400" text-anchor="start" fill="#475569">平滑近似</text>
+<rect x="467" y="541" width="284" height="43" rx="7" fill="#FFFFFF" stroke="#F2D3A3" stroke-width="1" />
+<text x="480" y="559" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.7" font-weight="650" text-anchor="start" fill="#D97706">局部折点</text>
+<text x="480" y="576" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.4" font-weight="400" text-anchor="start" fill="#475569">有限阶模型需检验误差与混叠</text>
+<circle cx="455" cy="634" r="4.1" fill="#D97706" stroke="none" stroke-width="1"/>
+<text x="468" y="638" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="650" text-anchor="start" fill="#111827">理论</text>
+<text x="468" y="660" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#475569">连续削波在有界输入域可以多项式逼近</text>
+<circle cx="455" cy="695" r="4.1" fill="#D97706" stroke="none" stroke-width="1"/>
+<text x="468" y="699" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="650" text-anchor="start" fill="#111827">工程</text>
+<text x="468" y="721" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#475569">折点精度与抗混叠往往提高实现成本</text>
+<text x="459" y="816" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="700" text-anchor="start" fill="#D97706">选型提示</text>
+<text x="459" y="838" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14.3" font-weight="650" text-anchor="start" fill="#111827">分段映射、ADAA 与过采样</text>
+<rect x="1036" y="318" width="105" height="28" rx="14" fill="#EEE9FD" stroke="none" stroke-width="1" />
+<text x="1088.5" y="337" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#7C3AED">长时状态</text>
+<text x="842" y="335" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="650" text-anchor="start" fill="#7C3AED">输入激励</text>
+<path d="M 853 395 L 1122 395" stroke="#64748B" stroke-width="1.4" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<path d="M 854 426 L 854 359" stroke="#64748B" stroke-width="1.2" fill="" stroke-linejoin="round" stroke-linecap="round" />
+<text x="1113" y="411" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#475569">n</text>
+<path d="M 858.0 395.0 L 858.9 394.9 L 859.9 394.7 L 860.8 394.3 L 861.7 394.1 L 862.7 394.3 L 863.6 394.9 L 864.5 396.0 L 865.5 397.1 L 866.4 397.9 L 867.3 397.9 L 868.3 397.0 L 869.2 395.3 L 870.1 393.0 L 871.0 390.9 L 872.0 389.5 L 872.9 389.6 L 873.8 391.3 L 874.8 394.3 L 875.7 398.0 L 876.6 401.3 L 877.6 403.3 L 878.5 403.2 L 879.4 400.7 L 880.4 396.3 L 881.3 391.1 L 882.2 386.5 L 883.2 383.8 L 884.1 384.0 L 885.0 387.2 L 886.0 392.8 L 886.9 399.6 L 887.8 405.5 L 888.8 409.1 L 889.7 409.0 L 890.6 405.1 L 891.5 398.2 L 892.5 390.0 L 893.4 382.6 L 894.3 378.2 L 895.3 378.1 L 896.2 382.6 L 897.1 390.7 L 898.1 400.3 L 899.0 408.9 L 899.9 414.2 L 900.9 414.6 L 901.8 409.7 L 902.7 400.6 L 903.7 389.7 L 904.6 379.8 L 905.5 373.6 L 906.5 372.9 L 907.4 378.1 L 908.3 388.0 L 909.3 400.0 L 910.2 411.1 L 911.1 418.2 L 912.1 419.3 L 913.0 413.9 L 913.9 403.4 L 914.8 390.4 L 915.8 378.3 L 916.7 370.4 L 917.6 368.9 L 918.6 374.2 L 919.5 385.2 L 920.4 399.0 L 921.4 411.9 L 922.3 420.5 L 923.2 422.5 L 924.2 417.3 L 925.1 406.1 L 926.0 391.8 L 927.0 378.3 L 927.9 369.0 L 928.8 366.5 L 929.8 371.5 L 930.7 382.8 L 931.6 397.3 L 932.6 411.2 L 933.5 421.0 L 934.4 423.9 L 935.3 419.3 L 936.3 408.2 L 937.2 393.7 L 938.1 379.5 L 939.1 369.5 L 940.0 366.1 L 940.9 370.4 L 941.9 381.1 L 942.8 395.3 L 943.7 409.4 L 944.7 419.6 L 945.6 423.3 L 946.5 419.5 L 947.5 409.4 L 948.4 395.6 L 949.3 381.9 L 950.3 371.7 L 951.2 367.8 L 952.1 371.0 L 953.1 380.4 L 954.0 393.5 L 954.9 406.7 L 955.8 416.6 L 956.8 420.7 L 957.7 418.0 L 958.6 409.4 L 959.6 397.2 L 960.5 384.8 L 961.4 375.3 L 962.4 371.2 L 963.3 373.4 L 964.2 381.1 L 965.2 392.2 L 966.1 403.6 L 967.0 412.5 L 968.0 416.5 L 968.9 414.8 L 969.8 408.1 L 970.8 398.2 L 971.7 387.9 L 972.6 379.9 L 973.6 376.1 L 974.5 377.4 L 975.4 383.1 L 976.4 391.6 L 977.3 400.6 L 978.2 407.6 L 979.1 411.1 L 980.1 410.2 L 981.0 405.5 L 981.9 398.3 L 982.9 390.8 L 983.8 384.8 L 984.7 381.9 L 985.7 382.5 L 986.6 386.2 L 987.5 391.9 L 988.5 398.0 L 989.4 402.7 L 990.3 405.1 L 991.3 404.7 L 992.2 401.9 L 993.1 397.6 L 994.1 393.1 L 995.0 389.5 L 995.9 387.8 L 996.9 388.1 L 997.8 390.1 L 998.7 393.0 L 999.6 396.1 L 1000.6 398.4 L 1001.5 399.5 L 1002.4 399.2 L 1003.4 398.0 L 1004.3 396.2 L 1005.2 394.5 L 1006.2 393.4 L 1007.1 392.9 L 1008.0 393.2 L 1009.0 393.8 L 1009.9 394.6 L 1010.8 395.1 L 1011.8 395.3 L 1012.7 395.2 L 1013.6 395.0 L 1014.6 395.0 L 1015.5 395.0 L 1016.4 395.0 L 1017.4 395.0 L 1018.3 395.0 L 1019.2 395.0 L 1020.2 395.0 L 1021.1 395.0 L 1022.0 395.0 L 1022.9 395.0 L 1023.9 395.0 L 1024.8 395.0 L 1025.7 395.0 L 1026.7 395.0 L 1027.6 395.0 L 1028.5 395.0 L 1029.5 395.0 L 1030.4 395.0 L 1031.3 395.0 L 1032.3 395.0 L 1033.2 395.0 L 1034.1 395.0 L 1035.1 395.0 L 1036.0 395.0 L 1036.9 395.0 L 1037.9 395.0 L 1038.8 395.0 L 1039.7 395.0 L 1040.7 395.0 L 1041.6 395.0 L 1042.5 395.0 L 1043.4 395.0 L 1044.4 395.0 L 1045.3 395.0 L 1046.2 395.0 L 1047.2 395.0 L 1048.1 395.0 L 1049.0 395.0 L 1050.0 395.0 L 1050.9 395.0 L 1051.8 395.0 L 1052.8 395.0 L 1053.7 395.0 L 1054.6 395.0 L 1055.6 395.0 L 1056.5 395.0 L 1057.4 395.0 L 1058.4 395.0 L 1059.3 395.0 L 1060.2 395.0 L 1061.2 395.0 L 1062.1 395.0 L 1063.0 395.0 L 1063.9 395.0 L 1064.9 395.0 L 1065.8 395.0 L 1066.7 395.0 L 1067.7 395.0 L 1068.6 395.0 L 1069.5 395.0 L 1070.5 395.0 L 1071.4 395.0 L 1072.3 395.0 L 1073.3 395.0 L 1074.2 395.0 L 1075.1 395.0 L 1076.1 395.0 L 1077.0 395.0 L 1077.9 395.0 L 1078.9 395.0 L 1079.8 395.0 L 1080.7 395.0 L 1081.7 395.0 L 1082.6 395.0 L 1083.5 395.0 L 1084.5 395.0 L 1085.4 395.0 L 1086.3 395.0 L 1087.2 395.0 L 1088.2 395.0 L 1089.1 395.0 L 1090.0 395.0 L 1091.0 395.0 L 1091.9 395.0 L 1092.8 395.0 L 1093.8 395.0 L 1094.7 395.0 L 1095.6 395.0 L 1096.6 395.0 L 1097.5 395.0 L 1098.4 395.0 L 1099.4 395.0 L 1100.3 395.0 L 1101.2 395.0 L 1102.2 395.0 L 1103.1 395.0 L 1104.0 395.0 L 1105.0 395.0 L 1105.9 395.0 L 1106.8 395.0 L 1107.7 395.0 L 1108.7 395.0 L 1109.6 395.0 L 1110.5 395.0 L 1111.5 395.0 L 1112.4 395.0 L 1113.3 395.0 L 1114.3 395.0 L 1115.2 395.0 L 1116.1 395.0 L 1117.1 395.0 L 1118.0 395.0" stroke="#2563EB" stroke-width="1.8" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<text x="842" y="457" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="650" text-anchor="start" fill="#7C3AED">包络状态 s[n]</text>
+<path d="M 852 553 L 1122 553" stroke="#64748B" stroke-width="1.4" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<path d="M 852 553 L 852 466" stroke="#64748B" stroke-width="1.2" fill="" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 856.0 553.0 L 857.0 548.9 L 858.0 545.1 L 859.0 541.5 L 860.0 538.2 L 861.0 535.2 L 862.0 532.3 L 863.1 529.6 L 864.1 527.1 L 865.1 524.8 L 866.1 522.6 L 867.1 520.6 L 868.1 518.7 L 869.1 516.9 L 870.1 515.3 L 871.1 513.7 L 872.1 512.3 L 873.1 511.0 L 874.1 509.7 L 875.1 508.6 L 876.2 507.5 L 877.2 506.5 L 878.2 505.6 L 879.2 504.7 L 880.2 503.9 L 881.2 503.1 L 882.2 502.4 L 883.2 501.8 L 884.2 501.1 L 885.2 500.6 L 886.2 500.0 L 887.2 499.5 L 888.2 499.1 L 889.3 498.6 L 890.3 498.2 L 891.3 497.9 L 892.3 497.5 L 893.3 497.2 L 894.3 496.9 L 895.3 496.6 L 896.3 496.3 L 897.3 496.1 L 898.3 495.9 L 899.3 495.6 L 900.3 495.4 L 901.3 495.3 L 902.4 495.1 L 903.4 494.9 L 904.4 494.8 L 905.4 494.6 L 906.4 494.5 L 907.4 494.4 L 908.4 491.4 L 909.4 491.4 L 910.4 491.4 L 911.4 491.4 L 912.4 491.4 L 913.4 491.4 L 914.4 491.4 L 915.5 491.4 L 916.5 491.4 L 917.5 491.4 L 918.5 491.4 L 919.5 491.4 L 920.5 491.4 L 921.5 491.4 L 922.5 491.4 L 923.5 491.4 L 924.5 491.4 L 925.5 491.4 L 926.5 491.4 L 927.5 491.4 L 928.6 491.4 L 929.6 491.4 L 930.6 491.4 L 931.6 491.4 L 932.6 491.4 L 933.6 491.4 L 934.6 491.4 L 935.6 491.4 L 936.6 491.4 L 937.6 491.4 L 938.6 491.4 L 939.6 491.4 L 940.6 491.4 L 941.7 491.4 L 942.7 491.4 L 943.7 491.4 L 944.7 491.4 L 945.7 491.4 L 946.7 491.4 L 947.7 491.4 L 948.7 491.4 L 949.7 491.4 L 950.7 491.4 L 951.7 491.4 L 952.7 491.4 L 953.7 491.4 L 954.8 491.4 L 955.8 491.4 L 956.8 491.4 L 957.8 491.4 L 958.8 491.4 L 959.8 491.4 L 960.8 491.4 L 961.8 491.4 L 962.8 491.4 L 963.8 491.4 L 964.8 491.4 L 965.8 491.4 L 966.8 491.4 L 967.9 491.4 L 968.9 491.4 L 969.9 491.4 L 970.9 491.4 L 971.9 491.4 L 972.9 491.4 L 973.9 491.7 L 974.9 492.4 L 975.9 493.2 L 976.9 493.9 L 977.9 494.6 L 978.9 495.3 L 979.9 496.0 L 981.0 496.7 L 982.0 497.3 L 983.0 498.0 L 984.0 498.7 L 985.0 499.3 L 986.0 500.0 L 987.0 500.6 L 988.0 501.2 L 989.0 501.8 L 990.0 502.5 L 991.0 503.1 L 992.0 503.7 L 993.1 504.3 L 994.1 504.8 L 995.1 505.4 L 996.1 506.0 L 997.1 506.6 L 998.1 507.1 L 999.1 507.7 L 1000.1 508.2 L 1001.1 508.7 L 1002.1 509.3 L 1003.1 509.8 L 1004.1 510.3 L 1005.1 510.8 L 1006.2 511.3 L 1007.2 511.8 L 1008.2 512.3 L 1009.2 512.8 L 1010.2 513.3 L 1011.2 513.8 L 1012.2 514.2 L 1013.2 514.7 L 1014.2 515.2 L 1015.2 515.6 L 1016.2 516.1 L 1017.2 516.5 L 1018.2 516.9 L 1019.3 517.4 L 1020.3 517.8 L 1021.3 518.2 L 1022.3 518.6 L 1023.3 519.1 L 1024.3 519.5 L 1025.3 519.9 L 1026.3 520.3 L 1027.3 520.7 L 1028.3 521.0 L 1029.3 521.4 L 1030.3 521.8 L 1031.3 522.2 L 1032.4 522.6 L 1033.4 522.9 L 1034.4 523.3 L 1035.4 523.6 L 1036.4 524.0 L 1037.4 524.3 L 1038.4 524.7 L 1039.4 525.0 L 1040.4 525.4 L 1041.4 525.7 L 1042.4 526.0 L 1043.4 526.3 L 1044.4 526.7 L 1045.5 527.0 L 1046.5 527.3 L 1047.5 527.6 L 1048.5 527.9 L 1049.5 528.2 L 1050.5 528.5 L 1051.5 528.8 L 1052.5 529.1 L 1053.5 529.4 L 1054.5 529.6 L 1055.5 529.9 L 1056.5 530.2 L 1057.5 530.5 L 1058.6 530.7 L 1059.6 531.0 L 1060.6 531.3 L 1061.6 531.5 L 1062.6 531.8 L 1063.6 532.1 L 1064.6 532.3 L 1065.6 532.6 L 1066.6 532.8 L 1067.6 533.0 L 1068.6 533.3 L 1069.6 533.5 L 1070.6 533.7 L 1071.7 534.0 L 1072.7 534.2 L 1073.7 534.4 L 1074.7 534.7 L 1075.7 534.9 L 1076.7 535.1 L 1077.7 535.3 L 1078.7 535.5 L 1079.7 535.7 L 1080.7 535.9 L 1081.7 536.1 L 1082.7 536.3 L 1083.7 536.5 L 1084.8 536.7 L 1085.8 536.9 L 1086.8 537.1 L 1087.8 537.3 L 1088.8 537.5 L 1089.8 537.7 L 1090.8 537.9 L 1091.8 538.1 L 1092.8 538.2 L 1093.8 538.4 L 1094.8 538.6 L 1095.8 538.8 L 1096.8 538.9 L 1097.9 539.1 L 1098.9 539.3 L 1099.9 539.4 L 1100.9 539.6 L 1101.9 539.8 L 1102.9 539.9 L 1103.9 540.1 L 1104.9 540.2 L 1105.9 540.4 L 1106.9 540.5 L 1107.9 540.7 L 1108.9 540.8 L 1109.9 541.0 L 1111.0 541.1 L 1112.0 541.3 L 1113.0 541.4 L 1114.0 541.5 L 1115.0 541.7 L 1116.0 541.8 L 1117.0 541.9 L 1117 553 L 856 553 Z" stroke="none" stroke-width="0" fill="#DDD6FE" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 856.0 553.0 L 857.0 548.9 L 858.0 545.1 L 859.0 541.5 L 860.0 538.2 L 861.0 535.2 L 862.0 532.3 L 863.1 529.6 L 864.1 527.1 L 865.1 524.8 L 866.1 522.6 L 867.1 520.6 L 868.1 518.7 L 869.1 516.9 L 870.1 515.3 L 871.1 513.7 L 872.1 512.3 L 873.1 511.0 L 874.1 509.7 L 875.1 508.6 L 876.2 507.5 L 877.2 506.5 L 878.2 505.6 L 879.2 504.7 L 880.2 503.9 L 881.2 503.1 L 882.2 502.4 L 883.2 501.8 L 884.2 501.1 L 885.2 500.6 L 886.2 500.0 L 887.2 499.5 L 888.2 499.1 L 889.3 498.6 L 890.3 498.2 L 891.3 497.9 L 892.3 497.5 L 893.3 497.2 L 894.3 496.9 L 895.3 496.6 L 896.3 496.3 L 897.3 496.1 L 898.3 495.9 L 899.3 495.6 L 900.3 495.4 L 901.3 495.3 L 902.4 495.1 L 903.4 494.9 L 904.4 494.8 L 905.4 494.6 L 906.4 494.5 L 907.4 494.4 L 908.4 491.4 L 909.4 491.4 L 910.4 491.4 L 911.4 491.4 L 912.4 491.4 L 913.4 491.4 L 914.4 491.4 L 915.5 491.4 L 916.5 491.4 L 917.5 491.4 L 918.5 491.4 L 919.5 491.4 L 920.5 491.4 L 921.5 491.4 L 922.5 491.4 L 923.5 491.4 L 924.5 491.4 L 925.5 491.4 L 926.5 491.4 L 927.5 491.4 L 928.6 491.4 L 929.6 491.4 L 930.6 491.4 L 931.6 491.4 L 932.6 491.4 L 933.6 491.4 L 934.6 491.4 L 935.6 491.4 L 936.6 491.4 L 937.6 491.4 L 938.6 491.4 L 939.6 491.4 L 940.6 491.4 L 941.7 491.4 L 942.7 491.4 L 943.7 491.4 L 944.7 491.4 L 945.7 491.4 L 946.7 491.4 L 947.7 491.4 L 948.7 491.4 L 949.7 491.4 L 950.7 491.4 L 951.7 491.4 L 952.7 491.4 L 953.7 491.4 L 954.8 491.4 L 955.8 491.4 L 956.8 491.4 L 957.8 491.4 L 958.8 491.4 L 959.8 491.4 L 960.8 491.4 L 961.8 491.4 L 962.8 491.4 L 963.8 491.4 L 964.8 491.4 L 965.8 491.4 L 966.8 491.4 L 967.9 491.4 L 968.9 491.4 L 969.9 491.4 L 970.9 491.4 L 971.9 491.4 L 972.9 491.4 L 973.9 491.7 L 974.9 492.4 L 975.9 493.2 L 976.9 493.9 L 977.9 494.6 L 978.9 495.3 L 979.9 496.0 L 981.0 496.7 L 982.0 497.3 L 983.0 498.0 L 984.0 498.7 L 985.0 499.3 L 986.0 500.0 L 987.0 500.6 L 988.0 501.2 L 989.0 501.8 L 990.0 502.5 L 991.0 503.1 L 992.0 503.7 L 993.1 504.3 L 994.1 504.8 L 995.1 505.4 L 996.1 506.0 L 997.1 506.6 L 998.1 507.1 L 999.1 507.7 L 1000.1 508.2 L 1001.1 508.7 L 1002.1 509.3 L 1003.1 509.8 L 1004.1 510.3 L 1005.1 510.8 L 1006.2 511.3 L 1007.2 511.8 L 1008.2 512.3 L 1009.2 512.8 L 1010.2 513.3 L 1011.2 513.8 L 1012.2 514.2 L 1013.2 514.7 L 1014.2 515.2 L 1015.2 515.6 L 1016.2 516.1 L 1017.2 516.5 L 1018.2 516.9 L 1019.3 517.4 L 1020.3 517.8 L 1021.3 518.2 L 1022.3 518.6 L 1023.3 519.1 L 1024.3 519.5 L 1025.3 519.9 L 1026.3 520.3 L 1027.3 520.7 L 1028.3 521.0 L 1029.3 521.4 L 1030.3 521.8 L 1031.3 522.2 L 1032.4 522.6 L 1033.4 522.9 L 1034.4 523.3 L 1035.4 523.6 L 1036.4 524.0 L 1037.4 524.3 L 1038.4 524.7 L 1039.4 525.0 L 1040.4 525.4 L 1041.4 525.7 L 1042.4 526.0 L 1043.4 526.3 L 1044.4 526.7 L 1045.5 527.0 L 1046.5 527.3 L 1047.5 527.6 L 1048.5 527.9 L 1049.5 528.2 L 1050.5 528.5 L 1051.5 528.8 L 1052.5 529.1 L 1053.5 529.4 L 1054.5 529.6 L 1055.5 529.9 L 1056.5 530.2 L 1057.5 530.5 L 1058.6 530.7 L 1059.6 531.0 L 1060.6 531.3 L 1061.6 531.5 L 1062.6 531.8 L 1063.6 532.1 L 1064.6 532.3 L 1065.6 532.6 L 1066.6 532.8 L 1067.6 533.0 L 1068.6 533.3 L 1069.6 533.5 L 1070.6 533.7 L 1071.7 534.0 L 1072.7 534.2 L 1073.7 534.4 L 1074.7 534.7 L 1075.7 534.9 L 1076.7 535.1 L 1077.7 535.3 L 1078.7 535.5 L 1079.7 535.7 L 1080.7 535.9 L 1081.7 536.1 L 1082.7 536.3 L 1083.7 536.5 L 1084.8 536.7 L 1085.8 536.9 L 1086.8 537.1 L 1087.8 537.3 L 1088.8 537.5 L 1089.8 537.7 L 1090.8 537.9 L 1091.8 538.1 L 1092.8 538.2 L 1093.8 538.4 L 1094.8 538.6 L 1095.8 538.8 L 1096.8 538.9 L 1097.9 539.1 L 1098.9 539.3 L 1099.9 539.4 L 1100.9 539.6 L 1101.9 539.8 L 1102.9 539.9 L 1103.9 540.1 L 1104.9 540.2 L 1105.9 540.4 L 1106.9 540.5 L 1107.9 540.7 L 1108.9 540.8 L 1109.9 541.0 L 1111.0 541.1 L 1112.0 541.3 L 1113.0 541.4 L 1114.0 541.5 L 1115.0 541.7 L 1116.0 541.8 L 1117.0 541.9" stroke="#7C3AED" stroke-width="2.6" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 973.45 483 L 973.45 555" stroke="#A78BFA" stroke-width="1.1" fill="" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 4" />
+<text x="889" y="575" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.6" font-weight="500" text-anchor="start" fill="#7C3AED">起始响应</text>
+<text x="1052" y="575" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.6" font-weight="500" text-anchor="start" fill="#7C3AED">慢释放尾部</text>
+<circle cx="837" cy="634" r="4.1" fill="#7C3AED" stroke="none" stroke-width="1"/>
+<text x="850" y="638" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="650" text-anchor="start" fill="#111827">机制</text>
+<text x="850" y="660" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#475569">压缩器释放、电源下陷等缓慢恢复</text>
+<circle cx="837" cy="695" r="4.1" fill="#7C3AED" stroke="none" stroke-width="1"/>
+<text x="850" y="699" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="650" text-anchor="start" fill="#111827">瓶颈</text>
+<text x="850" y="721" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#475569">前馈窗口越长，核参数与计算越昂贵</text>
+<text x="841" y="816" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="700" text-anchor="start" fill="#7C3AED">选型提示</text>
+<text x="841" y="838" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14.3" font-weight="650" text-anchor="start" fill="#111827">Laguerre / Kautz 或显式状态</text>
+<rect x="1392" y="318" width="129" height="28" rx="14" fill="#FCE7EF" stroke="none" stroke-width="1" />
+<text x="1456.5" y="337" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#D63365">历史路径依赖</text>
+<text x="1224" y="335" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" font-weight="650" text-anchor="start" fill="#D63365">磁化路径：B–H 回线</text>
+<path d="M 1236 450 L 1502 450" stroke="#64748B" stroke-width="1.5" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<path d="M 1361 549 L 1361 349" stroke="#64748B" stroke-width="1.5" fill="" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-slate)"/>
+<text x="1495" y="468" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#475569">H</text>
+<text x="1346" y="350" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#475569">B</text>
+<path d="M 1242.0 519.6 L 1243.6 519.4 L 1245.2 519.3 L 1246.8 519.1 L 1248.4 518.9 L 1250.0 518.7 L 1251.5 518.4 L 1253.1 518.2 L 1254.7 517.9 L 1256.3 517.6 L 1257.9 517.3 L 1259.5 517.0 L 1261.1 516.6 L 1262.7 516.3 L 1264.3 515.9 L 1265.9 515.4 L 1267.5 515.0 L 1269.1 514.5 L 1270.6 514.0 L 1272.2 513.5 L 1273.8 512.9 L 1275.4 512.3 L 1277.0 511.6 L 1278.6 511.0 L 1280.2 510.2 L 1281.8 509.5 L 1283.4 508.6 L 1285.0 507.8 L 1286.6 506.9 L 1288.1 505.9 L 1289.7 504.9 L 1291.3 503.8 L 1292.9 502.7 L 1294.5 501.5 L 1296.1 500.2 L 1297.7 498.9 L 1299.3 497.5 L 1300.9 496.1 L 1302.5 494.6 L 1304.1 493.0 L 1305.6 491.3 L 1307.2 489.6 L 1308.8 487.9 L 1310.4 486.0 L 1312.0 484.1 L 1313.6 482.1 L 1315.2 480.1 L 1316.8 478.0 L 1318.4 475.9 L 1320.0 473.7 L 1321.6 471.4 L 1323.2 469.1 L 1324.7 466.8 L 1326.3 464.4 L 1327.9 462.0 L 1329.5 459.5 L 1331.1 457.1 L 1332.7 454.6 L 1334.3 452.1 L 1335.9 449.6 L 1337.5 447.1 L 1339.1 444.6 L 1340.7 442.1 L 1342.2 439.6 L 1343.8 437.2 L 1345.4 434.8 L 1347.0 432.4 L 1348.6 430.1 L 1350.2 427.8 L 1351.8 425.6 L 1353.4 423.4 L 1355.0 421.3 L 1356.6 419.2 L 1358.2 417.2 L 1359.7 415.2 L 1361.3 413.4 L 1362.9 411.5 L 1364.5 409.8 L 1366.1 408.1 L 1367.7 406.5 L 1369.3 404.9 L 1370.9 403.4 L 1372.5 402.0 L 1374.1 400.7 L 1375.7 399.4 L 1377.3 398.1 L 1378.8 397.0 L 1380.4 395.8 L 1382.0 394.8 L 1383.6 393.8 L 1385.2 392.8 L 1386.8 391.9 L 1388.4 391.1 L 1390.0 390.3 L 1391.6 389.5 L 1393.2 388.8 L 1394.8 388.1 L 1396.3 387.5 L 1397.9 386.9 L 1399.5 386.3 L 1401.1 385.8 L 1402.7 385.3 L 1404.3 384.8 L 1405.9 384.4 L 1407.5 384.0 L 1409.1 383.6 L 1410.7 383.2 L 1412.3 382.9 L 1413.8 382.6 L 1415.4 382.3 L 1417.0 382.0 L 1418.6 381.7 L 1420.2 381.5 L 1421.8 381.3 L 1423.4 381.1 L 1425.0 380.9 L 1426.6 380.7 L 1428.2 380.5 L 1429.8 380.3 L 1431.4 380.2 L 1432.9 380.0 L 1434.5 379.9 L 1436.1 379.8 L 1437.7 379.7 L 1439.3 379.5 L 1440.9 379.4 L 1442.5 379.3 L 1444.1 379.3 L 1445.7 379.2 L 1447.3 379.1 L 1448.9 379.0 L 1450.4 379.0 L 1452.0 378.9 L 1453.6 378.8 L 1455.2 378.8 L 1456.8 378.7 L 1458.4 378.7 L 1460.0 378.6 L 1461.6 378.6 L 1463.2 378.5 L 1464.8 378.5 L 1466.4 378.5 L 1467.9 378.4 L 1469.5 378.4 L 1471.1 378.4 L 1472.7 378.4 L 1474.3 378.3 L 1475.9 378.3 L 1477.5 378.3 L 1479.1 378.3 L 1480.7 378.3 L 1482.3 378.2 L 1483.9 378.2 L 1485.5 378.2 L 1487.0 378.2 L 1488.6 378.2 L 1490.2 378.2 L 1491.8 378.2 L 1493.4 378.1 L 1495.0 378.1 L 1495.0 380.4 L 1493.4 380.6 L 1491.8 380.7 L 1490.2 380.9 L 1488.6 381.1 L 1487.0 381.3 L 1485.5 381.6 L 1483.9 381.8 L 1482.3 382.1 L 1480.7 382.4 L 1479.1 382.7 L 1477.5 383.0 L 1475.9 383.4 L 1474.3 383.7 L 1472.7 384.1 L 1471.1 384.6 L 1469.5 385.0 L 1467.9 385.5 L 1466.4 386.0 L 1464.8 386.5 L 1463.2 387.1 L 1461.6 387.7 L 1460.0 388.4 L 1458.4 389.0 L 1456.8 389.8 L 1455.2 390.5 L 1453.6 391.4 L 1452.0 392.2 L 1450.4 393.1 L 1448.9 394.1 L 1447.3 395.1 L 1445.7 396.2 L 1444.1 397.3 L 1442.5 398.5 L 1440.9 399.8 L 1439.3 401.1 L 1437.7 402.5 L 1436.1 403.9 L 1434.5 405.4 L 1432.9 407.0 L 1431.4 408.7 L 1429.8 410.4 L 1428.2 412.1 L 1426.6 414.0 L 1425.0 415.9 L 1423.4 417.9 L 1421.8 419.9 L 1420.2 422.0 L 1418.6 424.1 L 1417.0 426.3 L 1415.4 428.6 L 1413.8 430.9 L 1412.3 433.2 L 1410.7 435.6 L 1409.1 438.0 L 1407.5 440.5 L 1405.9 442.9 L 1404.3 445.4 L 1402.7 447.9 L 1401.1 450.4 L 1399.5 452.9 L 1397.9 455.4 L 1396.3 457.9 L 1394.8 460.4 L 1393.2 462.8 L 1391.6 465.2 L 1390.0 467.6 L 1388.4 469.9 L 1386.8 472.2 L 1385.2 474.4 L 1383.6 476.6 L 1382.0 478.7 L 1380.4 480.8 L 1378.8 482.8 L 1377.3 484.8 L 1375.7 486.6 L 1374.1 488.5 L 1372.5 490.2 L 1370.9 491.9 L 1369.3 493.5 L 1367.7 495.1 L 1366.1 496.6 L 1364.5 498.0 L 1362.9 499.3 L 1361.3 500.6 L 1359.7 501.9 L 1358.2 503.0 L 1356.6 504.2 L 1355.0 505.2 L 1353.4 506.2 L 1351.8 507.2 L 1350.2 508.1 L 1348.6 508.9 L 1347.0 509.7 L 1345.4 510.5 L 1343.8 511.2 L 1342.2 511.9 L 1340.7 512.5 L 1339.1 513.1 L 1337.5 513.7 L 1335.9 514.2 L 1334.3 514.7 L 1332.7 515.2 L 1331.1 515.6 L 1329.5 516.0 L 1327.9 516.4 L 1326.3 516.8 L 1324.7 517.1 L 1323.2 517.4 L 1321.6 517.7 L 1320.0 518.0 L 1318.4 518.3 L 1316.8 518.5 L 1315.2 518.7 L 1313.6 518.9 L 1312.0 519.1 L 1310.4 519.3 L 1308.8 519.5 L 1307.2 519.7 L 1305.6 519.8 L 1304.1 520.0 L 1302.5 520.1 L 1300.9 520.2 L 1299.3 520.3 L 1297.7 520.5 L 1296.1 520.6 L 1294.5 520.7 L 1292.9 520.7 L 1291.3 520.8 L 1289.7 520.9 L 1288.1 521.0 L 1286.6 521.0 L 1285.0 521.1 L 1283.4 521.2 L 1281.8 521.2 L 1280.2 521.3 L 1278.6 521.3 L 1277.0 521.4 L 1275.4 521.4 L 1273.8 521.5 L 1272.2 521.5 L 1270.6 521.5 L 1269.1 521.6 L 1267.5 521.6 L 1265.9 521.6 L 1264.3 521.6 L 1262.7 521.7 L 1261.1 521.7 L 1259.5 521.7 L 1257.9 521.7 L 1256.3 521.7 L 1254.7 521.8 L 1253.1 521.8 L 1251.5 521.8 L 1250.0 521.8 L 1248.4 521.8 L 1246.8 521.8 L 1245.2 521.8 L 1243.6 521.9 L 1242.0 521.9 Z" stroke="none" stroke-width="0" fill="#FCE7F3" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1242.0 519.6 L 1243.6 519.4 L 1245.2 519.3 L 1246.8 519.1 L 1248.4 518.9 L 1250.0 518.7 L 1251.5 518.4 L 1253.1 518.2 L 1254.7 517.9 L 1256.3 517.6 L 1257.9 517.3 L 1259.5 517.0 L 1261.1 516.6 L 1262.7 516.3 L 1264.3 515.9 L 1265.9 515.4 L 1267.5 515.0 L 1269.1 514.5 L 1270.6 514.0 L 1272.2 513.5 L 1273.8 512.9 L 1275.4 512.3 L 1277.0 511.6 L 1278.6 511.0 L 1280.2 510.2 L 1281.8 509.5 L 1283.4 508.6 L 1285.0 507.8 L 1286.6 506.9 L 1288.1 505.9 L 1289.7 504.9 L 1291.3 503.8 L 1292.9 502.7 L 1294.5 501.5 L 1296.1 500.2 L 1297.7 498.9 L 1299.3 497.5 L 1300.9 496.1 L 1302.5 494.6 L 1304.1 493.0 L 1305.6 491.3 L 1307.2 489.6 L 1308.8 487.9 L 1310.4 486.0 L 1312.0 484.1 L 1313.6 482.1 L 1315.2 480.1 L 1316.8 478.0 L 1318.4 475.9 L 1320.0 473.7 L 1321.6 471.4 L 1323.2 469.1 L 1324.7 466.8 L 1326.3 464.4 L 1327.9 462.0 L 1329.5 459.5 L 1331.1 457.1 L 1332.7 454.6 L 1334.3 452.1 L 1335.9 449.6 L 1337.5 447.1 L 1339.1 444.6 L 1340.7 442.1 L 1342.2 439.6 L 1343.8 437.2 L 1345.4 434.8 L 1347.0 432.4 L 1348.6 430.1 L 1350.2 427.8 L 1351.8 425.6 L 1353.4 423.4 L 1355.0 421.3 L 1356.6 419.2 L 1358.2 417.2 L 1359.7 415.2 L 1361.3 413.4 L 1362.9 411.5 L 1364.5 409.8 L 1366.1 408.1 L 1367.7 406.5 L 1369.3 404.9 L 1370.9 403.4 L 1372.5 402.0 L 1374.1 400.7 L 1375.7 399.4 L 1377.3 398.1 L 1378.8 397.0 L 1380.4 395.8 L 1382.0 394.8 L 1383.6 393.8 L 1385.2 392.8 L 1386.8 391.9 L 1388.4 391.1 L 1390.0 390.3 L 1391.6 389.5 L 1393.2 388.8 L 1394.8 388.1 L 1396.3 387.5 L 1397.9 386.9 L 1399.5 386.3 L 1401.1 385.8 L 1402.7 385.3 L 1404.3 384.8 L 1405.9 384.4 L 1407.5 384.0 L 1409.1 383.6 L 1410.7 383.2 L 1412.3 382.9 L 1413.8 382.6 L 1415.4 382.3 L 1417.0 382.0 L 1418.6 381.7 L 1420.2 381.5 L 1421.8 381.3 L 1423.4 381.1 L 1425.0 380.9 L 1426.6 380.7 L 1428.2 380.5 L 1429.8 380.3 L 1431.4 380.2 L 1432.9 380.0 L 1434.5 379.9 L 1436.1 379.8 L 1437.7 379.7 L 1439.3 379.5 L 1440.9 379.4 L 1442.5 379.3 L 1444.1 379.3 L 1445.7 379.2 L 1447.3 379.1 L 1448.9 379.0 L 1450.4 379.0 L 1452.0 378.9 L 1453.6 378.8 L 1455.2 378.8 L 1456.8 378.7 L 1458.4 378.7 L 1460.0 378.6 L 1461.6 378.6 L 1463.2 378.5 L 1464.8 378.5 L 1466.4 378.5 L 1467.9 378.4 L 1469.5 378.4 L 1471.1 378.4 L 1472.7 378.4 L 1474.3 378.3 L 1475.9 378.3 L 1477.5 378.3 L 1479.1 378.3 L 1480.7 378.3 L 1482.3 378.2 L 1483.9 378.2 L 1485.5 378.2 L 1487.0 378.2 L 1488.6 378.2 L 1490.2 378.2 L 1491.8 378.2 L 1493.4 378.1 L 1495.0 378.1" stroke="#D63365" stroke-width="2.9" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1242.0 521.9 L 1243.6 521.9 L 1245.2 521.8 L 1246.8 521.8 L 1248.4 521.8 L 1250.0 521.8 L 1251.5 521.8 L 1253.1 521.8 L 1254.7 521.8 L 1256.3 521.7 L 1257.9 521.7 L 1259.5 521.7 L 1261.1 521.7 L 1262.7 521.7 L 1264.3 521.6 L 1265.9 521.6 L 1267.5 521.6 L 1269.1 521.6 L 1270.6 521.5 L 1272.2 521.5 L 1273.8 521.5 L 1275.4 521.4 L 1277.0 521.4 L 1278.6 521.3 L 1280.2 521.3 L 1281.8 521.2 L 1283.4 521.2 L 1285.0 521.1 L 1286.6 521.0 L 1288.1 521.0 L 1289.7 520.9 L 1291.3 520.8 L 1292.9 520.7 L 1294.5 520.7 L 1296.1 520.6 L 1297.7 520.5 L 1299.3 520.3 L 1300.9 520.2 L 1302.5 520.1 L 1304.1 520.0 L 1305.6 519.8 L 1307.2 519.7 L 1308.8 519.5 L 1310.4 519.3 L 1312.0 519.1 L 1313.6 518.9 L 1315.2 518.7 L 1316.8 518.5 L 1318.4 518.3 L 1320.0 518.0 L 1321.6 517.7 L 1323.2 517.4 L 1324.7 517.1 L 1326.3 516.8 L 1327.9 516.4 L 1329.5 516.0 L 1331.1 515.6 L 1332.7 515.2 L 1334.3 514.7 L 1335.9 514.2 L 1337.5 513.7 L 1339.1 513.1 L 1340.7 512.5 L 1342.2 511.9 L 1343.8 511.2 L 1345.4 510.5 L 1347.0 509.7 L 1348.6 508.9 L 1350.2 508.1 L 1351.8 507.2 L 1353.4 506.2 L 1355.0 505.2 L 1356.6 504.2 L 1358.2 503.0 L 1359.7 501.9 L 1361.3 500.6 L 1362.9 499.3 L 1364.5 498.0 L 1366.1 496.6 L 1367.7 495.1 L 1369.3 493.5 L 1370.9 491.9 L 1372.5 490.2 L 1374.1 488.5 L 1375.7 486.6 L 1377.3 484.8 L 1378.8 482.8 L 1380.4 480.8 L 1382.0 478.7 L 1383.6 476.6 L 1385.2 474.4 L 1386.8 472.2 L 1388.4 469.9 L 1390.0 467.6 L 1391.6 465.2 L 1393.2 462.8 L 1394.8 460.4 L 1396.3 457.9 L 1397.9 455.4 L 1399.5 452.9 L 1401.1 450.4 L 1402.7 447.9 L 1404.3 445.4 L 1405.9 442.9 L 1407.5 440.5 L 1409.1 438.0 L 1410.7 435.6 L 1412.3 433.2 L 1413.8 430.9 L 1415.4 428.6 L 1417.0 426.3 L 1418.6 424.1 L 1420.2 422.0 L 1421.8 419.9 L 1423.4 417.9 L 1425.0 415.9 L 1426.6 414.0 L 1428.2 412.1 L 1429.8 410.4 L 1431.4 408.7 L 1432.9 407.0 L 1434.5 405.4 L 1436.1 403.9 L 1437.7 402.5 L 1439.3 401.1 L 1440.9 399.8 L 1442.5 398.5 L 1444.1 397.3 L 1445.7 396.2 L 1447.3 395.1 L 1448.9 394.1 L 1450.4 393.1 L 1452.0 392.2 L 1453.6 391.4 L 1455.2 390.5 L 1456.8 389.8 L 1458.4 389.0 L 1460.0 388.4 L 1461.6 387.7 L 1463.2 387.1 L 1464.8 386.5 L 1466.4 386.0 L 1467.9 385.5 L 1469.5 385.0 L 1471.1 384.6 L 1472.7 384.1 L 1474.3 383.7 L 1475.9 383.4 L 1477.5 383.0 L 1479.1 382.7 L 1480.7 382.4 L 1482.3 382.1 L 1483.9 381.8 L 1485.5 381.6 L 1487.0 381.3 L 1488.6 381.1 L 1490.2 380.9 L 1491.8 380.7 L 1493.4 380.6 L 1495.0 380.4" stroke="#BE185D" stroke-width="2.9" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1456 383 l 10 -4 l -4 11 Z" stroke="none" stroke-width="0" fill="#D63365" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1279 520 l -11 4 l 4 -11 Z" stroke="none" stroke-width="0" fill="#BE185D" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M 1361 405.68972497693795 L 1361 494.31027502306205" stroke="#D63365" stroke-width="1.3" fill="" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 3" />
+<circle cx="1361" cy="405.68972497693795" r="4.9" fill="#D63365" stroke="none" stroke-width="1"/>
+<circle cx="1361" cy="494.31027502306205" r="4.9" fill="#BE185D" stroke="none" stroke-width="1"/>
+<text x="1371" y="399.68972497693795" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="700" text-anchor="start" fill="#D63365">+Bᵣ</text>
+<text x="1371" y="511.31027502306205" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="700" text-anchor="start" fill="#BE185D">−Bᵣ</text>
+<rect x="1230" y="558" width="287" height="28" rx="7" fill="#FFFFFF" stroke="#F4C0D1" stroke-width="1" />
+<text x="1373" y="578" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.9" font-weight="600" text-anchor="middle" fill="#D63365">相同 H，可对应不同的磁化状态</text>
+<circle cx="1219" cy="634" r="4.1" fill="#D63365" stroke="none" stroke-width="1"/>
+<text x="1232" y="638" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="650" text-anchor="start" fill="#111827">机制</text>
+<text x="1232" y="660" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#475569">磁芯剩磁与远期磁化路径有关</text>
+<circle cx="1219" cy="695" r="4.1" fill="#D63365" stroke="none" stroke-width="1"/>
+<text x="1232" y="699" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="650" text-anchor="start" fill="#111827">建模</text>
+<text x="1232" y="721" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#475569">有限输入窗口会丢失未衰减的状态</text>
+<text x="1223" y="816" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.5" font-weight="700" text-anchor="start" fill="#D63365">选型提示</text>
+<text x="1223" y="838" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="13.7" font-weight="650" text-anchor="start" fill="#111827">Play / Preisach / J–A 状态模型</text>
+<text x="84" y="772" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="400" text-anchor="start" fill="#475569">示例：低驱动前级、温和饱和</text>
+<circle cx="72" cy="767.5" r="3.5" fill="#0F8A8D" stroke="none" stroke-width="1"/>
+<text x="466" y="772" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="400" text-anchor="start" fill="#475569">示例：硬削波、陡峭交越非线性</text>
+<circle cx="454" cy="767.5" r="3.5" fill="#D97706" stroke="none" stroke-width="1"/>
+<text x="848" y="772" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="400" text-anchor="start" fill="#475569">示例：光电包络、偏置缓慢恢复</text>
+<circle cx="836" cy="767.5" r="3.5" fill="#7C3AED" stroke="none" stroke-width="1"/>
+<text x="1230" y="772" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="400" text-anchor="start" fill="#475569">示例：磁带剩磁、变压器磁芯</text>
+<circle cx="1218" cy="767.5" r="3.5" fill="#D63365" stroke="none" stroke-width="1"/>
+<rect x="48" y="904" width="1504" height="54" rx="12" fill="#0F172A" stroke="none" stroke-width="1" />
+<circle cx="80" cy="931" r="8" fill="#38BDF8" stroke="none" stroke-width="1"/>
+<text x="102" y="937" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="650" text-anchor="start" fill="#F8FAFC">核心要义：以输入范围、逼近精度与实时预算选择模型；短记忆非线性适合 Volterra，慢动态与持久磁滞可结合正交基或状态算子。</text>
 </svg>
