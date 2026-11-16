@@ -129,12 +129,12 @@ const body = md.renderer.render(tokens.slice(3), md.options, {});
 const chapterFiles = (await readdir(repoPath)).filter(name => /^0[0-6]_.*\.md$/.test(name));
 function normalizeChapter(content) {
   return content
-    .replace(/!\\[([^\\]]*)\\]\\([^)]+\\)/g, "![$1](FIGURE)")
-    .replace(/^\\[在线阅读本章（完整合订版）\\]\\([^)]+\\)\\s*$/gm, "")
-    .replace(/^\\*\\*章节导航：\\*\\*.*$/gm, "")
-    .replace(/\\r\\n/g, "\\n")
-    .replace(/[ \\t]+$/gm, "")
-    .replace(/\\n{3,}/g, "\\n\\n")
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, "![$1](FIGURE)")
+    .replace(/^\[在线阅读本章（完整合订版）\]\([^)]+\)\s*$/gm, "")
+    .replace(/^\*\*章节导航：\*\*.*$/gm, "")
+    .replace(/\r\n/g, "\n")
+    .replace(/[ \t]+$/gm, "")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
 const chapterMatches = [...source.matchAll(/^# (0[0-6]) .+$/gm)];
