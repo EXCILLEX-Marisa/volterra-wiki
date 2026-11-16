@@ -1,157 +1,221 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif">
-  <defs>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="112%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="vBlur"/>
-      <feOffset in="vBlur" dx="0" dy="3" result="vOffset"/>
-      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
-      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <marker id="arr-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#475569"/>
-    </marker>
-    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#0284C7"/>
-    </marker>
-    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#D97706"/>
-    </marker>
-    <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#7C3AED"/>
-    </marker>
-    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#059669"/>
-    </marker>
-    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#DC2626"/>
-    </marker>
-  </defs>
-
-  
-  <rect width="1600" height="980" fill="#F8FAFC"/>
-
-  
-  <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
-  <rect x="68" y="48" width="190" height="28" rx="6" fill="#0F172A"/>
-  <text x="163.0" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 01-16 · 架构选型决策</text>
-  <text x="274" y="70" font-size="27" font-weight="bold" fill="#0F172A">非线性音频系统建模架构选型决策树与算力谱系图</text>
-  <text x="68" y="104" font-size="15.5" fill="#475569">左侧通过四步残差诊断测试定位系统的记忆尺度与状态属性，右侧给出六级实时建模架构的参数量与适用场景</text>
-
-
-  
-    <rect x="48" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="1.5" filter="url(#shadow)"/>
-  <rect x="48" y="144" width="736" height="54" rx="14" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.5"/>
-  <rect x="48" y="186" width="736" height="12" fill="#E0F2FE"/>
-  <line x1="48" y1="198" x2="784" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
-  <text x="68" y="168" font-size="17" font-weight="bold" fill="#075985">左侧：基于残差频谱与时域特征的四步递进诊断树</text>
-  <text x="68" y="188" font-size="12.5" fill="#075985">遵循奥卡姆剃刀准则：先剥离线性与无记忆分支，再按记忆尺度升维</text>
-
-  
-  <rect x="72" y="212" width="688" height="142" rx="12" fill="#F0F9FF" stroke="#7DD3FC" stroke-width="1.5"/>
-  <rect x="88" y="226" width="118" height="26" rx="6" fill="#0284C7"/>
-  <text x="147" y="244" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">诊断测试 Step 1</text>
-  <text x="220" y="244" font-size="15.5" font-weight="bold" fill="#075985">不同输入电平 (-24 dB vs 0 dB) 下频响与相频是否恒定且无谐波？</text>
-  <text x="88" y="274" font-size="13.5" fill="#334155">• 判据：相干函数 γ²(f) &gt; 0.999，THD &lt; -90 dB → <tspan font-weight="bold" fill="#059669">【是】选用 LTI FIR / IIR 线性滤波器</tspan></text>
-  <text x="88" y="300" font-size="13.5" fill="#334155">• 若出现谐波簇 (2f₀, 3f₀)，进一步扫频检测各阶谐波包络是否随基频 f₀ 改变？</text>
-  <text x="88" y="326" font-size="13.5" font-weight="bold" fill="#D97706">• 【谐波比恒定】→ 选无记忆多项式 / SNLM (Legendre 基 + ADAA)；【随频率变化】→ 进入 Step 2</text>
-
-  <line x1="416" y1="354" x2="416" y2="374" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-blue)"/>
-
-  
-  <rect x="72" y="378" width="688" height="142" rx="12" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5"/>
-  <rect x="88" y="392" width="118" height="26" rx="6" fill="#D97706"/>
-  <text x="147" y="410" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">诊断测试 Step 2</text>
-  <text x="220" y="410" font-size="14.4" font-weight="bold" fill="#92400E">拟合广义 Hammerstein (对角核) 后，双音互调 (f₁±f₂) 残差是否显著？</text>
-  <text x="88" y="440" font-size="12.9" fill="#334155">• 判据：ESS 对角核可完全复现单音谐波，且双音差频 f₂-f₁ 误差 &lt; -50 dB → <tspan font-weight="bold" fill="#059669">【否】选用对角 Volterra</tspan></text>
-  <text x="88" y="466" font-size="12.7" fill="#334155">• 细分结构：若非线性夹在输入/输出定常 EQ 之间，可进一步约简为 Wiener–Hammerstein (L-N-L) 级联</text>
-  <text x="88" y="492" font-size="13.5" font-weight="bold" fill="#7C3AED">• 【双音互调残差大 / 存在跨时刻交叉耦合】→ 必须引入非对角交叉核，进入 Step 3</text>
-
-  <line x1="416" y1="520" x2="416" y2="540" stroke="#D97706" stroke-width="2.5" marker-end="url(#arr-amber)"/>
-
-  
-  <rect x="72" y="544" width="688" height="142" rx="12" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.5"/>
-  <rect x="88" y="558" width="118" height="26" rx="6" fill="#7C3AED"/>
-  <text x="147" y="576" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">诊断测试 Step 3</text>
-  <text x="220" y="576" font-size="15.5" font-weight="bold" fill="#5B21B6">非线性交叉记忆的持续时长 τ_mem 是否在短时间窗 (≤ 10 ms) 内？</text>
-  <text x="88" y="606" font-size="13.5" fill="#334155">• 【τ_mem ≤ 2 ms (M ≤ 64)】：直接选用 <tspan font-weight="bold" fill="#5B21B6">带状剪枝 Volterra (|k₁-k₂| ≤ D, D = 4～12)</tspan></text>
-  <text x="88" y="632" font-size="11.9" fill="#334155">• 【2 ms &lt; τ_mem ≤ 15 ms】：直接采样抽头导致参数爆炸，改用 <tspan font-weight="bold" fill="#059669">Laguerre 正交基 Volterra (V2-L, K=6～10)</tspan></text>
-  <text x="88" y="658" font-size="13.5" font-weight="bold" fill="#DC2626">• 【τ_mem &gt; 20 ms 或存在断崖硬削波 / 剩磁回环】→ 超出纯泛函级数边界，进入 Step 4</text>
-
-  <line x1="416" y1="686" x2="416" y2="706" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-purple)"/>
-
-  
-  <rect x="72" y="710" width="688" height="150" rx="12" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5"/>
-  <rect x="88" y="724" width="118" height="26" rx="6" fill="#DC2626"/>
-  <text x="147" y="742" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">诊断测试 Step 4</text>
-  <text x="220" y="742" font-size="15.5" font-weight="bold" fill="#991B1B">长时动态与奇异非线性的物理机制归属哪一类？</text>
-  <text x="88" y="772" font-size="12.8" fill="#334155">• 【慢增益压缩 / 偏置漂移】→ 选用 <tspan font-weight="bold" fill="#065F46">非对称递归包络 s_env[n] + 双线性状态空间 (Bilinear SSM) / 4A-2A</tspan></text>
-  <text x="88" y="798" font-size="13.5" fill="#334155">• 【变压器铁芯 / 磁带多分支磁滞】→ 选用 <tspan font-weight="bold" fill="#7C3AED">Play / 速率相关 RD-Play 磁滞算子簇 (N_h=4～8)</tspan></text>
-  <text x="88" y="824" font-size="13.5" fill="#334155">• 【高增益多级级联 / 复杂黑盒音箱】→ 选用 <tspan font-weight="bold" fill="#991B1B">白盒主干 + 小型 WaveNet/LSTM 残差混合架构</tspan></text>
-
-  
-    <rect x="816" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="1.5" filter="url(#shadow)"/>
-  <rect x="816" y="144" width="736" height="54" rx="14" fill="#D1FAE5" stroke="#6EE7B7" stroke-width="1.5"/>
-  <rect x="816" y="186" width="736" height="12" fill="#D1FAE5"/>
-  <line x1="816" y1="198" x2="1552" y2="198" stroke="#6EE7B7" stroke-width="1.5"/>
-  <text x="836" y="168" font-size="17" font-weight="bold" fill="#065F46">右侧：七大非线性音频建模架构选型对照谱系</text>
-  <text x="836" y="188" font-size="12.5" fill="#065F46">按实时单样本 MACs 算力预算、参数量与物理可解释性分级</text>
-
-  
-  
-  <rect x="836" y="212" width="696" height="86" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <rect x="850" y="226" width="170" height="58" rx="8" fill="#E0F2FE" stroke="#0284C7"/>
-  <text x="935" y="250" text-anchor="middle" font-size="14" font-weight="bold" fill="#075985">① LTI + SNLM 静态波表</text>
-  <text x="935" y="272" text-anchor="middle" font-size="12" fill="#0369A1">Legendre 基 + ADAA1</text>
-  <text x="1038" y="242" font-size="13" fill="#334155">• <tspan font-weight="bold">参数量</tspan>：M + P (≈ 70)   |   <tspan font-weight="bold">实时算力</tspan>：~80 MACs/sample (极低)</text>
-  <text x="1038" y="266" font-size="13" fill="#334155">• <tspan font-weight="bold">典型任务</tspan>：数字软削波器、无记忆过载激励器、低 CPU 通道条染色</text>
-
-  
-  <rect x="836" y="310" width="696" height="86" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <rect x="850" y="324" width="170" height="58" rx="8" fill="#FEF3C7" stroke="#D97706"/>
-  <text x="935" y="348" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400E">② 广义 Hammerstein</text>
-  <text x="935" y="370" text-anchor="middle" font-size="12" fill="#B45309">对角 Volterra (ESS 核)</text>
-  <text x="1038" y="340" font-size="13" fill="#334155">• <tspan font-weight="bold">参数量</tspan>：P × M (≈ 256～1024)   |   <tspan font-weight="bold">实时算力</tspan>：P 次并行 FFT 卷积</text>
-  <text x="1038" y="364" font-size="13" fill="#334155">• <tspan font-weight="bold">典型任务</tspan>：电子管前级、模拟台子通道频变谐波染色、Acustica 动态卷积</text>
-
-  
-  <rect x="836" y="408" width="696" height="86" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <rect x="850" y="422" width="170" height="58" rx="8" fill="#EDE9FE" stroke="#7C3AED"/>
-  <text x="935" y="446" text-anchor="middle" font-size="14" font-weight="bold" fill="#5B21B6">③ 带状剪枝 Volterra</text>
-  <text x="935" y="468" text-anchor="middle" font-size="12" fill="#6D28D9">近对角带宽 D = 4～12</text>
-  <text x="1038" y="438" font-size="13" fill="#334155">• <tspan font-weight="bold">参数量</tspan>：M·(D+1) (≈ 500～1500)   |   <tspan font-weight="bold">实时算力</tspan>：D 条移位乘积支路滤波</text>
-  <text x="1038" y="462" font-size="13" fill="#334155">• <tspan font-weight="bold">典型任务</tspan>：推挽级短时交叉记忆、微型扬声器非线性互调失真补偿</text>
-
-  
-  <rect x="836" y="506" width="696" height="86" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <rect x="850" y="520" width="170" height="58" rx="8" fill="#D1FAE5" stroke="#059669"/>
-  <text x="935" y="544" text-anchor="middle" font-size="14" font-weight="bold" fill="#065F46">④ Laguerre-Volterra</text>
-  <text x="935" y="566" text-anchor="middle" font-size="12" fill="#047857">全通正交基 K = 6～10</text>
-  <text x="1038" y="536" font-size="13" fill="#334155">• <tspan font-weight="bold">参数量</tspan>：K(K+1)/2 (≈ 36～55)   |   <tspan font-weight="bold">实时算力</tspan>：K 阶全通递推 + 小型二次型</text>
-  <text x="1038" y="560" font-size="13" fill="#334155">• <tspan font-weight="bold">典型任务</tspan>：中长衰减记忆交叉核、温和变压器频变饱和、高条件数辨识</text>
-
-  
-  <rect x="836" y="604" width="696" height="114" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
-  <rect x="850" y="618" width="170" height="86" rx="8" fill="#059669"/>
-  <text x="935" y="648" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">⑤ 灰盒状态组合主干</text>
-  <text x="935" y="670" text-anchor="middle" font-size="12" fill="#D1FAE5">V2-L + Play 磁滞</text>
-  <text x="935" y="690" text-anchor="middle" font-size="12" fill="#D1FAE5">+ Bilinear SSM 包络</text>
-  <text x="1038" y="634" font-size="13" font-weight="bold" fill="#065F46">• 现代母带插件主力架构（参数量 ≈ 120～300，CPU 占用 &lt; 3%）</text>
-  <text x="1038" y="658" font-size="13" fill="#334155">• 兼顾短时泛函记忆 (V2-L)、多值剩磁回环 (RD-Play) 与慢包络交叉调制</text>
-  <text x="1038" y="682" font-size="13" fill="#334155">• 旋钮参数具备明确物理意义，零延迟或仅 0.5 采样 ADAA 相位补偿</text>
-
-  
-  <rect x="836" y="730" width="696" height="130" rx="10" fill="#FEF2F2" stroke="#FCA5A5"/>
-  <rect x="850" y="744" width="170" height="102" rx="8" fill="#FEE2E2" stroke="#DC2626"/>
-  <text x="935" y="776" text-anchor="middle" font-size="14" font-weight="bold" fill="#991B1B">⑥ 白盒主干 + 神经残差</text>
-  <text x="935" y="798" text-anchor="middle" font-size="12" fill="#B91C1C">或全黑盒 NAM</text>
-  <text x="935" y="818" text-anchor="middle" font-size="12" fill="#991B1B">(WaveNet / LSTM)</text>
-  <text x="1038" y="762" font-size="13" fill="#334155">• <tspan font-weight="bold">混合残差型</tspan>：灰盒主干解释 90% 能量 + 16 维轻量 GRU 拟合尾端高阶残差</text>
-  <text x="1038" y="788" font-size="11.9" fill="#334155">• <tspan font-weight="bold">全黑盒 NAM</tspan>：适合高增益吉箱头 (5150/Rectifier) 极端多级削波，参数量 10³～10⁴</text>
-  <text x="1038" y="814" font-size="13" font-weight="bold" fill="#991B1B">• 蒸馏闭环：离线采用高维教师模型拟合，再蒸馏至 ⑤ 号实时学生结构部署</text>
-
-
-  
-  <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
-  <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
-  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：工程建模应遵循「先线性、再对角、后正交基交叉、慢状态与磁滞剥离、神经仅补残差」的分治准则，避免盲目堆叠高阶张量或重型黑盒。</text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+<title id="title">图 01-16：非线性音频系统模型选择决策图</title><desc id="desc">通过线性、静态非线性、交叉记忆、长记忆与状态依赖诊断，选择 Volterra、正交基或显式状态等候选模型。</desc>
+<defs><filter id="shadow" x="-5%" y="-5%" width="110%" height="112%"><feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/><feOffset in="b" dx="0" dy="3" result="o"/><feComponentTransfer><feFuncA type="linear" slope=".07"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect x="0" y="0" width="1600" height="980" rx="0" fill="#F8FAFC" stroke="none" stroke-width="1"/>
+<rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+<rect x="68" y="48" width="190" height="28" rx="6" fill="#0F172A" stroke="none" stroke-width="0"/>
+<text x="163" y="67" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">图 01-16 · 架构选型</text>
+<text x="282" y="70" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="27" font-weight="750" text-anchor="start" fill="#0F172A">从系统特征到候选模型：一张可执行的选型地图</text>
+<text x="68" y="104" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="400" text-anchor="start" fill="#475569">先用实验判断系统的非线性与记忆结构，再逐步增加模型自由度；所有候选模型在统一数据与实时预算下比较。</text>
+<rect x="48" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#BAE6FD" stroke-width="1.4"/>
+<rect x="48" y="144" width="736" height="52" rx="12" fill="#E0F2FE" stroke="none" stroke-width="0"/>
+<text x="68" y="178" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="750" text-anchor="start" fill="#0284C7">左侧｜四步诊断路径</text>
+<text x="758" y="178" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11" font-weight="600" text-anchor="end" fill="#475569">由上而下</text>
+<rect x="68" y="210" width="696" height="142" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1"/>
+<rect x="82" y="224" width="88" height="29" rx="7" fill="#0284C7" stroke="none" stroke-width="0"/>
+<text x="126" y="244" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="750" text-anchor="middle" fill="#FFFFFF">STEP 1</text>
+<text x="190" y="244" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="650" text-anchor="start" fill="#111827">输出是否随输入电平改变，或出现可重复的谐波？</text>
+<path d="M190 259 L744 259" stroke="#E2E8F0" stroke-width="1" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="94" y="276" width="35" height="25" rx="12" fill="#E0F2FE" stroke="none" stroke-width="0"/>
+<text x="111.5" y="293" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#0284C7">否</text>
+<text x="139" y="294" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.4" font-weight="500" text-anchor="start" fill="#475569">线性响应占主导 → LTI FIR / IIR</text>
+<rect x="438" y="276" width="35" height="25" rx="12" fill="#E0F2FE" stroke="none" stroke-width="0"/>
+<text x="455.5" y="293" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#0284C7">是</text>
+<text x="483" y="294" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.4" font-weight="500" text-anchor="start" fill="#475569">进入非线性诊断</text>
+<rect x="68" y="372" width="696" height="142" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1"/>
+<rect x="82" y="386" width="88" height="29" rx="7" fill="#D97706" stroke="none" stroke-width="0"/>
+<text x="126" y="406" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="750" text-anchor="middle" fill="#FFFFFF">STEP 2</text>
+<text x="190" y="406" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="650" text-anchor="start" fill="#111827">静态映射能否解释不同输入频率下的失真？</text>
+<path d="M190 421 L744 421" stroke="#E2E8F0" stroke-width="1" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="94" y="438" width="35" height="25" rx="12" fill="#FEF3C7" stroke="none" stroke-width="0"/>
+<text x="111.5" y="455" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#D97706">是</text>
+<text x="139" y="456" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.4" font-weight="500" text-anchor="start" fill="#475569">无明显记忆 → 多项式 / SNLM</text>
+<rect x="438" y="438" width="35" height="25" rx="12" fill="#FEF3C7" stroke="none" stroke-width="0"/>
+<text x="455.5" y="455" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#D97706">否</text>
+<text x="483" y="456" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.4" font-weight="500" text-anchor="start" fill="#475569">存在动态记忆 → 检查核结构</text>
+<rect x="68" y="534" width="696" height="142" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1"/>
+<rect x="82" y="548" width="88" height="29" rx="7" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<text x="126" y="568" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="750" text-anchor="middle" fill="#FFFFFF">STEP 3</text>
+<text x="190" y="568" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="650" text-anchor="start" fill="#111827">对角模型能否解释双音与双脉冲实验？</text>
+<path d="M190 583 L744 583" stroke="#E2E8F0" stroke-width="1" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="94" y="600" width="35" height="25" rx="12" fill="#EDE9FE" stroke="none" stroke-width="0"/>
+<text x="111.5" y="617" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#7C3AED">能</text>
+<text x="139" y="618" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.4" font-weight="500" text-anchor="start" fill="#475569">对角 Volterra / 并联 Hammerstein</text>
+<rect x="438" y="600" width="35" height="25" rx="12" fill="#EDE9FE" stroke="none" stroke-width="0"/>
+<text x="455.5" y="617" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#7C3AED">不能</text>
+<text x="483" y="618" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.4" font-weight="500" text-anchor="start" fill="#475569">开放非对角交叉项</text>
+<rect x="68" y="696" width="696" height="142" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1"/>
+<rect x="82" y="710" width="88" height="29" rx="7" fill="#059669" stroke="none" stroke-width="0"/>
+<text x="126" y="730" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="750" text-anchor="middle" fill="#FFFFFF">STEP 4</text>
+<text x="190" y="730" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="650" text-anchor="start" fill="#111827">剩余动态属于哪一种历史尺度或状态机制？</text>
+<path d="M190 745 L744 745" stroke="#E2E8F0" stroke-width="1" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="94" y="762" width="35" height="25" rx="12" fill="#D1FAE5" stroke="none" stroke-width="0"/>
+<text x="111.5" y="779" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#059669">短 / 长</text>
+<text x="139" y="780" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.4" font-weight="500" text-anchor="start" fill="#475569">短时交叉核；长衰减用正交基</text>
+<rect x="438" y="762" width="35" height="25" rx="12" fill="#D1FAE5" stroke="none" stroke-width="0"/>
+<text x="455.5" y="779" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#059669">状态</text>
+<text x="483" y="780" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.4" font-weight="500" text-anchor="start" fill="#475569">慢包络用 SSM；磁滞用 Play / Preisach</text>
+<path d="M416 352 L416 371" stroke="#94A3B8" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M410 365 L416 371 L422 365" stroke="#94A3B8" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M416 514 L416 533" stroke="#94A3B8" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M410 527 L416 533 L422 527" stroke="#94A3B8" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M416 676 L416 695" stroke="#94A3B8" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M410 689 L416 695 L422 689" stroke="#94A3B8" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="68" y="850" width="696" height="21" rx="6" fill="#F8FAFC" stroke="none" stroke-width="0"/>
+<text x="416" y="865" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="550" text-anchor="middle" fill="#475569">复杂多级系统可采用白盒 / 灰盒主干，并用小型网络补偿剩余误差。</text>
+<rect x="816" y="144" width="736" height="738" rx="14" fill="#FFFFFF" stroke="#A7F3D0" stroke-width="1.4"/>
+<rect x="816" y="144" width="736" height="52" rx="12" fill="#D1FAE5" stroke="none" stroke-width="0"/>
+<text x="836" y="178" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="750" text-anchor="start" fill="#059669">右侧｜六类候选架构</text>
+<text x="1526" y="178" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11" font-weight="600" text-anchor="end" fill="#475569">由简入繁</text>
+<rect x="836" y="212" width="330" height="194" rx="9" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<rect x="846" y="224" width="126" height="170" rx="6" fill="#E0F2FE" stroke="none" stroke-width="0"/>
+<path d="M850 273 L953 273" stroke="#94A3B8" stroke-width="1" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="853" y="260" width="9" height="13" rx="2" fill="#0284C7" stroke="none" stroke-width="0"/>
+<rect x="868" y="244" width="9" height="29" rx="2" fill="#0284C7" stroke="none" stroke-width="0"/>
+<rect x="883" y="231" width="9" height="42" rx="2" fill="#0284C7" stroke="none" stroke-width="0"/>
+<rect x="898" y="248" width="9" height="25" rx="2" fill="#0284C7" stroke="none" stroke-width="0"/>
+<rect x="913" y="256" width="9" height="17" rx="2" fill="#0284C7" stroke="none" stroke-width="0"/>
+<rect x="928" y="264" width="9" height="9" rx="2" fill="#0284C7" stroke="none" stroke-width="0"/>
+<rect x="943" y="268" width="9" height="5" rx="2" fill="#0284C7" stroke="none" stroke-width="0"/>
+<text x="986" y="243" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#0284C7">LTI FIR / IIR</text>
+<text x="986" y="267" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">用脉冲响应描述线性记忆</text>
+<text x="986" y="286" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">适合电平变化下响应保持稳定的系统</text>
+<rect x="986" y="375" width="62" height="25" rx="12" fill="#E0F2FE" stroke="none" stroke-width="0"/>
+<text x="1017" y="392" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#0284C7">低复杂度</text>
+<rect x="1186" y="212" width="330" height="194" rx="9" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<rect x="1196" y="224" width="126" height="170" rx="6" fill="#FEF3C7" stroke="none" stroke-width="0"/>
+<path d="M1201 277 L1306 277" stroke="#94A3B8" stroke-width="1" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1253 238 L1253 313" stroke="#94A3B8" stroke-width="1" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1205 311.6852608787341 L 1207.2 311.60037554560836 L 1209.4 311.4927632282918 L 1211.6 311.3564406242898 L 1213.8 311.18391084116166 L 1216 310.9658177814709 L 1218.2 310.69054430319517 L 1220.4 310.34375952911773 L 1222.6 309.90793241374547 L 1224.8 309.3618476643976 L 1227 308.68018887757034 L 1229.2 307.8332943816449 L 1231.4 306.78724383837806 L 1233.6 305.504493281799 L 1235.8 303.94532875681153 L 1238 302.07042545696584 L 1240.2 299.84473470866965 L 1242.4 297.2427194565577 L 1244.6 294.25457883363634 L 1246.8 290.8925651201777 L 1249 287.1959414358057 L 1251.2 283.2328303841066 L 1253.4 279.09748362352 L 1255.6 274.90251637648 L 1257.8 270.7671696158934 L 1260 266.80405856419435 L 1262.2 263.1074348798223 L 1264.4 259.74542116636366 L 1266.6 256.7572805434423 L 1268.8 254.15526529133035 L 1271 251.92957454303414 L 1273.2 250.0546712431885 L 1275.4 248.495506718201 L 1277.6 247.21275616162197 L 1279.8 246.1667056183551 L 1282 245.31981112242968 L 1284.2 244.6381523356024 L 1286.4 244.09206758625453 L 1288.6 243.65624047088227 L 1290.8 243.30945569680483 L 1293 243.0341822185291 L 1295.2 242.8160891588383 L 1297.4 242.64355937571017 L 1299.6 242.5072367717082 L 1301.8 242.39962445439164 L 1304 242.3147391212659" stroke="#D97706" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1336" y="243" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#D97706">静态多项式 / SNLM</text>
+<text x="1336" y="267" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">用幅值基函数表达无记忆失真</text>
+<text x="1336" y="286" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">Legendre 基可改善高阶特征数值性</text>
+<rect x="1336" y="375" width="52" height="25" rx="12" fill="#FEF3C7" stroke="none" stroke-width="0"/>
+<text x="1362" y="392" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#D97706">无记忆</text>
+<rect x="836" y="424" width="330" height="194" rx="9" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<rect x="846" y="436" width="126" height="170" rx="6" fill="#FEF3C7" stroke="none" stroke-width="0"/>
+<rect x="853" y="451" width="6.5" height="6.5" rx="1" fill="#D97706" stroke="none" stroke-width="0"/>
+<rect x="862" y="451" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="871" y="451" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="880" y="451" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="889" y="451" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="898" y="451" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="853" y="460" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="862" y="460" width="6.5" height="6.5" rx="1" fill="#D97706" stroke="none" stroke-width="0"/>
+<rect x="871" y="460" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="880" y="460" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="889" y="460" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="898" y="460" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="853" y="469" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="862" y="469" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="871" y="469" width="6.5" height="6.5" rx="1" fill="#D97706" stroke="none" stroke-width="0"/>
+<rect x="880" y="469" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="889" y="469" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="898" y="469" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="853" y="478" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="862" y="478" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="871" y="478" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="880" y="478" width="6.5" height="6.5" rx="1" fill="#D97706" stroke="none" stroke-width="0"/>
+<rect x="889" y="478" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="898" y="478" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="853" y="487" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="862" y="487" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="871" y="487" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="880" y="487" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="889" y="487" width="6.5" height="6.5" rx="1" fill="#D97706" stroke="none" stroke-width="0"/>
+<rect x="898" y="487" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="853" y="496" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="862" y="496" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="871" y="496" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="880" y="496" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="889" y="496" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="898" y="496" width="6.5" height="6.5" rx="1" fill="#D97706" stroke="none" stroke-width="0"/>
+<rect x="920" y="453" width="26" height="12" rx="3" fill="#FFFFFF" stroke="#D97706" stroke-width="1"/>
+<path d="M893 458 L918 458" stroke="#D97706" stroke-width="1.3" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="920" y="472" width="26" height="12" rx="3" fill="#FFFFFF" stroke="#D97706" stroke-width="1"/>
+<path d="M893 477 L918 477" stroke="#D97706" stroke-width="1.3" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="920" y="491" width="26" height="12" rx="3" fill="#FFFFFF" stroke="#D97706" stroke-width="1"/>
+<path d="M893 496 L918 496" stroke="#D97706" stroke-width="1.3" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<text x="960" y="489" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#D97706">Σ</text>
+<text x="986" y="455" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#D97706">对角 Volterra / PH</text>
+<text x="986" y="479" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">各阶幂次支路分别经过 FIR</text>
+<text x="986" y="498" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">适合谐波为主、交叉记忆较弱的系统</text>
+<rect x="986" y="587" width="62" height="25" rx="12" fill="#FEF3C7" stroke="none" stroke-width="0"/>
+<text x="1017" y="604" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#D97706">对角记忆</text>
+<rect x="1186" y="424" width="330" height="194" rx="9" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<rect x="1196" y="436" width="126" height="170" rx="6" fill="#EDE9FE" stroke="none" stroke-width="0"/>
+<rect x="1203" y="451" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1212" y="451" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1221" y="451" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1230" y="451" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1239" y="451" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1248" y="451" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1203" y="460" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1212" y="460" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1221" y="460" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1230" y="460" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1239" y="460" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1248" y="460" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1203" y="469" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1212" y="469" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1221" y="469" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1230" y="469" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1239" y="469" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1248" y="469" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1203" y="478" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1212" y="478" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1221" y="478" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1230" y="478" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1239" y="478" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1248" y="478" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1203" y="487" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1212" y="487" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1221" y="487" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1230" y="487" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1239" y="487" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1248" y="487" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1203" y="496" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1212" y="496" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1221" y="496" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1230" y="496" width="6.5" height="6.5" rx="1" fill="#E2E8F0" stroke="none" stroke-width="0"/>
+<rect x="1239" y="496" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1248" y="496" width="6.5" height="6.5" rx="1" fill="#7C3AED" stroke="none" stroke-width="0"/>
+<rect x="1271" y="453" width="22" height="11" rx="3" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1"/>
+<rect x="1271" y="473" width="22" height="11" rx="3" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1"/>
+<rect x="1271" y="493" width="22" height="11" rx="3" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1"/>
+<text x="1310" y="490" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#7C3AED">×</text>
+<text x="1336" y="455" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#7C3AED">带状 / 低秩 / 稀疏核</text>
+<text x="1336" y="479" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">保留局部或少量显著交叉坐标</text>
+<text x="1336" y="498" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">适合双音、双脉冲残差明显的系统</text>
+<rect x="1336" y="587" width="62" height="25" rx="12" fill="#EDE9FE" stroke="none" stroke-width="0"/>
+<text x="1367" y="604" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#7C3AED">交叉记忆</text>
+<rect x="836" y="636" width="330" height="194" rx="9" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<rect x="846" y="648" width="126" height="170" rx="6" fill="#EDE9FE" stroke="none" stroke-width="0"/>
+<path d="M852 681 L 856.16 680.3412752689576 L 860.32 679.7159288664757 L 864.48 679.1222694748233 L 868.64 678.5586914772553 L 872.8 678.0236706154463 L 876.96 677.5157598669681 L 881.12 677.0335855316579 L 885.28 676.575843516297 L 889.44 676.1412958075482 L 893.6 675.7287671236126 L 897.76 675.3371417355517 L 901.92 674.965360449677 L 906.08 674.6124177428441 L 910.24 674.277359042906 L 914.4 673.9592781469679 L 918.56 673.6573147704627 L 922.72 673.3706522204168 L 926.88 673.0985151866156 L 931.04 672.8401676446911 L 935.2 672.5949108654642 L 939.36 672.3620815251552 L 943.52 672.1410499113518 L 947.6800000000001 671.9312182198835 L 951.84 671.7320189379941 L 956 671.5429133094422" stroke="#0284C7" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M852 697 L 856.16 696.0727320199368 L 860.32 695.2116044942466 L 864.48 694.4118997363506 L 868.64 693.6692365642623 L 872.8 692.9795462982856 L 876.96 692.3390504707552 L 881.12 691.7442401257042 L 885.28 691.1918565950514 L 889.44 690.6788736459899 L 893.6 690.2024809017735 L 897.76 689.7600684450682 L 901.92 689.3492125195232 L 906.08 688.9676622512227 L 910.24 688.6133273172744 L 914.4 688.2842664939775 L 918.56 687.9786770218295 L 922.72 687.6948847291098 L 926.88 687.4313348599308 L 931.04 687.1865835565085 L 935.2 686.9592899489895 L 939.36 686.7482088094956 L 943.52 686.5521837301438 L 947.6800000000001 686.3701407876669 L 951.84 686.201082659925 L 956 686.0440831620772" stroke="#7C3AED" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M852 713 L 856.16 711.8100322088932 L 860.32 710.7289892903918 L 864.48 709.7469006991075 L 868.64 708.8547085533341 L 872.8 708.0441840934799 L 876.96 707.3078517875587 L 881.12 706.6389203837605 L 885.28 706.0312202741914 L 889.44 705.479146592087 L 893.6 704.9776075176765 L 897.76 704.5219773159222 L 901.92 704.1080536729942 L 906.08 703.7320189379941 L 910.24 703.3904049124546 L 914.4 703.0800608628675 L 918.56 702.7981244612167 L 922.72 702.541995385497 L 926.88 702.3093113367368 L 931.04 702.0979262513249 L 935.2 701.9058905076946 L 939.36 701.7314329448075 L 943.52 701.5729445265935 L 947.6800000000001 701.4289635016823 L 951.84 701.298161921554 L 956 701.1793333927624" stroke="#059669" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M852 729 L 856.16 727.55304868399 L 860.32 726.2671487611265 L 864.48 725.1243745756201 L 868.64 724.1087956679307 L 872.8 723.2062547015486 L 876.96 722.4041701074018 L 881.12 721.6913606947205 L 885.28 721.0578897834041 L 889.44 720.494926685071 L 893.6 719.9946236018147 L 897.76 719.550006226614 L 901.92 719.1548765203491 L 906.08 718.8037263101207 L 910.24 718.4916605044161 L 914.4 718.2143288547303 L 918.56 717.9678653123894 L 922.72 717.7488341351977 L 926.88 717.554181992628 L 931.04 717.3811954018931 L 935.2 717.2274629015519 L 939.36 717.09084143534 L 943.52 716.9694264776152 L 947.6800000000001 716.8615254839567 L 951.84 716.7656342968193 L 956 716.6804161773297" stroke="#D97706" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="986" y="667" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#7C3AED">Laguerre / Kautz Volterra</text>
+<text x="986" y="691" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">用少量极点基投影较长的历史</text>
+<text x="986" y="710" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">适合可由衰减模式概括的记忆</text>
+<rect x="986" y="799" width="72" height="25" rx="12" fill="#EDE9FE" stroke="none" stroke-width="0"/>
+<text x="1022" y="816" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#7C3AED">长衰减记忆</text>
+<rect x="1186" y="636" width="330" height="194" rx="9" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+<rect x="1196" y="648" width="126" height="170" rx="6" fill="#D1FAE5" stroke="none" stroke-width="0"/>
+<rect x="1233" y="677" width="47" height="28" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+<text x="1256" y="696" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#7C3AED">s[n]</text>
+<path d="M1201 691 L1230 691" stroke="#0284C7" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1224 687 L1230 691 L1224 695" stroke="#0284C7" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1283 691 L1312 691" stroke="#059669" stroke-width="1.8" fill="" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1306 687 L1312 691 L1306 695" stroke="#059669" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M1274 707 C1289 734,1221 734,1237 708" stroke="#7C3AED" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1336" y="667" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#059669">显式状态 / 混合模型</text>
+<text x="1336" y="691" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">包络、磁滞与递归状态单独建模</text>
+<text x="1336" y="710" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.1" font-weight="400" text-anchor="start" fill="#475569">复杂系统可叠加白盒与神经残差</text>
+<rect x="1336" y="799" width="72" height="25" rx="12" fill="#D1FAE5" stroke="none" stroke-width="0"/>
+<text x="1372" y="816" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#059669">状态与混合</text>
+<rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A" stroke="none" stroke-width="0"/>
+<circle cx="80" cy="929" r="8" fill="#38BDF8" stroke="none" stroke-width="1"/>
+<text x="102" y="935" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15.5" font-weight="650" text-anchor="start" fill="#F8FAFC">选型原则：每增加一类自由度，都要由新的实验残差或物理机制提供理由；用留出数据与相同实时预算检验实际收益。</text>
 </svg>
