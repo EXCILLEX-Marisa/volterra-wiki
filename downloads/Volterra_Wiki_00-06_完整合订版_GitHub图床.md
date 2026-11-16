@@ -487,6 +487,7 @@ h_p[k_1,\ldots,k_p]\prod_{i=1}^{p}x[n-k_i].
 
 $`\mathcal O(M^p)`$ 表示资源规模按 $`M^p`$ 的数量级增长，省略常数因子与较低阶项，并非精确运算次数。对完整稠密核，直接存储原始系数需要 $`M^p`$ 量级空间，逐项计算多重求和也需要相应数量级的乘加项。固定 $`p`$ 时它关于 $`M`$ 呈 $`p`$ 次多项式增长；固定 $`M>1`$ 时则随 $`p`$ 指数增长。这就是完整 Volterra 核在阶数与记忆长度共同增加时容易出现维数爆炸的原因。
 
+
 ## 0.9 从前置概念进入 Volterra
 
 至此，读者已经具备进入 Volterra 理论所需的共同语言：输入与输出、系统性质、时间记忆、内部状态、卷积以及函数与算子的基本概念。下一章将从 Volterra、Wiener 与系统辨识的历史开始，再以两段历史输入的乘积为起点，解释核的定义、阶数、交叉记忆与模型约简。
@@ -1504,7 +1505,7 @@ LSTM（长短期记忆网络）通过显式的门控循环单元来调节历史�
 \end{aligned}
 ```
 
-其中 $`\mathbf{f}[n]\in(0,1)^D`$ 是遗忘门，$`\mathbf{i}[n]`$ 是输入门，$`\mathbf{o}[n]`$ 是输出门，$`\odot`$ 表示按元素Hadamard乘积。从动态系统视角看，遗忘门 $`\mathbf{f}[n]`$ 相当于一个**依赖输入与当前状态的时变一阶极点系数**：当某维度的 $`f_d[n]`$ 接近 $`1`$ 时，该状态通道表现为极慢的时间常数；当 $`f_d[n]`$ 变小时，状态迅速重置。
+其中 $`\sigma(z)=1/(1+e^{-z})`$ 是 Logistic Sigmoid 函数，逐元素作用后将门控值映射到 $`(0,1)`$；$`\tanh(z)`$ 是双曲正切函数，将候选状态和单元状态映射到 $`(-1,1)`$。$`\mathbf{f}[n]\in(0,1)^D`$ 是遗忘门，$`\mathbf{i}[n]`$ 是输入门，$`\mathbf{o}[n]`$ 是输出门，$`\widetilde{\mathbf c}[n]`$ 是候选单元状态（Candidate Cell State），$`\odot`$ 表示按元素 Hadamard 乘积。函数记号 $`\sigma(\cdot)`$ 与统计量中的标准差 $`\sigma_x`$ 语义不同；前者带函数自变量，后者通常带变量下标。从动态系统视角看，遗忘门 $`\mathbf{f}[n]`$ 相当于一个**依赖输入与当前状态的时变一阶极点系数**：当某维度的 $`f_d[n]`$ 接近 $`1`$ 时，该状态通道表现为极慢的时间常数；当 $`f_d[n]`$ 变小时，状态迅速重置。
 
 这种门控递归机制为模拟放大器电源下陷（Sag）、热时间常数或程序依赖的动态释放提供了灵活的候选结构。循环状态究竟学到了怎样的物理历史，需要进一步检查：
 - 在训练阶段，截断时间反向传播（TBPTT）的窗口长度与状态预热（Warm-up）长度直接决定了网络能否观测到慢速状态变化；
@@ -1788,7 +1789,9 @@ s_m^{\mathrm{play}}[n] = \max\!\Bigl(x[n]-r_m,\ \min\bigl(x[n]+r_m,\ s_m^{\mathr
 
 当输入变化量未超出死区区间 $`[s_m[n-1]-r_m,\ s_m[n-1]+r_m]`$ 时，状态 $`s_m[n]`$ 保持原值不变（即便输入归零，剩磁状态依然永久保留）；一旦跨越阈值，状态便沿外包络线推进。将多个不同阈值的 Play 算子加权求和即构成 **Prandtl–Ishlinskii (PI) 模型**。
 
-进一步地，真实磁带涂层与铁芯在高频瞬态下还表现出涡流损耗与磁畴弛豫引起的**速率依赖磁滞（Rate-Dependent Hysteresis，回线面积随频率升高而展宽）**。为此可引入**速率依赖增强型 Play 算子（Rate-Dependent Play, RD-Play）**，在状态更新中加入与输入变化率 $`\Delta x[n]=x[n]-x[n-1]`$ 相关的动态弛豫项或动态阈值缩放：
+在磁性材料的物理记法中，$`H`$ 表示磁场强度，$`B`$ 表示磁通密度；一个完整磁化循环的回线积分可写作 $`\oint H\,\mathrm dB`$，积分方向按耗散能量为正的约定选取。当前 Play 算子以归一化输入 $`x[n]`$ 表示驱动坐标，具体实验中应说明它对应磁场、电流或其他经过标定的输入量。
+
+进一步地，真实磁带涂层与铁芯在高频瞬态下还表现出涡流损耗与磁畴弛豫引起的**速率依赖磁滞（Rate-Dependent Hysteresis，回线面积随频率升高而展宽）**。为此可引入**速率依赖增强型 Play 算子（Rate-Dependent Play, RD-Play）**，在状态更新中加入与输入变化率 $`\Delta x[n]=x[n]-x[n-1]`$ 相关的动态弛豫项或动态阈值缩放。公式中的 $`\beta_m\in[0,1]`$ 是两种状态贡献之间的混合系数，$`r_m(\lvert\Delta x[n]\rvert)`$ 表示随输入变化速率调整的阈值函数：
 
 ```math
 s_m^{\mathrm{RD}}[n] = (1-\beta_m)\,s_m^{\mathrm{play}}\bigl(x[n],\,s_m^{\mathrm{RD}}[n-1];\,r_m(\lvert\Delta x[n]\rvert)\bigr) + \beta_m\,x[n].
@@ -2169,7 +2172,7 @@ f(x)=
 
 在电子管热弛豫、铁氧体/磁带介质粘滞损耗（Magnetic After-effect / Viscosity）、扬声器悬边蠕变（Creep）以及电解电容介质吸收（Dielectric Absorption）中，系统在受激后的恢复可能比单一指数衰减 $`e^{-t/\tau}`$ 更缓慢，并在多个数量级的时间尺度上呈现**幂律衰减（Power-Law Decay，$`t^{-\alpha}`$）**。
 
-当标量阶数满足 $`0\lt \alpha_{\mathrm{frac}}\lt 1`$ 时，连续时间 Caputo 分数阶导数与 Grünwald–Letnikov 离散分数阶差分分别定义为：
+当标量阶数满足 $`0\lt \alpha_{\mathrm{frac}}\lt 1`$ 时，连续时间 Caputo 分数阶导数与 Grünwald–Letnikov 离散分数阶差分分别定义为。这里的 Gamma 函数定义为 $`\Gamma(z)=\int_0^\infty t^{z-1}e^{-t}\,\mathrm dt`$（$`\operatorname{Re}(z)>0`$），并满足 $`\Gamma(n)=(n-1)!`$。它为非整数阶参数提供阶乘的连续推广：
 
 ```math
 {}^CD_t^{\alpha_{\mathrm{frac}}} s(t)=
@@ -2251,7 +2254,7 @@ c_{\boldsymbol\alpha}\,
 \prod_{j=1}^{d}H_{\alpha_j}(\xi_j),
 ```
 
-其中多指标 $`\boldsymbol{\alpha}=(\alpha_1,\ldots,\alpha_d)\in\mathbb{N}_0^d`$，总阶数为 $`\lvert\boldsymbol{\alpha}\rvert=\sum_{j=1}^d \alpha_j \le P_{\mathrm{PCE}}`$。需要再次强调，这里的“Chaos（混沌）”源自 Norbert Wiener 1938 年命名的高斯纯随机空间（Homogeneous Chaos），属**概率论与随机泛函正交基术语**，与洛伦兹吸引子、正 Lyapunov 指数等确定性非线性动力学混沌无任何关系。
+其中多指标 $`\boldsymbol{\alpha}=(\alpha_1,\ldots,\alpha_d)\in\mathbb{N}_0^d`$，$`\mathbb N_0=\{0,1,2,\ldots\}`$ 表示非负整数集合；总阶数为 $`\lvert\boldsymbol{\alpha}\rvert=\sum_{j=1}^d \alpha_j \le P_{\mathrm{PCE}}`$。$`H_k(\xi_j)`$ 表示以标准高斯变量为自变量的第 $`k`$ 阶 Hermite 多项式，$`\Psi_{\boldsymbol\alpha}`$ 是各维基函数的乘积。需要再次强调，这里的“Chaos（混沌）”源自 Norbert Wiener 1938 年命名的高斯纯随机空间（Homogeneous Chaos），属**概率论与随机泛函正交基术语**，与洛伦兹吸引子、正 Lyapunov 指数等确定性非线性动力学混沌无任何关系。
 
 ## 4.13 Polynomial Chaos Expansion (PCE)：器件公差与硬件个体差异的统计建模
 
@@ -2270,11 +2273,13 @@ c_{\boldsymbol\alpha}[n]\,
 
 ```math
 \mathbb E_{\boldsymbol{\xi}}\bigl[y[n;\boldsymbol\xi]\bigr]= c_{\boldsymbol0}[n],\qquad
-\mathrm{Var}_{\boldsymbol{\xi}}\bigl(y[n;\boldsymbol\xi]\bigr)=
+\operatorname{Var}_{\boldsymbol{\xi}}\bigl(y[n;\boldsymbol\xi]\bigr)=
 \sum_{\boldsymbol\alpha\ne\boldsymbol0}
 c_{\boldsymbol\alpha}^2[n]\,
 \mathbb E\bigl[\Psi_{\boldsymbol\alpha}^2(\boldsymbol\xi)\bigr],\qquad
-S_j[n] = \frac{\sum_{\boldsymbol{\alpha}\in\mathcal{A}_j}c_{\boldsymbol{\alpha}}^2[n]\mathbb{E}[\Psi_{\boldsymbol{\alpha}}^2]}{\mathrm{Var}_{\boldsymbol{\xi}}(y[n;\boldsymbol{\xi}])}.
+S_j[n] = \frac{\sum_{\boldsymbol{\alpha}\in\mathcal{A}_j}c_{\boldsymbol{\alpha}}^2[n]\mathbb{E}[\Psi_{\boldsymbol{\alpha}}^2]}{\operatorname{Var}_{\boldsymbol{\xi}}(y[n;\boldsymbol{\xi}])}.
+
+这里的 $`\mathcal A_j`$ 表示仅第 $`j`$ 个随机坐标具有非零阶次的多重指标集合，即 $`\{\boldsymbol\alpha:\alpha_j>0,\ \alpha_\ell=0\ (\ell\ne j)\}`$。因此，上式对应第 $`j`$ 个输入参数的一阶 Sobol 灵敏度；包含该坐标与其他坐标交互项的总效应指标需要汇总所有满足 $`\alpha_j>0`$ 的项。
 ```
 
 在商业插件设计中，若某个内部元件的 Sobol 灵敏度指标 $`S_j`$ 极高，就可以将该随机坐标 $`\xi_j`$ 直接暴露为插件面板上的“Variance / Tolerance / Tube Age（成色/老化度）”连续微调旋钮，从而用一套正交展开同时覆盖整个经典硬件家族的个体分布。
@@ -2295,7 +2300,7 @@ y[n]=H(\mathbf{s}[n],u[n];\boldsymbol{\theta}),
 \bigl[\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})\bigr]_{n,i} = \frac{\partial \hat{y}[n]}{\partial \theta_i}.
 ```
 
-**局部参数可辨识性判据**：在标称参数 $`\boldsymbol{\theta}_0`$ 邻域内，模型参数由激励 $`\mathbf{u}`$ 局部唯一可辨识的充要条件是灵敏度矩阵满列秩，即 $`\mathrm{rank}\bigl(\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})\bigr)=K`$（等价于信息矩阵 $`\mathbf{J}_{\boldsymbol{\theta}}^\top\mathbf{J}_{\boldsymbol{\theta}}`$ 正定可逆）。若两个参数列向量线性相关（例如在第 1.9.1 节单音 ESS 激励下，Wiener–Hammerstein 前置增益与后置增益的灵敏度列完全共线），则矩阵奇异，必须通过改变激励结构（如引入双音或多幅度阶跃）打破列共线性。
+**局部参数可辨识性判据**：在标称参数 $`\boldsymbol{\theta}_0`$ 邻域内，模型参数由激励 $`\mathbf{u}`$ 局部唯一可辨识的充要条件是灵敏度矩阵满列秩，即 $`\operatorname{rank}\bigl(\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})\bigr)=K`$（等价于信息矩阵 $`\mathbf{J}_{\boldsymbol{\theta}}^\top\mathbf{J}_{\boldsymbol{\theta}}`$ 正定可逆）。若两个参数列向量线性相关（例如在第 1.9.1 节单音 ESS 激励下，Wiener–Hammerstein 前置增益与后置增益的灵敏度列完全共线），则矩阵奇异，必须通过改变激励结构（如引入双音或多幅度阶跃）打破列共线性。
 
 #### 可观测性与可辨识性：对应两种实验提问
 
@@ -2304,6 +2309,8 @@ y[n]=H(\mathbf{s}[n],u[n];\boldsymbol{\theta}),
 因此，激励的任务除了覆盖频率与幅度，还包括主动打破候选参数之间的相关性。可以通过双音间隔、多方差台阶、不同预激励历史或持续激励（Persistent Excitation）构造独立变化；下一节将用 Fisher 信息矩阵把这项实验设计任务写成定量优化问题。
 
 ## 4.15 Fisher 信息矩阵（FIM）、Cramér–Rao 下界与主动最优激励设计
+
+似然函数 $`p(\mathbf y\mid\boldsymbol\theta,\mathbf u)`$ 表示在给定模型参数 $`\boldsymbol\theta`$ 与测试输入 $`\mathbf u`$ 时，观测到数据向量 $`\mathbf y`$ 的概率密度；竖线 $`\mid`$ 表示条件关系。
 
 当测量输出包含加性高斯白噪声 $`y[n]=\hat{y}_{\boldsymbol{\theta}}[n]+w[n]`$（$`w[n]\sim\mathcal{N}(0,\sigma_w^2)`$）时，似然函数 $`p(\mathbf{y}\mid\boldsymbol{\theta},\mathbf{u})`$ 对应的 **Fisher 信息矩阵（Fisher Information Matrix, FIM）** 具有极其简洁的闭式表达：
 
@@ -2319,7 +2326,7 @@ y[n]=H(\mathbf{s}[n],u[n];\boldsymbol{\theta}),
 对于固定核 Volterra 线性回归 $`\hat{\mathbf{y}}=\mathbf{X}(\mathbf{u})\boldsymbol{\theta}`$，灵敏度矩阵就是特征设计矩阵 $`\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})=\mathbf{X}(\mathbf{u})`$，因此 Fisher 信息矩阵直接退化为 $`\mathcal{I}(\boldsymbol{\theta};\mathbf{u})=\frac{1}{\sigma_w^2}\mathbf{X}(\mathbf{u})^\top\mathbf{X}(\mathbf{u})`$。由数理统计中的 **Cramér–Rao 不等式（CRLB）**，任何无偏参数估计器 $`\hat{\boldsymbol{\theta}}`$ 的协方差矩阵均受限于 Fisher 信息矩阵的逆：
 
 ```math
-\mathrm{Cov}(\hat{\boldsymbol{\theta}}) \succeq \mathcal{I}(\boldsymbol{\theta};\mathbf{u})^{-1} = \sigma_w^2\bigl(\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})^\top\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})\bigr)^{-1}.
+\operatorname{Cov}(\hat{\boldsymbol{\theta}}) \succeq \mathcal{I}(\boldsymbol{\theta};\mathbf{u})^{-1} = \sigma_w^2\bigl(\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})^\top\mathbf{J}_{\boldsymbol{\theta}}(\mathbf{u})\bigr)^{-1}.
 ```
 
 这一公式将“设计什么样的测试音频最好”直接转化为一个可计算的数学优化问题——**主动最优激励设计（Optimal Input Design）**[A8]：在满足硬件安全峰值幅度 $`\lVert\mathbf{u}\rVert_\infty \le u_{\max}`$ 与频带限制的前提下，优化测试信号参数（如多音信号的频率分布、多方差台阶权重或脉冲间隔），以极小化参数置信椭球的体积或轴长：
@@ -2515,6 +2522,8 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 
 ```math
 \ddot{\mathbf{a}}(t) + \mathbf{\Gamma}_r\dot{\mathbf{a}}(t) + \mathbf{\Omega}_r^2\mathbf{a}(t) + \boldsymbol{\Phi}_r^\top\mathbf{f}_{\mathrm{nl}}\bigl(\boldsymbol{\Phi}_r\mathbf{a}(t)\bigr) = \bigl(\boldsymbol{\Phi}_r^\top\mathbf{b}_{\mathrm{in}}\bigr)u(t).
+
+其中 $`\mathbf{\Gamma}_r`$ 是降阶模态阻尼矩阵，$`\mathbf{\Omega}_r`$ 是由保留模态角频率组成的对角矩阵；$`\mathbf a(t)`$ 为低维模态坐标。
 ```
 
 在这组方程中，$`\mathbf M`$、$`\mathbf C`$、$`\mathbf K`$ 分别是质量、阻尼与刚度矩阵；$`\mathbf q`$ 是物理位移自由度，$`\boldsymbol\Phi_r`$ 则把这些自由度投影到 $`r`$ 个低维模态坐标。**有限元模态降阶压缩的是物理空间自由度 $`\mathbf{q}\in\mathbb{R}^{N_{\mathrm{FEM}}}`$**，而《01》《03》中的 **Volterra 低秩与 Laguerre 约简压缩的是时间历史核坐标**。两种降阶可以在同一台多物理场设备中配合使用：前者减少空间计算，后者减少时域记忆的参数与滤波成本。
@@ -2525,6 +2534,8 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 
 ```math
 \mathbf X_{\mathrm{snap}}=\mathbf U\boldsymbol\Sigma\mathbf V^\top,\qquad
+
+其中 $`\mathbf U`$ 与 $`\mathbf V`$ 的列向量分别给出快照矩阵列空间与行空间的正交基，$`\boldsymbol\Sigma`$ 为非负奇异值构成的对角矩阵。记号 $`\mathbf U_{:,1:r}`$ 表示取 $`\mathbf U`$ 的全部行以及前 $`r`$ 列；这些列构成保留的 POD 基底。$`\sigma_i`$ 是第 $`i`$ 个奇异值，截断误差通过被舍弃奇异值的平方和衡量。
 \boldsymbol{\Phi}_r = \mathbf{U}_{:,1:r},\qquad
 \frac{\sum_{i=r+1}^{\min(N_{\mathrm{FEM}},N_s)}\sigma_i^2}{\sum_{i=1}^{\min(N_{\mathrm{FEM}},N_s)}\sigma_i^2} \lt \varepsilon_{\mathrm{POD}}.
 ```
@@ -2539,7 +2550,7 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 
 为了降低对全维网格 $`N_{\mathrm{FEM}}`$ 的运算依赖，可以引入**离散经验插值法（Discrete Empirical Interpolation Method, DEIM）** 等**超降阶（Hyper-Reduction）** 技术 [P9]：
 1. 对离线收集的非线性力快照矩阵 $`[\mathbf{f}_{\mathrm{nl}}(\mathbf{q}(t_1)),\ldots,\mathbf{f}_{\mathrm{nl}}(\mathbf{q}(t_{N_s}))]`$ 再次执行 POD，提取 $`m`$ 个非线性力基向量 $`\mathbf{U}_f\in\mathbb{R}^{N_{\mathrm{FEM}}\times m}`$（$`m\sim r \ll N_{\mathrm{FEM}}`$）；
-2. 利用贪心行枢轴选择算法，在原始网格中仅挑选 **$`m`$ 个最具代表性的空间插值采样点（Magic Points）**，记对应的行抽取选择矩阵为 $`\mathbf{P}=[\mathbf{e}_{p_1},\ldots,\mathbf{e}_{p_m}]\in\mathbb{R}^{N_{\mathrm{FEM}}\times m}`$；
+2. 利用贪心行枢轴选择算法，在原始网格中仅挑选 **$`m`$ 个最具代表性的空间插值采样点（Magic Points）**，记对应的行抽取选择矩阵为 $`\mathbf{P}=[\mathbf{e}_{p_1},\ldots,\mathbf{e}_{p_m}]\in\mathbb{R}^{N_{\mathrm{FEM}}\times m}`$；其中 $`\mathbf e_{p_i}`$ 是第 $`p_i`$ 个分量为 1、其余分量为 0 的标准基向量。
 3. 预计算常矩阵 $`\mathbf{W}_{\mathrm{DEIM}} = \boldsymbol{\Phi}_r^\top\mathbf{U}_f(\mathbf{P}^\top\mathbf{U}_f)^{-1}\in\mathbb{R}^{r\times m}`$ 与抽取基 $`\boldsymbol{\Phi}_{r,\mathbf{P}}=\mathbf{P}^\top\boldsymbol{\Phi}_r\in\mathbb{R}^{m\times r}`$，则实时非线性模态力可**仅在这 $`m`$ 个空间网格点上求值**：
 
 ```math
@@ -2833,7 +2844,9 @@ Acustica 在 YELLOW 的产品资料中将 **NOVA（Neural Optimized Volterra Aud
 静态点形函数（Pointwise Waveshaper）为 Volterra 型分支提供了另一种非线性表达。以广义反正切族为例，令 $`p>0`$：
 
 ```math
-f_p(x)=\mathrm{sgn}(x)\left[\arctan\left(\lvert x\rvert^p\right)\right]^{1/p}.
+f_p(x)=\operatorname{sgn}(x)\left[\arctan\left(\lvert x\rvert^p\right)\right]^{1/p}.
+
+其中 $`\operatorname{sgn}(x)`$ 为符号函数，$`\arctan`$ 为反正切函数；$`p>0`$ 控制输入幅度进入饱和区间的形状。符号函数使该点形器保持奇对称。
 ```
 
 其小信号近似为 $`f_p(x)\approx x`$，大信号渐近值为 $`\pm(\pi/2)^{1/p}`$。因此，有界非多项式点形器可以在较低复杂度下补足有限阶多项式在强过载区间缺乏全局饱和上界的问题。结合一维 FIR、分支乘积和电平条件权重，能够在同一套引擎中组合频率相关音色、强非线性与工作点变化，但仍须重视抗混叠与多路径延迟对齐。
