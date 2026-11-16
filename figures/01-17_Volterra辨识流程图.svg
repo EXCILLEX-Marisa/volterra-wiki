@@ -326,4 +326,11 @@
 <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A" stroke="none" stroke-width="0"/>
 <circle cx="80" cy="929" r="8" fill="#38BDF8" stroke="none" stroke-width="1"/>
 <text x="102" y="935" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="15.5" font-weight="650" text-anchor="start" fill="#F8FAFC">辨识闭环：测量 → 激励 → 结构 → 求解 → 验证 → 部署；验证结果决定是否保留新增的模型自由度。</text>
+<g id="flow-connectors" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M531 320 L557 320 M551 315 L557 320 L551 325"/>
+<path d="M1043 320 L1069 320 M1063 315 L1069 320 L1063 325"/>
+<path d="M1312 500 L1312 514 L288 514 L288 529 M283 523 L288 529 L293 523"/>
+<path d="M531 700 L557 700 M551 695 L557 700 L551 705"/>
+<path d="M1043 700 L1069 700 M1063 695 L1069 700 L1063 705"/>
+</g>
 </svg>
