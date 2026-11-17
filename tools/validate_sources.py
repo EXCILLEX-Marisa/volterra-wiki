@@ -16,7 +16,7 @@ MANIFEST = ROOT / "tools" / "figure_manifest.txt"
 BUNDLE = ROOT / "downloads" / "Volterra_Wiki_00-06_完整合订版_GitHub图床.md"
 RAW_PREFIX = "https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/"
 SVG_NS = "{http://www.w3.org/2000/svg}svg"
-COUNTS = {"00": 3, "01": 17, "02": 4, "03": 4, "04": 3, "05": 3, "06": 4}
+COUNTS = {"00": 4, "01": 17, "02": 4, "03": 4, "04": 2, "05": 3, "06": 4}
 IMAGE = re.compile(r"!\[[^\]\n]*\]\(([^)\n]+)\)")
 LOCAL_MD = re.compile(r"(?<!!)\[[^\]\n]+\]\(([^)\n]*?\.md(?:\?[^)\n]*)?(?:#[^)\n]*)?)\)")
 FENCE = re.compile(r"^[ \t]{0,3}" + chr(96) * 3 + r"([^" + chr(96) + r"\r\n]*)[ \t]*$")
@@ -122,8 +122,15 @@ def main() -> int:
         figures = [check_image(m.group(1), path == BUNDLE, path)
                    for m in IMAGE.finditer(source)]
         if path in chapters:
-            require(len(figures) == COUNTS[path.name[:2]],
-                    f"{path.name}: expected {COUNTS[path.name[:2]]} images; got {len(figures)}")
+            chapter_id = path.name[:2]
+            require(len(figures) == COUNTS[chapter_id],
+                    f"{path.name}: expected {COUNTS[chapter_id]} images; got {len(figures)}")
+            misplaced = [name for name in figures
+                         if not re.fullmatch(rf"{chapter_id}-\d{{2}}_.+\.svg", name)]
+            require(not misplaced,
+                    f"{path.name}: figure filename chapter prefixes mismatch: {misplaced}")
+            require(len(figures) == len(set(figures)),
+                    f"{path.name}: duplicate figure references")
             chapter_figures.update(figures)
         if path == BUNDLE:
             require(len(figures) == 38 and set(figures) == expected,
