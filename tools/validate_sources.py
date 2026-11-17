@@ -21,6 +21,7 @@ IMAGE = re.compile(r"!\[[^\]\n]*\]\(([^)\n]+)\)")
 LOCAL_MD = re.compile(r"(?<!!)\[[^\]\n]+\]\(([^)\n]*?\.md(?:\?[^)\n]*)?(?:#[^)\n]*)?)\)")
 FENCE = re.compile(r"^[ \t]{0,3}" + chr(96) * 3 + r"([^" + chr(96) + r"\r\n]*)[ \t]*$")
 CHINESE_PROSE = re.compile(r"[\u3400-\u9fff]")
+BARE_MATH = re.compile(r"(?<!\$)\$(?!`)[^\$\n]{1,120}\$(?!`)")
 
 
 def require(ok: bool, message: str) -> None:
@@ -39,6 +40,9 @@ def check_fences(path: Path, source: str) -> int:
     for lineno, line in enumerate(source.splitlines(), 1):
         match = FENCE.fullmatch(line)
         if not match:
+            if active is None:
+                require(not BARE_MATH.search(line),
+                        f"{path.name}:{lineno}: use GitHub-safe inline math delimiters")
             if active == "math":
                 require("$" + chr(96) not in line and not CHINESE_PROSE.search(line),
                         f"{path.name}:{lineno}: prose or inline math inside a math fence")
