@@ -13,7 +13,7 @@
 ## 分章阅读
 
 - [00 前置概念与术语约定](00_前置概念与术语约定_图文版.md)：建立输入输出、系统性质、记忆与状态、卷积和泛函直觉，补充标量、向量、矩阵、张量、函数空间、微积分、概率及优化的直观教学，配有四类数学工具的图解，在首次出现处演示叠加、递推与卷积求和，再以符号索引补充求和、连乘、张量、量纲、优化等概念，并提供进入 Volterra 的自检问题。
-- [01 Volterra 级数](01_Volterra级数_图文版.md)：从历史、Volterra 核与交叉记忆进入系统辨识，详细推导 Hammerstein、Wiener、Wiener–Hammerstein、Hammerstein–Wiener 四类经典块结构；进阶线保留 ESS/Novák 反解、多方差辨识、核约简、收敛与 ADAA。
+- [01 Volterra 级数](01_Volterra级数_图文版.md)：从历史、Volterra 核与交叉记忆进入系统辨识，先以音频处理模块和测量情境介绍 Hammerstein、Wiener、Wiener–Hammerstein、Hammerstein–Wiener，再推导各自等效核；进阶线保留 ESS/Novák 反解、多方差辨识、核约简、收敛与 ADAA。
 - [02 从 Volterra 到神经网络](02_从Volterra到神经网络_模型辨识与NAM.md)：神经网络与非线性系统辨识的交叉史、固定核回归、WaveNet、LSTM、NAM、参数超网络、可微分 DSP 与储备池计算。
 - [03 混合建模、训练边界与实时约简](03_混合建模训练边界与实时约简.md)：以测量目标和实时预算决定短时核、物理状态与神经模型的职责，保留 Laguerre–Volterra、Play、ADAA、NARX/NOE 及光电压缩器架构案例。
 - [04 高级系统辨识：非线性算子、衰减记忆与随机正交展开](04_高级系统辨识_非线性算子与混沌分解.md)：三条可选研究路线：泛函可微性与衰减记忆、Koopman/Carleman 与长尾状态、Wiener Chaos/PCE 与 Fisher 信息。
