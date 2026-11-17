@@ -131,6 +131,15 @@ def main() -> int:
                     f"{path.name}: figure filename chapter prefixes mismatch: {misplaced}")
             require(len(figures) == len(set(figures)),
                     f"{path.name}: duplicate figure references")
+            expected_order = sorted(figures)
+            require(figures == expected_order,
+                    f"{path.name}: SVG references are out of chapter number order")
+            for image_match, image_name in zip(IMAGE.finditer(source), figures):
+                caption = re.match(r"^\s*\*图\s*(\d{2}-\d{2})", source[image_match.end():])
+                require(caption is not None,
+                        f"{path.name}: missing caption after {image_name}")
+                require(caption.group(1) == image_name[:5],
+                        f"{path.name}: caption {caption.group(1)} does not match {image_name[:5]}")
             chapter_figures.update(figures)
         if path == BUNDLE:
             require(len(figures) == 38 and set(figures) == expected,
