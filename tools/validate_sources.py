@@ -1,4 +1,4 @@
-"""Pre-build checks for math fences, local links, and the 37 SVG figures.
+"""Pre-build checks for math fences, local links, and the 38 SVG figures.
 
 Uses Python's standard library; the Node reader remains authoritative for
 MathJax rendering and the exact chapter/bundle content comparison.
@@ -16,7 +16,7 @@ MANIFEST = ROOT / "tools" / "figure_manifest.txt"
 BUNDLE = ROOT / "downloads" / "Volterra_Wiki_00-06_完整合订版_GitHub图床.md"
 RAW_PREFIX = "https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/"
 SVG_NS = "{http://www.w3.org/2000/svg}svg"
-COUNTS = {"00": 2, "01": 17, "02": 4, "03": 4, "04": 3, "05": 3, "06": 4}
+COUNTS = {"00": 3, "01": 17, "02": 4, "03": 4, "04": 3, "05": 3, "06": 4}
 IMAGE = re.compile(r"!\[[^\]\n]*\]\(([^)\n]+)\)")
 LOCAL_MD = re.compile(r"(?<!!)\[[^\]\n]+\]\(([^)\n]*?\.md(?:\?[^)\n]*)?(?:#[^)\n]*)?)\)")
 FENCE = re.compile(r"^[ \t]{0,3}" + chr(96) * 3 + r"([^" + chr(96) + r"\r\n]*)[ \t]*$")
@@ -106,8 +106,8 @@ def check_links(path: Path, source: str) -> int:
 def main() -> int:
     names = [line.strip() for line in read(MANIFEST).splitlines()
              if line.strip() and not line.startswith("#")]
-    require(len(names) == 37 and len(set(names)) == 37,
-            "figure_manifest.txt must list 37 unique SVG filenames")
+    require(len(names) == 38 and len(set(names)) == 38,
+            "figure_manifest.txt must list 38 unique SVG filenames")
     expected = set(names)
     check_svg_files(expected)
     chapters = sorted(ROOT.glob("0[0-6]_*.md"))
@@ -126,11 +126,11 @@ def main() -> int:
                     f"{path.name}: expected {COUNTS[path.name[:2]]} images; got {len(figures)}")
             chapter_figures.update(figures)
         if path == BUNDLE:
-            require(len(figures) == 37 and set(figures) == expected,
-                    f"{path.name}: expected exactly 37 manifest SVG references")
+            require(len(figures) == 38 and set(figures) == expected,
+                    f"{path.name}: expected exactly 38 manifest SVG references")
     require(chapter_figures == expected,
             f"chapter figure mismatch; missing={sorted(expected - chapter_figures)}")
-    print(f"Validation passed: 7 chapters, 37 SVGs, {total_math} math fences, "
+    print(f"Validation passed: 7 chapters, 38 SVGs, {total_math} math fences, "
           f"{total_links} local Markdown links.")
     return 0
 

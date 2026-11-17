@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+<defs><filter id="shadow" x="-3%" y="-5%" width="106%" height="112%"><feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/><feOffset in="blur" dx="0" dy="3" result="off"/><feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g font-family="Noto Sans CJK SC,Noto Sans SC,Microsoft YaHei,PingFang SC,sans-serif">
+<rect x="0" y="0" width="1600" height="980" rx="0" fill="#F8FAFC" stroke="#F8FAFC" stroke-width="0"/>
+<rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+<rect x="68" y="48" width="192" height="28" rx="6" fill="#0F172A" stroke="#0F172A" stroke-width="0"/>
+<text x="164" y="68" font-size="14" fill="#FFFFFF" font-weight="700" text-anchor="middle">图 00-04 · 数学工具</text>
+<text x="276" y="70" font-size="30" fill="#0F172A" font-weight="700" text-anchor="start">高等数学工具在音频建模中的作用地图</text>
+<text x="68" y="104" font-size="16" fill="#475569" text-anchor="start">从采样值与历史核出发，理解数据组织、系统映射、变化分析，以及测量与训练；四类工具共同服务于非线性系统辨识。</text>
+<rect x="48" y="146" width="734" height="342" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2"/>
+<rect x="48" y="146" width="734" height="55" rx="16" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.4"/>
+<rect x="62" y="160" width="64" height="27" rx="6" fill="#0284C7" stroke="#0284C7" stroke-width="0"/>
+<text x="94" y="179" font-size="15" fill="#FFFFFF" font-weight="700" text-anchor="middle">A</text>
+<text x="142" y="181" font-size="22" fill="#0284C7" font-weight="700" text-anchor="start">数据对象｜我们拿到什么</text>
+<text x="70" y="231" font-size="14" fill="#475569" text-anchor="start">单个采样值 → 输入历史 → 测量表 → 多维核系数</text>
+<rect x="68" y="235" width="153" height="221" rx="12" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1.2"/>
+<text x="82" y="264" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">标量</text>
+<text x="82" y="284" font-size="13" fill="#0284C7" font-weight="700" text-anchor="start">Scalar</text>
+<rect x="249" y="235" width="153" height="221" rx="12" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1.2"/>
+<text x="263" y="264" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">向量</text>
+<text x="263" y="284" font-size="13" fill="#0284C7" font-weight="700" text-anchor="start">Vector</text>
+<rect x="430" y="235" width="153" height="221" rx="12" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1.2"/>
+<text x="444" y="264" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">矩阵</text>
+<text x="444" y="284" font-size="13" fill="#0284C7" font-weight="700" text-anchor="start">Matrix</text>
+<rect x="611" y="235" width="153" height="221" rx="12" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1.2"/>
+<text x="625" y="264" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">张量</text>
+<text x="625" y="284" font-size="13" fill="#0284C7" font-weight="700" text-anchor="start">Tensor</text>
+<line x1="85" y1="354" x2="202" y2="354" stroke="#CBD5E1" stroke-width="1.5"/>
+<line x1="99" y1="295" x2="99" y2="371" stroke="#CBD5E1" stroke-width="1.3"/>
+<path d="M101.00 330.18 L102.60 328.14 L104.20 326.18 L105.80 324.35 L107.40 322.69 L109.00 321.26 L110.60 320.07 L112.20 319.17 L113.80 318.57 L115.40 318.29 L117.00 318.34 L118.60 318.70 L120.20 319.39 L121.80 320.37 L123.40 321.63 L125.00 323.13 L126.60 324.83 L128.20 326.70 L129.80 328.69 L131.40 330.75 L133.00 332.82 L134.60 334.86 L136.20 336.82 L137.80 338.65 L139.40 340.31 L141.00 341.74 L142.60 342.93 L144.20 343.83 L145.80 344.43 L147.40 344.71 L149.00 344.66 L150.60 344.30 L152.20 343.61 L153.80 342.63 L155.40 341.37 L157.00 339.87 L158.60 338.17 L160.20 336.30 L161.80 334.31 L163.40 332.25 L165.00 330.18 L166.60 328.14 L168.20 326.18 L169.80 324.35 L171.40 322.69 L173.00 321.26 L174.60 320.07 L176.20 319.17 L177.80 318.57 L179.40 318.29 L181.00 318.34 L182.60 318.70 L184.20 319.39 L185.80 320.37 L187.40 321.63 L189.00 323.13 L190.60 324.83 L192.20 326.70 L193.80 328.69 L195.40 330.75 L197.00 332.82" fill="none" stroke="#7DD3FC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="163" cy="315" r="8" fill="#0284C7"/>
+<text x="85" y="390" font-size="14" fill="#334155" font-weight="700" text-anchor="start">一个数值</text>
+<text x="85" y="413" font-size="13" fill="#475569" text-anchor="start">例：瞬时采样幅度</text>
+<line x1="263" y1="353" x2="386" y2="353" stroke="#CBD5E1" stroke-width="1.6"/>
+<line x1="266" y1="352" x2="266" y2="321" stroke="#0284C7" stroke-width="3"/>
+<circle cx="266" cy="321" r="4.5" fill="#0284C7"/>
+<line x1="286" y1="352" x2="286" y2="294" stroke="#0284C7" stroke-width="3"/>
+<circle cx="286" cy="294" r="4.5" fill="#0284C7"/>
+<line x1="306" y1="352" x2="306" y2="334" stroke="#0284C7" stroke-width="3"/>
+<circle cx="306" cy="334" r="4.5" fill="#0284C7"/>
+<line x1="326" y1="352" x2="326" y2="304" stroke="#0284C7" stroke-width="3"/>
+<circle cx="326" cy="304" r="4.5" fill="#0284C7"/>
+<line x1="346" y1="352" x2="346" y2="325" stroke="#0284C7" stroke-width="3"/>
+<circle cx="346" cy="325" r="4.5" fill="#0284C7"/>
+<line x1="366" y1="352" x2="366" y2="314" stroke="#0284C7" stroke-width="3"/>
+<circle cx="366" cy="314" r="4.5" fill="#0284C7"/>
+<text x="263" y="390" font-size="14" fill="#334155" font-weight="700" text-anchor="start">按顺序排列的数</text>
+<text x="263" y="413" font-size="13" fill="#475569" text-anchor="start">例：若干历史样本</text>
+<rect x="452" y="288" width="14" height="13" rx="2" fill="#38BDF8" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="470" y="288" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="488" y="288" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="506" y="288" width="14" height="13" rx="2" fill="#38BDF8" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="524" y="288" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="452" y="305" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="470" y="305" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="488" y="305" width="14" height="13" rx="2" fill="#38BDF8" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="506" y="305" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="524" y="305" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="452" y="322" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="470" y="322" width="14" height="13" rx="2" fill="#38BDF8" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="488" y="322" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="506" y="322" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="524" y="322" width="14" height="13" rx="2" fill="#38BDF8" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="452" y="339" width="14" height="13" rx="2" fill="#38BDF8" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="470" y="339" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="488" y="339" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="506" y="339" width="14" height="13" rx="2" fill="#38BDF8" stroke="#FFFFFF" stroke-width="0.7"/>
+<rect x="524" y="339" width="14" height="13" rx="2" fill="#BAE6FD" stroke="#FFFFFF" stroke-width="0.7"/>
+<text x="445" y="390" font-size="14" fill="#334155" font-weight="700" text-anchor="start">按行列排列的表</text>
+<text x="445" y="413" font-size="13" fill="#475569" text-anchor="start">例：多组训练样本</text>
+<rect x="662" y="298" width="72" height="54" rx="4" fill="#EFF6FF" stroke="#0284C7" stroke-width="1.5"/>
+<line x1="680" y1="298" x2="680" y2="352" stroke="#93C5FD" stroke-width="1"/>
+<line x1="698" y1="298" x2="698" y2="352" stroke="#93C5FD" stroke-width="1"/>
+<line x1="716" y1="298" x2="716" y2="352" stroke="#93C5FD" stroke-width="1"/>
+<line x1="662" y1="316" x2="734" y2="316" stroke="#93C5FD" stroke-width="1"/>
+<line x1="662" y1="334" x2="734" y2="334" stroke="#93C5FD" stroke-width="1"/>
+<rect x="649" y="311" width="72" height="54" rx="4" fill="#EFF6FF" stroke="#0284C7" stroke-width="1.5"/>
+<line x1="667" y1="311" x2="667" y2="365" stroke="#93C5FD" stroke-width="1"/>
+<line x1="685" y1="311" x2="685" y2="365" stroke="#93C5FD" stroke-width="1"/>
+<line x1="703" y1="311" x2="703" y2="365" stroke="#93C5FD" stroke-width="1"/>
+<line x1="649" y1="329" x2="721" y2="329" stroke="#93C5FD" stroke-width="1"/>
+<line x1="649" y1="347" x2="721" y2="347" stroke="#93C5FD" stroke-width="1"/>
+<rect x="636" y="324" width="72" height="54" rx="4" fill="#DBEAFE" stroke="#0284C7" stroke-width="1.5"/>
+<line x1="654" y1="324" x2="654" y2="378" stroke="#93C5FD" stroke-width="1"/>
+<line x1="672" y1="324" x2="672" y2="378" stroke="#93C5FD" stroke-width="1"/>
+<line x1="690" y1="324" x2="690" y2="378" stroke="#93C5FD" stroke-width="1"/>
+<line x1="636" y1="342" x2="708" y2="342" stroke="#93C5FD" stroke-width="1"/>
+<line x1="636" y1="360" x2="708" y2="360" stroke="#93C5FD" stroke-width="1"/>
+<text x="626" y="390" font-size="14" fill="#334155" font-weight="700" text-anchor="start">多个索引轴</text>
+<text x="626" y="413" font-size="12" fill="#475569" text-anchor="start">例：三阶核 h₃[k₁,k₂,k₃]</text>
+<text x="69" y="477" font-size="13" fill="#0369A1" text-anchor="start">理解关键：核的“阶”与张量的“索引轴数”相关；三阶核的三维是数据维度，与空间音频的三维不同。</text>
+<rect x="818" y="146" width="734" height="342" rx="16" fill="#FFFFFF" stroke="#86EFAC" stroke-width="2"/>
+<rect x="818" y="146" width="734" height="55" rx="16" fill="#D1FAE5" stroke="#86EFAC" stroke-width="1.4"/>
+<rect x="832" y="160" width="64" height="27" rx="6" fill="#059669" stroke="#059669" stroke-width="0"/>
+<text x="864" y="179" font-size="15" fill="#FFFFFF" font-weight="700" text-anchor="middle">B</text>
+<text x="912" y="181" font-size="22" fill="#059669" font-weight="700" text-anchor="start">映射规则｜系统怎样处理信号</text>
+<text x="840" y="231" font-size="14" fill="#475569" text-anchor="start">单个数值的转换 → 输入历史的作用 → 整条波形的映射</text>
+<rect x="838" y="235" width="153" height="221" rx="12" fill="#FFFFFF" stroke="#BBF7D0" stroke-width="1.2"/>
+<text x="852" y="264" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">函数</text>
+<text x="852" y="284" font-size="13" fill="#059669" font-weight="700" text-anchor="start">Function</text>
+<rect x="1019" y="235" width="153" height="221" rx="12" fill="#FFFFFF" stroke="#BBF7D0" stroke-width="1.2"/>
+<text x="1033" y="264" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">泛函</text>
+<text x="1033" y="284" font-size="13" fill="#059669" font-weight="700" text-anchor="start">Functional</text>
+<rect x="1200" y="235" width="153" height="221" rx="12" fill="#FFFFFF" stroke="#BBF7D0" stroke-width="1.2"/>
+<text x="1214" y="264" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">算子</text>
+<text x="1214" y="284" font-size="13" fill="#059669" font-weight="700" text-anchor="start">Operator</text>
+<rect x="1381" y="235" width="153" height="221" rx="12" fill="#FFFFFF" stroke="#BBF7D0" stroke-width="1.2"/>
+<text x="1395" y="264" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">函数空间</text>
+<text x="1395" y="284" font-size="13" fill="#059669" font-weight="700" text-anchor="start">Function Space</text>
+<line x1="853" y1="351" x2="977" y2="351" stroke="#CBD5E1" stroke-width="1.4"/>
+<line x1="915" y1="282" x2="915" y2="366" stroke="#CBD5E1" stroke-width="1.4"/>
+<path d="M858 349 C878 349 879 309 912 309 S954 270 972 270" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="854" y="390" font-size="14" fill="#334155" font-weight="700" text-anchor="start">数值 → 数值</text>
+<text x="854" y="413" font-size="13" fill="#475569" text-anchor="start">例：waveshaper</text>
+<path d="M1037.00 324.00 L1038.07 321.25 L1039.13 318.59 L1040.20 316.12 L1041.27 313.94 L1042.33 312.11 L1043.40 310.70 L1044.47 309.76 L1045.53 309.33 L1046.60 309.42 L1047.67 310.02 L1048.73 311.12 L1049.80 312.67 L1050.87 314.63 L1051.93 316.92 L1053.00 319.46 L1054.07 322.16 L1055.13 324.92 L1056.20 327.66 L1057.27 330.26 L1058.33 332.64 L1059.40 334.72 L1060.47 336.41 L1061.53 337.67 L1062.60 338.44 L1063.67 338.70 L1064.73 338.44 L1065.80 337.67 L1066.87 336.41 L1067.93 334.72 L1069.00 332.64 L1070.07 330.26 L1071.13 327.66 L1072.20 324.92 L1073.27 322.16 L1074.33 319.46 L1075.40 316.92 L1076.47 314.63 L1077.53 312.67 L1078.60 311.12 L1079.67 310.02 L1080.73 309.42 L1081.80 309.33 L1082.87 309.76 L1083.93 310.70 L1085.00 312.11 L1086.07 313.94 L1087.13 316.12 L1088.20 318.59 L1089.27 321.25 L1090.33 324.00 L1091.40 326.75 L1092.47 329.41 L1093.53 331.88 L1094.60 334.06 L1095.67 335.89 L1096.73 337.30 L1097.80 338.24 L1098.87 338.67 L1099.93 338.58 L1101.00 337.98" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="1107" y1="325" x2="1130" y2="325" stroke="#059669" stroke-width="2"/>
+<path d="M1124 320 L1132 325 L1124 330 Z" fill="#059669"/>
+<circle cx="1148" cy="325" r="8" fill="#059669"/>
+<text x="1035" y="390" font-size="13" fill="#334155" font-weight="700" text-anchor="start">整条信号 → 一个值</text>
+<text x="1035" y="413" font-size="13" fill="#475569" text-anchor="start">例：某时刻输出</text>
+<path d="M1216.00 303.50 L1217.80 301.85 L1219.60 300.27 L1221.40 298.83 L1223.20 297.60 L1225.00 296.63 L1226.80 295.95 L1228.60 295.61 L1230.40 295.61 L1232.20 295.95 L1234.00 296.63 L1235.80 297.60 L1237.60 298.83 L1239.40 300.27 L1241.20 301.85 L1243.00 303.50 L1244.80 305.15 L1246.60 306.73 L1248.40 308.17 L1250.20 309.40 L1252.00 310.37 L1253.80 311.05 L1255.60 311.39 L1257.40 311.39 L1259.20 311.05 L1261.00 310.37 L1262.80 309.40 L1264.60 308.17 L1266.40 306.73 L1268.20 305.15 L1270.00 303.50 L1271.80 301.85 L1273.60 300.27 L1275.40 298.83 L1277.20 297.60 L1279.00 296.63 L1280.80 295.95 L1282.60 295.61 L1284.40 295.61 L1286.20 295.95 L1288.00 296.63 L1289.80 297.60 L1291.60 298.83 L1293.40 300.27 L1295.20 301.85 L1297.00 303.50 L1298.80 305.15 L1300.60 306.73 L1302.40 308.17 L1304.20 309.40 L1306.00 310.37 L1307.80 311.05 L1309.60 311.39 L1311.40 311.39 L1313.20 311.05 L1315.00 310.37 L1316.80 309.40 L1318.60 308.17 L1320.40 306.73 L1322.20 305.15 L1324.00 303.50" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="1268" y1="321" x2="1268" y2="336" stroke="#059669" stroke-width="2"/>
+<path d="M1264 332 L1268 341 L1272 332 Z" fill="#059669"/>
+<path d="M1216.00 352.24 L1217.80 350.94 L1219.60 349.82 L1221.40 348.92 L1223.20 348.29 L1225.00 347.96 L1226.80 347.93 L1228.60 348.21 L1230.40 348.79 L1232.20 349.64 L1234.00 350.72 L1235.80 351.99 L1237.60 353.39 L1239.40 354.87 L1241.20 356.34 L1243.00 357.76 L1244.80 359.06 L1246.60 360.18 L1248.40 361.08 L1250.20 361.71 L1252.00 362.04 L1253.80 362.07 L1255.60 361.79 L1257.40 361.21 L1259.20 360.36 L1261.00 359.28 L1262.80 358.01 L1264.60 356.61 L1266.40 355.13 L1268.20 353.66 L1270.00 352.24 L1271.80 350.94 L1273.60 349.82 L1275.40 348.92 L1277.20 348.29 L1279.00 347.96 L1280.80 347.93 L1282.60 348.21 L1284.40 348.79 L1286.20 349.64 L1288.00 350.72 L1289.80 351.99 L1291.60 353.39 L1293.40 354.87 L1295.20 356.34 L1297.00 357.76 L1298.80 359.06 L1300.60 360.18 L1302.40 361.08 L1304.20 361.71 L1306.00 362.04 L1307.80 362.07 L1309.60 361.79 L1311.40 361.21 L1313.20 360.36 L1315.00 359.28 L1316.80 358.01 L1318.60 356.61 L1320.40 355.13 L1322.20 353.66 L1324.00 352.24" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1217" y="390" font-size="12" fill="#334155" font-weight="700" text-anchor="start">整条信号 → 整条信号</text>
+<text x="1217" y="413" font-size="13" fill="#475569" text-anchor="start">例：音频处理系统</text>
+<rect x="1396" y="299" width="104" height="52" rx="7" fill="#ECFDF5" stroke="#86EFAC" stroke-width="1"/>
+<path d="M1408.00 311.01 L1409.37 310.15 L1410.73 309.52 L1412.10 309.17 L1413.47 309.10 L1414.83 309.34 L1416.20 309.86 L1417.57 310.63 L1418.93 311.59 L1420.30 312.69 L1421.67 313.84 L1423.03 314.96 L1424.40 315.99 L1425.77 316.85 L1427.13 317.48 L1428.50 317.83 L1429.87 317.90 L1431.23 317.66 L1432.60 317.14 L1433.97 316.37 L1435.33 315.41 L1436.70 314.31 L1438.07 313.16 L1439.43 312.04 L1440.80 311.01 L1442.17 310.15 L1443.53 309.52 L1444.90 309.17 L1446.27 309.10 L1447.63 309.34 L1449.00 309.86 L1450.37 310.63 L1451.73 311.59 L1453.10 312.69 L1454.47 313.84 L1455.83 314.96 L1457.20 315.99 L1458.57 316.85 L1459.93 317.48 L1461.30 317.83 L1462.67 317.90 L1464.03 317.66 L1465.40 317.14 L1466.77 316.37 L1468.13 315.41 L1469.50 314.31 L1470.87 313.16 L1472.23 312.04 L1473.60 311.01 L1474.97 310.15 L1476.33 309.52 L1477.70 309.17 L1479.07 309.10 L1480.43 309.34 L1481.80 309.86 L1483.17 310.63 L1484.53 311.59 L1485.90 312.69 L1487.27 313.84 L1488.63 314.96 L1490.00 315.99" fill="none" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1408.00 326.79 L1409.37 326.30 L1410.73 326.09 L1412.10 326.19 L1413.47 326.58 L1414.83 327.24 L1416.20 328.12 L1417.57 329.16 L1418.93 330.29 L1420.30 331.44 L1421.67 332.52 L1423.03 333.47 L1424.40 334.21 L1425.77 334.70 L1427.13 334.91 L1428.50 334.81 L1429.87 334.42 L1431.23 333.76 L1432.60 332.88 L1433.97 331.84 L1435.33 330.71 L1436.70 329.56 L1438.07 328.48 L1439.43 327.53 L1440.80 326.79 L1442.17 326.30 L1443.53 326.09 L1444.90 326.19 L1446.27 326.58 L1447.63 327.24 L1449.00 328.12 L1450.37 329.16 L1451.73 330.29 L1453.10 331.44 L1454.47 332.52 L1455.83 333.47 L1457.20 334.21 L1458.57 334.70 L1459.93 334.91 L1461.30 334.81 L1462.67 334.42 L1464.03 333.76 L1465.40 332.88 L1466.77 331.84 L1468.13 330.71 L1469.50 329.56 L1470.87 328.48 L1472.23 327.53 L1473.60 326.79 L1474.97 326.30 L1476.33 326.09 L1477.70 326.19 L1479.07 326.58 L1480.43 327.24 L1481.80 328.12 L1483.17 329.16 L1484.53 330.29 L1485.90 331.44 L1487.27 332.52 L1488.63 333.47 L1490.00 334.21" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1397" y="390" font-size="13" fill="#334155" font-weight="700" text-anchor="start">一类允许的函数</text>
+<text x="1397" y="413" font-size="13" fill="#475569" text-anchor="start">例：平方可积信号</text>
+<text x="840" y="477" font-size="13" fill="#047857" text-anchor="start">理解关键：函数空间约定允许讨论哪些信号；函数、泛函、算子则规定它们如何被映射。</text>
+<rect x="48" y="516" width="734" height="357" rx="16" fill="#FFFFFF" stroke="#FCD34D" stroke-width="2"/>
+<rect x="48" y="516" width="734" height="55" rx="16" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.4"/>
+<rect x="62" y="530" width="64" height="27" rx="6" fill="#D97706" stroke="#D97706" stroke-width="0"/>
+<text x="94" y="549" font-size="15" fill="#FFFFFF" font-weight="700" text-anchor="middle">C</text>
+<text x="142" y="551" font-size="22" fill="#D97706" font-weight="700" text-anchor="start">分析变化｜我们想知道什么</text>
+<text x="70" y="601" font-size="14" fill="#475569" text-anchor="start">研究微小变化、累积量、大小，以及参数的可辨识程度</text>
+<rect x="68" y="610" width="153" height="218" rx="12" fill="#FFFFFF" stroke="#FED7AA" stroke-width="1.2"/>
+<text x="82" y="639" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">导数与梯度</text>
+<text x="82" y="659" font-size="13" fill="#D97706" font-weight="700" text-anchor="start">Derivative</text>
+<rect x="249" y="610" width="153" height="218" rx="12" fill="#FFFFFF" stroke="#FED7AA" stroke-width="1.2"/>
+<text x="263" y="639" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">积分与求和</text>
+<text x="263" y="659" font-size="13" fill="#D97706" font-weight="700" text-anchor="start">Integral</text>
+<rect x="430" y="610" width="153" height="218" rx="12" fill="#FFFFFF" stroke="#FED7AA" stroke-width="1.2"/>
+<text x="444" y="639" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">范数</text>
+<text x="444" y="659" font-size="13" fill="#D97706" font-weight="700" text-anchor="start">Norm</text>
+<rect x="611" y="610" width="153" height="218" rx="12" fill="#FFFFFF" stroke="#FED7AA" stroke-width="1.2"/>
+<text x="625" y="639" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">秩与奇异值</text>
+<text x="625" y="659" font-size="13" fill="#D97706" font-weight="700" text-anchor="start">Rank / SVD</text>
+<line x1="84" y1="720" x2="206" y2="720" stroke="#CBD5E1" stroke-width="1.4"/>
+<line x1="100" y1="666" x2="100" y2="731" stroke="#CBD5E1" stroke-width="1.3"/>
+<path d="M100 716 Q148 719 199 652" fill="none" stroke="#D97706" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="119" y1="727" x2="190" y2="658" stroke="#92400E" stroke-width="1.8" stroke-dasharray="5 5"/>
+<text x="84" y="762" font-size="12" fill="#334155" font-weight="700" text-anchor="start">输出如何随输入变化</text>
+<text x="84" y="790" font-size="12" fill="#475569" text-anchor="start">偏导：单独看一变量</text>
+<line x1="265" y1="721" x2="388" y2="721" stroke="#CBD5E1" stroke-width="1.4"/>
+<path d="M267 721 L267 710 Q301 641 329 679 T385 670 L385 721 Z" fill="#FDE68A" stroke="#D97706" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="265" y="762" font-size="13" fill="#334155" font-weight="700" text-anchor="start">连续贡献的累积</text>
+<text x="265" y="790" font-size="13" fill="#475569" text-anchor="start">离散时通过求和</text>
+<line x1="444" y1="720" x2="566" y2="720" stroke="#CBD5E1" stroke-width="1.4"/>
+<rect x="448" y="699" width="16" height="20" rx="2" fill="#FBBF24" stroke="none" stroke-width="0"/>
+<rect x="471" y="676" width="16" height="43" rx="2" fill="#FBBF24" stroke="none" stroke-width="0"/>
+<rect x="494" y="691" width="16" height="28" rx="2" fill="#FBBF24" stroke="none" stroke-width="0"/>
+<rect x="517" y="657" width="16" height="62" rx="2" fill="#D97706" stroke="none" stroke-width="0"/>
+<rect x="540" y="682" width="16" height="37" rx="2" fill="#FBBF24" stroke="none" stroke-width="0"/>
+<text x="446" y="762" font-size="12" fill="#334155" font-weight="700" text-anchor="start">衡量信号或误差大小</text>
+<text x="446" y="790" font-size="13" fill="#475569" text-anchor="start">例：向量的二范数</text>
+<line x1="626" y1="721" x2="749" y2="721" stroke="#CBD5E1" stroke-width="1.4"/>
+<rect x="638" y="656" width="18" height="65" rx="2" fill="#D97706" stroke="none" stroke-width="0"/>
+<rect x="666" y="677" width="18" height="44" rx="2" fill="#D97706" stroke="none" stroke-width="0"/>
+<rect x="694" y="703" width="18" height="18" rx="2" fill="#FDE68A" stroke="none" stroke-width="0"/>
+<rect x="722" y="715" width="18" height="6" rx="2" fill="#FDE68A" stroke="none" stroke-width="0"/>
+<text x="627" y="762" font-size="13" fill="#334155" font-weight="700" text-anchor="start">独立方向有多少</text>
+<text x="627" y="790" font-size="12" fill="#475569" text-anchor="start">小奇异值：辨识更敏感</text>
+<text x="68" y="851" font-size="13" fill="#92400E" text-anchor="start">理解关键：导数关心局部变化，积分关心累积；范数衡量大小，秩和奇异值揭示可辨识结构。</text>
+<rect x="818" y="516" width="734" height="357" rx="16" fill="#FFFFFF" stroke="#D8B4FE" stroke-width="2"/>
+<rect x="818" y="516" width="734" height="55" rx="16" fill="#F3E8FF" stroke="#D8B4FE" stroke-width="1.4"/>
+<rect x="832" y="530" width="64" height="27" rx="6" fill="#7C3AED" stroke="#7C3AED" stroke-width="0"/>
+<text x="864" y="549" font-size="15" fill="#FFFFFF" font-weight="700" text-anchor="middle">D</text>
+<text x="912" y="551" font-size="22" fill="#7C3AED" font-weight="700" text-anchor="start">测量与训练｜怎样面对不确定性</text>
+<text x="840" y="601" font-size="14" fill="#475569" text-anchor="start">真实设备有噪声与波动；模型需要学习参数并在独立数据上验证</text>
+<rect x="839" y="610" width="332" height="218" rx="12" fill="#FFFFFF" stroke="#DDD6FE" stroke-width="1.2"/>
+<text x="853" y="639" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">统计：描述测量波动</text>
+<text x="853" y="659" font-size="13" fill="#7C3AED" font-weight="700" text-anchor="start">Distribution / Expectation / Variance</text>
+<rect x="1196" y="610" width="332" height="218" rx="12" fill="#FFFFFF" stroke="#DDD6FE" stroke-width="1.2"/>
+<text x="1210" y="639" font-size="19" fill="#0F172A" font-weight="700" text-anchor="start">优化：减少预测误差</text>
+<text x="1210" y="659" font-size="13" fill="#7C3AED" font-weight="700" text-anchor="start">Loss / Optimization / Validation</text>
+<line x1="859" y1="734" x2="1148" y2="734" stroke="#CBD5E1" stroke-width="1.4"/>
+<circle cx="871" cy="713.5" r="3.5" fill="#A78BFA"/>
+<circle cx="887" cy="717.5865543901355" r="3.5" fill="#A78BFA"/>
+<circle cx="903" cy="719.9852813742385" r="3.5" fill="#A78BFA"/>
+<circle cx="919" cy="721.0922011883811" r="3.5" fill="#A78BFA"/>
+<circle cx="935" cy="701.5" r="3.5" fill="#A78BFA"/>
+<circle cx="951" cy="701.9077988116189" r="3.5" fill="#A78BFA"/>
+<circle cx="967" cy="703.0147186257615" r="3.5" fill="#A78BFA"/>
+<circle cx="983" cy="705.4134456098645" r="3.5" fill="#A78BFA"/>
+<circle cx="999" cy="689.5" r="3.5" fill="#A78BFA"/>
+<circle cx="1015" cy="695.4134456098645" r="3.5" fill="#A78BFA"/>
+<circle cx="1031" cy="703.0147186257615" r="3.5" fill="#A78BFA"/>
+<circle cx="1047" cy="711.9077988116189" r="3.5" fill="#A78BFA"/>
+<circle cx="1063" cy="701.5" r="3.5" fill="#A78BFA"/>
+<circle cx="1079" cy="711.0922011883811" r="3.5" fill="#A78BFA"/>
+<circle cx="1095" cy="719.9852813742385" r="3.5" fill="#A78BFA"/>
+<circle cx="1111" cy="727.5865543901355" r="3.5" fill="#A78BFA"/>
+<circle cx="1127" cy="713.5" r="3.5" fill="#A78BFA"/>
+<line x1="997" y1="664" x2="997" y2="734" stroke="#7C3AED" stroke-width="2" stroke-dasharray="5 4"/>
+<path d="M864 733 C912 731 939 672 997 666 C1055 672 1080 731 1144 733" fill="none" stroke="#7C3AED" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="862" y="761" font-size="13" fill="#334155" text-anchor="start">期望：分布的中心水平</text>
+<text x="862" y="791" font-size="13" fill="#475569" text-anchor="start">方差：围绕中心的波动程度</text>
+<line x1="1214" y1="733" x2="1500" y2="733" stroke="#CBD5E1" stroke-width="1.4"/>
+<line x1="1228" y1="659" x2="1228" y2="741" stroke="#CBD5E1" stroke-width="1.4"/>
+<path d="M1240 659 Q1351 809 1488 661" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1351" cy="729" r="6.5" fill="#7C3AED"/>
+<text x="1372" y="718" font-size="13" fill="#7C3AED" font-weight="700" text-anchor="start">较小损失</text>
+<path d="M1265 674 L1297 697 L1337 725" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1218" y="763" font-size="13" fill="#334155" text-anchor="start">用损失函数衡量输出差异</text>
+<text x="1218" y="792" font-size="13" fill="#475569" text-anchor="start">调整参数后，检查未见数据</text>
+<text x="839" y="851" font-size="13" fill="#6D28D9" text-anchor="start">理解关键：统计描述测量规律；优化调整参数；独立验证检查模型对新输入是否可靠。</text>
+<rect x="48" y="897" width="1504" height="54" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.3"/>
+<text x="68" y="922" font-size="14" fill="#0F172A" font-weight="700" text-anchor="start">图 00-04</text>
+<text x="159" y="922" font-size="14" fill="#475569" text-anchor="start">数学工具的对象、运算与音频建模任务对应关系。图示用于建立初步直觉；具体符号、假设与推导见 00.8 及后续章节。</text>
+<text x="68" y="940" font-size="12" fill="#64748B" text-anchor="start">注：向量、矩阵也可视为低阶张量；张量在一般数学理论中还有更抽象的定义。本图采用数组表示帮助理解 Volterra 核。</text>
+</g></svg>
