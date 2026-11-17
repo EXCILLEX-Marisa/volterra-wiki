@@ -1129,7 +1129,9 @@ y[n]=\sum_{p=1}^{P}\sum_mg_p[m]x^p[n-m].
 交换两个模块的顺序，先计算 `v[n]=(g*x)[n]`，再输出 `y[n]=f(v[n])`。由于
 
 ```math
-v[n]=\sum_kg[k]x[n-k],
+v[n]=\sum_kg[k]x[n-k].
+```
+
 ```math
 h_p^{\mathrm W}[k_1,\ldots,k_p]
 =a_p\prod_{i=1}^{p}g[k_i].
