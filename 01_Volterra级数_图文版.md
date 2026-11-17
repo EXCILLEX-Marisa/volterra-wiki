@@ -2,7 +2,7 @@
 
 [在线阅读本章（完整合订版）](https://excillex-marisa.github.io/volterra-wiki/#chapter-01)
 
-> **版本：v17 · 2026-11-17 · 核对称化无损约简与计算实现补充**
+> **版本：v18 · 2026-11-17 · 四类经典块结构与Volterra等效核扩充**
 > **所属系列：Volterra Wiki**
 > **配图说明：** 本章 17 张 SVG 配图与 Markdown 文件配套提供，建议使用完整素材包以保持相对路径有效。
 > **阅读定位：从前置概念进入 Volterra 的正式数学结构，建立它在非线性音频系统辨识中的用途、优势、成本与能力边界。**
@@ -350,34 +350,180 @@ H_p[ax](n)=a^pH_p[x](n).
 
 这里的“阶”还要与滤波器阶数分开理解：Volterra 的 $`p`$ 阶指每项相乘的输入因子数，$`p`$ 次谐波指输出频率是基频的 $`p`$ 倍；IIR 或模拟滤波器的阶数则涉及传递函数的极点数量或状态维度。同样的数字出现在这三类术语里，代表的是不同物理与数学量。
 
-## 1.8 Waveshaper、块结构滤波器与 Volterra 的代数对应
+## 1.8 从 Waveshaper 到四种经典块结构：Volterra 的近亲
 
-静态 waveshaper 的表达形式是 $`y[n]=f(x[n])`$。如果真实设备的主要特征就是一条相对稳定的瞬时传递曲线，那么静态 waveshaper 就是最紧凑的实现。当 waveshaper 前面或后面接上线性滤波器时，模型便获得了频率相关的动态非线性特性：
-- **Hammerstein 结构（N–L）**：输入先通过无记忆静态非线性 $`f(\cdot)`$，再通过线性滤波器 $`h[k]`$；
-- **Wiener 结构（L–N）**：输入先通过线性滤波器 $`g[k]`$，再进入无记忆静态非线性 $`f(\cdot)`$；
-- **Wiener–Hammerstein 结构（L–N–L）**：静态非线性前后分别带有前置线性滤波器 $`g[k]`$ 与后置线性滤波器 $`h[k]`$。
+Volterra 级数把不同阶次、不同历史位置的交互直接记录在多维核中。实际音频建模还有一种更紧凑的选择：将**线性动态模块**和**静态非线性模块**按指定次序连接，通过少量滤波器与非线性曲线生成复杂输入—输出关系。这类模型统称**块结构非线性模型（Block-Oriented Nonlinear Models）**，Hammerstein、Wiener 及其扩展都是其中的代表。它们和 Volterra 的联系可以通过等效核精确建立；模型是否适合某台设备则要依赖测量和独立验证。[B1][B2][B3]
 
-当中间的静态非线性在工作区间内展开为多项式 $`f(v)=\sum_{p=1}^P a_p v^p`$ 时，这三类经典块结构均可直接写出其等效的 Volterra 核：
-1. **Hammerstein 模型的等效核**：由于 $`y[n]=\sum_{k=0}^{M-1}h[k]\sum_{p=1}^P a_p x^p[n-k]`$，其第 $`p`$ 阶核仅在主对角线 $`k_1=\cdots=k_p=k`$ 上非零：
+### 1.8.1 用 L 和 N 读懂四种名字与信号流
 
-```math
-h_p^{\mathrm{H}}[k_1,\ldots,k_p]=a_p h[k_1]\,\delta[k_1-k_2]\cdots\delta[k_1-k_p].
-```
+令 **L（Linear Dynamic Block）** 表示具有记忆的线性滤波器，**N（Memoryless Nonlinearity）** 表示对每个采样值执行一次静态函数。信号流从左向右阅读：
 
-2. **Wiener 模型的等效核**：由于 $`v[n]=\sum_{k=0}^{M-1}g[k]x[n-k]`$，将其 $`p`$ 次幂展开后，第 $`p`$ 阶核是前置滤波器脉冲响应 $`g[k]`$ 的 $`p`$ 重外积（秩-1 可分离对称张量）：
+| 模型 | 信号流 | 哪个环节产生非线性记忆 |
+|---|---|---|
+| **Hammerstein** | 输入 → N → L → 输出 | 各历史采样先独立产生非线性，再经过输出滤波 |
+| **Wiener** | 输入 → L → N → 输出 | 先混合不同历史位置，随后对混合结果进行非线性处理 |
+| **Wiener–Hammerstein** | 输入 → L₁ → N → L₂ → 输出 | 前置滤波产生历史混合，后置滤波重新塑造新生频率 |
+| **Hammerstein–Wiener** | 输入 → N₁ → L → N₂ → 输出 | 输入侧与输出侧各有一次非线性，线性动态位于中间 |
 
-```math
-h_p^{\mathrm{W}}[k_1,\ldots,k_p]=a_p\prod_{i=1}^{p}g[k_i].
-```
-
-可以看到，Wiener 模型的核天然遍布整个非对角平面（$`k_1\neq k_2`$ 处非零），但整张高维核完全由同一条一维滤波器 $`g[k]`$ 决定。
-3. **Wiener–Hammerstein 模型的等效核**：将前置滤波输出 $`v[n-m]`$ 的 $`p`$ 次幂再与后置滤波器 $`h[m]`$ 卷积，其第 $`p`$ 阶核为：
+需要认真区分最后两行：**Wiener–Hammerstein 为 L–N–L，Hammerstein–Wiener 为 N–L–N**。后者也用于 MathWorks 的系统辨识模型命名。[B1] 下面统一研究单输入单输出、因果 LTI 滤波、零初始状态，且在指定工作点附近把静态函数写成有限阶多项式
 
 ```math
-h_p^{\mathrm{WH}}[k_1,\ldots,k_p]=a_p\sum_{m=0}^{M_h-1}h[m]\prod_{i=1}^{p}g[k_i-m].
+f(v)=\sum_{p=1}^{P}a_pv^p.
 ```
 
-这组代数对应关系揭示了一个重要的工程结论：**非对角交叉记忆可以通过结构化分解紧凑表示，从而减少对完整 $`M^p`$ 维稠密张量的存储与辨识需求。** 许多由前后级频响耦合产生的交叉记忆，本质上是由少量前置与后置滤波器支路张成的低秩结构化非对角核。
+其中 `P` 是最高保留阶数，`a_p` 是系数。这里暂取 `f(0)=0`；静态曲线有偏置或展开中心发生变化时，要重新整理常数项和低阶系数。LTI 滤波器可采用稳定 FIR 或 IIR；有限 FIR 的核表达最便于观察其结构。
+
+### 1.8.2 Hammerstein（N–L）：为什么它的核集中在主对角线？
+
+先计算 `v[n]=f(x[n])`，再让它经过脉冲响应为 `h[m]` 的滤波器：
+
+```math
+y[n]=\sum_m h[m]f(x[n-m])
+=\sum_{p=1}^{P}a_p\sum_mh[m]x^p[n-m].
+```
+
+第 `p` 阶项中的 `p` 个输入因子都在同一历史位置 `n-m`。因此其等效 Volterra 核为
+
+```math
+h_p^{\mathrm H}[k_1,\ldots,k_p]
+=a_ph[k_1]\prod_{i=2}^{p}\delta[k_i-k_1].
+```
+
+`\delta[k]` 是 Kronecker delta：参数为 0 时等于 1，其余情况等于 0。这个核在二阶只有主对角元素可能非零，不包含 `x[n-2]x[n-7]` 这样的跨时刻乘积。
+
+还要区分**单一 Hammerstein** 与**并行 Hammerstein（Parallel Hammerstein）**。前者所有阶次共享同一输出滤波器 `h`，不同阶次的核系数受到 `g_p[k]=a_ph[k]` 的比例约束；后者为每个阶次分别配置 `g_p[k]`：
+
+```math
+y[n]=\sum_{p=1}^{P}\sum_mg_p[m]x^p[n-m].
+```
+
+因此，一般**对角 Volterra／实信号记忆多项式**可以由并行 Hammerstein 实现，而单一 Hammerstein 是其中共享滤波器的一种受限情形。若高阶谐波在不同频段具有明显不同的后置响应，逐阶独立滤波器会增加表达自由度。
+
+### 1.8.3 Wiener（L–N）：滤波器怎样生成非对角交叉记忆？
+
+交换两个模块的顺序，先计算 `v[n]=(g*x)[n]`，再输出 `y[n]=f(v[n])`。由于
+
+```math
+v[n]=\sum_kg[k]x[n-k],
+```math
+h_p^{\mathrm W}[k_1,\ldots,k_p]
+=a_p\prod_{i=1}^{p}g[k_i].
+```
+
+它的 `p` 阶核是前置滤波器向量的 `p` 重外积；二阶核矩阵 `h_2^{\mathrm W}[k_1,k_2]=a_2g[k_1]g[k_2]` 为秩至多 1 的对称矩阵。只要两个不同延迟的 `g` 值均非零，核就出现非对角交互。由此可见，单个静态 waveshaper 即使自身没有记忆，在**被送入的输入已经混合历史**时仍然可以产生非线性交叉记忆。
+
+### 1.8.4 Wiener–Hammerstein（L–N–L）：输入滤波和输出滤波怎样共同构造核？
+
+令前置滤波器为 `g`，后置滤波器为 `h`：
+
+```math
+v[n]=(g*x)[n],\qquad
+w[n]=f(v[n]),\qquad
+y[n]=(h*w)[n].
+```
+
+代入多项式并收集同阶乘积，可以得到
+
+```math
+h_p^{\mathrm{WH}}[k_1,\ldots,k_p]
+=a_p\sum_m h[m]\prod_{i=1}^{p}g[k_i-m].
+```
+
+这里在滤波器有效支撑域之外约定 `g[r]=0`。对于二阶核，每个非零的后置滤波抽头 `h[m]` 都生成一个**前置滤波器的平移向量外积**，最终核是这些外积的加权和。若后置 FIR 只有 `M_h` 个可能非零的抽头，二阶矩阵的秩不超过这些移位外积的数量；更高阶也具有由移位秩一分量组成的对称张量结构。[B3]
+
+这一结构特别适合说明**非线性之前与之后的频率选择**：输入侧滤波器决定哪些历史成分在非线性器件处叠加，输出侧滤波器继续改变已经生成的谐波与互调成分。后置滤波器若退化为单位脉冲，模型成为 Wiener；前置滤波器若退化为单位脉冲，则成为 Hammerstein。非零的两段滤波器让核同时具备结构化交叉项和后置频谱塑形。
+
+### 1.8.5 Hammerstein–Wiener（N–L–N）：为什么两个二次静态块就能生成四阶响应？
+
+这类模型将线性动态块放在两段静态非线性之间，输入和输出侧的函数可以分别表示不同器件或工作点：
+
+```math
+v[n]=f_{\mathrm{in}}(x[n]),\quad
+z[n]=(g*v)[n],\quad
+y[n]=f_{\mathrm{out}}(z[n]).
+```
+
+为了直接看到它和 Volterra 的联系，取最简单的两段二次曲线
+
+```math
+f_{\mathrm{in}}(x)=x+\alpha x^2,\qquad
+f_{\mathrm{out}}(z)=z+\beta z^2.
+```
+
+用 `G[x]=(g*x)` 表示线性滤波运算，展开后得到
+
+```math
+\begin{aligned}
+z&=G[x]+\alpha G[x^2],\\
+y&=G[x]+\alpha G[x^2]+\beta(G[x])^2\\
+&\quad+2\alpha\beta\,G[x]G[x^2]
++\alpha^2\beta\,(G[x^2])^2.
+\end{aligned}
+```
+
+读者可以按输入因子的数量逐项辨认：第一行的两部分分别是一阶与二阶；输出非线性又增加了二阶、三阶和四阶项。因此，即使两个静态模块都只保留至二阶，串联以后也可能出现**最高四阶的 Volterra 表达**。若两段分别是最高 `P` 阶与 `Q` 阶多项式，且没有特殊抵消，总体最高阶可以达到 `PQ`。
+
+更重要的是，这一结构的二阶核同时含有对角项和非对角项：
+
+```math
+h_2^{\mathrm{HW}}[k_1,k_2]
+=\alpha g[k_1]\delta[k_1-k_2]
++\beta g[k_1]g[k_2].
+```
+
+前一项来自输入侧的 `G[x^2]`，是一张对角核；后一项来自输出侧的 `(G[x])^2`，是一张秩一核。置 `\beta=0` 时退化为 Hammerstein，置 `\alpha=0` 时退化为 Wiener。这一核结构解释了 N–L–N 为何能同时继承两种简单模型的特征，也说明它与 L–N–L 的参数约束并不相同。[B1][B2]
+
+### 1.8.6 两个采样点就能看见模块排列的区别
+
+设当前输入 `a=x[n]`，前一个采样点 `b=x[n-1]`，两抽头 FIR 为 `[1,0.5]`，静态非线性为 `f(u)=u+0.2u^2`。两种基础结构的结果分别是：
+
+```math
+\begin{aligned}
+y_{\mathrm H}&=f(a)+0.5f(b)
+=a+0.5b+0.2a^2+0.1b^2,\\
+y_{\mathrm W}&=f(a+0.5b)
+=a+0.5b+0.2a^2+0.2ab+0.05b^2.
+\end{aligned}
+```
+
+两者的一阶输出完全一致，二阶结构却发生变化。Hammerstein 只对两个历史采样分别求平方；Wiener 把滤波后的混合结果平方，多出了 `0.2ab` 交叉作用。这种最小数值例子说明，**相同的 L 和 N 模块，交换次序以后就成为不同的非线性系统**。在核对称化的完整记账方式下，Wiener 的 `0.2ab` 对应两个各为 `0.1` 的非对角坐标（参见 1.6）。
+
+### 1.8.7 从二阶频率核理解谐波位置与前后滤波
+
+在时域中讨论核的延迟坐标；在频域中可以看到参与非线性交互的两个输入频率 `\omega_1,\omega_2`。它们的和频为 `\omega_1+\omega_2`，离散角频率按 `2\pi` 周期理解。设前置和后置滤波器频率响应分别为 `G(\omega)`、`H(\omega)`，那么四类模型在二阶时满足
+
+```math
+\begin{aligned}
+H_2^{\mathrm H}(\omega_1,\omega_2)
+&=a_2H(\omega_1+\omega_2),\\
+H_2^{\mathrm W}(\omega_1,\omega_2)
+&=a_2G(\omega_1)G(\omega_2),\\
+H_2^{\mathrm{WH}}(\omega_1,\omega_2)
+&=a_2H(\omega_1+\omega_2)G(\omega_1)G(\omega_2),\\
+H_2^{\mathrm{HW}}(\omega_1,\omega_2)
+&=\alpha G(\omega_1+\omega_2)+\beta G(\omega_1)G(\omega_2).
+\end{aligned}
+```
+
+这里最后一行对应上面的双二次 N–L–N 例子，其余三行采用相同的二次系数 `a_2`。对 Hammerstein，滤波器作用在已生成的和频上；对 Wiener，滤波器分别作用在两个输入频率上；对 Wiener–Hammerstein，两类影响相乘；对 Hammerstein–Wiener，两种不同位置产生的二阶贡献相加。因此，双音互调、谐波响应随激励频率的变化，都有助于比较这些候选结构。
+
+### 1.8.8 该怎样辨识与实现这些模型？
+
+| 观察到的音频行为 | 可以优先测试的结构 | 测量时要追问的问题 |
+|---|---|---|
+| 各阶谐波在输出侧需要不同的频响 | 并行 Hammerstein / 对角 Volterra | 各阶核是否需要独立滤波器 |
+| 输入选频改变饱和程度，出现跨时刻交叉项 | Wiener（L–N） | 二阶核是否接近同一滤波器向量的外积 |
+| 输入历史混合与新生谐波输出滤波同时重要 | Wiener–Hammerstein（L–N–L） | 前后滤波器能否通过多电平、多频率激励区分 |
+| 输入和输出侧均存在静态非线性 | Hammerstein–Wiener（N–L–N） | 二阶核是否有对角与外积混合，是否出现更高复合阶次 |
+
+在指定阶数及 FIR 长度下，块结构可以用少量滤波器抽头和多项式系数直接计算：L–N–L 的基本运算量约为 `O(M_g+M_h+P)` 每采样，N–L–N 在二端多项式阶数分别为 `P,Q` 时约为 `O(M_g+P+Q)`。相较于直接遍历 `O(M^p)` 的稠密高阶核，这些结构可能显著降低存储与每采样开销，但其实际误差取决于目标系统是否符合所假设的块排列。
+
+**模型整体拟合精确，仍可能存在内部参数的尺度歧义。** 例如 Wiener 前置滤波器增益乘以非零常数 `c`，再令静态映射改为 `f(v/c)`，整体输入—输出结果可以不变。Wiener–Hammerstein 的前置与后置动态分配也可能存在辨识歧义，单次普通频率响应通常只看到某种等效总体行为。需要规定增益或静态曲线的归一化条件，结合多电平、多频率、双音及独立数据进行辨识；恢复真实硬件内部的模块位置还需其它物理证据。[B2][B3][B4]
+
+**能力边界。** 上述精确核推导使用多项式静态函数。对 `\tanh`、光滑饱和、硬削波或分段死区等其他静态曲线，需要依照工作域及光滑性判断局部多项式逼近的有效性；含持续内部状态、时变控制、反馈或路径依赖磁滞的系统还可能需要额外结构。实时插件中的每个非线性块都有产生高频谐波的可能，输出线性滤波无法自动消除已经折返的混叠，需要在非线性计算处核对过采样、抗混叠与延迟（参见 1.21 和《03》3.7）。
+
+**名称约定。** 这里的 Wiener 是 **L–N 块模型**；历史导论与《04》中的 Wiener 核、Wiener 正交混沌展开属于不同的数学构造，使用文献时应区分。
+
 
 ## 1.9 为什么普通脉冲响应不够？双脉冲与指数扫频能揭示什么？
 
@@ -613,9 +759,14 @@ T_n(x)=\cos\!\bigl(n\arccos x\bigr),\qquad -1\leq x\leq 1,
 
 并满足 $`T_0(x)=1`$、$`T_1(x)=x`$ 和递推关系 $`T_{n+1}(x)=2xT_n(x)-T_{n-1}(x)`$。它在标准区间内有界，并在权重 $`1/\sqrt{1-x^2}`$ 下正交；Legendre 多项式则在均匀权重下正交。 在实时实现中，Chebyshev 展开也可通过 Clenshaw 递推高效求值。在较高阶多项式建模中，选择合适的幅值归一化与正交基，通常比直接叠加大量单项式幂次更有利于控制参数相关性。基函数的改变和测试激励的改进需要配合考虑，正交性本身也取决于内积所采用的权重。
 
-### 1.14.3 Wiener 与 Wiener-Hammerstein：由紧凑块结构生成的非对角核
+### 1.14.3 四类经典块结构：用结构先验生成受约束的 Volterra 核
 
-如第 1.8 节所证，Wiener（L–N）与 Wiener–Hammerstein（L–N–L）结构生成的等效高阶核虽然遍布非对角区域，但其自由度仅取决于前后置一维滤波器与静态多项式系数。当硬件的非对角交叉记忆主要源于非线性器件前后的线性阻抗与选频网络时，这类块结构能以极低的运算成本精确复现非对角交互。
+在 1.8 节已经从信号流逐一推导了 Hammerstein（N–L）、Wiener（L–N）、Wiener–Hammerstein（L–N–L）及 Hammerstein–Wiener（N–L–N）的核表达。将它们与一般完整核比较，可以看到这些结构利用少量一维滤波器和静态函数为高维核施加了明确的**参数约束**。[B3]
+
+**单一 Hammerstein** 的所有阶次只能沿主对角线保留历史乘积，而且各阶对角滤波器共享同一线性模块；**并行 Hammerstein** 可用独立的逐阶滤波器放松共享约束，等效于对角 Volterra。**Wiener** 的每阶核是同一向量的外积，二阶矩阵秩至多为 1；**Wiener–Hammerstein** 的等效核是多个平移外积的加权和；**Hammerstein–Wiener** 则由函数复合产生“对角结构＋低秩交叉结构”以及更高阶的混合项。
+
+这些约束解释了块模型为何能在有限计算预算下表示某些复杂的非对角记忆，但也提示我们：如果真实设备的交叉核无法由指定滤波器、共享曲线和块顺序构造，模型就可能留下系统性残差。工程上可以先测试四类结构及其并行、级联扩展，再依据双音、双脉冲、多电平历史探针和实际 CPU 预算决定是否升级为带状、稀疏、低秩或更自由的 Volterra 核。**结构辨识和单个内部块的物理归因应分开验证**，具体的尺度歧义与模型前提见 1.8.8。
+
 
 ### 1.14.4 Near-Diagonal、Banded 与 GMP：保留局部交叉记忆
 
@@ -662,9 +813,9 @@ z_r[n]=(B_r \ast x)[n],\qquad r=1,\ldots,K,
 |---|---|---|
 | 核对称化 / 唯一组合编码 | 同一阶标量输入因子满足交换律，重复索引排列产生相同单项式 | 无损消除重复系数与回归特征；采用唯一组合求值可减少重复运算，但高阶规模仍迅速增长 |
 | 阶次截断与分阶记忆 | 高阶贡献集中在短时局部窗口 ($`M_1>M_2>M_3`$) | 控制高阶张量维度膨胀 |
-| Diagonal / Memory Polynomial / Parallel Hammerstein | 同一历史时刻的幂次贡献占主导 ($`k_1=\cdots=k_p`$) | 极紧凑的一维支路滤波，支持 ESS 辨识 |
+| Diagonal / Memory Polynomial / Parallel Hammerstein | 各阶只有同一历史时刻的乘积；并行分支允许独立 FIR，单一 Hammerstein 要求共享 FIR | 紧凑的一维分阶滤波，能够比较不同阶次频响 |
 | Simplified Legendre (SNLM) | 用正交 Legendre 基 $`P_p(x)`$ 替代单项式 $`x^p`$ | 消除高阶小信号下溢，增强对支路滤波相移的鲁棒性 |
-| Wiener / Wiener-Hammerstein | 核由前后级线性滤波器与静态非线性耦合生成 | 用一维滤波器组表达结构化非对角交互 |
+| Wiener / Wiener–Hammerstein / Hammerstein–Wiener | L–N 形成秩一核；L–N–L 形成平移外积和；N–L–N 在对角核和外积核之间形成复合交互 | 用少量滤波器与静态曲线表示受约束的交叉记忆，注意内部尺度与可辨识性 |
 | Near-Diagonal / Banded / GMP | 重要交叉记忆集中在主对角线邻域 ($`\lvert k_1-k_2\rvert\le B`$) | 以 $`O(B\cdot M)`$ 成本保留局部跨时刻交互 |
 | Sparse Volterra | 仅少数离散延迟坐标对输出有显著贡献 | 允许捕获非局部稀疏交叉项 |
 | Low-Rank (CP / Tucker / TT) | 稠密高维核由少数一维滤波器模态的外积生成 | 将 $`O(M^p)`$ 乘加降为 $`O(R\cdot M)`$ 滤波器支路乘积 |
@@ -821,7 +972,7 @@ M_{\mathrm{OS}} \ge \frac{P+1}{2}
 
 ## 1.24 从本章进入下一阶段
 
-本章建立了 Volterra 级数的核心数学结构、对称核记账规则、ESS 与多方差辨识条件、低秩与正交基约简谱系、无分母多项式 ADAA 以及四大能力边界。下一章《02 从 Volterra 到神经网络》将把固定核回归与现代音频神经网络（WaveNet、LSTM、NAM、可微分 DSP 与储备池计算）放入同一个系统辨识框架中，对比它们的优化机制与实时工程权衡。
+本章建立了 Volterra 级数的核心数学结构、对称核记账规则、四类经典块结构及其等效核、ESS 与多方差辨识条件、低秩与正交基约简谱系、无分母多项式 ADAA 以及四大能力边界。下一章《02 从 Volterra 到神经网络》将把固定核回归与现代音频神经网络（WaveNet、LSTM、NAM、可微分 DSP 与储备池计算）放入同一个系统辨识框架中，对比它们的优化机制与实时工程权衡。
 
 ---
 
@@ -855,6 +1006,11 @@ M_{\mathrm{OS}} \ge \frac{P+1}{2}
 - **[V2]** S. Orcioni, A. Terenzi, S. Cecchi, F. Piazza & A. Carini (2018), *Identification of Volterra Models of Tube Audio Devices Using Multiple-Variance Method*, J. Audio Eng. Soc., 66(10), 823–838, [DOI:10.17743/jaes.2018.0046](https://doi.org/10.17743/jaes.2018.0046)。
 - **[V3]** L. Tronchin & V. L. Coli (2015), *Further Investigations in the Emulation of Nonlinear Systems with Volterra Series*, J. Audio Eng. Soc., 63(9), 671–683, [DOI:10.17743/jaes.2015.0065](https://doi.org/10.17743/jaes.2015.0065)。
 - **[V4]** S. Hopman & C. L. Bennett (2022/2023), *Antialiasing for Simplified Nonlinear Volterra Models*, J. Audio Eng. Soc., 70(9), 672–682；以及 *Advances in the Simplified Nonlinear Volterra Model* (University of Miami Master's Thesis, 2023)，提出无分母多项式 ADAA 与简化非线性 Legendre 模型（SNLM）。
+
+- **[B1]** MathWorks, *What Are Hammerstein-Wiener Models?*：[官方系统辨识文档](https://www.mathworks.com/help/ident/ug/what-are-hammerstein-wiener-models.html)。
+- **[B2]** A. Wills, T. B. Schön, L. Ljung & B. Ninness (2013), *Identification of Hammerstein–Wiener models*, *Automatica*, 49(1), 70–81. [DOI:10.1016/j.automatica.2012.09.018](https://doi.org/10.1016/j.automatica.2012.09.018)。
+- **[B3]** P. Vijayan, P. Dreesen, J. Lataire & M. Ishteva (2025), *Enhancing Block-Oriented System Identification Using Prior-Informed Volterra Kernels*, *IEEE Trans. Instrum. Meas.*, 74, 6507311. [DOI:10.1109/TIM.2025.3575968](https://doi.org/10.1109/TIM.2025.3575968)。
+- **[B4]** G. Mzyk & P. Wachel (2017), *Kernel-based identification of Wiener–Hammerstein system*, *Automatica*, 83, 275–281. [DOI:10.1016/j.automatica.2017.06.038](https://doi.org/10.1016/j.automatica.2017.06.038)。
 
 ---
 
