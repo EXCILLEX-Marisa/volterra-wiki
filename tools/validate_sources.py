@@ -21,6 +21,7 @@ IMAGE = re.compile(r"!\[[^\]\n]*\]\(([^)\n]+)\)")
 LOCAL_MD = re.compile(r"(?<!!)\[[^\]\n]+\]\(([^)\n]*?\.md(?:\?[^)\n]*)?(?:#[^)\n]*)?)\)")
 FENCE = re.compile(r"^[ \t]{0,3}" + chr(96) * 3 + r"([^" + chr(96) + r"\r\n]*)[ \t]*$")
 CHINESE_PROSE = re.compile(r"[\u3400-\u9fff]")
+BARE_MATH = re.compile(r"(?<!\$)\$(?!`)[^\$\n]{1,120}\$(?!`)")
 
 
 def require(ok: bool, message: str) -> None:
@@ -39,6 +40,51 @@ def check_fences(path: Path, source: str) -> int:
     for lineno, line in enumerate(source.splitlines(), 1):
         match = FENCE.fullmatch(line)
         if not match:
+            if active is None:
+                require(not BARE_MATH.search(line),
+                        f"{path.name}:{lineno}: use GitHub-safe """Pre-build checks for math fences, local links, and the 37 SVG figures.
+
+Uses Python's standard library; the Node reader remains authoritative for
+MathJax rendering and the exact chapter/bundle content comparison.
+"""
+from __future__ import annotations
+
+import re
+import sys
+import xml.etree.ElementTree as ET
+from pathlib import Path
+from urllib.parse import unquote, urlsplit
+
+ROOT = Path(__file__).resolve().parents[1]
+MANIFEST = ROOT / "tools" / "figure_manifest.txt"
+BUNDLE = ROOT / "downloads" / "Volterra_Wiki_00-06_完整合订版_GitHub图床.md"
+RAW_PREFIX = "https://raw.githubusercontent.com/EXCILLEX-Marisa/volterra-wiki/main/figures/"
+SVG_NS = "{http://www.w3.org/2000/svg}svg"
+COUNTS = {"00": 2, "01": 17, "02": 4, "03": 4, "04": 3, "05": 3, "06": 4}
+IMAGE = re.compile(r"!\[[^\]\n]*\]\(([^)\n]+)\)")
+LOCAL_MD = re.compile(r"(?<!!)\[[^\]\n]+\]\(([^)\n]*?\.md(?:\?[^)\n]*)?(?:#[^)\n]*)?)\)")
+FENCE = re.compile(r"^[ \t]{0,3}" + chr(96) * 3 + r"([^" + chr(96) + r"\r\n]*)[ \t]*$")
+CHINESE_PROSE = re.compile(r"[\u3400-\u9fff]")
+BARE_MATH = re.compile(r"(?<!\$)\$(?!`)[^\$\n]{1,120}\$(?!`)")
+
+
+def require(ok: bool, message: str) -> None:
+    if not ok:
+        raise ValueError(message)
+
+
+def read(path: Path) -> str:
+    return path.read_text(encoding="utf-8")
+
+
+def check_fences(path: Path, source: str) -> int:
+    active = None
+    start = 0
+    count = 0
+    for lineno, line in enumerate(source.splitlines(), 1):
+        match = FENCE.fullmatch(line)
+        if not match:
+...`$ inline math syntax")
             if active == "math":
                 require("$" + chr(96) not in line and not CHINESE_PROSE.search(line),
                         f"{path.name}:{lineno}: prose or inline math inside a math fence")
