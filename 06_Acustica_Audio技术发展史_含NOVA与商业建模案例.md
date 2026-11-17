@@ -163,9 +163,9 @@ Acustica 在 YELLOW 的产品资料中将 **NOVA（Neural Optimized Volterra Aud
 
 ```math
 f_p(x)=\operatorname{sgn}(x)\left[\arctan\left(\lvert x\rvert^p\right)\right]^{1/p}.
+```
 
 其中 $`\operatorname{sgn}(x)`$ 为符号函数，$`\arctan`$ 为反正切函数；$`p>0`$ 控制输入幅度进入饱和区间的形状。符号函数使该点形器保持奇对称。
-```
 
 其小信号近似为 $`f_p(x)\approx x`$，大信号渐近值为 $`\pm(\pi/2)^{1/p}`$。因此，有界非多项式点形器可以在较低复杂度下补足有限阶多项式在强过载区间缺乏全局饱和上界的问题。结合一维 FIR、分支乘积和电平条件权重，能够在同一套引擎中组合频率相关音色、强非线性与工作点变化，但仍须重视抗混叠与多路径延迟对齐。
 

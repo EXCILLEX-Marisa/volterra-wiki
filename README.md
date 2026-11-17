@@ -44,7 +44,8 @@
 - docs/EDITORIAL_GUIDE.md：编辑与公式规范。
 - docs/revisions/：修订记录及索引。
 - tools/reader/：在线阅读器构建程序。
-- tools/check_github_math.py：GitHub 公式预览检查。
+- tools/validate_sources.py 与 tools/figure_manifest.txt：公式围栏、章节链接、37 张 SVG 清单及 XML 完整性验证。
+- tools/check_github_math.py：GitHub 原生公式预览检查（受网络响应影响，CI 中作为非阻断检查）。
 - .github/workflows/reader.yml：GitHub Pages 自动构建与发布。
 
 分章文件使用相对路径引用 figures/*.svg，方便在仓库内逐章阅读；合订版统一使用 GitHub Raw 图片链接，保证从 downloads/ 打开时图片路径仍然有效。在线阅读器从合订版生成，并在构建时核对七篇分章内容与全部 37 张图片。不要在根目录另放一份与下载合订版同名的导航文件；阅读导航统一维护在本页。

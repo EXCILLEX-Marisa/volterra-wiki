@@ -2320,9 +2320,9 @@ c_{\boldsymbol\alpha}[n]\,
 c_{\boldsymbol\alpha}^2[n]\,
 \mathbb E\bigl[\Psi_{\boldsymbol\alpha}^2(\boldsymbol\xi)\bigr],\qquad
 S_j[n] = \frac{\sum_{\boldsymbol{\alpha}\in\mathcal{A}_j}c_{\boldsymbol{\alpha}}^2[n]\mathbb{E}[\Psi_{\boldsymbol{\alpha}}^2]}{\operatorname{Var}_{\boldsymbol{\xi}}(y[n;\boldsymbol{\xi}])}.
+```
 
 这里的 $`\mathcal A_j`$ 表示仅第 $`j`$ 个随机坐标具有非零阶次的多重指标集合，即 $`\{\boldsymbol\alpha:\alpha_j>0,\ \alpha_\ell=0\ (\ell\ne j)\}`$。因此，上式对应第 $`j`$ 个输入参数的一阶 Sobol 灵敏度；包含该坐标与其他坐标交互项的总效应指标需要汇总所有满足 $`\alpha_j>0`$ 的项。
-```
 
 在商业插件设计中，若某个内部元件的 Sobol 灵敏度指标 $`S_j`$ 极高，就可以将该随机坐标 $`\xi_j`$ 直接暴露为插件面板上的“Variance / Tolerance / Tube Age（成色/老化度）”连续微调旋钮，从而用一套正交展开同时覆盖整个经典硬件家族的个体分布。
 
@@ -2564,9 +2564,9 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 
 ```math
 \ddot{\mathbf{a}}(t) + \mathbf{\Gamma}_r\dot{\mathbf{a}}(t) + \mathbf{\Omega}_r^2\mathbf{a}(t) + \boldsymbol{\Phi}_r^\top\mathbf{f}_{\mathrm{nl}}\bigl(\boldsymbol{\Phi}_r\mathbf{a}(t)\bigr) = \bigl(\boldsymbol{\Phi}_r^\top\mathbf{b}_{\mathrm{in}}\bigr)u(t).
+```
 
 其中 $`\mathbf{\Gamma}_r`$ 是降阶模态阻尼矩阵，$`\mathbf{\Omega}_r`$ 是由保留模态角频率组成的对角矩阵；$`\mathbf a(t)`$ 为低维模态坐标。
-```
 
 在这组方程中，$`\mathbf M`$、$`\mathbf C`$、$`\mathbf K`$ 分别是质量、阻尼与刚度矩阵；$`\mathbf q`$ 是物理位移自由度，$`\boldsymbol\Phi_r`$ 则把这些自由度投影到 $`r`$ 个低维模态坐标。**有限元模态降阶压缩的是物理空间自由度 $`\mathbf{q}\in\mathbb{R}^{N_{\mathrm{FEM}}}`$**，而《01》《03》中的 **Volterra 低秩与 Laguerre 约简压缩的是时间历史核坐标**。两种降阶可以在同一台多物理场设备中配合使用：前者减少空间计算，后者减少时域记忆的参数与滤波成本。
 
@@ -2575,9 +2575,12 @@ v = \frac{a+b}{2},\qquad i = \frac{a-b}{2R_0}.
 对于缺乏解析本征模态的强非线性场，可通过离线收集 $`N_s`$ 个时间步的状态快照矩阵 $`\mathbf{X}_{\mathrm{snap}}=[\mathbf{q}(t_1),\ldots,\mathbf{q}(t_{N_s})]\in\mathbb{R}^{N_{\mathrm{FEM}}\times N_s}`$，执行奇异值分解（SVD）构建**本征正交分解（Proper Orthogonal Decomposition, POD）** 基底：
 
 ```math
-\mathbf X_{\mathrm{snap}}=\mathbf U\boldsymbol\Sigma\mathbf V^\top,\qquad
+\mathbf X_{\mathrm{snap}}=\mathbf U\boldsymbol\Sigma\mathbf V^\top,
+```
 
 其中 $`\mathbf U`$ 与 $`\mathbf V`$ 的列向量分别给出快照矩阵列空间与行空间的正交基，$`\boldsymbol\Sigma`$ 为非负奇异值构成的对角矩阵。记号 $`\mathbf U_{:,1:r}`$ 表示取 $`\mathbf U`$ 的全部行以及前 $`r`$ 列；这些列构成保留的 POD 基底。$`\sigma_i`$ 是第 $`i`$ 个奇异值，截断误差通过被舍弃奇异值的平方和衡量。
+
+```math
 \boldsymbol{\Phi}_r = \mathbf{U}_{:,1:r},\qquad
 \frac{\sum_{i=r+1}^{\min(N_{\mathrm{FEM}},N_s)}\sigma_i^2}{\sum_{i=1}^{\min(N_{\mathrm{FEM}},N_s)}\sigma_i^2} \lt \varepsilon_{\mathrm{POD}}.
 ```
@@ -2887,9 +2890,9 @@ Acustica 在 YELLOW 的产品资料中将 **NOVA（Neural Optimized Volterra Aud
 
 ```math
 f_p(x)=\operatorname{sgn}(x)\left[\arctan\left(\lvert x\rvert^p\right)\right]^{1/p}.
+```
 
 其中 $`\operatorname{sgn}(x)`$ 为符号函数，$`\arctan`$ 为反正切函数；$`p>0`$ 控制输入幅度进入饱和区间的形状。符号函数使该点形器保持奇对称。
-```
 
 其小信号近似为 $`f_p(x)\approx x`$，大信号渐近值为 $`\pm(\pi/2)^{1/p}`$。因此，有界非多项式点形器可以在较低复杂度下补足有限阶多项式在强过载区间缺乏全局饱和上界的问题。结合一维 FIR、分支乘积和电平条件权重，能够在同一套引擎中组合频率相关音色、强非线性与工作点变化，但仍须重视抗混叠与多路径延迟对齐。
 

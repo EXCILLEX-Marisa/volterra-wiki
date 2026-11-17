@@ -130,6 +130,7 @@ y[n]=\sum_{k=0}^{M-1}h[k]x[n-k].
 
 ```bash
 git diff --check
+python3 tools/validate_sources.py
 npm ci --prefix tools/reader
 npm run --prefix tools/reader build -- "<仓库外的临时输出目录>"
 ```
@@ -137,6 +138,7 @@ npm run --prefix tools/reader build -- "<仓库外的临时输出目录>"
 - Node.js 版本应与 CI 保持一致（当前为 Node.js 24）。
 - `npm ci` 使用已提交的 lockfile；只有在依赖发生变化时才更新 `package.json` 和 `package-lock.json`。
 - 构建必须成功，且日志应报告 7 个同步章节、实际公式数量和通过文件清单验证的 SVG 数量。
+- 构建前必须运行 `tools/validate_sources.py`；该检查覆盖固定图集清单、SVG XML、链接目标和 math 围栏中的正文误入。
 - 当前没有独立的 `npm test` 脚本。不得声称运行了不存在的测试套件。
 - 构建输出应放在仓库外的临时目录；若只能放在仓库内，先确认该目录不会被提交，任务结束后只清理本次生成的产物。
 
