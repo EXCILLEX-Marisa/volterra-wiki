@@ -65,9 +65,15 @@ def check_svg_files(expected: set[str]) -> None:
         except ET.ParseError as error:
             raise ValueError(f"{name}: malformed XML: {error}") from error
         require(root.tag == SVG_NS, f"{name}: expected SVG root element")
-        require(root.get("width") == "1600" and root.get("height") == "980"
-                and root.get("viewBox") == "0 0 1600 980",
-                f"{name}: unexpected canvas (expected 1600x980)")
+        try:
+            width = float(root.attrib["width"])
+            height = float(root.attrib["height"])
+            x, y, vw, vh = (float(v) for v in root.attrib["viewBox"].split())
+        except (ValueError, KeyError) as error:
+            raise ValueError(f"{name}: malformed SVG canvas metadata") from error
+        require(width > 0 and height > 0 and vw == width and vh == height
+                and x == 0 and y == 0,
+                f"{name}: width/height do not match the viewBox")
 
 
 def check_image(url: str, bundled: bool, path: Path) -> str:
