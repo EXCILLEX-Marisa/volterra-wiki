@@ -23,6 +23,13 @@ FENCE = re.compile(r"^[ \t]{0,3}" + chr(96) * 3 + r"([^" + chr(96) + r"\r\n]*)[ 
 CHINESE_PROSE = re.compile(r"[\u3400-\u9fff]")
 BARE_MATH = re.compile(r"(?<!\$)\$(?!`)[^\$\n]{1,120}\$(?!`)")
 
+SECTION_HEADING = re.compile(r"(?m)^#{2,5}\s+([0-6]\.\d+(?:\.\d+)?)(?=\s)")
+BOOK_REF = re.compile(
+    r"《(0[0-6])》(?:第\s*)?([0-6]\.\d+(?:\.\d+)?"
+    r"(?:\s*[、,，—–~～-]\s*[0-6]\.\d+(?:\.\d+)?)*)"
+)
+NUMBERED_SECTION_REF = re.compile(r"第\s*([0-6]\.\d+(?:\.\d+)?)(?=\s*节)")
+
 
 def require(ok: bool, message: str) -> None:
     if not ok:
@@ -103,6 +110,39 @@ def check_links(path: Path, source: str) -> int:
     return total
 
 
+
+def check_section_references(chapters: list[Path]) -> int:
+    """Check explicit chapter/section citations against actual Markdown headings.
+
+    Only recognize citation syntax (《03》3.6.1, 《03》第 3.6.1、3.11 节,
+    or 第 3.10 节). Ignore incidental decimals such as 1.33 ms.
+    """
+    sources = {path.name[:2]: read(path) for path in chapters}
+    sections = {
+        match.group(1): chapter_id
+        for chapter_id, source in sources.items()
+        for match in SECTION_HEADING.finditer(source)
+    }
+    checked = 0
+    for path in chapters:
+        source = sources[path.name[:2]]
+        for match in BOOK_REF.finditer(source):
+            chapter_id = match.group(1)
+            for section in re.findall(r"[0-6]\.\d+(?:\.\d+)?", match.group(2)):
+                line = source.count("\n", 0, match.start()) + 1
+                require(sections.get(section) == chapter_id,
+                        f"{path.name}:{line}: broken section reference "
+                        f"《{chapter_id}》{section}")
+                checked += 1
+        for match in NUMBERED_SECTION_REF.finditer(source):
+            section = match.group(1)
+            line = source.count("\n", 0, match.start()) + 1
+            require(section in sections,
+                    f"{path.name}:{line}: unknown section reference {section}")
+            checked += 1
+    return checked
+
+
 def main() -> int:
     names = [line.strip() for line in read(MANIFEST).splitlines()
              if line.strip() and not line.startswith("#")]
@@ -113,6 +153,7 @@ def main() -> int:
     chapters = sorted(ROOT.glob("0[0-6]_*.md"))
     require(len(chapters) == 7 and {p.name[:2] for p in chapters} == set(COUNTS),
             "expected exactly seven chapters (00-06)")
+    total_section_refs = check_section_references(chapters)
     total_math = total_links = 0
     chapter_figures = set()
     for path in [*chapters, ROOT / "README.md", BUNDLE]:
@@ -147,7 +188,7 @@ def main() -> int:
     require(chapter_figures == expected,
             f"chapter figure mismatch; missing={sorted(expected - chapter_figures)}")
     print(f"Validation passed: 7 chapters, 39 SVGs, {total_math} math fences, "
-          f"{total_links} local Markdown links.")
+          f"{total_links} local Markdown links, {total_section_refs} section references.")
     return 0
 
 
