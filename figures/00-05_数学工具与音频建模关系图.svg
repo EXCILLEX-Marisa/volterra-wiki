@@ -5,7 +5,7 @@
 <rect x="0" y="0" width="1600" height="980" rx="0" fill="#F8FAFC" stroke="#F8FAFC" stroke-width="0"/>
 <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
 <rect x="68" y="48" width="192" height="28" rx="6" fill="#0F172A" stroke="#0F172A" stroke-width="0"/>
-<text x="164" y="68" font-size="14" fill="#FFFFFF" font-weight="700" text-anchor="middle">图 00-04 · 数学工具</text>
+<text x="164" y="68" font-size="14" fill="#FFFFFF" font-weight="700" text-anchor="middle">图 00-05 · 数学工具</text>
 <text x="276" y="70" font-size="30" fill="#0F172A" font-weight="700" text-anchor="start">高等数学工具在音频建模中的作用地图</text>
 <text x="68" y="104" font-size="16" fill="#475569" text-anchor="start">从采样值与历史核出发，理解数据组织、系统映射、变化分析，以及测量与训练；四类工具共同服务于非线性系统辨识。</text>
 <rect x="48" y="146" width="734" height="342" rx="16" fill="#FFFFFF" stroke="#7DD3FC" stroke-width="2"/>
@@ -219,7 +219,7 @@
 <text x="1218" y="792" font-size="13" fill="#475569" text-anchor="start">调整参数后，检查未见数据</text>
 <text x="839" y="851" font-size="13" fill="#6D28D9" text-anchor="start">理解关键：统计描述测量规律；优化调整参数；独立验证检查模型对新输入是否可靠。</text>
 <rect x="48" y="897" width="1504" height="54" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.3"/>
-<text x="68" y="922" font-size="14" fill="#0F172A" font-weight="700" text-anchor="start">图 00-04</text>
+<text x="68" y="922" font-size="14" fill="#0F172A" font-weight="700" text-anchor="start">图 00-05</text>
 <text x="159" y="922" font-size="14" fill="#475569" text-anchor="start">数学工具的对象、运算与音频建模任务对应关系。图示用于建立初步直觉；具体符号、假设与推导见 00.8 及后续章节。</text>
 <text x="68" y="940" font-size="12" fill="#64748B" text-anchor="start">注：向量、矩阵也可视为低阶张量；张量在一般数学理论中还有更抽象的定义。本图采用数组表示帮助理解 Volterra 核。</text>
 </g></svg>

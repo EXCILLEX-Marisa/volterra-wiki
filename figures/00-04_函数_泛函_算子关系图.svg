@@ -26,7 +26,7 @@
   <rect width="1600" height="980" fill="#F8FAFC"/>
   <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="68" y="48" width="160" height="28" rx="6" fill="#0F172A"/>
-  <text x="148.2" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 00-03 · 数学映射</text>
+  <text x="148.2" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 00-04 · 数学映射</text>
   <text x="244" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">函数（Function）、泛函（Functional）与算子（Operator）的直观对照</text>
   <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">三个概念的本质区别在于“输入是什么”与“输出是什么”：从单点瞬时映射，到整段历史映射单点，再到整条波形映射整条波形</text>
   <g transform="translate(48, 144)">
