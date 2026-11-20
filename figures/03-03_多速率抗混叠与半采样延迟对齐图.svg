@@ -34,7 +34,7 @@
   <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="68" y="48" width="234" height="28" rx="6" fill="#0F172A"/>
   <text x="184.9" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 03-03 · 多速率与半采样对齐</text>
-  <text x="318" y="70" font-size="27" font-weight="bold" fill="#0F172A">多速率抗混叠混合架构与 ADAA 0.5 采样群延迟精确对齐图</text>
+  <text x="318" y="70" font-size="27" font-weight="bold" fill="#0F172A">多速率抗混叠与并联支路的采样延迟</text>
   <text x="68" y="104" font-size="15.5" fill="#475569">解析基带 (1×)、一阶反导数 (ADAA₁) 与过采样 (4×/8×) 三路并联时的整数与分数采样延迟匹配准则</text>
 
 
@@ -43,8 +43,8 @@
   <rect x="48" y="144" width="1504" height="54" rx="14" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.5"/>
   <rect x="48" y="186" width="1504" height="12" fill="#E0F2FE"/>
   <line x1="48" y1="198" x2="1552" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
-  <text x="68" y="168" font-size="17" font-weight="bold" fill="#075985">上篇：多速率混合建模引擎的三大并行支路与 0.5 采样群延迟精确对齐架构</text>
-  <text x="68" y="188" font-size="12.5" fill="#075985">彻底消除并联支路因 ADAA1 半采样延迟与过采样抽取滤波器群延迟不一致引发的高频梳状相消 (Comb Filtering)</text>
+  <text x="68" y="168" font-size="17" font-weight="bold" fill="#075985">上篇：把三条并联路径的时间中心换算成宿主采样点</text>
+  <text x="68" y="188" font-size="12.5" fill="#075985">示例假设基带直通、过采样路径具有已知延迟 D_os；实际应计入各滤波器的幅度与相位。</text>
 
   
   <rect x="68" y="210" width="1464" height="328" rx="12" fill="#F8FAFC" stroke="#CBD5E1"/>
@@ -59,25 +59,25 @@
   <line x1="212" y1="256" x2="260" y2="256" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-blue)"/>
   <rect x="264" y="222" width="430" height="68" rx="10" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.8"/>
   <text x="479" y="248" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#075985">支路 ① 基带 (1× f_s) 线性色散与慢包络通路</text>
-  <text x="479" y="272" text-anchor="middle" font-size="12" fill="#0369A1">线性 FIR H₁(z) + 双线性慢包络状态 s_env[n] (固有延迟 = 0 采样)</text>
+  <text x="479" y="272" text-anchor="middle" font-size="12" fill="#0369A1">基带路径的延迟按实际 H₁(z) 和路由测量</text>
   <line x1="694" y1="256" x2="756" y2="256" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-blue)"/>
 
   
   <rect x="760" y="222" width="440" height="68" rx="10" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
   <text x="980" y="248" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#065F46">群延迟对齐模块：z^(-D_os) · H_frac(0.5 采样延迟)</text>
-  <text x="980" y="272" text-anchor="middle" font-size="12" fill="#047857">同步补偿过采样整数延迟 D_os 与 ADAA₁ 的 0.5 采样分数群延迟</text>
+  <text x="980" y="272" text-anchor="middle" font-size="12" fill="#047857">示例按 1× ADAA₁ 与已知过采样延迟换算</text>
   <line x1="1200" y1="256" x2="1320" y2="346" stroke="#059669" stroke-width="2.5" marker-end="url(#arr-green)"/>
 
   
   <line x1="212" y1="368" x2="260" y2="368" stroke="#D97706" stroke-width="2.5" marker-end="url(#arr-amber)"/>
   <rect x="264" y="334" width="430" height="68" rx="10" fill="#FEF3C7" stroke="#D97706" stroke-width="1.8"/>
-  <text x="479" y="360" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#92400E">支路 ② 一阶无分母多项式 ADAA₁ 通路 (1× 或 2×)</text>
+  <text x="479" y="360" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#92400E">支路 ② 一阶多项式 ADAA₁（本图按 1×）</text>
   <text x="479" y="384" text-anchor="middle" font-size="12" fill="#B45309">ADAA₁(P_p(x))[n] = (F₁(x[n])-F₁(x[n-1]))/(x[n]-x[n-1])</text>
   <line x1="694" y1="368" x2="756" y2="368" stroke="#D97706" stroke-width="2.5" marker-end="url(#arr-amber)"/>
 
   
   <rect x="760" y="334" width="440" height="68" rx="10" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.8"/>
-  <text x="980" y="360" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#92400E">内生 τ_ADAA1 = +0.5 T_s 半采样群延迟 + 整数对齐 z^(-D_os)</text>
+  <text x="980" y="360" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#92400E">区间中心为半个工作采样周期，再加路径延迟</text>
   <text x="980" y="384" text-anchor="middle" font-size="10.5" fill="#78350F">因积分区间 [t_{n-1}, t_n] 几何中心位于 (n - 0.5)T_s（若用 ADAA₂ 则为 +1.0 T_s）</text>
   <line x1="1200" y1="368" x2="1300" y2="368" stroke="#D97706" stroke-width="2.5" marker-end="url(#arr-amber)"/>
 
@@ -90,12 +90,12 @@
 
   <rect x="490" y="446" width="450" height="68" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.8"/>
   <text x="715" y="472" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#5B21B6">支路 ③ 高采样率 (4×/8× f_s) 交叉核 V2-L + RD-Play + 神经残差</text>
-  <text x="715" y="494" text-anchor="middle" font-size="12" fill="#6D28D9">容纳 p·f_max 频带展宽（加 0.5 采样补偿对齐支路 ②）</text>
+  <text x="715" y="494" text-anchor="middle" font-size="12" fill="#6D28D9">在高采样率下计算，再换算总延迟</text>
   <line x1="940" y1="480" x2="972" y2="480" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-purple)"/>
 
   <rect x="976" y="446" width="224" height="68" rx="10" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
   <text x="1088" y="472" text-anchor="middle" font-size="13" font-weight="bold" fill="#5B21B6">↓ M_os 抗混叠抽取</text>
-  <text x="1088" y="494" text-anchor="middle" font-size="11.5" fill="#6D28D9">累计整数群延迟 = D_os 采样</text>
+  <text x="1088" y="494" text-anchor="middle" font-size="11.5" fill="#6D28D9">本例按宿主采样点记录 D_os</text>
   <line x1="1200" y1="480" x2="1320" y2="390" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arr-purple)"/>
 
   
@@ -104,31 +104,31 @@
   <line x1="1358" y1="368" x2="1406" y2="368" stroke="#059669" stroke-width="2.5" marker-end="url(#arr-green)"/>
   <rect x="1410" y="344" width="102" height="48" rx="8" fill="#059669"/>
   <text x="1461" y="366" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">ŷ[n] 输出</text>
-  <text x="1461" y="383" text-anchor="middle" font-size="10.5" fill="#D1FAE5">全频段零相消</text>
+  <text x="1461" y="383" text-anchor="middle" font-size="10.5" fill="#D1FAE5">检查叠加频响</text>
 
   
     <rect x="48" y="574" width="736" height="308" rx="14" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="48" y="574" width="736" height="54" rx="14" fill="#FEE2E2" stroke="#FCA5A5" stroke-width="1.5"/>
   <rect x="48" y="616" width="736" height="12" fill="#FEE2E2"/>
   <line x1="48" y1="628" x2="784" y2="628" stroke="#FCA5A5" stroke-width="1.5"/>
-  <text x="68" y="598" font-size="17" font-weight="bold" fill="#991B1B">下左：未对齐 0.5 采样延迟引发的高频梳状相消灾难</text>
-  <text x="68" y="618" font-size="12.5" fill="#991B1B">当基带干声/线性支路与 ADAA₁ 非线性支路直接相加时的幅频畸变</text>
+  <text x="68" y="598" font-size="17" font-weight="bold" fill="#991B1B">下左：相差半拍的两路等幅信号如何相加</text>
+  <text x="68" y="618" font-size="12.5" fill="#991B1B">先只比较延迟，把直流增益归一化；实际 ADAA 还含幅度滤波。</text>
     <rect x="816" y="574" width="736" height="308" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="816" y="574" width="736" height="54" rx="14" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
   <rect x="816" y="616" width="736" height="12" fill="#FEF3C7"/>
   <line x1="816" y1="628" x2="1552" y2="628" stroke="#FCD34D" stroke-width="1.5"/>
-  <text x="836" y="598" font-size="17" font-weight="bold" fill="#78350F">下右：线性相位 FIR 过采样 vs 最小相位 IIR 过采样的相位陷阱</text>
-  <text x="836" y="618" font-size="12.5" fill="#78350F">为什么在并联残差架构中严禁盲目使用最小相位 IIR 过采样滤波器</text>
+  <text x="836" y="598" font-size="17" font-weight="bold" fill="#78350F">下右：过采样滤波器的相位怎样影响并联支路</text>
+  <text x="836" y="618" font-size="12.5" fill="#78350F">线性相位与最小相位滤波器需要采用不同的对齐方式。</text>
 
   
   <rect x="68" y="640" width="696" height="224" rx="10" fill="#FEF2F2" stroke="#FECACA"/>
-  <text x="88" y="666" font-size="12.5" font-weight="bold" fill="#991B1B">1. 失配传递函数：H(e^(jω)) = 1 + e^(-jω/2)</text>
-  <text x="88" y="692" font-size="12" fill="#334155">• ω = π 处 0.5 采样延迟产生 <tspan font-weight="bold" fill="#DC2626">90° 相移 (-3.01 dB)</tspan></text>
-  <text x="88" y="716" font-size="12" fill="#334155">• 10～20 kHz 高频段叠加时产生周期性梳状衰减</text>
+  <text x="88" y="666" font-size="12.5" font-weight="bold" fill="#991B1B">1. 两条理想路径等权相加：H(ω) = (1 + e^(−jω/2)) / 2</text>
+  <text x="88" y="692" font-size="12" fill="#334155">• ω = π 时相差 90°，合成幅度为 1/√2，即 −3.01 dB。</text>
+  <text x="88" y="716" font-size="12" fill="#334155">• 在 0 ≤ ω ≤ π 内，幅度 cos(ω/4) 从 1 单调降至 1/√2。</text>
   <text x="88" y="742" font-size="13" font-weight="bold" fill="#065F46">• 两种标准补偿方案：</text>
   <text x="102" y="766" font-size="12.5" fill="#334155">① <tspan font-weight="bold">一阶 Thiran 全通分数延迟滤波器</tspan>：H_ap(z) = (a + z⁻¹)/(1 + a·z⁻¹)，其中 a = (1 - 0.5)/(1 + 0.5) = 1/3</text>
-  <text x="102" y="790" font-size="12.5" fill="#334155">② <tspan font-weight="bold">对称两点均值滤波 / 加窗 Sinc 分数延迟</tspan>：在所有非 ADAA₁ 支路串联 4～8 阶对称分数延迟 FIR 核</text>
-  <text x="88" y="818" font-size="12.5" font-weight="bold" fill="#991B1B">• 若采用二阶 ADAA₂（固有群延迟为 1.0 采样周期），旁路仅需串联单拍延迟 z⁻¹ 即可对齐</text>
+  <text x="102" y="790" font-size="12.5" fill="#334155">② 两点均值也有半拍时间中心，同时带来高频衰减。</text>
+  <text x="88" y="818" font-size="12.5" font-weight="bold" fill="#991B1B">• 对齐后仍需检查湿声自身的幅度响应和混合比例。</text>
 
   
   <rect x="520" y="652" width="228" height="102" rx="8" fill="#FFFFFF" stroke="#FCA5A5"/>
@@ -136,25 +136,25 @@
   <line x1="538" y1="736" x2="732" y2="736" stroke="#94A3B8" stroke-width="1"/>
   <line x1="538" y1="686" x2="732" y2="686" stroke="#059669" stroke-width="2.5"/>
   <path d="M 538 686 Q 640 688 730 732" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <text x="634" y="681" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#059669">对齐后：0 dB 平坦</text>
-  <text x="634" y="726" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#DC2626">未对齐：高频滚降/相消</text>
+  <text x="634" y="681" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#059669">纯延迟已补偿（示意）</text>
+  <text x="634" y="726" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#DC2626">半拍失配（示意）</text>
 
   
   <rect x="836" y="640" width="696" height="224" rx="10" fill="#FFFBEB" stroke="#FDE68A"/>
-  <text x="856" y="666" font-size="13.5" font-weight="bold" fill="#92400E">2. 过采样滤波器选型铁律（串联独占 vs 并联残差）：</text>
+  <text x="856" y="666" font-size="13.5" font-weight="bold" fill="#92400E">2. 并联时如何核对过采样滤波器</text>
   <rect x="856" y="680" width="656" height="72" rx="8" fill="#FFFFFF" stroke="#FCD34D"/>
-  <text x="874" y="704" font-size="13" font-weight="bold" fill="#991B1B">✗ 最小相位椭圆/多相 IIR 过采样陷阱：</text>
-  <text x="874" y="726" font-size="12.5" fill="#334155">虽然在低频群延迟接近零，但在截止频率 (16～20 kHz) 附近会产生高达 180°～540° 的剧烈非线性相位旋转；</text>
+  <text x="874" y="704" font-size="13" font-weight="bold" fill="#991B1B">最小相位滤波器</text>
+  <text x="874" y="726" font-size="12.5" fill="#334155">截止区附近的群延迟可能随频率改变，幅度也开始滚降。</text>
   <text x="874" y="744" font-size="12.5" fill="#991B1B">当与基带 1× 支路并联叠加时，固定整数延迟无法补偿非线性相移，易引发中高频相位抵消</text>
 
   <rect x="856" y="762" width="656" height="86" rx="8" fill="#ECFDF5" stroke="#6EE7B7"/>
-  <text x="874" y="786" font-size="13" font-weight="bold" fill="#065F46">✓ 并联混合架构的两种无相消黄金配置：</text>
-  <text x="874" y="810" font-size="12.5" fill="#334155">1. <tspan font-weight="bold">全线性相位多相半带 FIR 过采样</tspan>：群延迟严格为常数 D_os 采样，基带支路仅需串联纯整数延迟线 z^(-D_os)</text>
-  <text x="874" y="834" font-size="11.0" fill="#334155">2. <tspan font-weight="bold">全通相位互补对齐 (All-Pass Phase Equalization)</tspan>：若过采样支路用 IIR，则基带支路必须穿过完全相同的上下采样滤波对</text>
+  <text x="874" y="786" font-size="13" font-weight="bold" fill="#065F46">可比较的两种方案</text>
+  <text x="874" y="810" font-size="12.5" fill="#334155">1. 线性相位 FIR：将插值和抽取滤波器的总群延迟换算为宿主采样点。</text>
+  <text x="874" y="834" font-size="11.0" fill="#334155">2. 相位匹配：使两条路径经历匹配的滤波，再实测相加后的通带。</text>
 
 
   
   <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
   <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
-  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：ADAA₁ 天然引入 +0.5 采样周期群延迟；在并联残差或分频混合插件中，必须对旁路施加 0.5 采样分数延迟与线性相位过采样延迟补偿，否则高频必然相消。</text>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">先用 f(x) = x 核对 ADAA 的延迟与幅度响应，再用非线性信号测折返。各支路的位置、采样率和滤波器都影响最终混合结果。</text>
 </svg>

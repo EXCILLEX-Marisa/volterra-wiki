@@ -28,7 +28,7 @@
   <rect x="68" y="48" width="247" height="28" rx="6" fill="#0F172A"/>
   <text x="191.7" y="67" text-anchor="middle" font-size="14" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#FFFFFF">图 06-02 · simplenova 渐变架构</text>
   <text x="331" y="70" font-size="28" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">simplenova 电平触发双路径渐变器与传统压缩器增益控制的机制对比</text>
-  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">对应《02》§2.13.2：能量检测 → 软膝多项式映射 → 上下行分离 slew 惯性滑动 → 双路径连续混合，以及 Mode 1 备路径缓冲保鲜</text>
+  <text x="68" y="104" font-size="16" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">对应《06》§6.13.2。能量检测、软膝、平滑和双路混合构成一种可检验的路由示例。</text>
 
   <g transform="translate(48, 144)">
     <rect x="0" y="0" width="1504" height="475" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
@@ -61,12 +61,12 @@
     <text x="748" y="390" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 上行系数 α_up 较快：迅速跟住瞬态大峰值</text>
     <text x="748" y="416" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 下行系数 α_down 较慢：平滑回落，赋予呼吸感</text>
     <rect x="1115" y="95" width="355" height="215" rx="14" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2.5"/>
-    <text x="1292" y="132" text-anchor="middle" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">④ 双路径线性凸组合（无爆音渐变）</text>
+    <text x="1292" y="132" text-anchor="middle" font-size="18" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">④ 两路输出的加权和</text>
     <rect x="1138" y="150" width="308" height="54" rx="8" fill="#FFFFFF" stroke="#7C3AED"/>
     <text x="1292" y="184" text-anchor="middle" font-size="17.4" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">ŷ[n] = u[n] + g[n] · ( v[n] − u[n] )</text>
     <text x="1292" y="232" text-anchor="middle" font-size="15" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#475569">等价于：(1 − g[n])·u[n] + g[n]·v[n]</text>
-    <text x="1292" y="266" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">与官方“低电平 Volterra 保持频响相位、驱动增强</text>
-    <text x="1292" y="288" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">时另一部分贡献平滑增大”的行为描述完全相容</text>
+    <text x="1292" y="266" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">示例权重 g[n] 解释怎样平滑混合。</text>
+    <text x="1292" y="288" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">YELLOW 的产品资料另说明两个部分同时工作。</text>
     <line x1="356" y1="117" x2="1108" y2="155" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
     <line x1="356" y1="221" x2="1108" y2="205" stroke="#D97706" stroke-width="2.5" marker-end="url(#arr-diag)"/>
     <path d="M 1058 367 L 1292 367 L 1292 316" fill="none" stroke="#059669" stroke-width="3" marker-end="url(#arr-state)"/>
@@ -79,7 +79,7 @@
     <text x="28" y="84" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 传统压缩器（Compressor）：y[n] = G(s_env[n]) · x[n]</text>
     <text x="44" y="112" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">检测包络后算出标量增益 G，乘在同一条信号路径上（核心改变动态范围，不切换底层核模型）。</text>
     <text x="28" y="152" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif">• simplenova 路径混合器：ŷ[n] = (1 − g[n]) u[n] + g[n] v[n]</text>
-    <text x="44" y="180" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">检测能量后算出比例 g[n]，在两条具有不同频响、相位与谐波结构的信号世界之间连续融和。</text>
+    <text x="44" y="180" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">检测能量后算出比例 g[n]，再混合两路的不同频响、相位与谐波。</text>
     <text x="44" y="206" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">注意：若 u[n] 与 v[n] 存在延迟差或相位差，混合比例变化会同时调制瞬态频响，因此相位对齐极关键。</text>
   </g>
   <g transform="translate(812, 642)">

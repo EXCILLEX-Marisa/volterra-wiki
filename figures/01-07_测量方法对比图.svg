@@ -73,7 +73,7 @@
     <rect x="236" y="335" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
     <rect x="268" y="335" width="29" height="29" rx="4" fill="#E2E8F0" stroke="#FFF"/>
     <rect x="300" y="335" width="29" height="29" rx="4" fill="#0284C7" stroke="#FFF"/>
-    <text x="242" y="388" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">盲区：k₁ ≠ k₂ 的非对角格全部为 0，且各阶对角项混叠</text>
+    <text x="242" y="388" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">盲区：单脉冲中非对角乘积为零，对应的核值仍未知</text>
     <text x="32" y="438" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">能观察到什么：</text>
     <text x="32" y="468" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 线性系统的完整脉冲响应 h₁[n]</text>
     <text x="32" y="494" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 各阶主对角线在时刻 n 的混合和 Σ A^p h_p[n,...,n]</text>
@@ -81,7 +81,7 @@
     <text x="44" y="565" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#DC2626">局限与误区：</text>
     <text x="44" y="594" font-size="13.6" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 因 δ[n-k₁]δ[n-k₂] 仅当 k₁=k₂=n 时非零，单脉冲从数学</text>
     <text x="44" y="620" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  上根本不会触发任何跨时刻乘积项；</text>
-    <text x="44" y="646" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 单脉冲能量集中在一点，实测硬件时信噪比（SNR）极低。</text>
+    <text x="44" y="646" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 峰值受限时，单脉冲的总能量小，微弱响应可能被噪声淹没。</text>
   </g>
   <g transform="translate(558, 144)">
     <rect x="0" y="0" width="484" height="730" rx="16" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2" filter="url(#shadow)"/>
@@ -134,7 +134,7 @@
     <rect x="28" y="535" width="428" height="168" rx="10" fill="#EDE9FE" stroke="#C4B5FD"/>
     <text x="44" y="565" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">局限与实验要求：</text>
     <text x="44" y="594" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 若系统含三阶/四阶交叉项，双脉冲差值中仍会混有高阶项，</text>
-    <text x="44" y="620" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">  需配合多组幅度 (A, B) 组合才能完全解耦二阶核；</text>
+    <text x="44" y="620" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">可改变 A、B 的幅度与符号，检查高阶贡献和噪声。</text>
     <text x="44" y="646" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 遍历所有间隔 d 的测量耗时较长，适合定点验证与诊断。</text>
   </g>
   <g transform="translate(1068, 144)">
@@ -155,7 +155,7 @@
     <text x="242" y="388" text-anchor="middle" font-size="13" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">一次扫频同时提取多阶谐波随频率的幅相轮廓（高信噪比）</text>
     <text x="32" y="438" font-size="16" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">能观察到什么：</text>
     <text x="32" y="468" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 各次谐波通道 H_Hm(f) 的频率响应与相位特征</text>
-    <text x="32" y="494" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 经上三角阶次变换可辨识并联 Hammerstein 支路核 g_p[k]</text>
+    <text x="32" y="494" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">• 在幂次并联 Hammerstein 假设下，可反算支路核 g_p[k]</text>
     <rect x="28" y="535" width="428" height="168" rx="10" fill="#FEF3C7" stroke="#FCD34D"/>
     <text x="44" y="565" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#D97706">核心能力边界（切勿混淆）：</text>
     <text x="44" y="594" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• ESS 分离出的 H_Hm 不是完整高维非对角 Volterra 核；</text>

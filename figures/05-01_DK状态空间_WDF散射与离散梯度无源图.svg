@@ -35,7 +35,7 @@
   <rect x="68" y="48" width="248" height="28" rx="6" fill="#0F172A"/>
   <text x="192.2" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 05-01 · 白盒电路与无源离散化</text>
   <text x="332" y="70" font-size="27" font-weight="bold" fill="#0F172A">DK 离散状态空间法、波数字滤波器 (WDF) 与端口哈密顿离散梯度无源架构图</text>
-  <text x="68" y="104" font-size="15.5" fill="#475569">对比现代电路/声学仿真的三大核心范式，并揭示「端口哈密顿离散梯度守恒格式」与「一阶 ADAA 抗混叠」的严格数学同构</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">比较电路求解、端口散射与离散能量收支，并说明一维离散梯度和 ADAA₁ 如何使用相同形式的差商。</text>
 
 
   
@@ -43,20 +43,20 @@
   <rect x="48" y="144" width="480" height="54" rx="14" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="1.5"/>
   <rect x="48" y="186" width="480" height="12" fill="#E0F2FE"/>
   <line x1="48" y1="198" x2="528" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
-  <text x="68" y="168" font-size="17" font-weight="bold" fill="#075985">方法 I：离散基尔霍夫状态空间法 (Yeh DK-Method)</text>
+  <text x="68" y="168" font-size="17" font-weight="bold" fill="#075985">方法 I：节点 DK 状态空间法（Yeh）</text>
   <text x="68" y="188" font-size="12.5" fill="#075985">分离 d 维线性状态递推与 N_nl 维非线性端口求根 / 预计算 LUT</text>
     <rect x="560" y="144" width="480" height="738" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="560" y="144" width="480" height="54" rx="14" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
   <rect x="560" y="186" width="480" height="12" fill="#FEF3C7"/>
   <line x1="560" y1="198" x2="1040" y2="198" stroke="#FCD34D" stroke-width="1.5"/>
   <text x="580" y="168" font-size="17" font-weight="bold" fill="#78350F">方法 II：波数字滤波器 (WDF, Fettweis 散射域)</text>
-  <text x="580" y="188" font-size="12.5" fill="#78350F">通过选择无反射端口阻抗 R₀ 彻底消除拓扑延迟自由环</text>
+  <text x="580" y="188" font-size="12.5" fill="#78350F">在适用的树形拓扑上，用匹配端口解除即时反馈</text>
     <rect x="1072" y="144" width="480" height="738" rx="14" fill="#FFFFFF" stroke="#6EE7B7" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="1072" y="144" width="480" height="54" rx="14" fill="#D1FAE5" stroke="#6EE7B7" stroke-width="1.5"/>
   <rect x="1072" y="186" width="480" height="12" fill="#D1FAE5"/>
   <line x1="1072" y1="198" x2="1552" y2="198" stroke="#6EE7B7" stroke-width="1.5"/>
   <text x="1092" y="168" font-size="17" font-weight="bold" fill="#065F46">方法 III：端口哈密顿 (pHS) 与离散梯度法</text>
-  <text x="1092" y="188" font-size="12.5" fill="#065F46">无条件保证离散能量单调耗散 ΔH ≤ 0 · 与 ADAA₁ 严格数学同构</text>
+  <text x="1092" y="188" font-size="12.5" fill="#065F46">零外部供能时 ΔH ≤ 0；有输入时计入端口功</text>
 
   
   <rect x="68" y="210" width="440" height="296" rx="10" fill="#F0F9FF" stroke="#7DD3FC"/>
@@ -72,7 +72,7 @@
   <line x1="288" y1="334" x2="288" y2="352" stroke="#D97706" stroke-width="2" marker-end="url(#arr-amber)"/>
 
   <rect x="102" y="354" width="372" height="62" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
-  <text x="288" y="374" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400E">② 极低维非线性端口方程 (维数 N_nl = 1～2 ≪ N_node)：</text>
+  <text x="288" y="374" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400E">② 非线性端口方程（图示为一至两个未知量）：</text>
   <text x="288" y="394" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#78350F">F(v_nl) = v_nl - K · i_nl(v_nl) - p[n] = 0</text>
   <text x="288" y="410" text-anchor="middle" font-size="11" fill="#059669" font-weight="bold">离线预解映射 i_nl = Ψ_LUT(p[n])，实时 O(1) 查表求值</text>
 
@@ -86,13 +86,13 @@
   <text x="100" y="592" font-size="12.5" fill="#334155">单变量或双变量隐式映射 p ↦ i_nl(p) 在编译期即可用高精度牛顿法</text>
   <text x="100" y="612" font-size="11.2" fill="#334155">离线求根，存储为非均匀网格（原点加密、渐近区稀疏）的 Hermite 样条表；</text>
   <text x="86" y="638" font-size="12.5" fill="#334155">• <tspan font-weight="bold">实时开销</tspan>：单端口预计算为 1D 查找表后，仅需样条插值与状态更新</text>
-  <text x="86" y="664" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#92400E">时变旋钮处理</tspan>：若电位器旋钮改变了矩阵 K(c_knob)，采用低秩矩阵</text>
-  <text x="100" y="684" font-size="11.1" fill="#334155">Sherman–Morrison 公式更新，或以上一拍解为初值执行固定 2 步阻尼牛顿：</text>
+  <text x="86" y="664" font-size="12.5" fill="#334155">• 时变旋钮：若旋钮改变 K，应更新线性部分，</text>
+  <text x="100" y="684" font-size="11.1" fill="#334155">或用上一拍解作初值进行阻尼 Newton 迭代，并检查残差。</text>
   <rect x="86" y="698" width="404" height="44" rx="6" fill="#FFFFFF" stroke="#94A3B8"/>
   <text x="288" y="725" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#0F172A">v^(k+1) = v^(k) - α_damp · ( I - K · J_i(v^(k)) )⁻¹ · F(v^(k))</text>
-  <text x="86" y="768" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#991B1B">梯形法则振铃抑制</tspan>：双线性变换在 Nyquist 处 s = j∞ 引发极性翻转</text>
-  <text x="100" y="790" font-size="12.5" fill="#334155">振荡；强开关瞬态处可掺入 α_BDF ∈ [0, 0.15] 的 BDF2 阻尼项</text>
-  <text x="86" y="818" font-size="12.5" font-weight="bold" fill="#075985">• 商业代表：Universal Audio / Softube / Arturia 经典踏板与均衡器仿真</text>
+  <text x="86" y="768" font-size="12.5" fill="#334155">• 梯形法在刚性瞬态处可能产生数值振铃。</text>
+  <text x="100" y="790" font-size="12.5" fill="#334155">可减小步长、比较其他离散格式，并验证高频响应。</text>
+  <text x="86" y="818" font-size="12.5" font-weight="bold" fill="#075985">• 对照方法：用同一输入与更细步长的参考解比较。</text>
 
   
   <rect x="580" y="210" width="440" height="310" rx="10" fill="#FFFBEB" stroke="#FCD34D"/>
@@ -133,8 +133,8 @@
   <text x="598" y="652" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#92400E">根节点匹配条件</tspan>：将唯一的非线性元件（如三极管或二极管对）放置在</text>
   <text x="612" y="672" font-size="12.1" fill="#334155">树根端口 3，令 R₃ 等于下部线性子树等效戴维南阻抗，从而使散射矩阵</text>
   <text x="612" y="692" font-size="12.5" font-weight="bold" fill="#B45309">对角元 S₃₃ = 0，使入射波 a₃[n] 独立于 b₃[n]，解除无延迟代数环</text>
-  <text x="598" y="720" font-size="12.5" fill="#334155">• <tspan font-weight="bold">增量无源性定理</tspan>：无源元件反射增益 |b| ≤ |a|，即使在 16-bit 定点</text>
-  <text x="612" y="740" font-size="12.5" fill="#334155">量化截断下亦可有效抑制极限环振荡 (Limit Cycles)</text>
+  <text x="598" y="720" font-size="12.5" fill="#334155">• 功率检查：单端口功率 vi = (a² − b²)/(4R₀)。</text>
+  <text x="612" y="740" font-size="12.5" fill="#334155">对储能元件，须把端口功同内部储能变化一起比较。</text>
   <text x="598" y="768" font-size="12.5" font-weight="bold" fill="#991B1B">• 局限与现代扩展 (R-Type Adaptor)：</text>
   <text x="612" y="790" font-size="12" fill="#334155">标准二叉树仅允许顶部有 1 个非线性根端口；当电路含桥式拓扑或</text>
   <text x="612" y="810" font-size="11.0" fill="#334155">多个耦合三极管时，需在树顶引入 R 型多端口散射矩阵结合小型 LUT 求解。</text>
@@ -158,7 +158,7 @@
 
   
   <rect x="1092" y="534" width="440" height="328" rx="10" fill="#F5F3FF" stroke="#C4B5FD"/>
-  <text x="1110" y="560" font-size="13.2" font-weight="bold" fill="#5B21B6">2. 离散梯度法 (Discrete Gradient) 与 ADAA₁ 的惊人数学同构：</text>
+  <text x="1110" y="560" font-size="13.2" font-weight="bold" fill="#5B21B6">2. 一维离散梯度与 ADAA₁ 的差商</text>
   <text x="1110" y="586" font-size="11.5" fill="#334155">• 构造离散梯度算子 ∇_d H(s_n, s_{n-1})，使其满足割线恒等式：</text>
 
   <rect x="1110" y="600" width="404" height="92" rx="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.8"/>
@@ -166,16 +166,16 @@
   <text x="1312" y="652" text-anchor="middle" font-size="12.6" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#059669">1D 标量情形：∇_d H = ( H(s_n) - H(s_{n-1}) ) / ( s_n - s_{n-1} )</text>
   <text x="1312" y="676" text-anchor="middle" font-size="10.8" font-weight="bold" fill="#DC2626">该一维割线离散梯度与一阶反导数抗混叠 (ADAA₁) 具有相同的差商代数形式</text>
 
-  <text x="1110" y="718" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#065F46">双重物理收益（一石二鸟定理）</tspan>：</text>
-  <text x="1124" y="742" font-size="11.9" fill="#334155">① <tspan font-weight="bold">信号处理视角</tspan>：割线差分等效于分片线性重构下的连续域反导数积分，</text>
-  <text x="1138" y="762" font-size="12.5" fill="#334155">赋予非线性恢复力 f(s) = H'(s) 二阶 sinc² 低通抗混叠滤波；</text>
-  <text x="1124" y="786" font-size="11.2" fill="#334155">② <tspan font-weight="bold">物理力学视角</tspan>：单步能量差 ΔH = H(s_n) - H(s_{n-1}) 精确等于端口输入</text>
-  <text x="1138" y="806" font-size="10.5" fill="#334155">功减去耗散项 -T_s·(∇_d H)ᵀ R (∇_d H) ≤ 0，在离散时间下保持无源能量不等式</text>
+  <text x="1110" y="718" font-size="12.5" fill="#334155">同一差商的两种用途</text>
+  <text x="1124" y="742" font-size="11.9" fill="#334155">① 音频处理：对静态函数 f 的原函数取两点差商。</text>
+  <text x="1138" y="762" font-size="12.5" fill="#334155">用频谱比较抗混叠前后的折返分量。</text>
+  <text x="1124" y="786" font-size="11.2" fill="#334155">② 物理模型：在一致的离散格式中，单步储能变化</text>
+  <text x="1138" y="806" font-size="10.5" fill="#334155">等于端口输入功减去耗散；外部供能时储能可上升。</text>
   <text x="1110" y="836" font-size="10.5" font-weight="bold" fill="#5B21B6">• 神经扩展 (pH-Neural Net)：直接参数化凸网络 H_θ(s) 与 Cholesky 矩阵 L_R L_Rᵀ</text>
 
 
   
   <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
   <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
-  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：DK 法将非线性求根压缩至极小端口维并编译为 LUT；WDF 用无反射端口消除延迟环；离散梯度法在抑制混叠的同时无条件保证离散能量单调耗散。</text>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">DK 法缩小非线性求根的维度；WDF 通过端口匹配组织散射；离散梯度保持相应时间步的能量收支，混叠另用谱测量。</text>
 </svg>
