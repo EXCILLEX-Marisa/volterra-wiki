@@ -35,7 +35,7 @@
   <rect x="68" y="48" width="234" height="28" rx="6" fill="#0F172A"/>
   <text x="184.9" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 04-01 · 泛函导数与算子提升</text>
   <text x="318" y="70" font-size="27" font-weight="bold" fill="#0F172A">Fréchet 泛函导数偏置收缩、Boyd–Chua 衰减记忆定理与 Koopman/Carleman 线性提升图</text>
-  <text x="68" y="104" font-size="15.5" fill="#475569">从无穷维泛函分析视角阐明工作点漂移衍生偶次谐波、磁滞违反衰减记忆公理及非线性状态空间的线性化提升</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">恒定偏置下的局部核、衰减记忆的逼近条件，以及有限维状态提升的适用范围</text>
 
 
   
@@ -50,13 +50,13 @@
   <rect x="560" y="186" width="480" height="12" fill="#E0F2FE"/>
   <line x1="560" y1="198" x2="1040" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
   <text x="580" y="168" font-size="17" font-weight="bold" fill="#075985">模块 II：Boyd–Chua 衰减记忆算子逼近定理</text>
-  <text x="580" y="188" font-size="12.5" fill="#075985">加权范数 ‖·‖_w 紧致性与 Volterra 成立的充要条件</text>
+  <text x="580" y="188" font-size="12.5" fill="#075985">有界历史、加权范数连续性与一致逼近</text>
     <rect x="1072" y="144" width="480" height="738" rx="14" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="1072" y="144" width="480" height="54" rx="14" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
   <rect x="1072" y="186" width="480" height="12" fill="#EDE9FE"/>
   <line x1="1072" y1="198" x2="1552" y2="198" stroke="#C4B5FD" stroke-width="1.5"/>
   <text x="1092" y="168" font-size="17" font-weight="bold" fill="#5B21B6">模块 III：受控 Koopman 与 Carleman 线性提升</text>
-  <text x="1092" y="188" font-size="12.5" fill="#5B21B6">有限维非线性流形 ↔ 高维双线性算子空间的同构</text>
+  <text x="1092" y="188" font-size="12.5" fill="#5B21B6">将状态映射到字典坐标，再检验有限维闭合误差</text>
 
   
   <rect x="68" y="210" width="440" height="196" rx="10" fill="#FFFBEB" stroke="#FCD34D"/>
@@ -93,7 +93,7 @@
 
   <text x="86" y="796" font-size="12.5" fill="#334155">• <tspan font-weight="bold">物理诠释</tspan>：甲乙类电子管栅极整流引发 RC 偏置点动态移动 x₀(s_env)，</text>
   <text x="100" y="818" font-size="12.5" fill="#334155">使原本奇对称的推挽级在强瞬态下涌现温暖的偶次谐波与频响压缩；</text>
-  <text x="86" y="842" font-size="11.4" font-weight="bold" fill="#991B1B">• 该收缩机制构成了第 03 章双线性状态空间交叉项 s_env[n]·x²[n] 的泛函基础</text>
+  <text x="86" y="842" font-size="11.4" font-weight="bold" fill="#991B1B">• 可用不同偏置下的微弱探针比较局部增益与谐波响应。</text>
 
   
   <rect x="580" y="210" width="440" height="310" rx="10" fill="#F0F9FF" stroke="#7DD3FC"/>
@@ -120,19 +120,19 @@
   <text x="875" y="402" font-size="10.5" font-weight="bold" fill="#DC2626">✗ 剩磁 ±B_r：分岔</text>
 
   <rect x="580" y="534" width="440" height="328" rx="10" fill="#ECFDF5" stroke="#6EE7B7"/>
-  <text x="598" y="560" font-size="14" font-weight="bold" fill="#065F46">2. 定理推论与状态增广救援方案 (State Augmentation)：</text>
+  <text x="598" y="560" font-size="14" font-weight="bold" fill="#065F46">2. 由历史探针检验逼近边界与状态选择</text>
   <text x="598" y="586" font-size="12.5" fill="#334155">• <tspan font-weight="bold">紧致性桥梁</tspan>：振幅受限集 K_M = {|x[n]| ≤ M} 在加权范数 ‖·‖_w 下是</text>
   <text x="612" y="606" font-size="11.0" fill="#334155">紧致拓扑空间 (Compact)，从而激活泛函 Stone–Weierstrass 稠密逼近定理：</text>
   <rect x="598" y="620" width="404" height="42" rx="6" fill="#FFFFFF" stroke="#059669"/>
   <text x="800" y="646" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#065F46">sup_{x ∈ K_M} | H[x][n] - ∑_{p=0}^P H_p[x][n] |  &lt;  ε</text>
-  <text x="598" y="688" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#991B1B">逆否命题（定理级禁区）</tspan>：铁芯/磁带剩磁、双稳态触发器与自激振荡器</text>
-  <text x="612" y="708" font-size="11.5" fill="#334155">违反 ‖·‖_w 连续性，单输入前馈空间存在逼近下界 ε₀ &gt; 0</text>
-  <text x="598" y="736" font-size="12.5" font-weight="bold" fill="#065F46">• <tspan font-weight="bold">状态增广重构定理</tspan>：引入 Play 磁滞算子向量 p[n] = P[x][n]，将映射</text>
-  <text x="612" y="758" font-size="12.1" fill="#334155">从单输入 x[n] 提升至增广输入对 z[n] = [ x[n], p₁[n], …, p_L[n] ]ᵀ；</text>
-  <text x="612" y="780" font-size="12.5" font-weight="bold" fill="#047857">在增广输入空间 z[n] 上，映射算子 H_aug[z] 恢复衰减记忆性质</text>
+  <text x="598" y="688" font-size="12.5" fill="#334155">• 反例：近期输入任意长且相同，当前输出仍相差至少 d。</text>
+  <text x="612" y="708" font-size="11.5" fill="#334155">此时只看有限窗口的同一预测，至少一侧误差达到 d/2。</text>
+  <text x="598" y="736" font-size="12.5" font-weight="bold" fill="#065F46">• 候选状态：用 Play 算子保存预磁历史，记作 p[n] = P[x][n]。</text>
+  <text x="612" y="758" font-size="12.1" fill="#334155">将输入扩展为 z[n] = [ x[n], p₁[n], …, p_L[n] ]ᵀ。</text>
+  <text x="612" y="780" font-size="12.5" font-weight="bold" fill="#047857">若加入的状态足以区分历史，再检验剩余映射的衰减记忆。</text>
   <rect x="598" y="796" width="404" height="48" rx="6" fill="#D1FAE5" stroke="#059669"/>
-  <text x="800" y="818" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#065F46">增广公理：非衰减系统 = 显式状态算子 P[x] + 衰减记忆 Volterra H_aug[x, P[x]]</text>
-  <text x="800" y="836" text-anchor="middle" font-size="10.6" fill="#047857">这为第 03 章「Play 磁滞 + V2-L」混合架构提供了严格的泛函分析完备性证明</text>
+  <text x="800" y="818" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#065F46">实验：换预磁方向和等待时长，观察同一探针的输出差。</text>
+  <text x="800" y="836" text-anchor="middle" font-size="10.6" fill="#047857">与 3.6.1 的 Play 模型、3.11 的 T1 测试对照。</text>
 
   
   <rect x="1092" y="210" width="440" height="330" rx="10" fill="#F5F3FF" stroke="#C4B5FD"/>
@@ -171,29 +171,29 @@
   <text x="1458" y="344" font-size="10.5" font-weight="bold" fill="#075985">↓ 读出 C_K</text>
 
   <text x="1110" y="452" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#5B21B6">Carleman 精确线性化</tspan>：取 Kronecker 幂张量 s^[p] = s ⊗ … ⊗ s，将</text>
-  <text x="1124" y="472" font-size="11.1" fill="#334155">d 维多项式 ODE 精确转化为高维双线性状态空间（进而导出解析 Volterra 核）</text>
+  <text x="1124" y="472" font-size="11.1" fill="#334155">多项式方程写成无穷层提升；有限层截断引入近似误差。</text>
   <text x="1110" y="498" font-size="11.3" fill="#334155">• <tspan font-weight="bold" fill="#059669">EDMDc 数据驱动辨识</tspan>：通过奇异值回归直接从状态轨迹拟合 [A_K, B_K, N_K]</text>
-  <text x="1110" y="522" font-size="10.5" font-weight="bold" fill="#6D28D9">• 状态空间联系：结构化状态空间模型 (SSM) 可视为受控 Koopman 提升的参数化实现</text>
+  <text x="1110" y="522" font-size="10.5" font-weight="bold" fill="#6D28D9">• 保留的字典能否同时预测不同输入下的多步轨迹，需要独立验证。</text>
 
   
   <rect x="1092" y="554" width="440" height="308" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
-  <text x="1110" y="580" font-size="14" font-weight="bold" fill="#0F172A">2. 级联算子非交换性与泛函李括号 (Lie Bracket)：</text>
-  <text x="1110" y="606" font-size="11.5" fill="#334155">• 线性系统满足交换律 H_A∘H_B = H_B∘H_A，非线性级联不可交换：</text>
+  <text x="1110" y="580" font-size="14" font-weight="bold" fill="#0F172A">2. 调换两段处理次序时，输出怎样改变？</text>
+  <text x="1110" y="606" font-size="11.5" fill="#334155">• 单输入单输出 LTI 卷积可交换；滤波与静态非线性一般不可交换。</text>
   <text x="1124" y="626" font-size="12.5" font-weight="bold" fill="#92400E">「先均衡后削波 (Wiener)」 ≠ 「先削波后均衡 (Hammerstein)」</text>
 
   <rect x="1110" y="640" width="404" height="86" rx="8" fill="#FFFFFF" stroke="#94A3B8"/>
-  <text x="1312" y="664" text-anchor="middle" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#0F172A">[ H_A , H_B ] := H_A ∘ H_B - H_B ∘ H_A ≠ 0</text>
-  <text x="1312" y="688" text-anchor="middle" font-size="10.9" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#5B21B6">ΔH₂^(W-H)(ω₁,ω₂) = [ H_L(ω₁+ω₂) - H_L(ω₁)H_L(ω₂) ] · c₂</text>
-  <text x="1312" y="710" text-anchor="middle" font-size="11" fill="#475569">二阶频域核的对称轴方向直接反映非线性单元与线性滤波器的级联次序</text>
+  <text x="1312" y="664" text-anchor="middle" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#0F172A">比较同一输入下的输出差：Δy = H_A(H_B(x)) − H_B(H_A(x))</text>
+  <text x="1312" y="688" text-anchor="middle" font-size="10.9" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#5B21B6">H₂^(N–L) − H₂^(L–N) = c₂ [ H_L(ω₁+ω₂) − H_L(ω₁)H_L(ω₂) ]</text>
+  <text x="1312" y="710" text-anchor="middle" font-size="11" fill="#475569">这里取相同滤波器与相同二次系数 c₂。</text>
 
-  <text x="1110" y="752" font-size="12.5" fill="#334155">• <tspan font-weight="bold" fill="#075985">拓扑盲辨识判据</tspan>：</text>
-  <text x="1124" y="774" font-size="10.5" fill="#334155">① 若 |H₂(ω₁,ω₂)| 等高线沿和频轴 ω₁+ω₂ = const 分布 → <tspan font-weight="bold" fill="#0284C7">Hammerstein (N-L)</tspan></text>
-  <text x="1124" y="796" font-size="10.6" fill="#334155">② 若 |H₂(ω₁,ω₂)| 等高线沿坐标轴 ω₁, ω₂ 独立乘积分布 → <tspan font-weight="bold" fill="#D97706">Wiener (L-N)</tspan></text>
-  <text x="1110" y="822" font-size="12.5" font-weight="bold" fill="#059669">• 工程意义：由双音二阶核切片对称轴可辅助辨识硬件内部块级联次序</text>
+  <text x="1110" y="752" font-size="12.5" fill="#334155">• 用双音数据比较候选结构</text>
+  <text x="1124" y="774" font-size="10.5" fill="#334155">① Hammerstein (N–L)：二阶响应随和频 ω₁+ω₂ 改变。</text>
+  <text x="1124" y="796" font-size="10.6" fill="#334155">② Wiener (L–N)：两个输入频率分别经过滤波后再相乘。</text>
+  <text x="1110" y="822" font-size="12.5" font-weight="bold" fill="#059669">• 在新的频率组合上比较预测误差，作为候选结构的检验。</text>
 
 
   
   <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
   <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
-  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：偏置漂移通过张量内积收缩将 3 阶核投影为 2 阶偶次失真；违反 Boyd–Chua 衰减记忆的磁滞系统必须经显式状态增广或 Koopman 双线性提升恢复可逼近性。</text>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">恒定偏置可以引出新的局部低阶项。带持久分支的系统应先用不同前史检验状态选择，有限维提升的误差另行测量。</text>
 </svg>

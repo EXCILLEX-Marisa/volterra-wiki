@@ -108,15 +108,15 @@
   <rect x="88" y="572" width="656" height="72" rx="8" fill="#FFFFFF" stroke="#7DD3FC"/>
   <text x="106" y="596" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#075985">u^(l)[n] = tanh( W_f^(l) * z^(l-1) ) ⊙ σ( W_g^(l) * z^(l-1) ),   z^(l) = z^(l-1) + W_r u^(l)</text>
   <text x="106" y="624" font-size="12.5" fill="#334155">• 泰勒展开视角：σ(v) ≈ ½ + ¼v 与 tanh(u) ≈ u - ⅓u³ 相乘，单层门控即内生 2 阶与 4 阶交叉卷积核；</text>
-  <text x="106" y="640" font-size="12.5" fill="#0369A1">  L 层级联叠加跳连等效于参数共享的深层因子化 Volterra 网络</text>
+  <text x="106" y="640" font-size="12.5" fill="#0369A1">多层网络在解析工作点附近可作局部展开；可用阶数取决于误差容限。</text>
 
   <text x="88" y="672" font-size="14" font-weight="bold" fill="#065F46">✓ 核心工程优势：</text>
-  <text x="88" y="696" font-size="13" fill="#334155">• <tspan font-weight="bold">BIBO 绝对稳定</tspan>：纯前馈有向无环图 (DAG)，无状态反馈回路，绝不发生自激振荡或误差发散</text>
-  <text x="88" y="720" font-size="13" fill="#334155">• <tspan font-weight="bold">高频瞬态锐利</tspan>：NAM 标准架构 (d=1,2,…,512 × 2 堆叠，R ≈ 42 ms) 对拨弦瞬态与箱头削波极准</text>
+  <text x="88" y="696" font-size="13" fill="#334155">• 有界性：固定有限权重与连续激活下，有界的有限输入窗口给出有界输出。</text>
+  <text x="88" y="720" font-size="13" fill="#334155">• 有效窗口：可用延迟探针测量训练后各历史位置对输出的实际影响。</text>
 
   <text x="88" y="754" font-size="14" font-weight="bold" fill="#DC2626">✗ 感受野硬截断边界 (Hard Horizon Cutoff)：</text>
-  <text x="88" y="778" font-size="13" fill="#334155">• 对 k &gt; R (如 &gt; 42 ms) 的历史输入偏导恒等于零 ∂y[n]/∂x[n-k] ≡ 0</text>
-  <text x="88" y="802" font-size="13" fill="#991B1B">• 无法建模 100～1000 ms 的光学压限器释放尾、慢电源 Sag 或断电后残留的剩磁状态</text>
+  <text x="88" y="778" font-size="13" fill="#334155">• 记忆长度为 R 个样本时，k ≥ R 的输入位于窗口之外。</text>
+  <text x="88" y="802" font-size="13" fill="#991B1B">• 两段输入的最近 R 个样本相同时，该前馈模型只能给出同一输出。</text>
   <text x="88" y="826" font-size="13" font-weight="bold" fill="#0284C7">• 实时推理技巧：必须采用预分配环形扩张缓冲区 (Ring Buffer Queue)，严禁逐样本拼接张量</text>
 
   
@@ -162,22 +162,22 @@
   <rect x="836" y="530" width="696" height="332" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
   <text x="856" y="556" font-size="15" font-weight="bold" fill="#0F172A">2. 递归模型辨识稳定性条件与工程权衡：</text>
   <rect x="856" y="572" width="656" height="72" rx="8" fill="#FEF2F2" stroke="#FCA5A5"/>
-  <text x="874" y="596" font-size="13" font-weight="bold" fill="#991B1B">开环预测 (NARX / Teacher Forcing) vs 闭环自由运行 (NOE / Free-Run)：</text>
-  <text x="874" y="620" font-size="12.5" fill="#334155">• 单步误差低不等同于闭环稳定；自回归自由运行要求状态雅可比谱半径 ρ(∂F/∂h) &lt; 1</text>
-  <text x="874" y="638" font-size="12.5" fill="#991B1B">• 训练必须采用 TBPTT (截断随时间反向传播，L_trunc = 2048～8192) + 预热丢弃窗 N_wash = 1024</text>
+  <text x="874" y="596" font-size="13" font-weight="bold" fill="#991B1B">单步预测提供实测历史，自由运行使用模型预测的历史或自身状态。</text>
+  <text x="874" y="620" font-size="12.5" fill="#334155">• 在相同输入下改变预激励与初态，比较两条输出轨迹是否合并。</text>
+  <text x="874" y="638" font-size="12.5" fill="#991B1B">• 训练时应交代反传窗口与预热时长，并检验长于该窗口的恢复过程。</text>
 
   <text x="856" y="672" font-size="14" font-weight="bold" fill="#065F46">✓ 核心工程优势：</text>
-  <text x="856" y="696" font-size="13" fill="#334155">• <tspan font-weight="bold">极少参数表征长记忆</tspan>：仅需 H = 16～32 维隐状态即可同时拟合慢压缩包络、偏置漂移与多值磁滞</text>
+  <text x="856" y="696" font-size="13" fill="#334155">• 递归状态数与记忆时长是两个量，应以不同前史的探针比较模型容量。</text>
   <text x="856" y="720" font-size="13" fill="#334155">• <tspan font-weight="bold">连续旋钮条件化</tspan>：将 Gain/Tone 旋钮拼入输入向量 [x[n], c]，平滑调制门控工作点</text>
 
   <text x="856" y="754" font-size="14" font-weight="bold" fill="#DC2626">✗ 固有瓶颈与混合折中方案：</text>
-  <text x="856" y="778" font-size="13" fill="#334155">• 逐样本矩阵乘 W_hh·h[n-1] 阻塞时间轴流水线，高频相位精度弱于显式 FIR / WaveNet</text>
-  <text x="856" y="802" font-size="13" font-weight="bold" fill="#7C3AED">• 黄金混合法则：用显式线性 FIR + V2-L 负责高频瞬态与短记忆，仅用 H=8～16 极轻量 GRU 调制慢包络增益</text>
-  <text x="856" y="826" font-size="13" fill="#059669">• 寄存器级优化：当 H ≤ 16 时，可将整个隐状态向量 h[n] 常驻于 AVX2 YMM 寄存器内完成无访存递推</text>
+  <text x="856" y="778" font-size="13" fill="#334155">• 下一拍依赖上一拍状态，实时开销需在目标采样率和块长下测量。</text>
+  <text x="856" y="802" font-size="13" font-weight="bold" fill="#7C3AED">• 一种混合方式：以 FIR 或短核承担快速响应，以小型 GRU 跟踪慢包络。</text>
+  <text x="856" y="826" font-size="13" fill="#059669">• 在目标 CPU 上实测状态维数、数据布局对最慢块耗时的影响。</text>
 
 
   
   <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
   <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
-  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：WaveNet 本质是深层因子化的有限窗高阶 Volterra 展开（瞬态准但截断慢尾）；LSTM 本质是时变极点的非线性状态机（擅长慢包络但受限于串行递推）。</text>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">有限感受野模型对相同近期输入给出同一输出。LSTM 还保留内部状态，可用不同前史后的同一探针检验它记住了什么。</text>
 </svg>

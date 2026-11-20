@@ -34,8 +34,8 @@
   <rect x="48" y="28" width="1504" height="96" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="68" y="48" width="204" height="28" rx="6" fill="#0F172A"/>
   <text x="170.2" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 01-08 · 非线性卷积采集</text>
-  <text x="288" y="70" font-size="27" font-weight="bold" fill="#0F172A">指数扫频 (ESS) 非线性卷积采集与 Volterra 核生成全流程图</text>
-  <text x="68" y="104" font-size="15.5" fill="#475569">涵盖 Farina 负时间区谐波脉冲簇分离、Chebyshev 幂次解耦矩阵 T_c⁻¹、多方差电平插值与非对角交叉核补全</text>
+  <text x="288" y="70" font-size="27" font-weight="bold" fill="#0F172A">指数扫频 (ESS)：从谐波响应到并联 Hammerstein 支路核</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">先用同步扫频分离谐波，再在模型假设下回代支路系数；非对角交互另用独立测试。</text>
 
 
   
@@ -44,7 +44,7 @@
   <rect x="48" y="186" width="480" height="12" fill="#E0F2FE"/>
   <line x1="48" y1="198" x2="528" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
   <text x="68" y="168" font-size="17" font-weight="bold" fill="#075985">步骤 ① 指数扫频激励 (ESS) 与多电平设计</text>
-  <text x="68" y="188" font-size="12.5" fill="#075985">Farina 同步指数扫频 + 逆滤波器压缩脉冲</text>
+  <text x="68" y="188" font-size="12.5" fill="#075985">指数扫频激励；做复数核换算时保持同步相位</text>
     <rect x="560" y="144" width="480" height="420" rx="14" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="560" y="144" width="480" height="54" rx="14" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
   <rect x="560" y="186" width="480" height="12" fill="#FEF3C7"/>
@@ -55,8 +55,8 @@
   <rect x="1072" y="144" width="480" height="54" rx="14" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
   <rect x="1072" y="186" width="480" height="12" fill="#EDE9FE"/>
   <line x1="1072" y1="198" x2="1552" y2="198" stroke="#C4B5FD" stroke-width="1.5"/>
-  <text x="1092" y="168" font-size="17" font-weight="bold" fill="#5B21B6">步骤 ③ Chebyshev 解耦转换对角 Volterra 核</text>
-  <text x="1092" y="188" font-size="12.5" fill="#5B21B6">倍频谐波脉冲 H^(m)(f) → 幂次对角核 H_p,diag(f)</text>
+  <text x="1092" y="168" font-size="17" font-weight="bold" fill="#5B21B6">步骤 ③ 在并联幂次支路假设下回代</text>
+  <text x="1092" y="188" font-size="12.5" fill="#5B21B6">在同一输出频率上换算各次谐波的复幅度</text>
 
   
   <rect x="68" y="212" width="440" height="156" rx="10" fill="#F8FAFC" stroke="#BAE6FD"/>
@@ -67,14 +67,14 @@
   <rect x="436" y="256" width="56" height="68" rx="6" fill="#E0F2FE" stroke="#0284C7"/>
   <text x="464" y="284" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#075985">逆滤波</text>
   <text x="464" y="304" text-anchor="middle" font-size="11" fill="#0369A1">x⁻¹(t)</text>
-  <text x="86" y="350" font-size="12.5" fill="#334155" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace">x(t) = A · sin[ 2πf₁·L · (exp(t/L) - 1) ],  L = T/ln(f₂/f₁)</text>
+  <text x="86" y="350" font-size="12.5" fill="#334155" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace">x(t) = A sin{2π f₁ L [exp(t/L) − 1]}</text>
 
   <rect x="68" y="382" width="440" height="164" rx="10" fill="#F0F9FF" stroke="#7DD3FC"/>
   <text x="86" y="408" font-size="14" font-weight="bold" fill="#075985">采集约束与电平分档策略：</text>
-  <text x="86" y="434" font-size="13" fill="#334155">• 扫频时长 T = 5～15 s，保证相邻谐波窗 Δt_m &gt; IR 混响尾长</text>
+  <text x="86" y="434" font-size="13" fill="#334155">• 由 L·ln[(m+1)/m] 检查相邻谐波之间是否容得下响应尾部。</text>
   <text x="86" y="458" font-size="13" fill="#334155">• 多电平阶梯采集：A_r ∈ {-24, -18, -12, -6, -3, 0} dBFS</text>
   <text x="86" y="482" font-size="13" fill="#334155">• 能量衰减补偿：逆滤波器幅度包络随 -6 dB/oct 指数衰减</text>
-  <text x="86" y="506" font-size="13" font-weight="bold" fill="#0369A1">• 相位同步要求：扫频起止相位归零，严禁采样率时钟漂移</text>
+  <text x="86" y="506" font-size="13" font-weight="bold" fill="#0369A1">• 使用同步扫频和同一采样时钟，移动窗口时保留相位参考。</text>
   <text x="86" y="530" font-size="12.5" fill="#475569">• 输出：被测硬件响应录音 y_r(t) 卷积逆滤波器得 g(τ)</text>
 
   
@@ -104,24 +104,24 @@
   <text x="598" y="426" font-size="14" font-weight="bold" fill="#9A3412">时窗截取与相位对齐准则：</text>
   <text x="598" y="452" font-size="13" fill="#334155">• 谐波偏移公式：Δt_m = L · ln(m) = T · ln(m) / ln(f₂/f₁)</text>
   <text x="598" y="476" font-size="13" fill="#334155">• 独立加窗截取各阶脉冲 h^(m)[k]，经 FFT 得谐波频响 H^(m)(f)</text>
-  <text x="598" y="500" font-size="13" font-weight="bold" fill="#B45309">• 局限预警：ESS 仅激励单音倍频轨迹 (ω, ω,…, ω)，无法观测</text>
-  <text x="612" y="522" font-size="12.5" fill="#9A3412">非对角交叉频率平面 H₂(ω₁, ω₂) (ω₁ ≠ ω₂) 的互调记忆项</text>
+  <text x="598" y="500" font-size="13" font-weight="bold" fill="#B45309">• 单一基频及其正负频率组合只给出特定轨迹；一般多维核的</text>
+  <text x="612" y="522" font-size="12.5" fill="#9A3412">  其他频率坐标需要独立激励。互调强度本身不能定位时域交互。</text>
 
   
   <rect x="1092" y="212" width="440" height="186" rx="10" fill="#F5F3FF" stroke="#C4B5FD"/>
-  <text x="1110" y="236" font-size="13.5" font-weight="bold" fill="#5B21B6">Chebyshev 多项式上三角逆变换矩阵 T_c⁻¹：</text>
+  <text x="1110" y="236" font-size="13.5" font-weight="bold" fill="#5B21B6">三阶以内、输入余弦峰值 A=1 时的回代（同一输出频率）</text>
   
   <rect x="1110" y="250" width="404" height="86" rx="6" fill="#FFFFFF" stroke="#DDD6FE"/>
-  <text x="1126" y="274" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#0F172A">[ H₁,diag(f) ]   [  1     0    +3/4     0   ] [ H^(1)(f) ]</text>
-  <text x="1126" y="296" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#5B21B6">[ H₂,diag(f) ] = [  0     2      0     +4   ] [ H^(2)(f) ]</text>
-  <text x="1126" y="318" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#7C3AED">[ H₃,diag(f) ]   [  0     0      4      0   ] [ H^(3)(f) ]</text>
-  <text x="1110" y="360" font-size="12.5" fill="#475569">• 物理原因：x³ = ¾cos(ωt) + ¼cos(3ωt)，3 阶幂次核同时向</text>
-  <text x="1124" y="382" font-size="12.5" fill="#5B21B6">基波 H^(1) 亦接收奇次项回流能量，需经上三角矩阵解耦</text>
+  <text x="1126" y="274" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#0F172A">G₃ = 4 H₃                        （先解最高阶）</text>
+  <text x="1126" y="296" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#5B21B6">G₂ = 2 H₂                        （二次支路）</text>
+  <text x="1126" y="318" font-size="12.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" fill="#7C3AED">G₁ = H₁ − 3 H₃               （扣除三次支路回流）</text>
+  <text x="1110" y="360" font-size="12.5" fill="#475569">• 这里 H₁、H₂、H₃ 是谐波的复幅度，Gₚ 是支路频响。</text>
+  <text x="1124" y="382" font-size="12.5" fill="#5B21B6">  例如 H₁=1.15、H₃=0.05，得到 G₃=0.20、G₁=1。</text>
 
   <rect x="1092" y="410" width="440" height="136" rx="10" fill="#FAF5FF" stroke="#D8B4FE"/>
-  <text x="1110" y="436" font-size="14" font-weight="bold" fill="#5B21B6">生成的广义 Hammerstein 对角核组：</text>
-  <text x="1110" y="462" font-size="13" fill="#334155">• 经 IFFT 获得时域对角核切片 h_p,diag[k] = h_p[k, k, …, k]</text>
-  <text x="1110" y="486" font-size="13" fill="#334155">• 构成并行幂次滤波支路：y[n] = ∑_p (h_p,diag * x^p)[n]</text>
+  <text x="1110" y="436" font-size="14" font-weight="bold" fill="#5B21B6">并联 Hammerstein 模型中的支路核</text>
+  <text x="1110" y="462" font-size="13" fill="#334155">• 对 Gₚ 做 IFFT 得 gₚ[k]。在此模型中，它位于时域核的主对角。</text>
+  <text x="1110" y="486" font-size="13" fill="#334155">• 各幂次支路相加：y[n] = ∑ₚ (gₚ ∗ xᵖ)[n]。</text>
   <text x="1110" y="510" font-size="13" font-weight="bold" fill="#6D28D9">• 适用对象：谐波失真色染器、前级电子管温和奇偶次染色</text>
 
   
@@ -145,11 +145,11 @@
   
   <rect x="68" y="650" width="420" height="214" rx="10" fill="#ECFDF5" stroke="#A7F3D0"/>
   <text x="86" y="676" font-size="14" font-weight="bold" fill="#065F46">多电平核簇 H_p^(A_r) 与多方差反演 (Schoukens 1997)：</text>
-  <text x="86" y="702" font-size="13" fill="#334155">• 单电平局限：在 0 dBFS 下截断 P=3 拟合时，5/7 阶余项被投影</text>
-  <text x="100" y="724" font-size="13" fill="#334155">污染至 ĥ₁, ĥ₃，导致 -20 dBFS 小信号频响与失真严重失真</text>
-  <text x="86" y="750" font-size="12.1" font-weight="bold" fill="#047857">• Vandermonde 多电平解耦：利用 γ_r^p 尺度幂律分离真实底层核</text>
-  <text x="86" y="776" font-size="13" fill="#334155">• 动态采样插值 (Acustica VVKT)：按瞬时包络 e[n] 在分档核簇</text>
-  <text x="100" y="798" font-size="11.5" fill="#334155">{h_p^(A₁), …, h_p^(A_R)} 间执行实时双线性淡入淡出</text>
+  <text x="86" y="702" font-size="13" fill="#334155">• 单电平拟合只保留到三阶时，五阶和七阶也会影响低阶估计。</text>
+  <text x="100" y="724" font-size="13" fill="#334155">  换到较低电平后，可用独立录音观察这项偏差。</text>
+  <text x="86" y="750" font-size="12.1" font-weight="bold" fill="#047857">• 缩放同一测试信号时，可在截断假设下分离各阶输出贡献。</text>
+  <text x="86" y="776" font-size="13" fill="#334155">• 也可把分档拟合的支路核按包络插值。图中权重用作</text>
+  <text x="100" y="798" font-size="11.5" fill="#334155">  建模示例；产品所用的插值律要另查公开资料并对照实测。</text>
   <text x="86" y="826" font-size="12.5" fill="#065F46">• 优势：兼顾微弱信号线性度与大信号推挽饱和的平滑过渡</text>
 
   
@@ -181,11 +181,11 @@
   <text x="856" y="678" font-size="14.5" font-weight="bold" fill="#991B1B">突破 ESS 对角核局限的三条高保真升级路线：</text>
   <rect x="856" y="694" width="656" height="48" rx="8" fill="#FFFFFF" stroke="#FCA5A5"/>
   <text x="872" y="716" font-size="13.5" font-weight="bold" fill="#7F1D1D">① 随机多正弦 (Random-Phase Multisine) / 双脉冲扫描 (Doublet Scan)：</text>
-  <text x="872" y="734" font-size="12.5" fill="#475569">激发和频/差频 ω₁ ± ω₂，完整辨识近对角带状交叉核 h₂[k₁, k₁+d] (1 ≤ d ≤ D)</text>
+  <text x="872" y="734" font-size="12.5" fill="#475569">改变双音组合或脉冲间距，检验带状二阶交叉项是否改善预测。</text>
 
   <rect x="856" y="750" width="656" height="48" rx="8" fill="#FFFFFF" stroke="#FCA5A5"/>
   <text x="872" y="772" font-size="13.5" font-weight="bold" fill="#7F1D1D">② Laguerre 正交基投影 (Laguerre-Volterra Network)：</text>
-  <text x="872" y="790" font-size="12.5" fill="#475569">用 K=6～10 个一阶全通级联正交状态替代 M=256 原始延迟抽头，交叉核参数压缩 100 倍以上</text>
+  <text x="872" y="790" font-size="12.5" fill="#475569">用 K 个基函数表示长窗口；比较不同 K 的参数量和留出误差。</text>
 
   <rect x="856" y="806" width="656" height="48" rx="8" fill="#FFFFFF" stroke="#FCA5A5"/>
   <text x="872" y="828" font-size="13.5" font-weight="bold" fill="#7F1D1D">③ 显式状态算子与混合神经残差 (Play 磁滞 + 递归包络 + 轻量 GRU)：</text>
@@ -195,5 +195,5 @@
   
   <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
   <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
-  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：ESS 解卷积只能直接提取对角核切片 h_p[k,…,k]（广义 Hammerstein）；必须经 Chebyshev 逆矩阵解耦并结合多方差多电平采集才能消除奇次谐波回折偏差。</text>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">先读谐波通道，再按模型假设换算支路核。若需检验一般系统的跨延迟交互，另做双脉冲、多音或历史探针实验。</text>
 </svg>

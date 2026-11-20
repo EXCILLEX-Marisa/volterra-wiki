@@ -35,7 +35,7 @@
   <rect x="68" y="48" width="219" height="28" rx="6" fill="#0F172A"/>
   <text x="177.6" y="67" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">图 03-04 · 四种协同运行模式</text>
   <text x="303" y="70" font-size="27" font-weight="bold" fill="#0F172A">白盒/灰盒物理模型与神经网络协同的四种运行模式及离线蒸馏架构图</text>
-  <text x="68" y="104" font-size="15.5" fill="#475569">严格对应第 03 章 §3.8 分类：并联残差补偿、控制率状态/参数调制、串联分块级联、白盒内嵌局部元件代理与离线蒸馏</text>
+  <text x="68" y="104" font-size="15.5" fill="#475569">对应第 03 章 §3.8 的四种运行模式。底部的离线蒸馏可用于任何一种，描述的是训练和部署。</text>
 
 
   
@@ -168,12 +168,12 @@
   <rect x="68" y="818" width="236" height="52" rx="8" fill="#059669"/>
   <text x="186" y="841" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">跨模式顶层收敛机制</text>
   <text x="186" y="861" text-anchor="middle" font-size="12" fill="#D1FAE5">离线教师 → 实时学生知识蒸馏</text>
-  <text x="324" y="836" font-size="13.5" font-weight="bold" fill="#065F46">无论离线研究阶段采用上述哪种混合模式（或高维 WaveNet/LSTM），最终商业发行版均可蒸馏至纯结构化实时学生模型：</text>
+  <text x="324" y="836" font-size="13.5" font-weight="bold" fill="#065F46">离线教师可以采用上述模式。将其换成实时学生时，分别测量硬件到教师、教师到学生的误差。</text>
   <text x="324" y="862" font-size="13" fill="#334155">离线教师模型生成海量多电平/多频合成数据 → 闭式/凸回归拟合「LTI + V2-L + RD-Play + Bilinear SSM + LUT」学生结构 → 彻底剥离实时神经网络算力负担。</text>
 
 
   
   <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
   <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
-  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：神经网络不应盲目替代全部已知的基尔霍夫电路与线性滤波器；按物理耦合位置选择四种协同模式，可同时兼顾高精度、可解释旋钮与超低 CPU 占用。</text>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">在信号流图中先标出已知物理环节，再决定网络接入的位置。选定模式后，用独立输入和目标平台验证精度与开销。</text>
 </svg>

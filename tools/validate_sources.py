@@ -29,6 +29,7 @@ BOOK_REF = re.compile(
     r"(?:\s*[、,，—–~～-]\s*[0-6]\.\d+(?:\.\d+)?)*)"
 )
 NUMBERED_SECTION_REF = re.compile(r"第\s*([0-6]\.\d+(?:\.\d+)?)(?=\s*节)")
+FIGURE_SECTION_REF = re.compile(r"(?:《(0[0-6])》\s*)?§\s*([0-6]\.\d+(?:\.\d+)?)")
 
 
 def require(ok: bool, message: str) -> None:
@@ -111,11 +112,11 @@ def check_links(path: Path, source: str) -> int:
 
 
 
-def check_section_references(chapters: list[Path]) -> int:
+def check_section_references(chapters: list[Path], figures: list[Path]) -> int:
     """Check explicit chapter/section citations against actual Markdown headings.
 
     Only recognize citation syntax (《03》3.6.1, 《03》第 3.6.1、3.11 节,
-    or 第 3.10 节). Ignore incidental decimals such as 1.33 ms.
+    or 第 3.10 节) and the § references printed inside teaching figures.
     """
     sources = {path.name[:2]: read(path) for path in chapters}
     sections = {
@@ -140,6 +141,14 @@ def check_section_references(chapters: list[Path]) -> int:
             require(section in sections,
                     f"{path.name}:{line}: unknown section reference {section}")
             checked += 1
+    for path in figures:
+        for label in ET.parse(path).iter("{http://www.w3.org/2000/svg}text"):
+            for match in FIGURE_SECTION_REF.finditer("".join(label.itertext())):
+                chapter_id = match.group(1) or path.name[:2]
+                section = match.group(2)
+                require(sections.get(section) == chapter_id,
+                        f"{path.name}: unknown figure reference 《{chapter_id}》§{section}")
+                checked += 1
     return checked
 
 
@@ -153,7 +162,7 @@ def main() -> int:
     chapters = sorted(ROOT.glob("0[0-6]_*.md"))
     require(len(chapters) == 7 and {p.name[:2] for p in chapters} == set(COUNTS),
             "expected exactly seven chapters (00-06)")
-    total_section_refs = check_section_references(chapters)
+    total_section_refs = check_section_references(chapters, sorted((ROOT / "figures").glob("*.svg")))
     total_math = total_links = 0
     chapter_figures = set()
     for path in [*chapters, ROOT / "README.md", BUNDLE]:

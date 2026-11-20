@@ -52,17 +52,17 @@
   <rect x="816" y="186" width="736" height="12" fill="#E0F2FE"/>
   <line x1="816" y1="198" x2="1552" y2="198" stroke="#7DD3FC" stroke-width="1.5"/>
   <text x="836" y="168" font-size="17" font-weight="bold" fill="#075985">右篇：Hopman–Bennett 无分母多项式 ADAA 与 SNLM 正交基底</text>
-  <text x="836" y="188" font-size="12.5" fill="#075985">彻底消除传统反导数抗混叠 x[n]-x[n-1]→0 的除零奇异性与高频谐波镜像折叠</text>
+  <text x="836" y="188" font-size="12.5" fill="#075985">多项式恒等式消去小分母；混叠抑制效果需在目标采样率下测量。</text>
 
   
   <rect x="68" y="210" width="696" height="218" rx="10" fill="#FEF2F2" stroke="#FCA5A5"/>
-  <text x="88" y="236" font-size="15" font-weight="bold" fill="#991B1B">1. 为什么单一高电平 (0 dBFS) 拟合的 Volterra 模型在小信号 (-20 dBFS) 下严重失真？</text>
+  <text x="88" y="236" font-size="15" font-weight="bold" fill="#991B1B">1. 为什么只用一个高电平拟合，换到小信号时可能失准？</text>
   <text x="88" y="262" font-size="12.4" fill="#334155">• 设真实硬件含 5 阶奇次软饱和：y = h₁*x + h₃*x³ + h₅*x⁵，但工程上截断为 3 阶模型 ŷ = ĥ₁*x + ĥ₃*x³</text>
   <text x="88" y="286" font-size="12.4" fill="#334155">• 在方差为 σ² 的高斯激励下，单项式矩相关 E[x · x⁵] = 15σ⁶ ≠ 0，最小二乘将未建模 5 阶项投影进低阶估计：</text>
   <rect x="88" y="300" width="410" height="58" rx="8" fill="#FFFFFF" stroke="#DC2626"/>
   <text x="293" y="324" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#991B1B">ĥ₁(σ) = h₁,true + α₁ · σ⁴ · h₅,true</text>
   <text x="293" y="346" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#991B1B">ĥ₃(σ) = h₃,true + α₃ · σ² · h₅,true</text>
-  <text x="88" y="382" font-size="11.5" font-weight="bold" fill="#B91C1C">• 灾难后果：0 dBFS 拟合的 ĥ₁ 含偏移 α₁σ⁴h₅；</text>
+  <text x="88" y="382" font-size="11.5" font-weight="bold" fill="#B91C1C">• 例如只拟合低阶模型，遗漏的五阶项可改变估计的一阶系数。</text>
   <text x="100" y="404" font-size="11.5" fill="#7F1D1D">回放小信号 (σ→0) 时偏离真实线性核 h₁,true</text>
 
   
@@ -78,7 +78,7 @@
   <path d="M 534 370 Q 650 370 720 336" fill="none" stroke="#D97706" stroke-width="2.5"/>
   <circle cx="720" cy="336" r="4.5" fill="#DC2626"/>
   <text x="616" y="331" font-size="10.5" font-weight="bold" fill="#DC2626">单电平拟合锁定错误常数</text>
-  <text x="606" y="384" font-size="10.5" font-weight="bold" fill="#059669">多方差外推还原 h₁,true</text>
+  <text x="606" y="384" font-size="10.5" font-weight="bold" fill="#059669">多方差估计并核对低电平响应</text>
 
   
   <rect x="68" y="442" width="696" height="420" rx="10" fill="#FFFBEB" stroke="#FCD34D"/>
@@ -92,13 +92,13 @@
   <text x="416" y="610" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#B45309">[   ⋮      ]   [  ⋮     ⋮     ⋮   ⋱   ⋮   ] [    ⋮     ]</text>
   <text x="416" y="634" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#7C3AED">[ y^(R)(ω) ]   [ γ_R¹  γ_R²  γ_R³ …  γ_R^P] [ H_P[u](ω) ]</text>
 
-  <text x="88" y="676" font-size="13.5" font-weight="bold" fill="#065F46">• 方差归一化加权最小二乘目标泛函（消除大信号主导偏差）：</text>
+  <text x="88" y="676" font-size="13.5" font-weight="bold" fill="#065F46">• 一种按电平相对误差加权的最小二乘目标：</text>
   <rect x="88" y="690" width="656" height="46" rx="8" fill="#ECFDF5" stroke="#6EE7B7"/>
   <text x="416" y="718" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#065F46">J_MV(θ) = ∑_{r=1}^R  ( 1 / (σ_r² + ε) ) · ‖ y^(r) - Φ(x^(r)) · θ ‖₂² + ‖ Γ · θ ‖₂²</text>
 
-  <text x="88" y="764" font-size="13" fill="#334155">• <tspan font-weight="bold">工程收益 1</tspan>：在 -30 dBFS 小信号下严格退化为无偏线性频响 h₁,true，消除传统单电平拟合的「闷声感」</text>
-  <text x="88" y="790" font-size="13" fill="#334155">• <tspan font-weight="bold">工程收益 2</tspan>：分离出的高阶核 h₃, h₅ 不再掺杂低阶伪影，支持用户实时调节 Input Drive 推子而不崩坏</text>
-  <text x="88" y="816" font-size="13" font-weight="bold" fill="#92400E">• <tspan font-weight="bold">与 Acustica VVKT 的关系</tspan>：VVKT 动态卷积正是将不同 γ_r 下采集的核向量按瞬时包络进行分段插值近似</text>
+  <text x="88" y="764" font-size="13" fill="#334155">• 多方差让不同驱动量都进入目标函数；低电平是否准确仍需独立测试。</text>
+  <text x="88" y="790" font-size="13" fill="#334155">• 更换电平时同时记录误差、测量噪声与拟合阶数，检查截断余项。</text>
+  <text x="88" y="816" font-size="13" font-weight="bold" fill="#92400E">• 工作点插值是另一种方案；分档数、权重和动态控制需要单独核验。</text>
 
   
   <rect x="836" y="210" width="696" height="340" rx="10" fill="#F0F9FF" stroke="#7DD3FC"/>
@@ -128,7 +128,7 @@
   <path d="M 1240 450 Q 1340 454 1420 508 Q 1455 492 1485 510" fill="none" stroke="#059669" stroke-width="2.5"/>
   <line x1="1380" y1="444" x2="1380" y2="516" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="3 2"/>
   <text x="1380" y="440" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#DC2626">f_s/2</text>
-  <text x="1360" y="528" text-anchor="middle" font-size="11" font-weight="bold" fill="#065F46">等效 sinc²(ωT_s/2) 连续域低通滚降</text>
+  <text x="1360" y="528" text-anchor="middle" font-size="11" font-weight="bold" fill="#065F46">线性插值的频率滚降示意</text>
 
   
   <rect x="836" y="564" width="696" height="298" rx="10" fill="#ECFDF5" stroke="#6EE7B7"/>
@@ -159,5 +159,5 @@
   
   <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
   <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
-  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">核心结论：多方差加权回归确保模型从 -30 dBFS 到 0 dBFS 全动态一致；Hopman–Bennett 无分母多项式 ADAA 以纯乘加代数恒等式彻底根除除零噪声与混叠。</text>
+  <text x="102" y="935" font-size="15.5" font-weight="bold" fill="#F8FAFC">多方差数据用来检验核随电平的估计偏差。多项式 ADAA 的代数化简消去小分母，剩余混叠仍要测量。</text>
 </svg>

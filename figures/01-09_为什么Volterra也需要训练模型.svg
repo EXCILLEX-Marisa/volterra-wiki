@@ -51,7 +51,7 @@
     <text x="928" y="106" text-anchor="middle" font-size="17" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0284C7">3. 线性参数回归与凸正则化求解 θ</text>
     <text x="928" y="142" text-anchor="middle" font-size="19.2" font-weight="bold" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#0F172A">ŷ = X θ   ⇒   min ‖y − Xθ‖₂² + λ R(θ)</text>
     <text x="753" y="178" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• Ridge (L2)：抑制病态共线导致的核系数大幅震荡</text>
-    <text x="753" y="204" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• LASSO / OMP (L1)：从庞大候选集中筛选稀疏交叉核</text>
+    <text x="753" y="204" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• LASSO 用 L1 惩罚，OMP 逐步选取稀疏项。</text>
     <text x="753" y="230" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">• 自适应 LMS / RLS：支持在线递推跟踪慢变系数</text>
     <line x1="1123" y1="171" x2="1173" y2="171" stroke="#0284C7" stroke-width="2.5" marker-end="url(#arr-lin)"/>
     <rect x="1178" y="76" width="298" height="190" rx="12" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
@@ -90,7 +90,7 @@
     <text x="1285" y="244" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">较低（权重散布在各层矩阵中，难以直接按阶拆解）</text>
     <text x="609" y="290" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">超范围外推与混合潜力</text>
     <text x="907" y="290" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">高阶多项式超范围易发散，需配点形器或限幅边界</text>
-    <text x="1285" y="290" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">激活函数有界，且可离线蒸馏转写为 Volterra 分支核</text>
+    <text x="1285" y="290" text-anchor="middle" font-size="14" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#0F172A">可在指定工作域尝试蒸馏，再用独立输入检验近似误差。</text>
   </g>
   <rect x="48" y="902" width="1504" height="54" rx="12" fill="#0F172A"/>
   <circle cx="80" cy="929" r="8" fill="#38BDF8"/>
