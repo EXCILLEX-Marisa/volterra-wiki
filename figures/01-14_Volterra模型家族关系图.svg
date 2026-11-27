@@ -247,7 +247,7 @@
 <path d="M1273 349 L1279 353 L1273 357" stroke="#475569" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round" />
 <text x="1248" y="390" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="10" font-weight="500" text-anchor="middle" fill="#475569">核心张量</text>
 <text x="1332" y="337" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#7C3AED">Tucker / Tensor Train</text>
-<text x="1332" y="361" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">以核心张量与因子矩阵组织高阶核</text>
+<text x="1332" y="361" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">核心张量投影或低秩张量链</text>
 <text x="1332" y="380" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">控制高阶张量的自由度</text>
 <rect x="830" y="426" width="346" height="106" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
 <rect x="839" y="438" width="126" height="82" rx="6" fill="#EDE9FE" stroke="none" stroke-width="0" />
@@ -280,7 +280,7 @@
 <path d="M142 661 L148 665 L142 669" stroke="#D97706" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round" />
 <text x="210" y="645" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="#D97706">Hammerstein（N → L）</text>
 <text x="210" y="669" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">静态非线性后接线性滤波器</text>
-<text x="210" y="688" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">每条幂次支路可独立配置响应</text>
+<text x="210" y="688" font-family="Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12.2" font-weight="450" text-anchor="start" fill="#475569">单一结构各阶共享输出滤波</text>
 <rect x="416" y="618" width="346" height="106" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
 <rect x="425" y="630" width="126" height="82" rx="6" fill="#FEF3C7" stroke="none" stroke-width="0" />
 <rect x="429" y="651" width="30" height="28" rx="4" fill="#E0F2FE" stroke="#0284C7" stroke-width="1" />

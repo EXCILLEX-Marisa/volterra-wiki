@@ -97,7 +97,7 @@
     <rect x="208" y="262" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
     <rect x="236" y="262" width="26" height="26" rx="3" fill="#7C3AED" stroke="#FFF"/>
     <rect x="264" y="262" width="26" height="26" rx="3" fill="#D97706" stroke="#FFF"/>
-    <text x="180" y="320" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">保留全部 M(M+1)/2 个位置</text>
+    <text x="180" y="320" text-anchor="middle" font-size="15" font-weight="bold" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#7C3AED">保留 M(M+1)/2 个独立系数</text>
     <text x="180" y="348" text-anchor="middle" font-size="13" font-family="Noto Sans CJK SC, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif" fill="#475569">允许任意距离的历史样本相乘交互</text>
     <text x="180" y="372" text-anchor="middle" font-size="12" font-family="DejaVu Serif, Georgia, Times New Roman, serif" fill="#64748B">橙色 = 主对角线 k₁=k₂；彩色 = 保留的非对角项</text>
   </g>
